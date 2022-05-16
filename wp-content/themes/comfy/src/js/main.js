@@ -1,5 +1,2 @@
-/**
- * Custom scripts.
- */
-//= partials/app.js
-
+import './partials/app';
+import './partials/slider';
