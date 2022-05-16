@@ -13,7 +13,6 @@ get_header();
 
 ?>
 
-<main class="main">
     <h1><?php bloginfo( 'name' ); ?></h1>
     <h2><?php bloginfo( 'description' ); ?></h2>
 
@@ -43,7 +42,6 @@ get_header();
         <p><?php _e('No posts found.', 'comfy') ?></p>
 
     <?php endif; ?>
-</main>
 
 <?php
 get_footer();
