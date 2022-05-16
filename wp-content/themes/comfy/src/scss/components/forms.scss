@@ -1,0 +1,17 @@
+@import "vars";
+
+form, form.wpcf7-form {
+  label {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+  input {
+    &[type="text"], &[type="textarea"], &[type="email"], &[type="number"], &[type="tel"], &[type="search"] {
+      background: #FFF;
+      border-radius: 8px;
+      border: none;
+      padding: 12px 16px;
+    }
+  }
+}

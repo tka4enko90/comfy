@@ -1,0 +1,17 @@
+//Colors
+$primary-color: #283455; // Navy Blue
+$secondary-color: #6C7489; // Light Navy Blue
+
+$white: #F9F6F2; //Beige
+$bg-white:$white;
+$text-white: $white;
+
+$line-gray: #DDDCDD;
+
+
+//Transitions
+$std-transition-length: 300ms;
+$transition: all $std-transition-length ease-in;
+
+//Devises width
+$md: 768px;
