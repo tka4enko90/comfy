@@ -30,24 +30,9 @@ footer {
         margin-bottom: 40px;
       }
       &-icons {
-        padding: 22px 0;
-        i.icon {
+        padding: 19px 0;
+        a {
           margin-right: 24px;
-          &-inst {
-            &:before {
-              content: url("../../dist/img/social-icons/instagram.svg");
-            }
-          }
-          &-fb {
-            &:before {
-              content: url("../../dist/img/social-icons/facebook.svg");
-            }
-          }
-          &-tik-tok {
-            &:before {
-              content: url("../../dist/img/social-icons/tik-tok.svg");
-            }
-          }
         }
       }
       form {
