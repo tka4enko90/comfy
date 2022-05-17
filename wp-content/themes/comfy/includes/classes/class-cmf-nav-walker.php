@@ -233,7 +233,7 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 			$atts['class']    .= ' nav-item-with-image';
 		}
 
-		if ( 1 === $depth ) {
+		if ( 1 === $depth && in_array( 'menu-item-has-children', $menu_item->classes ) ) {
 			$atts['class'] .= ' sub-menu-heading';
 			unset( $atts['href'] );
 		}
