@@ -8,14 +8,14 @@ add_filter(
 	}
 );
 
-add_action(
-	'admin_head',
-	function () {
-		echo '
-    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
-      width: 100% !important; 
-      height: auto !important; 
-    }
-  ';
-	}
-);
+//add_action(
+//	'admin_head',
+//	function () {
+//		echo '
+//    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
+//      width: 100% !important;
+//      height: auto !important;
+//    }
+//  ';
+//	}
+//);

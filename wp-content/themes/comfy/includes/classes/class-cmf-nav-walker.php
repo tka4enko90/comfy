@@ -226,10 +226,11 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 				'label'       => get_term_meta( $tax_id, 'additional_nav_label', true ),
 				'label_color' => get_term_meta( $tax_id, 'color', true ),
 				'thumb_id'    => get_term_meta( $tax_id, 'thumbnail_id', true ),
-				'desc'        => get_term_meta( $tax_id, 'nav_description', true ),
+				'desc'        => term_description( $tax_id ),
 			);
 			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], '' ) : '';
 			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
+			$atts['class']    .= ' nav-item-with-image';
 		}
 
 		$attributes = '';
