@@ -38,6 +38,21 @@
             "delay": 0
         },
         {
+            "key": "field_62839a1cc23cc",
+            "label": "Header additional link",
+            "name": "header_additional_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_627a4fd15f108",
             "label": "Header Nav Image",
             "name": "header_nav_image_id",
@@ -138,7 +153,7 @@
             "key": "field_62827d555fd74",
             "label": "Social Links",
             "name": "social_links",
-            "type": "group",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -147,50 +162,46 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Social Link",
             "sub_fields": [
                 {
-                    "key": "field_62827d625fd75",
-                    "label": "Facebook",
-                    "name": "facebook",
-                    "type": "url",
+                    "key": "field_628381f140e2d",
+                    "label": "Image",
+                    "name": "image_id",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": ""
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
-                    "key": "field_62827d825fd76",
-                    "label": "Instagram",
-                    "name": "instagram",
+                    "key": "field_6283825040e2e",
+                    "label": "Url",
+                    "name": "url",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_62827d9b5fd77",
-                    "label": "Tik tok",
-                    "name": "tik_tok",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -314,6 +325,30 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_628375f07325b",
+            "label": "Footer Logo",
+            "name": "footer_logo_id",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -334,5 +369,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652725930
+    "modified": 1652792015
 }

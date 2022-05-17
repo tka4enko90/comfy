@@ -7,6 +7,7 @@ $header_options = array(
 	'header_message'       => get_field( 'header_message', 'options' ),
 	'nav_image_id'         => get_field( 'header_nav_image_id', 'options' ),
 	'nav_text_under_image' => get_field( 'header_nav_text_under_image', 'options' ),
+	'additional_link'      => get_field( 'header_additional_link', 'options' ),
 	'account_link'         => get_permalink( wc_get_page_id( 'myaccount' ) ),
 	'cart_count'           => WC()->cart->get_cart_contents_count(),
 );
@@ -60,7 +61,17 @@ $header_options = array(
 		}
 		?>
 		<div class="secondary-header-nav">
-			<a href="#" class="secondary-header-nav-link">Take our quiz?</a>
+			<?php
+			if ( isset( $header_options['additional_link'] ) ) {
+				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+					?>
+					<a href="<?php $header_options['additional_link']['url']; ?>" <?php echo isset( $footer_link['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+						<?php echo $header_options['additional_link']['title']; ?>
+					</a>
+					<?php
+				}
+			}
+			?>
 			<!-- Searchform Template Start -->
 			<div class="search-wrap secondary-header-nav-el">
 				<?php echo get_search_form(); ?>
