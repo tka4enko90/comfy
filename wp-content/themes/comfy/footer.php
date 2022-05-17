@@ -33,17 +33,20 @@ $footer_options = array(
 				</div>
 				<div class="footer-social-icons">
 					<?php if ( ! empty( $footer_options['social_links']['instagram'] ) ) { ?>
-					<a href="<?php echo $footer_options['social_links']['instagram']; ?>" target="_blank">
-						<i class="icon icon-inst"></i>
-					</a><?php } ?>
+						<a href="<?php echo $footer_options['social_links']['instagram']; ?>" target="_blank">
+							<i class="icon icon-inst"></i>
+						</a>
+					<?php } ?>
 					<?php if ( ! empty( $footer_options['social_links']['facebook'] ) ) { ?>
-					<a href="<?php echo $footer_options['social_links']['facebook']; ?>" target="_blank">
-						<i class="icon icon-fb"></i>
-					</a><?php } ?>
+						<a href="<?php echo $footer_options['social_links']['facebook']; ?>" target="_blank">
+							<i class="icon icon-fb"></i>
+						</a>
+					<?php } ?>
 					<?php if ( ! empty( $footer_options['social_links']['tik_tok'] ) ) { ?>
-					<a href="<?php echo $footer_options['social_links']['tik_tok']; ?>" target="_blank">
-						<i class="icon icon-tik-tok"></i>
-					</a><?php } ?>
+						<a href="<?php echo $footer_options['social_links']['tik_tok']; ?>" target="_blank">
+							<i class="icon icon-tik-tok"></i>
+						</a>
+					<?php } ?>
 
 				</div>
 			</div>
