@@ -54,6 +54,9 @@ footer {
             transform: translate(-50%, -50%);
           }
         }
+        .wpcf7-not-valid-tip {
+          position: absolute;
+        }
       }
     }
     &-widgets {
