@@ -10,6 +10,7 @@ $footer_options = array(
 	'partners'               => get_field( 'partners', 'options' ),
 	'footer_links'           => get_field( 'footer_links', 'options' ),
 	'copyright'              => get_field( 'footer_copyright', 'options' ),
+	'logo'                   => get_field( 'footer_logo_id', 'options' ),
 
 );
 ?>
@@ -50,7 +51,11 @@ $footer_options = array(
 				<?php dynamic_sidebar( 'footer_area' ); ?>
 			</ul>
 			<div class="footer-info">
-				<a href="#" class="footer-logo"></a>
+				<?php if ( ! empty( $footer_options['logo'] ) ) { ?>
+					<a href="<?php echo home_url(); ?>" class="footer-logo">
+						<?php echo wp_get_attachment_image( $footer_options['logo'], 'cmf_logo' ); ?>
+					</a>
+				<?php } ?>
 				<?php if ( ! empty( $footer_options['copyright'] ) ) { ?>
 					<p class="footer-copyright"><?php echo $footer_options['copyright']; ?></p>
 				<?php } ?>

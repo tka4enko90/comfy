@@ -97,10 +97,7 @@ footer {
       font-size: 14px;
     }
     &-logo {
-      &:before {
-        content: url("../../dist/img/white-logo.svg");
-        transform: translateY(4px);
-      }
+
     }
     &-links {
       a {
