@@ -17,11 +17,6 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 	private $nav_image_id         = null;
 	private $nav_text_under_image = '';
 	private $depth_1_counter      = 0;
-	public function __construct() {
-		$this->nav_image_id         = get_field( 'header_nav_image_id', 'options' );
-		$this->nav_text_under_image = get_field( 'header_nav_text_under_image', 'options' );
-
-	}
 	/**
 	 * What the class handles.
 	 *
@@ -145,7 +140,8 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 
 		$classes   = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
 		$classes[] = 'depth-' . $depth . ' menu-item-' . $menu_item->ID;
-		$classes[] = ( $depth === 1 && $this->depth_1_counter++ === 0 ) ? 'active' : '';
+
+		$classes[] = ( $depth === 1 && $this->depth_1_counter === 0 ) ? 'active' : '';
 		/**
 		 * Filters the arguments for a single nav menu item.
 		 *
@@ -228,12 +224,19 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 				'thumb_id'    => get_term_meta( $tax_id, 'thumbnail_id', true ),
 				'desc'        => term_description( $tax_id ),
 			);
-			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], '' ) : '';
+			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], 'cmf_header_nav_image' ) : '';
 			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
 			$atts['class']    .= ' nav-item-with-image';
+
+			// Set image & text when you open sub menu at first time
+			if ( 1 === $depth && 0 === $this->depth_1_counter++ && isset( $tax['thumb_id'] ) ) {
+				$this->nav_image_id         = $tax['thumb_id'];
+				$this->nav_text_under_image = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
+			}
 		}
 
 		if ( 1 === $depth && in_array( 'menu-item-has-children', $menu_item->classes ) ) {
+			// If nav depth-1 item has children -> it's nav heading
 			$atts['class'] .= ' sub-menu-heading';
 			unset( $atts['href'] );
 		}
@@ -284,6 +287,8 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		 * @param stdClass $args        An object of wp_nav_menu() arguments.
 		 */
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $menu_item, $depth, $args );
+
+
 	}
 
 	/**
