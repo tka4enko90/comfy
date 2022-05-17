@@ -220,6 +220,18 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		 */
 		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $menu_item, $args, $depth );
 
+		if ( 'taxonomy' === $menu_item->type ) {
+			$tax_id            = get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+			$tax               = array(
+				'label'       => get_term_meta( $tax_id, 'additional_nav_label', true ),
+				'label_color' => get_term_meta( $tax_id, 'color', true ),
+				'thumb_id'    => get_term_meta( $tax_id, 'thumbnail_id', true ),
+				'desc'        => get_term_meta( $tax_id, 'nav_description', true ),
+			);
+			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], '' ) : '';
+			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
+		}
+
 		$attributes = '';
 		foreach ( $atts as $attr => $value ) {
 			if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
@@ -246,24 +258,7 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		$item_output  = $args->before;
 		$item_output .= ( '#' === $atts['href'] ) ? '<h6 class="sub-menu-heading">' : '<a' . $attributes . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
-		if ( 'custom' !== $menu_item->type ) {
-			$post_id   = get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
-			$post_type = get_post_type( $post_id );
-
-			switch ( $post_type ) {
-				case 'product':
-					$post_terms = get_the_terms( $post_id, 'product_cat' );
-					break;
-				case 'post':
-				default:
-					$post_terms = get_the_category( $post_id );
-			}
-
-			foreach ( $post_terms as $term ) {
-				$term_color   = get_term_meta( $term->term_id, 'cmf_category_color', true );
-				$item_output .= ( ! empty( get_term_meta( $term->term_id, 'cmf_category_in_nav', true ) ) ) ? ' <span class="term-label" style="background-color: #' . $term_color . '">' . $term->name . '</span>' : '';
-			}
-		}
+		$item_output .= ( isset( $tax ) && ! empty( $tax['label'] ) && ! empty( $tax['label_color'] ) ) ? ' <span class="term-label" style="background-color: ' . $tax['label_color'] . '">' . $tax['label'] . '</span>' : '';
 		$item_output .= ( '#' === $atts['href'] ) ? '</h6>' : '</a>';
 		$item_output .= $args->after;
 
