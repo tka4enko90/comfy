@@ -81,7 +81,7 @@ $header_options = array(
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'account' ); ?>
 			</a>
-			<a class="cart-link secondary-header-nav-el" title="<?php _e( 'Cart Link', 'comfy' ); ?>">
+			<a href="<?php echo wc_get_cart_url(); ?>" class="cart-link secondary-header-nav-el" title="<?php _e( 'Cart Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'cart' ); ?>
 				<?php
 				if ( $header_options['cart_count'] ) {
