@@ -8,6 +8,10 @@ footer {
     }
     a {
       color: $white;
+      transition: opacity $std-transition-length;
+      &:hover {
+        opacity: .6;
+      }
     }
     ul {
       li {
