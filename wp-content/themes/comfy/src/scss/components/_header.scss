@@ -50,9 +50,6 @@ main {
     z-index: 2;
     flex-basis: 91px;
     line-height: 1;
-    img {
-      width: 100%;
-    }
   }
   ul{
     &.menu {
@@ -115,6 +112,7 @@ main {
           .image-wrap {
             flex-basis: 403px;
             img {
+              border-radius: 8px;
               margin-bottom: 17px;
             }
             p {
@@ -136,6 +134,7 @@ main {
               align-items: center;
               .term-label {
                 font-size: 8px;
+                text-transform: uppercase;
                 line-height: 16px;
                 color: $text-white;
                 border-radius: 16px;
