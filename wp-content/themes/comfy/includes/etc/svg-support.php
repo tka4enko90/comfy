@@ -11,11 +11,12 @@ add_filter(
 add_action(
 	'admin_head',
 	function () {
-		echo '
+		echo '<style type="text/css">
     td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
       width: 100% !important; 
       height: auto !important; 
     }
+    </style>
   ';
 	}
 );
