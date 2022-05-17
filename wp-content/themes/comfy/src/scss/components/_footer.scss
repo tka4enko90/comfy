@@ -1,0 +1,131 @@
+footer {
+  &.footer {
+    padding-top: 80px;
+    background-color: $primary-color;
+    color: $white;
+    h3 {
+      color: $white;
+    }
+    a {
+      color: $white;
+    }
+    ul {
+      li {
+        display: block;
+      }
+    }
+  }
+  .footer {
+    &-social {
+      flex-basis: 316px;
+      &-title {
+        padding-right: 20%;
+        line-height: 100%;
+        font-weight: 400;
+        letter-spacing: .01em;
+        margin-bottom: 40px;
+      }
+      &-icons {
+        padding: 22px 0;
+        i.icon {
+          margin-right: 24px;
+          &-inst {
+            &:before {
+              content: url("../../dist/img/social-icons/Instagram.svg");
+            }
+          }
+          &-fb {
+            &:before {
+              content: url("../../dist/img/social-icons/Facebook.svg");
+            }
+          }
+          &-tik-tok {
+            &:before {
+              content: url("../../dist/img/social-icons/Tik-tok.svg");
+            }
+          }
+        }
+      }
+      form {
+        position: relative;
+        .arrow-icon {
+          position: absolute;
+          top: 50%;
+          right: 5px;
+          input[type="submit"] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            padding: 0;
+            background: transparent;
+            font-size: 0;
+            border: none;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+    &-widgets {
+      display: flex;
+      flex-basis: 750px;
+      justify-content: space-between;
+      padding: 0 5% 0 0;
+      .widget {
+        &.widget_nav_menu {
+          .widget-title {
+            font-weight: 600;
+            letter-spacing: .1em;
+          }
+          ul {
+            padding: 0;
+            li {
+              line-height: 227%;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 97px 0 36px;
+      flex-basis: 100%;
+      font-size: 14px;
+    }
+    &-logo {
+      &:before {
+        content: url("../../dist/img/white-logo.svg");
+        transform: translateY(4px);
+      }
+    }
+    &-links {
+      a {
+        margin-left: 1em;
+      }
+    }
+    &-partners {
+      display: flex;
+      align-items: center;
+      &-wrap {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: end;
+      }
+      a {
+        flex-basis: 60px;
+        padding: 0 10px;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    &-copyright {
+      margin: 0;
+    }
+  }
+}
