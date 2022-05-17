@@ -233,6 +233,11 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 			$atts['class']    .= ' nav-item-with-image';
 		}
 
+		if ( 1 === $depth ) {
+			$atts['class'] .= ' sub-menu-heading';
+			unset( $atts['href'] );
+		}
+
 		$attributes = '';
 		foreach ( $atts as $attr => $value ) {
 			if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
@@ -256,11 +261,12 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		 */
 		$title = apply_filters( 'nav_menu_item_title', $title, $menu_item, $args, $depth );
 
-		$item_output  = $args->before;
-		$item_output .= ( '#' === $atts['href'] ) ? '<h6 class="sub-menu-heading">' : '<a' . $attributes . '>';
+		$item_output = $args->before;
+
+		$item_output .= ( isset( $atts['href'] ) ) ? '<a' . $attributes . '>' : '<h6 ' . $attributes . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
 		$item_output .= ( isset( $tax ) && ! empty( $tax['label'] ) && ! empty( $tax['label_color'] ) ) ? ' <span class="term-label" style="background-color: ' . $tax['label_color'] . '">' . $tax['label'] . '</span>' : '';
-		$item_output .= ( '#' === $atts['href'] ) ? '</h6>' : '</a>';
+		$item_output .= ( isset( $atts['href'] ) ) ? '</a>' : '</h6>';
 		$item_output .= $args->after;
 
 		/**
