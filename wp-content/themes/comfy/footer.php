@@ -66,11 +66,13 @@ $footer_options = array(
 					<div class="footer-partners">
 						<?php
 						foreach ( $footer_options['partners'] as $partner ) {
-							?>
-							<a href="<?php echo ( ! empty( $partner['partner_link'] ) ) ? $partner['partner_link'] : ''; ?>">
-								<?php echo wp_get_attachment_image( $partner['partner_logo'] ); ?>
-							</a>
-							<?php
+							if ( ! empty( $partner['partner_logo'] ) ) {
+								?>
+								<a href="<?php echo ( ! empty( $partner['partner_link'] ) ) ? $partner['partner_link'] : ''; ?>">
+									<?php echo wp_get_attachment_image( $partner['partner_logo'], 'cmf_footer_partner' ); ?>
+								</a>
+								<?php
+							}
 						}
 						?>
 					</div>
