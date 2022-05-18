@@ -38,47 +38,19 @@
             "delay": 0
         },
         {
-            "key": "field_627a4fd15f108",
-            "label": "Header Nav Image",
-            "name": "header_nav_image_id",
-            "type": "image",
+            "key": "field_62839a1cc23cc",
+            "label": "Header additional link",
+            "name": "header_additional_link",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "preview_size": "cmf_header_nav_image",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_627e1ec2b0fbf",
-            "label": "Header Nav Text Under Image",
-            "name": "header_nav_text_under_image",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "60",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 3,
-            "new_lines": ""
+            "return_format": "array"
         },
         {
             "key": "field_62821b3a5f557",
@@ -354,5 +326,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652786308
+    "modified": 1652797290
 }

@@ -7,6 +7,7 @@ $header_options = array(
 	'header_message'       => get_field( 'header_message', 'options' ),
 	'nav_image_id'         => get_field( 'header_nav_image_id', 'options' ),
 	'nav_text_under_image' => get_field( 'header_nav_text_under_image', 'options' ),
+	'additional_link'      => get_field( 'header_additional_link', 'options' ),
 	'account_link'         => get_permalink( wc_get_page_id( 'myaccount' ) ),
 	'cart_count'           => WC()->cart->get_cart_contents_count(),
 );
@@ -43,37 +44,53 @@ $header_options = array(
 	</div>
 <?php } ?>
 	<div class="header-wrap">
+		<div class="nav-toggle"></div>
 		<div class="header-logo">
 			<a href="<?php echo home_url(); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/site-logo' ); ?>
 			</a>
 		</div>
-		<?php
-		if ( has_nav_menu( 'header_menu' ) ) {
-			wp_nav_menu(
-				array(
-					'theme_location' => 'header_menu',
-					'container'      => 'primary-header-nav',
-					'walker'         => new Cmf_Nav_Walker(),
-				)
-			);
-		}
-		?>
-		<div class="secondary-header-nav">
-			<a href="#" class="secondary-header-nav-link">Take our quiz?</a>
-			<!-- Searchform Template Start -->
-			<div class="search-wrap secondary-header-nav-el">
-				<?php echo get_search_form(); ?>
-				<?php get_template_part( 'template-parts/inline-svg/icon', 'search' ); ?>
+		<div class="relative d-flex justify-content-between flex-grow-2">
+			<?php
+			if ( has_nav_menu( 'header_menu' ) ) {
+				wp_nav_menu(
+					array(
+						'theme_location' => 'header_menu',
+						'container_id'   => 'primary-header-nav-container',
+						'walker'         => new Cmf_Nav_Walker(),
+					)
+				);
+			}
+			?>
+			<div class="d-flex align-items-center">
+				<?php
+				if ( isset( $header_options['additional_link'] ) ) {
+					if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+						?>
+						<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+							<?php echo $header_options['additional_link']['title']; ?>
+						</a>
+						<?php
+					}
+				}
+				?>
+				<!-- Searchform Template Start -->
+				<div class="search-wrap secondary-header-nav-el">
+					<?php echo get_product_search_form(); ?>
+					<i id="search-icon"></i>
+				</div>
+				<!-- END Searchform Template -->
 			</div>
-			<!-- END Searchform Template -->
+		</div>
+
+		<div class="secondary-header-nav">
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'account' ); ?>
 			</a>
-			<a class="cart-link secondary-header-nav-el" title="<?php _e( 'Cart Link', 'comfy' ); ?>">
+			<a href="<?php echo wc_get_cart_url(); ?>" class="cart-link secondary-header-nav-el" title="<?php _e( 'Cart Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'cart' ); ?>
 				<?php
-				if ( $header_options['cart_count'] ) {
+				if ( ! empty( $header_options['cart_count'] ) ) {
 					?>
 					<span class="cart-link-amount">
 						<?php esc_html_e( $header_options['cart_count'] ); ?>
