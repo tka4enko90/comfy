@@ -153,7 +153,7 @@ jQuery(document).ready(function ($) {
   var speed = "500";
   $('li.depth-1 ul.sub-menu').slideUp();
   $('li.depth-1.active ul.sub-menu').slideDown();
-  $('li.depth-1.menu-item-has-children').hover(function () {
+  $('li.depth-1.menu-item-has-children').on('click', function () {
     if ($(this).hasClass('active')) {
       return;
     }

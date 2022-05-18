@@ -95,30 +95,35 @@ main {
             }
           }
         }
-        .sub-menu-wrap {
-          position: absolute;
-          z-index: 0;
-          left: 0;
-          right: 0;
-          display: flex;
-          justify-content: space-between;
-          padding: 48px 20%;
-          background-color: $bg-white;
-          opacity: 0;
-          transition: $transition;
-          pointer-events: none;
-          transform: translateY(-100%);
-          .image-wrap {
-            flex-basis: 403px;
-            img {
-              border-radius: 8px;
-              margin-bottom: 17px;
-            }
-            p {
-              font-size: 14px;
-              color: $secondary-color;
-              line-height: 142%;
-              padding-right: 10%;
+        .sub-menu {
+          &-heading {
+            cursor: pointer;
+          }
+          &-wrap {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 48px 20%;
+            background-color: $bg-white;
+            opacity: 0;
+            transition: $transition;
+            pointer-events: none;
+            transform: translateY(-100%);
+            .image-wrap {
+              flex-basis: 403px;
+              img {
+                border-radius: 8px;
+                margin-bottom: 17px;
+              }
+              p {
+                font-size: 14px;
+                color: $secondary-color;
+                line-height: 142%;
+                padding-right: 10%;
+              }
             }
           }
         }
