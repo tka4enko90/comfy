@@ -49,35 +49,40 @@ $header_options = array(
 				<?php get_template_part( 'template-parts/inline-svg/site-logo' ); ?>
 			</a>
 		</div>
-		<?php
-		if ( has_nav_menu( 'header_menu' ) ) {
-			wp_nav_menu(
-				array(
-					'theme_location' => 'header_menu',
-					'container'      => 'primary-header-nav',
-					'walker'         => new Cmf_Nav_Walker(),
-				)
-			);
-		}
-		?>
-		<div class="secondary-header-nav">
+		<div class="relative d-flex justify-content-between flex-grow-2">
 			<?php
-			if ( isset( $header_options['additional_link'] ) ) {
-				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
-					?>
-					<a href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
-						<?php echo $header_options['additional_link']['title']; ?>
-					</a>
-					<?php
-				}
+			if ( has_nav_menu( 'header_menu' ) ) {
+				wp_nav_menu(
+					array(
+						'theme_location' => 'header_menu',
+						'container'      => 'primary-header-nav',
+						'walker'         => new Cmf_Nav_Walker(),
+					)
+				);
 			}
 			?>
-			<!-- Searchform Template Start -->
-			<div class="search-wrap secondary-header-nav-el">
-				<?php echo get_product_search_form(); ?>
-				<i id="search-icon"></i>
+			<div class="d-flex align-items-center">
+				<?php
+				if ( isset( $header_options['additional_link'] ) ) {
+					if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+						?>
+						<a class="z-1" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+							<?php echo $header_options['additional_link']['title']; ?>
+						</a>
+						<?php
+					}
+				}
+				?>
+				<!-- Searchform Template Start -->
+				<div class="search-wrap secondary-header-nav-el">
+					<?php echo get_product_search_form(); ?>
+					<i id="search-icon"></i>
+				</div>
+				<!-- END Searchform Template -->
 			</div>
-			<!-- END Searchform Template -->
+		</div>
+
+		<div class="secondary-header-nav">
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'account' ); ?>
 			</a>
