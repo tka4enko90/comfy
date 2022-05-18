@@ -174,9 +174,29 @@ jQuery(document).ready(function ($) {
     img.attr('srcset', '');
     img.attr('src', itemImg);
   });
+  $('div.nav-toggle').on('click', function () {
+    $(this).toggleClass('active');
+    $('div#primary-header-nav-container').toggleClass('active');
+  });
   $('#search-icon').on('click', function () {
     $('.search-wrap').toggleClass('active');
-  });
+  }); // Mobile nav depth-1 slideToggle
+
+  $('li.menu-item-has-children a.depth-0').on('click', function (e) {
+    if (window.innerWidth <= 977) {
+      e.preventDefault();
+      var toggleSpeed = 500,
+          parrentLi = $(this).parents('li.menu-item-has-children'),
+          test2 = parrentLi.children('div.sub-menu-wrap');
+      parrentLi.toggleClass('active');
+
+      if (parrentLi.hasClass('active')) {
+        test2.slideDown(toggleSpeed);
+      } else {
+        test2.slideUp(toggleSpeed);
+      }
+    }
+  }); // Ajax Search
 
   var searchForm = $('form.woocommerce-product-search'),
       searchResultList = searchForm.append('<ul id="search-results"></ul>').children('ul#search-results'),

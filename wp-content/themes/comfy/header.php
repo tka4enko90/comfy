@@ -44,6 +44,7 @@ $header_options = array(
 	</div>
 <?php } ?>
 	<div class="header-wrap">
+		<div class="nav-toggle"></div>
 		<div class="header-logo">
 			<a href="<?php echo home_url(); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/site-logo' ); ?>
@@ -55,7 +56,7 @@ $header_options = array(
 				wp_nav_menu(
 					array(
 						'theme_location' => 'header_menu',
-						'container'      => 'primary-header-nav',
+						'container_id'   => 'primary-header-nav-container',
 						'walker'         => new Cmf_Nav_Walker(),
 					)
 				);
@@ -66,7 +67,7 @@ $header_options = array(
 				if ( isset( $header_options['additional_link'] ) ) {
 					if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
 						?>
-						<a class="z-1" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+						<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
 							<?php echo $header_options['additional_link']['title']; ?>
 						</a>
 						<?php
