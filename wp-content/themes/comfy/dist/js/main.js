@@ -95,15 +95,38 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/header */ "./src/js/partials/header.js");
-/* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_partials_header__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/app */ "./src/js/partials/app.js");
-/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _partials_ajax_call__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/ajax-call */ "./src/js/partials/ajax-call.js");
+/* harmony import */ var _partials_ajax_call__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_partials_ajax_call__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/header */ "./src/js/partials/header.js");
+/* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_header__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/app */ "./src/js/partials/app.js");
+/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
+/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./src/js/partials/ajax-call.js":
+/*!**************************************!*\
+  !*** ./src/js/partials/ajax-call.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+jQuery(document).ready(function ($) {
+  window.ajaxCall = function (form_data) {
+    return $.ajax({
+      url: woocommerce_params.ajax_url,
+      // Here goes our WordPress AJAX endpoint.
+      type: 'post',
+      data: form_data
+    });
+  };
+});
 
 /***/ }),
 
@@ -150,6 +173,52 @@ __webpack_require__.r(__webpack_exports__);
     imgDesc.html(itemDesc);
     img.attr('srcset', '');
     img.attr('src', itemImg);
+  });
+  $('#search-icon').on('click', function () {
+    $('.search-wrap').toggleClass('active');
+  });
+
+  var searchForm = $('form.woocommerce-product-search'),
+      searchResultList = searchForm.append('<ul id="search-results"></ul>').children('ul#search-results'),
+      searchFormInput = $('input#woocommerce-product-search-field-0'),
+      minSearchValLength = 3,
+      ajaxFail = function ajaxFail(response) {
+    if (response['responseJSON']['data']['errors']) {
+      console.log(response['responseJSON']['data']['errors']);
+    }
+  },
+      ajaxSuccess = function ajaxSuccess(response) {
+    if (response.success === true && response['data']['products']) {
+      var resultLayout = '';
+
+      for (var i = 0; i < response['data']['products'].length; i++) {
+        var product = response['data']['products'][i];
+        resultLayout += '<li>';
+        resultLayout += '<a href="' + product['url'] + '">';
+        resultLayout += product['thumb'] ? '<img src="' + product['thumb'] + '" width="54px" height="54px" alt="Product Image">' : '';
+        resultLayout += '<p>' + product['title'] + '</p>';
+        resultLayout += '</a>';
+        resultLayout += '</li>';
+      }
+
+      searchResultList.append(resultLayout).addClass('active');
+    }
+  };
+
+  searchFormInput.attr('autocomplete', 'off');
+  searchFormInput.on('keyup', function (e) {
+    searchResultList.removeClass('active').children('li').remove();
+
+    if (e.currentTarget.value.length >= minSearchValLength) {
+      var formData = {
+        search: e.currentTarget.value,
+        action: 'search_site'
+      };
+    } else {
+      searchResultList.removeClass('active');
+    }
+
+    window.ajaxCall(formData).success(ajaxSuccess).fail(ajaxFail);
   });
 })(jQuery);
 

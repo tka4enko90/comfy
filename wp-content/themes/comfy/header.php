@@ -74,8 +74,8 @@ $header_options = array(
 			?>
 			<!-- Searchform Template Start -->
 			<div class="search-wrap secondary-header-nav-el">
-				<?php echo get_search_form(); ?>
-				<?php get_template_part( 'template-parts/inline-svg/icon', 'search' ); ?>
+				<?php echo get_product_search_form(); ?>
+				<i id="search-icon"></i>
 			</div>
 			<!-- END Searchform Template -->
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
@@ -84,7 +84,7 @@ $header_options = array(
 			<a href="<?php echo wc_get_cart_url(); ?>" class="cart-link secondary-header-nav-el" title="<?php _e( 'Cart Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'cart' ); ?>
 				<?php
-				if ( $header_options['cart_count'] ) {
+				if ( ! empty( $header_options['cart_count'] ) ) {
 					?>
 					<span class="cart-link-amount">
 						<?php esc_html_e( $header_options['cart_count'] ); ?>

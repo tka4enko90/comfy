@@ -30,4 +30,55 @@
 		}
 	);
 
+	$( '#search-icon' ).on(
+		'click',
+		function() {
+			$( '.search-wrap' ).toggleClass( 'active' );
+		}
+	);
+
+	var searchForm         = $( 'form.woocommerce-product-search' ),
+		searchResultList   = searchForm.append( '<ul id="search-results"></ul>' ).children( 'ul#search-results' ),
+		searchFormInput    = $( 'input#woocommerce-product-search-field-0' ),
+		minSearchValLength = 3,
+		ajaxFail           = function(response) {
+			if (response['responseJSON']['data']['errors']) {
+				console.log( response['responseJSON']['data']['errors'] );
+			}
+		},
+		ajaxSuccess        = function(response) {
+			if (response.success === true && response['data']['products']) {
+				var resultLayout = '';
+				for ( var i = 0; i < response['data']['products'].length; i++) {
+					var product = response['data']['products'][i];
+
+					resultLayout += '<li>';
+					resultLayout += '<a href="' + product['url'] + '">';
+
+					resultLayout += (product['thumb']) ? '<img src="' + product['thumb'] + '" width="54px" height="54px" alt="Product Image">' : '';
+					resultLayout += '<p>' + product['title'] + '</p>';
+
+					resultLayout += '</a>';
+					resultLayout += '</li>';
+				}
+				searchResultList.append( resultLayout ).addClass( 'active' );
+			}
+		};
+	searchFormInput.attr( 'autocomplete', 'off' );
+	searchFormInput.on(
+		'keyup',
+		function (e) {
+			searchResultList.removeClass( 'active' ).children( 'li' ).remove();
+			if (e.currentTarget.value.length >= minSearchValLength ) {
+				var formData = {
+					search: e.currentTarget.value,
+					action: 'search_site'
+				};
+			} else {
+				searchResultList.removeClass( 'active' );
+			}
+			window.ajaxCall( formData ).success( ajaxSuccess ).fail( ajaxFail );
+		}
+	);
+
 })( jQuery );
