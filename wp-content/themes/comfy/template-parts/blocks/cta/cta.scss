@@ -1,0 +1,15 @@
+@import "../../../src/scss/components/vars";
+h2 {
+  background-color: green;
+}
+.section-cta {
+  background-color: red;
+  .left-col {
+
+  }
+  .right-col {
+    @media (min-width: $md) {
+      flex-basis: 314px;
+    }
+  }
+}
