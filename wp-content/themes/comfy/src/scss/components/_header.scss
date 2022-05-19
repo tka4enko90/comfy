@@ -275,7 +275,7 @@ main {
             cursor: pointer;
           }
           &-wrap {
-            position: absolute;
+            position: fixed;
             z-index: 0;
             left: 0;
             right: 0;
