@@ -72,6 +72,7 @@ main {
         li {
           &.depth {
             &-0 {
+              padding: 0 16px;
               &.menu-item-has-children {
                 position: relative;
                 &:before, &:after {
@@ -140,7 +141,7 @@ main {
       }
     }
     .account-link {
-      padding: 5px 23px;
+      padding: 5px 24px 24px;
     }
   }
   body.header-info-message {
