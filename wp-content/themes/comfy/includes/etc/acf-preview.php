@@ -1,5 +1,13 @@
 <?php
 
+add_filter(
+	'acf-flexible-content-preview.images_path',
+	function ( $path ) {
+		return 'acf-previews/sections';
+	}
+);
+
+
 // Add fancybox to admin for ACF priviews pop-up
 add_action(
 	'admin_enqueue_scripts',
@@ -15,7 +23,7 @@ add_action(
 
 //ACF flexible content KEY -> folder
 $acf_keys = array(
-	'field_605caf8a052ba' => 'sections/',
+	'field_62861917588bf' => 'sections/',
 );
 
 /**
