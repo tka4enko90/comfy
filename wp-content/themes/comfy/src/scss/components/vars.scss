@@ -12,10 +12,16 @@ $line-gray: #DDDCDD;
 $std-transition-length: 300ms;
 $transition: all $std-transition-length ease-in;
 
+// Container
+$container-desktop-width: 1360px;
+$container-tablet-width: 768px;
+$container-breakpoint-window: 20px;
+
+
 //Devises width
 $xl: 1400px;
 $lg: 1024px;
-$md: 768px;
+$md: $container-tablet-width + $container-breakpoint-window;
 $sm: 480px;
 
 $mobile-header-breakpoint: 978px;

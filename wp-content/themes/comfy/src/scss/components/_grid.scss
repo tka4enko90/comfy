@@ -1,10 +1,20 @@
+@import "vars";
+
+
 .container {
   width: 100%;
-  padding: 0 15px;
+  padding: 0 35px;
   margin-right: auto;
   margin-left: auto;
 
-  max-width: 1360px;
+
+  @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+    max-width: $container-tablet-width;
+    padding: 0 15px;
+  }
+  @media (min-width: $container-desktop-width + $container-breakpoint-window) {
+    max-width: $container-desktop-width;
+  }
 }
 .row {
   display: flex;

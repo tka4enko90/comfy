@@ -103,6 +103,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
 /* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/footer */ "./src/js/partials/footer.js");
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_footer__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -138,6 +141,50 @@ jQuery(document).ready(function ($) {
 /***/ (function(module, exports) {
 
 (function ($) {})(jQuery);
+
+/***/ }),
+
+/***/ "./src/js/partials/footer.js":
+/*!***********************************!*\
+  !*** ./src/js/partials/footer.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  var footerNavs = $('footer .widget_nav_menu'),
+      toggleSpeed = 500,
+      mobileBreakPoint = 480,
+      navSlideInit = function navSlideInit() {
+    if (window.innerWidth < mobileBreakPoint) {
+      $.each(footerNavs, function () {
+        if (!$(this).hasClass('active')) {
+          $(this).children('div').slideUp(toggleSpeed);
+        }
+      });
+    } else {
+      $.each(footerNavs, function () {
+        $(this).children('div').slideDown(toggleSpeed);
+      });
+    }
+  };
+
+  footerNavs.first().addClass('active');
+  navSlideInit();
+  $(window).on('resize', navSlideInit);
+  $('footer .widget-title').on('click', function () {
+    if (window.innerWidth < mobileBreakPoint) {
+      var curNav = $(this).parents('.widget_nav_menu');
+      curNav.toggleClass('active');
+
+      if (curNav.hasClass('active')) {
+        curNav.children('div').slideDown(toggleSpeed);
+      } else {
+        curNav.children('div').slideUp(toggleSpeed);
+      }
+    }
+  });
+})(jQuery);
 
 /***/ }),
 
