@@ -5,6 +5,9 @@
  * @since 1.0.0
  */
 function cmf_ajax_search() {
+	if ( empty( $_POST['search'] ) ) {
+		wp_send_json_error( __( 'Nothing to search', 'comfy' ), 400 );
+	}
 	$results = new WP_Query(
 		array(
 			'post_type'      => 'product',
