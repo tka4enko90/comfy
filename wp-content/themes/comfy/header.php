@@ -34,8 +34,9 @@ $header_options = array(
 
 	<?php wp_head(); ?>
 </head>
-
+<?php $body_class = ( ! empty( $header_options['header_message'] ) ) ? 'header-info-message' : ''; ?>
 <body <?php body_class( $body_class ); ?>>
+
 <?php wp_body_open(); ?>
 <header class="site-header">
 <?php if ( ! empty( $header_options['header_message'] ) ) { ?>
@@ -51,17 +52,28 @@ $header_options = array(
 			</a>
 		</div>
 		<div class="relative d-flex justify-content-between flex-grow-2">
-			<?php
-			if ( has_nav_menu( 'header_menu' ) ) {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'header_menu',
-						'container_id'   => 'primary-header-nav-container',
-						'walker'         => new Cmf_Nav_Walker(),
-					)
-				);
-			}
-			?>
+			<div id="primary-header-nav-container">
+				<?php
+				if ( has_nav_menu( 'header_menu' ) ) {
+					wp_nav_menu(
+						array(
+							'theme_location' => 'header_menu',
+							'walker'         => new Cmf_Nav_Walker(),
+						)
+					);
+				}
+				?>
+				<a href="<?php echo $header_options['account_link']; ?>" class="account-link mobile-only" title="<?php _e( 'Account Link', 'comfy' ); ?>">
+					<?php
+					if ( is_user_logged_in() ) {
+						_e( 'My Account', 'comfy' );
+					} else {
+						_e( 'Login', 'comfy' );
+					}
+					?>
+				</a>
+			</div>
+
 			<div class="d-flex align-items-center">
 				<?php
 				if ( isset( $header_options['additional_link'] ) ) {

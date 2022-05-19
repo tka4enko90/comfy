@@ -33,6 +33,11 @@ body {
   flex-grow: 2;
 }
 
+.mobile-only {
+  @media (min-width: $mobile-header-breakpoint) {
+    display: none;
+  }
+}
 .mobile-none {
   @media (max-width: $mobile-header-breakpoint - 1) {
     display: none;
