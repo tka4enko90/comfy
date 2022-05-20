@@ -63,15 +63,28 @@ $header_options = array(
 					);
 				}
 				?>
-				<a href="<?php echo $header_options['account_link']; ?>" class="account-link mobile-only" title="<?php _e( 'Account Link', 'comfy' ); ?>">
+				<div class="mobile-links mobile-only">
 					<?php
-					if ( is_user_logged_in() ) {
-						_e( 'My Account', 'comfy' );
-					} else {
-						_e( 'Login', 'comfy' );
+					if ( isset( $header_options['additional_link'] ) ) {
+						if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+							?>
+							<a href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+								<?php echo $header_options['additional_link']['title']; ?>
+							</a>
+							<?php
+						}
 					}
 					?>
-				</a>
+					<a href="<?php echo $header_options['account_link']; ?>" class="account-link" title="<?php _e( 'Account Link', 'comfy' ); ?>">
+						<?php
+						if ( is_user_logged_in() ) {
+							_e( 'My Account', 'comfy' );
+						} else {
+							_e( 'Login', 'comfy' );
+						}
+						?>
+					</a>
+				</div>
 			</div>
 
 			<div class="d-flex align-items-center">

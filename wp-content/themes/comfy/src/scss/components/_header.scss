@@ -140,8 +140,12 @@ main {
         display: none;
       }
     }
-    .account-link {
+    .mobile-links {
       padding: 5px 24px 24px;
+      a {
+        display: block;
+        margin-bottom: 15px;
+      }
     }
   }
   body.header-info-message {
@@ -149,6 +153,12 @@ main {
       top: 98px;
       max-height: calc(100vh - 98px);
     }
+  }
+}
+
+@media (min-width: $sm) {
+  #primary-header-nav-container .mobile-links {
+    padding: 10px 49px;
   }
 }
 
