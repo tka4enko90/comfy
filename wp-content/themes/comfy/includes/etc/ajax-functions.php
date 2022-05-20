@@ -1,6 +1,6 @@
 <?php
 /**
- * Live autocomplete search feature.
+ * Header ajax search
  *
  * @since 1.0.0
  */
@@ -31,8 +31,10 @@ function cmf_ajax_search() {
 	}
 
 	//Search Product Categories
-
-	wp_send_json_success( $items );
+	ob_start();
+	get_template_part( 'template-parts/search-results', '', $results->posts );
+	$response['layout'] = ob_get_clean();
+	wp_send_json_success( $response );
 }
 
 add_action( 'wp_ajax_search_site', 'cmf_ajax_search' );

@@ -505,6 +505,12 @@ main {
       &.active {
         opacity: 1;
       }
+      article {
+
+        a {
+          display: flex;
+        }
+      }
     }
   }
 

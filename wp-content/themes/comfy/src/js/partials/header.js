@@ -67,7 +67,7 @@
 
 	// Ajax Search
 	var searchForm         = $( 'form.woocommerce-product-search' ),
-		searchResultList   = searchForm.append( '<ul id="search-results"></ul>' ).children( 'ul#search-results' ),
+		searchResultList   = searchForm.append( '<div id="search-results"></div>' ).children( 'div#search-results' ),
 		searchFormInput    = $( 'input#woocommerce-product-search-field-0' ),
 		minSearchValLength = 3,
 		ajaxFail           = function(response) {
@@ -76,28 +76,15 @@
 			}
 		},
 		ajaxSuccess        = function(response) {
-			if (response.success === true && response['data']['products']) {
-				var resultLayout = '';
-				for ( var i = 0; i < response['data']['products'].length; i++) {
-					var product = response['data']['products'][i];
-
-					resultLayout += '<li>';
-					resultLayout += '<a href="' + product['url'] + '">';
-
-					resultLayout += (product['thumb']) ? '<img src="' + product['thumb'] + '" width="54px" height="54px" alt="Product Image">' : '';
-					resultLayout += '<p>' + product['title'] + '</p>';
-
-					resultLayout += '</a>';
-					resultLayout += '</li>';
-				}
-				searchResultList.append( resultLayout ).addClass( 'active' );
+			if (response['data']['layout']) {
+				searchResultList.append( response['data']['layout'] ).addClass( 'active' );
 			}
 		};
 	searchFormInput.attr( 'autocomplete', 'off' );
 	searchFormInput.on(
 		'keyup',
 		function (e) {
-			searchResultList.removeClass( 'active' ).children( 'li' ).remove();
+			searchResultList.removeClass( 'active' ).children( 'article' ).remove();
 			if (e.currentTarget.value.length >= minSearchValLength ) {
 				var formData = {
 					search: e.currentTarget.value,
