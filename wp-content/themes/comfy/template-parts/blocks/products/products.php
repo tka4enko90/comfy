@@ -52,7 +52,7 @@ if ( isset( $section['products_by'] ) ) {
 					foreach ( $products as $product ) {
 						$args = array(
 							'product'              => $product, // Important
-							'thumb'                => 'thumb_name', // optional
+							'thumb'                => 'cmf_product_preview', // optional
 							'show_cats'            => $section['show_categories'],
 							'show_only_chosen_cat' => $section['show_only_chosen_cat'],
 							'term_id'              => $section['term_id'], // if 'show_only_chosen_cat'
@@ -61,7 +61,7 @@ if ( isset( $section['products_by'] ) ) {
 						);
 						?>
 						<div class="col">
-							<?php get_template_part( 'template-parts/product', '', $args ); ?>
+							<?php get_template_part( 'template-parts/product-preview', '', $args ); ?>
 						</div>
 						<?php
 					}
