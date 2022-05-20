@@ -1,14 +1,38 @@
-<?php ?>
+<?php
+$section = array(
+	'title'   => get_sub_field( 'title' ),
+	'content' => get_sub_field( 'content' ),
+	'link'    => get_sub_field( 'link' ),
+
+);
+?>
 <div class="container container-small">
 	<div class="row justify-content-between">
 		<div class="left-col">
-			<h2 class="section-title">Enjoy your bedtime
-				like never before</h2>
+			<?php
+			if ( ! empty( $section['title'] ) ) {
+				?>
+				<h2 class="section-title">
+					<?php echo $section['title']; ?>
+				</h2>
+				<?php
+			}
+			?>
 		</div>
 		<div class="right-col">
 			<div class="section-content">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst at purus ut sit. Consectetur adipiscing elit.</p>
-				<a href="#" class="button button-secondary">SHOP ALL</a>
+				<?php
+				echo ( ! empty( $section['content'] ) ) ? $section['content'] : '';
+				if ( isset( $section['link'] ) ) {
+					if ( isset( $section['link']['url'] ) && isset( $section['link']['title'] ) ) {
+						?>
+						<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+							<?php echo $section['link']['title']; ?>
+						</a>
+						<?php
+					}
+				}
+				?>
 			</div>
 		</div>
 	</div>

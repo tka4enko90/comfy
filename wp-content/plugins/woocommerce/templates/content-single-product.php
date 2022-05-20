@@ -61,6 +61,10 @@ if ( post_password_required() ) {
 		?>
 	</div>
 
+    <?php comments_template( 'woocommerce/single-product-reviews' );
+    echo 'test!!!';
+    echo wc_review_ratings_enabled() . '<--';?>
+
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
