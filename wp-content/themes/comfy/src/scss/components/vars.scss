@@ -20,12 +20,17 @@ $container-breakpoint-window: 10px;
 
 
 //Devises width
-$xl: 1400px;
+$xxl: 1400px;
+$xl: $container-desktop-width + $container-breakpoint-window;
 $lg: 1024px;
 $md: $container-tablet-width + $container-breakpoint-window;
 $sm: 480px;
 
 $mobile-header-breakpoint: 978px;
+
+
+
+
 
 //Search Vars
 $search-input-text-color: #5d5d5d;

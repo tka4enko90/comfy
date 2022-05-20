@@ -10,26 +10,26 @@
   @media (min-width: $sm) {
     padding: 0 15px;
   }
-  @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+  @media (min-width: $md) {
     max-width: $container-tablet-width;
   }
-  @media (min-width: $container-desktop-width + $container-breakpoint-window) {
+  @media (min-width: $xl) {
     max-width: $container-desktop-width;
   }
   &-medium {
-    @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+    @media (min-width: $md) {
      // max-width: 520px;
     }
-    @media (min-width: $container-desktop-width + $container-breakpoint-window) {
+    @media (min-width: $xl) {
       max-width: 1214px;
     }
   }
 
   &-small {
-    @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+    @media (min-width: $md) {
      // max-width: 480px;
     }
-    @media (min-width: $container-desktop-width + $container-breakpoint-window) {
+    @media (min-width: $xl) {
     max-width: 1042px;
     }
   }
