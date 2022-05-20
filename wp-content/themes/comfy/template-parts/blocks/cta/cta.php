@@ -8,7 +8,7 @@ $section = array(
 ?>
 <div class="container container-small">
 	<div class="row justify-content-between">
-		<div class="left-col">
+		<div class="col left-col">
 			<?php
 			if ( ! empty( $section['title'] ) ) {
 				?>
@@ -19,7 +19,7 @@ $section = array(
 			}
 			?>
 		</div>
-		<div class="right-col">
+		<div class="col right-col">
 			<div class="section-content">
 				<?php
 				echo ( ! empty( $section['content'] ) ) ? $section['content'] : '';

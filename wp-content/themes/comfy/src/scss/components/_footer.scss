@@ -204,4 +204,10 @@ footer {
       }
     }
   }
+  .container {
+    padding: 0 35px;
+    @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+      padding: 0 15px;
+    }
+  }
 }

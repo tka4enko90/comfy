@@ -40,12 +40,12 @@ if ( isset( $section['products_by'] ) ) {
 
 ?>
 	<div class="container container-medium">
-		<div class="row">
+		<div class="row justify-content-between">
 			<?php
 			if ( ! empty( $section['title'] ) ) {
 				?>
 				<div class="col-12">
-					<h3><?php echo $section['title']; ?></h3>
+					<h3 class="section-title"><?php echo $section['title']; ?></h3>
 				</div>
 				<?php
 				if ( isset( $products ) ) {

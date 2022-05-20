@@ -1,12 +1,15 @@
 @import "vars";
 
 @mixin button {
-  padding: 16px 56px;
+  padding: 12px 40px;
   font-size: 12px;
   text-transform: uppercase;
   border-radius: 8px;
   line-height: 1;
   letter-spacing: .004em;
+  @media (min-width: $md) {
+    padding: 16px 56px;
+  }
 }
 @mixin button-primary {
   color: #fff;

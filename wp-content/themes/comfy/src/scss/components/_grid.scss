@@ -3,24 +3,34 @@
 
 .container {
   width: 100%;
-  padding: 0 35px;
+  padding: 0 20px;
   margin-right: auto;
   margin-left: auto;
 
+  @media (min-width: $sm - 1) {
+    padding: 0 15px;
+  }
   @media (min-width: $container-tablet-width + $container-breakpoint-window) {
     max-width: $container-tablet-width;
-    padding: 0 15px;
   }
   @media (min-width: $container-desktop-width + $container-breakpoint-window) {
     max-width: $container-desktop-width;
   }
+  &-medium {
+    @media (min-width: $container-tablet-width + $container-breakpoint-window) {
+     // max-width: 520px;
+    }
+    @media (min-width: $container-desktop-width + $container-breakpoint-window) {
+      max-width: 1214px;
+    }
+  }
 
   &-small {
     @media (min-width: $container-tablet-width + $container-breakpoint-window) {
-      max-width: 480px;
+     // max-width: 480px;
     }
     @media (min-width: $container-desktop-width + $container-breakpoint-window) {
-      max-width: 1000px;
+    //  max-width: 1042px;
     }
   }
 }

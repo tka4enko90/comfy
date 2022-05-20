@@ -1,15 +1,27 @@
 @import "../../../src/scss/components/vars";
 .section-cta {
-  padding: 64px 0;
+  padding: 10px 0;
+  @media (min-width: $sm) {
+    padding: 50px 0;
+  }
   .left-col {
-    @media (min-width: $md) {
-      flex-basis: 50%;
+    @media (min-width: $lg) {
+      flex-basis: 54%;
     }
 
   }
   .right-col {
     @media (min-width: $md) {
-      flex-basis: 314px;
+      flex-basis: 345px;
+    }
+    .section-content {
+      padding: 14px 0;
+    }
+    .button {
+      margin-top: 5px;
+      @media (min-width: $sm) {
+        margin-top: 8px;
+      }
     }
   }
 }
