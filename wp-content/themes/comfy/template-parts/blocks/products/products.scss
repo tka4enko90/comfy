@@ -17,7 +17,6 @@
     }
   }
   .product {
-    padding-bottom: 84px; // temporary style
     &-title {
       margin-bottom: 13px;
     }
@@ -52,9 +51,57 @@
       }
     }
     &-price {
+      margin-bottom: 8px;
       ins {
         text-decoration: none;
       }
+    }
+    &-other-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-description {
+      padding-right: 7%;
+    }
+    &-rating {
+      display: flex;
+      align-items: center;
+      padding: 0 8.6px;
+      .star-rating {
+        display: flex;
+      }
+      .star {
+        &.star-full {
+          content: url("../../../dist/img/stars/star-full.svg");
+        }
+        &.star-half {
+          content: url("../../../dist/img/stars/star-half.svg");
+          opacity: .6;
+        }
+        &.star-empty {
+          content: url("../../../dist/img/stars/star-full.svg");
+          opacity: .3;
+        }
+
+      }
+    }
+    &-colors {
+      position: relative;
+      padding-right: 4px;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        height: 12px;
+        width: 1px;
+        margin-left: 4px;
+        background-color: currentColor;
+      }
+    }
+    &-colors, &-reviews-count {
+      font-size: 14px;
+      line-height: 12px;
+      color: $primary-color;
     }
 
   }
