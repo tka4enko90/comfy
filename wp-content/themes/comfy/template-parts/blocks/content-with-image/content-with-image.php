@@ -1,5 +1,7 @@
 <?php
-$section = array(
-        'title' => get_sub_field('title'),
-        'image_id' => get_sub_field('image_id'),
+add_filter(
+    'acf-flexible-content-preview.images_path',
+    function ( $path ) {
+        return 'template-parts/blocks';
+    }
 );
