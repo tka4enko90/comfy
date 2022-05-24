@@ -1,0 +1,55 @@
+@import "../../../src/scss/components/vars";
+.content-with-image-section {
+  padding: 68px 0 92px;
+  .content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .image-col {
+    .section-title {
+      margin-top: -10px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+  }
+  .content-col {
+    padding-left: 10%;
+    &.image-title-exist {
+      padding-top: 110px;
+      padding-left: 8.5%;
+
+    }
+    ul {
+      padding-left: 0;
+      padding-right: 5%;
+      margin-bottom: 0;
+      li {
+        display: block;
+        margin-bottom: 42px;
+        &:last-child {
+          margin-bottom: 16px;
+        }
+      }
+    }
+    img {
+      margin-bottom: 10px;
+    }
+  }
+
+  .image-position-right {
+    .content-col {
+      padding-left: 15px;
+      padding-right: 10%;
+    }
+    .image-col {
+      @media (min-width: $md) {
+        order: 2;
+      }
+    }
+  }
+  .button-secondary {
+    margin: 15px 0 10px;
+  }
+}

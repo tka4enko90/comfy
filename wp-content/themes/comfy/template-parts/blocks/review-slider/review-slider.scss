@@ -1,0 +1,66 @@
+@import "../../../src/scss/components/vars";
+.review-slider {
+  &-section {
+    padding: 68px 0;
+  }
+  &-slide {
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-content {
+      &-wrap {
+        flex-basis: 45%;
+        display: flex;
+        align-items: center;
+      }
+      .star-rating {
+        display: flex;
+        position: relative;
+        top: -34px;
+        margin: 0 -4px;
+        .star {
+          padding: 0 4px;
+          &:before {
+            content: url("../../../dist/img/slider-stars/star.svg");
+          }
+          &.star-empty {
+            opacity: .3;
+          }
+        }
+      }
+    }
+    &-image {
+      flex-basis: 48.6%;
+    }
+
+  }
+  .slick-arrow {
+    z-index: 2;
+    position: absolute;
+    bottom: 4px;
+    font-size: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    line-height: 0;
+    &:hover {
+      opacity: .6;
+    }
+    &:before {
+      content: url("../../../dist/img/arrow.svg");
+    }
+    &.slick-prev {
+      transform: rotate(180deg);
+    }
+    &.slick-next {
+      left: 64px;
+    }
+  }
+
+  .review {
+    &-title {
+      margin-bottom: 30px;
+    }
+  }
+}

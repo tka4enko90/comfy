@@ -1,0 +1,37 @@
+//Colors
+$primary-color: #283455; // Navy Blue
+$secondary-color: #6C7489; // Light Navy Blue
+$accent-color: #C17817; // Cooper
+
+$white: #F9F6F2; //Beige
+$bg-white:$white;
+$text-white: $white;
+
+$line-gray: #DDDCDD;
+
+//Transitions
+$std-transition-length: 300ms;
+$transition: all $std-transition-length ease-in;
+
+// Container
+$container-desktop-width: 1360px;
+$container-tablet-width: 768px;
+$container-breakpoint-window: 10px;
+
+
+//Devises width
+$xxl: 1400px;
+$xl: $container-desktop-width + $container-breakpoint-window;
+$lg: 1024px;
+$md: $container-tablet-width + $container-breakpoint-window;
+$sm: 480px;
+
+$mobile-header-breakpoint: 978px;
+
+
+
+
+
+//Search Vars
+$search-input-text-color: #5d5d5d;
+$search-input-border-color: #becbd2;

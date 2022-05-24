@@ -1,0 +1,51 @@
+@import "vars";
+
+body {
+  background-color: $bg-white;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.relative {
+  position: relative;
+}
+.z-0 {
+  z-index: 0;
+}
+.z-1 {
+  z-index: 1;
+}
+.z-2 {
+  z-index: 2;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
+.mobile-only {
+  @media (min-width: $mobile-header-breakpoint) {
+    display: none;
+  }
+}
+.mobile-none {
+  @media (max-width: $mobile-header-breakpoint - 1) {
+    display: none;
+  }
+}

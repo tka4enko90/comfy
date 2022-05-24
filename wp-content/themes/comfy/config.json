@@ -1,0 +1,21 @@
+{
+  "entry": {
+    "main": [
+      "./src/js/main.js"
+    ],
+    "pages/single-page": [
+      "./src/js/pages/single-page.js"
+    ],
+    "partials/slick": [
+      "./src/js/partials/slick.js"
+    ]
+
+  },
+  "cacheBusting": "[name]",
+  "webserver" : {
+    "proxy" : {
+      "target": "http://comfy.lvh.me/",
+       "ws": true
+    }
+  }
+}
