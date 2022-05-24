@@ -5,34 +5,28 @@
  * @since 1.0.0
  */
 function cmf_ajax_search() {
-	if ( empty( $_POST['search'] ) ) {
-		wp_send_json_error( __( 'Nothing to search', 'comfy' ), 400 );
-	}
-	$results = new WP_Query(
-		array(
-			'post_type'      => 'product',
-			'post_status'    => 'publish',
-			'nopaging'       => true,
-			'posts_per_page' => 10,
-			's'              => stripslashes( sanitize_text_field( $_POST['search'] ) ),
-		)
-	);
+    $search_request = $_POST['search'];
+    $products = array();
+	if (!empty($search_request)) {
+        $results = new WP_Query(
+            array(
+                'post_type'      => 'product',
+                'post_status'    => 'publish',
+                'posts_per_page' => 10,
+                's'              => stripslashes( sanitize_text_field( $search_request ) ),
+            )
+        );
 
-	$items = array();
+        if ( ! empty( $results->posts ) ) {
+            $products = $results->posts;
+        }
+    }
 
-	if ( ! empty( $results->posts ) ) {
-		foreach ( $results->posts as $result ) {
-			$items['products'][] = array(
-				'title' => $result->post_title,
-				'url'   => get_permalink( $result->ID ),
-				'thumb' => get_the_post_thumbnail_url( $result->ID, 'cmf_search_result' ),
-			);
-		}
-	}
 
 	//Search Product Categories
 	ob_start();
-	get_template_part( 'template-parts/search-results', '', $results->posts );
+	get_template_part( 'template-parts/search-results', '', $products );
+
 	$response['layout'] = ob_get_clean();
 	wp_send_json_success( $response );
 }

@@ -35,15 +35,24 @@
 		'click',
 		function() {
 			$( this ).toggleClass( 'active' );
-			$( 'div#primary-header-nav-container' ).toggleClass( 'active' );
+			$( 'div#primary-header-nav-container' ).toggleClass( 'active' )
 		}
 	);
-	$( '#search-icon' ).on(
+	$( 'body' ).on(
 		'click',
-		function() {
-			$( '.search-wrap' ).toggleClass( 'active' );
+		function(e) {
+			if ($(e.target).is('#search-icon')) {
+				$( '.search-wrap, .header-container' ).toggleClass( 'active' );
+				$('#woocommerce-product-search-field-0').focus();
+			}else if(!$(e.target).parents('.header-container').length) {
+				$( '.search-wrap, .header-container' ).removeClass( 'active' );
+			}
 		}
 	);
+	$('body').on('click', '.search-view-all a', function(e){
+		e.preventDefault()
+		$(this).parents('.header-search').find('form').submit();
+	});
 
 	// Mobile nav depth-1 slideToggle
 	$( 'li.menu-item-has-children a.depth-0' ).on(
@@ -65,36 +74,5 @@
 		}
 	);
 
-	// Ajax Search
-	var searchForm         = $( 'form.woocommerce-product-search' ),
-		searchResultList   = searchForm.append( '<div id="search-results"></div>' ).children( 'div#search-results' ),
-		searchFormInput    = $( 'input#woocommerce-product-search-field-0' ),
-		minSearchValLength = 3,
-		ajaxFail           = function(response) {
-			if (response['responseJSON']['data']['errors']) {
-				console.log( response['responseJSON']['data']['errors'] );
-			}
-		},
-		ajaxSuccess        = function(response) {
-			if (response['data']['layout']) {
-				searchResultList.append( response['data']['layout'] ).addClass( 'active' );
-			}
-		};
-	searchFormInput.attr( 'autocomplete', 'off' );
-	searchFormInput.on(
-		'keyup',
-		function (e) {
-			searchResultList.removeClass( 'active' ).children( 'article' ).remove();
-			if (e.currentTarget.value.length >= minSearchValLength ) {
-				var formData = {
-					search: e.currentTarget.value,
-					action: 'search_site'
-				};
-			} else {
-				searchResultList.removeClass( 'active' );
-			}
-			window.ajaxCall( formData ).success( ajaxSuccess ).fail( ajaxFail );
-		}
-	);
 
 })( jQuery );

@@ -99,12 +99,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_ajax_call__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_partials_ajax_call__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/header */ "./src/js/partials/header.js");
 /* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_header__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/app */ "./src/js/partials/app.js");
-/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/footer */ "./src/js/partials/footer.js");
-/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_footer__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _partials_header_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/header-search */ "./src/js/partials/header-search.js");
+/* harmony import */ var _partials_header_search__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_header_search__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/app */ "./src/js/partials/app.js");
+/* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
+/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/footer */ "./src/js/partials/footer.js");
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_partials_footer__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -188,6 +191,65 @@ jQuery(document).ready(function ($) {
 
 /***/ }),
 
+/***/ "./src/js/partials/header-search.js":
+/*!******************************************!*\
+  !*** ./src/js/partials/header-search.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  var AjaxSearchForm = {
+    settings: {
+      searchForm: $('form.woocommerce-product-search'),
+      searchFormInput: $('input#woocommerce-product-search-field-0'),
+      toggleButton: $('header__widgets-link--cart, .shipping-change, .add-related-products-js'),
+      minSearchValLength: 3,
+      searchResultList: $('#search-results'),
+      timeoutToUpdate: 800,
+      setIntervalTimeout: null
+    },
+    init: function init() {
+      this.searchInput();
+    },
+    ajaxFail: function ajaxFail(response) {
+      if (response['responseJSON']['data']['errors']) {
+        console.log(response['responseJSON']['data']['errors']);
+      }
+    },
+    ajaxSuccess: function ajaxSuccess(response) {
+      if (response['data']['layout']) {
+        AjaxSearchForm.settings.searchResultList.html(response['data']['layout']).addClass('active');
+        AjaxSearchForm.settings.searchResultList.addClass('active');
+      }
+    },
+    searchInput: function searchInput() {
+      var self = this;
+      self.settings.searchFormInput.on('keyup', function (e) {
+        // $(this).removeClass( 'active' ).children( 'article' ).remove();
+        if (self.settings.setIntervalTimeout) {
+          clearTimeout(self.settings.setIntervalTimeout);
+        }
+
+        if (e.currentTarget.value && e.currentTarget.value.length >= self.settings.minSearchValLength) {
+          self.settings.setIntervalTimeout = setTimeout(function () {
+            var formData = {
+              search: e.currentTarget.value,
+              action: 'search_site'
+            };
+            window.ajaxCall(formData).success(self.ajaxSuccess).fail(self.ajaxFail);
+          }, self.settings.timeoutToUpdate);
+        } else {
+          self.settings.searchResultList.removeClass('active');
+        }
+      });
+    }
+  };
+  AjaxSearchForm.init();
+})(jQuery);
+
+/***/ }),
+
 /***/ "./src/js/partials/header.js":
 /*!***********************************!*\
   !*** ./src/js/partials/header.js ***!
@@ -225,8 +287,17 @@ jQuery(document).ready(function ($) {
     $(this).toggleClass('active');
     $('div#primary-header-nav-container').toggleClass('active');
   });
-  $('#search-icon').on('click', function () {
-    $('.search-wrap').toggleClass('active');
+  $('body').on('click', function (e) {
+    if ($(e.target).is('#search-icon')) {
+      $('.search-wrap, .header-container').toggleClass('active');
+      $('#woocommerce-product-search-field-0').focus();
+    } else if (!$(e.target).parents('.header-container').length) {
+      $('.search-wrap, .header-container').removeClass('active');
+    }
+  });
+  $('body').on('click', '.search-view-all a', function (e) {
+    e.preventDefault();
+    $(this).parents('.header-search').find('form').submit();
   }); // Mobile nav depth-1 slideToggle
 
   $('li.menu-item-has-children a.depth-0').on('click', function (e) {
@@ -243,37 +314,6 @@ jQuery(document).ready(function ($) {
         test2.slideUp(toggleSpeed);
       }
     }
-  }); // Ajax Search
-
-  var searchForm = $('form.woocommerce-product-search'),
-      searchResultList = searchForm.append('<div id="search-results"></div>').children('div#search-results'),
-      searchFormInput = $('input#woocommerce-product-search-field-0'),
-      minSearchValLength = 3,
-      ajaxFail = function ajaxFail(response) {
-    if (response['responseJSON']['data']['errors']) {
-      console.log(response['responseJSON']['data']['errors']);
-    }
-  },
-      ajaxSuccess = function ajaxSuccess(response) {
-    if (response['data']['layout']) {
-      searchResultList.append(response['data']['layout']).addClass('active');
-    }
-  };
-
-  searchFormInput.attr('autocomplete', 'off');
-  searchFormInput.on('keyup', function (e) {
-    searchResultList.removeClass('active').children('article').remove();
-
-    if (e.currentTarget.value.length >= minSearchValLength) {
-      var formData = {
-        search: e.currentTarget.value,
-        action: 'search_site'
-      };
-    } else {
-      searchResultList.removeClass('active');
-    }
-
-    window.ajaxCall(formData).success(ajaxSuccess).fail(ajaxFail);
   });
 })(jQuery);
 

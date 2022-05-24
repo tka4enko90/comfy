@@ -101,7 +101,6 @@ $header_options = array(
 				?>
 				<!-- Searchform Template Start -->
 				<div class="search-wrap secondary-header-nav-el">
-					<?php echo get_product_search_form(); ?>
 					<i id="search-icon"></i>
 				</div>
 				<!-- END Searchform Template -->
@@ -123,6 +122,13 @@ $header_options = array(
 				<?php } ?>
 			</a>
 		</div>
+        <div class="header-container">
+            <div class="header-search">
+                <?php echo get_product_search_form(); ?>
+                <div id="search-results"></div>
+            </div>
+        </div>
 	</div>
+
 </header>
 <main class="story">
