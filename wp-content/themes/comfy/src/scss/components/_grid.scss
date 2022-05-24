@@ -42,8 +42,30 @@
 
 .col {
   padding: 0 15px;
-}
-.col-12 {
+  &-md {
+    &-33 {
+      flex-basis: 33.333%;
+    }
+    &-40 {
+      flex-basis: 40%;
+    }
+    &-42 {
+      flex-basis: 42%;
+    }
+
+    &-50 {
+      flex-basis: 50%;
+    }
+    &-60 {
+      flex-basis: 60%;
+    }
+    &-100 {
+      flex-basis: 100%;
+    }
+  }
+  &-100 {
   padding: 0 15px;
   flex-basis: 100%;
+  width: 100%;
+  }
 }

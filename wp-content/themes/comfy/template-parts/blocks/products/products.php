@@ -44,7 +44,7 @@ if ( isset( $section['products_by'] ) ) {
 			<?php
 			if ( ! empty( $section['title'] ) ) {
 				?>
-				<div class="col-12">
+				<div class="col-100">
 					<h3 class="section-title"><?php echo $section['title']; ?></h3>
 				</div>
 				<?php

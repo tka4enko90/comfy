@@ -101,11 +101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_header__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/app */ "./src/js/partials/app.js");
 /* harmony import */ var _partials_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_app__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/slider */ "./src/js/partials/slider.js");
-/* harmony import */ var _partials_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_slider__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/footer */ "./src/js/partials/footer.js");
-/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_footer__WEBPACK_IMPORTED_MODULE_4__);
-
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/footer */ "./src/js/partials/footer.js");
+/* harmony import */ var _partials_footer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_footer__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -276,17 +273,6 @@ jQuery(document).ready(function ($) {
     window.ajaxCall(formData).success(ajaxSuccess).fail(ajaxFail);
   });
 })(jQuery);
-
-/***/ }),
-
-/***/ "./src/js/partials/slider.js":
-/*!***********************************!*\
-  !*** ./src/js/partials/slider.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-console.log('ok');
 
 /***/ }),
 

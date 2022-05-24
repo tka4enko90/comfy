@@ -9,7 +9,7 @@ get_header(); ?>
 					while ( have_posts() ) :
 						the_post();
 						?>
-					<div class="col-12">
+					<div class="col-100">
 						<article>
 							<?php echo get_the_post_thumbnail(); ?>
 							<div>

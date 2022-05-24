@@ -12,9 +12,9 @@ $section = array(
 			<?php
 			if ( ! empty( $section['title'] ) ) {
 				?>
-				<h2 class="section-title">
+				<h1 class="section-title">
 					<?php echo $section['title']; ?>
-				</h2>
+				</h1>
 				<?php
 			}
 			?>

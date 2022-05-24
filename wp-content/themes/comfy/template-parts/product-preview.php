@@ -26,12 +26,14 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 							<?php
 						} else {
 							$terms = get_the_terms( $args['product']->ID, 'product_cat' );
-							foreach ( $terms as $term ) {
-								?>
-								<span class="product-cat">
-									<?php echo $term->name; ?>
-								</span>
-								<?php
+							if ( is_array( $terms ) && 0 < count( $terms ) ) {
+								foreach ( $terms as $term ) {
+									?>
+									<span class="product-cat">
+										<?php echo $term->name; ?>
+									</span>
+									<?php
+								}
 							}
 						}
 						?>

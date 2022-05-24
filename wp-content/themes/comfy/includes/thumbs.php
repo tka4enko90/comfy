@@ -5,4 +5,9 @@
 	add_image_size( 'cmf_logo', 91, 32 );
 	add_image_size( 'cmf_footer_partner', 33, 20 );
 	add_image_size( 'cmf_social_icon', 16, 16 );
+
+	add_image_size( 'cmf_content_with_image_3', 490, 640 );
+	add_image_size( 'cmf_content_with_image_1', 490, 577 );
+	add_image_size( 'cmf_content_with_image_2', 664, 577 );
+	add_image_size( 'cmf_review_slider', 577, 577 );
 }

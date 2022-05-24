@@ -1,0 +1,45 @@
+@import "../../../src/scss/components/vars";
+.instagram-links {
+  &-section {
+    padding: 100px 0 30px;
+    &-title {
+      margin-bottom: 64px;
+    }
+    &-account {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      &-link {
+        display: flex;
+        align-items: center;
+      }
+      &-heading {
+        margin: 0;
+        text-transform: none;
+        font-size: 16px;
+      }
+      img {
+        flex-basis: 22px;
+        margin-right: 10px;
+      }
+    }
+  }
+  &-col {
+    padding: 0 15px;
+    flex-basis: 382px;
+  }
+  &-link {
+    position: relative;
+  }
+  &-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 12px;
+    color: $primary-color;
+    background-color: $white;
+    padding: 7px 12px 9px;
+    border-radius: 8px;
+    line-height: 1;
+  }
+}
