@@ -64,7 +64,7 @@ main {
     max-height: calc(100vh - 60px);
     overflow-y: scroll;
     background-color: $bg-white;
-    padding-top: 10px;
+    padding-top: 16px;
 
     ul {
       &.menu {
@@ -164,7 +164,7 @@ main {
   }
   body.header-info-message {
     #primary-header-nav-container {
-      top: 98px;
+      top: 92px;
       max-height: calc(100vh - 98px);
     }
   }
