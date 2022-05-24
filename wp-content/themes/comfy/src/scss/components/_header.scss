@@ -69,6 +69,7 @@ main {
     ul {
       &.menu {
         display: block;
+        padding: 5px;
         li {
           &.depth {
             &-0 {
@@ -78,7 +79,7 @@ main {
                 &:before, &:after {
                   content: '';
                   position: absolute;
-                  top: 23px;
+                  top: 24px;
                   right: 20px;
                   width: 12px;
                   height: 2px;
@@ -101,6 +102,7 @@ main {
                   display: block;
                   position: relative;
                   padding-right: 54px;
+
                 }
                 &:hover a.depth-0:after {
                   display: none;
@@ -122,14 +124,26 @@ main {
       }
       &.sub-menu {
         &.depth {
-          &-0 {
+          &-0, &-1 {
             padding-left: 0;
           }
+          &-0 {
+            margin-bottom: -28px;
+          }
+          &-1 {
+            &:before {
+              display: none;
+            }
+            li {
+              line-height: 228%;
+            }
+          }
+
         }
       }
     }
     .sub-menu-wrap {
-      padding: 0;
+      padding: 14px 0;
       position: static;
       display: none;
       opacity: 1;
@@ -141,7 +155,7 @@ main {
       }
     }
     .mobile-links {
-      padding: 5px 24px 24px;
+      padding: 9px 20px 32px;
       a {
         display: block;
         margin-bottom: 15px;
@@ -153,6 +167,9 @@ main {
       top: 98px;
       max-height: calc(100vh - 98px);
     }
+  }
+  body header.site-header .secondary-header-nav-el {
+    margin-left: 18px;
   }
 }
 
@@ -188,7 +205,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 12px;
     @media (min-width: $mobile-header-breakpoint) {
       padding: 0 15px;
     }
@@ -230,7 +247,6 @@ main {
       left: 0;
       transform: none;
     }
-
   }
   ul{
     &.menu {
@@ -379,7 +395,10 @@ main {
     .cart-link {
       position: relative;
       font-size: 11px;
-      padding: 8px 8px 0 0;
+      padding: 8px 6px 0 0;
+      @media (min-width: $sm) {
+        padding: 8px 8px 0 0;
+      }
       &-amount {
         line-height: 100%;
         color: $text-white;
