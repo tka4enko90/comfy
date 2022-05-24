@@ -1,24 +1,39 @@
 @import "../../../src/scss/components/vars";
 .review-slider {
   &-section {
-    padding: 68px 0;
+    padding: 20px 0;
+    @media (min-width: $md) {
+      padding: 68px 0;
+    }
   }
   &-slide {
     &-wrap {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
     }
     &-content {
+      @media (max-width: $md - 1) {
+        padding-top: 36px;
+      }
       &-wrap {
-        flex-basis: 45%;
         display: flex;
         align-items: center;
+        order: 2;
+        @media (min-width: $md) {
+          flex-basis: 45%;
+          order: 0;
+        }
       }
       .star-rating {
         display: flex;
         position: relative;
-        top: -34px;
-        margin: 0 -4px;
+        margin: 0 -4px 6px;
+        @media (min-width: $md) {
+          top: -34px;
+          margin: 0 -4px;
+        }
+
         .star {
           padding: 0 4px;
           &:before {
@@ -31,11 +46,15 @@
       }
     }
     &-image {
-      flex-basis: 48.6%;
+      flex-basis: 100%;
+      @media (min-width: $md) {
+        flex-basis: 48.6%;
+      }
     }
 
   }
   .slick-arrow {
+
     z-index: 2;
     position: absolute;
     bottom: 4px;
@@ -44,6 +63,9 @@
     border: none;
     outline: none;
     line-height: 0;
+    @media (max-width: $md - 1) {
+      visibility: hidden;
+    }
     &:hover {
       opacity: .6;
     }
@@ -60,7 +82,10 @@
 
   .review {
     &-title {
-      margin-bottom: 30px;
+      margin-bottom: 18px;
+      @media (min-width: $md) {
+        margin-bottom: 30px;
+      }
     }
   }
 }

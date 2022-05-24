@@ -1,13 +1,20 @@
 footer {
   &.footer {
-    padding-top: 80px;
+    padding-top: 38px;
     background-color: $primary-color;
     color: $white;
+    @media (min-width: $md) {
+      padding-top: 80px;
+    }
     @media (max-width: 880px) {
       overflow: hidden; // mobile crunch
     }
     h3 {
       color: $white;
+      @media (max-width: $md - 1) {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
     }
     a {
       color: $white;
@@ -34,11 +41,14 @@ footer {
         border-bottom: 1px solid $line-gray;
       }
       &-title {
-        padding-right: 20%;
+        padding-right: 30%;
         line-height: 100%;
         font-weight: 400;
         letter-spacing: .01em;
         margin-bottom: 40px;
+        @media (min-width: $md) {
+          padding-right: 20%;
+        }
       }
       &-icons {
         padding: 19px 0;
