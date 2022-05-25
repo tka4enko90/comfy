@@ -20,7 +20,12 @@ if ( is_array( $section['slides'] ) && 0 < count( $section['slides'] ) ) {
 									<div class="review-slider-slide-content">
 										<?php
 										if ( ! empty( $slide['stars'] ) ) {
-											cmf_star_rating( array( 'rating' => $slide['stars'] ) );
+											cmf_star_rating(
+												array(
+													'rating' => $slide['stars'],
+													'rounded_stars' => false,
+												)
+											);
 										}
 										if ( ! empty( $slide['text'] ) ) {
 											?>

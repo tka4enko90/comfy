@@ -36,12 +36,7 @@
 
         .star {
           padding: 0 4px;
-          &:before {
-            content: url("../../../dist/img/slider-stars/star.svg");
-          }
-          &.star-empty {
-            opacity: .3;
-          }
+          flex-basis: 32px;
         }
       }
     }
@@ -54,7 +49,6 @@
 
   }
   .slick-arrow {
-
     z-index: 2;
     position: absolute;
     bottom: 4px;

@@ -9,13 +9,27 @@ add_action(
 );
 
 function cmf_star_rating( $args = array() ) {
+
 	$defaults    = array(
-		'rating' => 0,
-		'type'   => 'rating',
-		'number' => 0,
-		'echo'   => true,
+		'rating'        => 0,
+		'type'          => 'rating',
+		'number'        => 0,
+		'echo'          => true,
+		'rounded_stars' => true,
+		'star_width'    => 14,
+		'star_height'   => 14,
 	);
 	$parsed_args = wp_parse_args( $args, $defaults );
+
+	$star = array(
+		'width'  => $parsed_args['star_width'],
+		'height' => $parsed_args['star_height'],
+	);
+	if ( true === $parsed_args['rounded_stars'] ) {
+		$star['url'] = get_stylesheet_directory_uri() . '/dist/img/stars/star-full.svg';
+	} else {
+		$star['url'] = get_stylesheet_directory_uri() . '/dist/img/slider-stars/star.svg';
+	}
 
 	// Non-English decimal places when the $rating is coming from a string.
 	$rating = (float) str_replace( ',', '.', $parsed_args['rating'] );
@@ -41,9 +55,13 @@ function cmf_star_rating( $args = array() ) {
 
 	$output  = '<div class="star-rating">';
 	$output .= '<span class="screen-reader-text">' . $title . '</span>';
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-full" >', $full_stars );
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-half" >', $half_stars );
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-empty" >', $empty_stars );
+	/*
 	$output .= str_repeat( '<div class="star star-full" aria-hidden="true"></div>', $full_stars );
 	$output .= str_repeat( '<div class="star star-half" aria-hidden="true"></div>', $half_stars );
-	$output .= str_repeat( '<div class="star star-empty" aria-hidden="true"></div>', $empty_stars );
+	$output .= str_repeat( '<div class="star star-empty" aria-hidden="true"></div>', $empty_stars );*/
 	$output .= '</div>';
 
 	if ( $parsed_args['echo'] ) {

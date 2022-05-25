@@ -94,15 +94,10 @@
       .star-rating {
         display: flex;
         .star {
-          &.star-full {
-            content: url("../../../dist/img/stars/star-full.svg");
-          }
           &.star-half {
-            content: url("../../../dist/img/stars/star-half.svg");
             opacity: .6;
           }
           &.star-empty {
-            content: url("../../../dist/img/stars/star-full.svg");
             opacity: .3;
           }
 
