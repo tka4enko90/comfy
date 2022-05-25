@@ -216,23 +216,38 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		 */
 		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $menu_item, $args, $depth );
 
-		if ( 'taxonomy' === $menu_item->type ) {
-			$tax_id            = get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
-			$tax               = array(
-				'label'       => get_term_meta( $tax_id, 'additional_nav_label', true ),
-				'label_color' => get_term_meta( $tax_id, 'color', true ),
-				'thumb_id'    => get_term_meta( $tax_id, 'thumbnail_id', true ),
-				'desc'        => term_description( $tax_id ),
-			);
-			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], 'cmf_header_nav_image' ) : '';
-			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? wp_kses( $tax['desc'], array( 'br' => array() ) ) : '';
-			$atts['class']    .= ' nav-item-with-image';
+		if ( 'product_cat' === $menu_item->object || 'product' === $menu_item->object ) {
+			$menu_item_post_id = get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+			switch ( $menu_item->object ) {
+				case 'product_cat':
+					$item_thumb_id = get_term_meta( $menu_item_post_id, 'thumbnail_id', true );
 
-			// Set image & text when you open sub menu at first time
-			if ( 1 === $depth && 0 === $this->depth_1_counter++ && isset( $tax['thumb_id'] ) ) {
-				$this->nav_image_id         = $tax['thumb_id'];
-				$this->nav_text_under_image = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
+					$desc = wp_kses( term_description( $menu_item_post_id ), array( 'br' => array() ) );
+
+					// Set image & text when you open sub menu at first time
+					if ( 1 === $depth && 0 === $this->depth_1_counter++ && ! empty( $item_thumb_id ) ) {
+						$this->nav_image_id         = $item_thumb_id;
+						$this->nav_text_under_image = ( ! empty( $desc ) ) ? $desc : '';
+					}
+					break;
+				case 'product':
+					$terms = get_the_terms( $menu_item_post_id, 'product_tag' );
+					if ( ! empty( $terms ) ) {
+						$tax = array(
+							'label'       => $terms[0]->name,
+							'label_color' => get_term_meta( $terms[0]->term_id, 'color', true ),
+						);
+					}
+					$item_thumb_id = get_field( 'nav_thumbnail', $menu_item_post_id );
+					if ( empty( $item_thumb_id ) ) {
+						$item_thumb_id = get_post_thumbnail_id( $menu_item_post_id );
+					}
+					$desc = get_field( 'nav_description', $menu_item_post_id );
+					break;
 			}
+			$atts['data-img']  = ( isset( $item_thumb_id ) ) ? wp_get_attachment_image_url( $item_thumb_id, 'cmf_header_nav_image' ) : '';
+			$atts['data-desc'] = ( isset( $desc ) ) ? $desc : '';
+			$atts['class']    .= ( ! empty( $item_thumb_id ) ) ? ' nav-item-with-image' : '';
 		}
 
 		if ( 1 === $depth && in_array( 'menu-item-has-children', $menu_item->classes ) ) {

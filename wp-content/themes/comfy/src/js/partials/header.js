@@ -22,7 +22,7 @@
 		'mouseenter',
 		function () {
 			var itemImg    = $( this ).attr( 'data-img' ),
-				itemDesc   = $( this ).attr( 'data-desc' ),
+				itemDesc   = $( this ).attr( 'data-desc' ) ? $( this ).attr( 'data-desc' ) : '',
 				imgWrap    = $( this ).parents( 'div.sub-menu-wrap' ).children( '.image-wrap' ),
 				img        = imgWrap.children( 'img' ),
 				imgDesc    = imgWrap.children( 'p' ),
