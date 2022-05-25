@@ -57,14 +57,12 @@
     border: none;
     outline: none;
     line-height: 0;
+    cursor: pointer;
     @media (max-width: $md - 1) {
       visibility: hidden;
     }
     &:hover {
       opacity: .6;
-    }
-    &:before {
-      content: url("../../../dist/img/arrow.svg");
     }
     &.slick-prev {
       transform: rotate(180deg);
