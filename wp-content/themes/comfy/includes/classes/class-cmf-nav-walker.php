@@ -225,7 +225,7 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 				'desc'        => term_description( $tax_id ),
 			);
 			$atts['data-img']  = ( ! empty( $tax['thumb_id'] ) ) ? wp_get_attachment_image_url( $tax['thumb_id'], 'cmf_header_nav_image' ) : '';
-			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? $tax['desc'] : '';
+			$atts['data-desc'] = ( ! empty( $tax['desc'] ) ) ? wp_kses( $tax['desc'], array( 'br' => array() ) ) : '';
 			$atts['class']    .= ' nav-item-with-image';
 
 			// Set image & text when you open sub menu at first time
@@ -287,7 +287,6 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 		 * @param stdClass $args        An object of wp_nav_menu() arguments.
 		 */
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $menu_item, $depth, $args );
-
 
 	}
 
