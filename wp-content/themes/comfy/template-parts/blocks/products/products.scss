@@ -1,9 +1,5 @@
 @import "../../../src/scss/components/vars";
 .products-section {
-  padding: 25px 0;
-  @media (min-width: $sm) {
-    padding: 110px 0 86px;
-  }
   .section-title {
     margin-bottom: 30px;
     @media (min-width: $sm) {

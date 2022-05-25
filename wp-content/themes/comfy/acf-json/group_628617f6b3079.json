@@ -18,8 +18,8 @@
             "layouts": {
                 "layout_6286192b62b1b": {
                     "key": "layout_6286192b62b1b",
-                    "name": "cta",
-                    "label": "Call To Action",
+                    "name": "hero",
+                    "label": "Hero",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -74,21 +74,11 @@
                                 "id": ""
                             },
                             "return_format": "array"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_62865245051ff": {
-                    "key": "layout_62865245051ff",
-                    "name": "fullwidth_image",
-                    "label": "Fullwidth Image",
-                    "display": "block",
-                    "sub_fields": [
+                        },
                         {
-                            "key": "field_62865a2405200",
+                            "key": "field_628dff7827124",
                             "label": "Image",
-                            "name": "image",
+                            "name": "image_id",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -99,7 +89,7 @@
                                 "id": ""
                             },
                             "return_format": "id",
-                            "preview_size": "large",
+                            "preview_size": "cmf_fullwidth",
                             "library": "all",
                             "min_width": "",
                             "min_height": "",
@@ -1016,5 +1006,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653371680
+    "modified": 1653473246
 }

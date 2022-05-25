@@ -1,11 +1,9 @@
 <?php
-
-
 $section = array(
-	'title'   => get_sub_field( 'title' ),
-	'content' => get_sub_field( 'content' ),
-	'link'    => get_sub_field( 'link' ),
-
+	'title'    => get_sub_field( 'title' ),
+	'content'  => get_sub_field( 'content' ),
+	'link'     => get_sub_field( 'link' ),
+	'image_id' => get_sub_field( 'image_id' ),
 );
 ?>
 <div class="container container-small">
@@ -39,3 +37,16 @@ $section = array(
 		</div>
 	</div>
 </div>
+<?php
+if ( ! empty( $section['image_id'] ) ) {
+	?>
+	<div class="container">
+		<div class="row">
+			<div class="col-100 image-col">
+				<?php echo  wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+?>

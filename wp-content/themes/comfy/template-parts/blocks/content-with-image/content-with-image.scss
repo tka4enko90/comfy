@@ -1,9 +1,6 @@
 @import "../../../src/scss/components/vars";
 .content-with-image-section {
-  padding: 26px 0 45px;
-  @media (min-width: $md) {
-    padding: 68px 0 92px;
-  }
+
   .image-col {
     .section-title {
       margin-top: -10px;

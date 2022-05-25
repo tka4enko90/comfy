@@ -1,10 +1,6 @@
 @import "../../../src/scss/components/vars";
 .instagram-links {
   &-section {
-    padding: 50px 0 60px;
-    @media (min-width: $md) {
-      padding: 100px 0 120px;
-    }
     &-title {
       margin-bottom: 64px;
 

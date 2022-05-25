@@ -1,11 +1,5 @@
 @import "../../../src/scss/components/vars";
 .review-slider {
-  &-section {
-    padding: 20px 0;
-    @media (min-width: $md) {
-      padding: 68px 0;
-    }
-  }
   &-slide {
     &-wrap {
       display: flex;
