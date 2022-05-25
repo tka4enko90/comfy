@@ -1,0 +1,111 @@
+@import "../components/vars";
+.product {
+  margin-bottom: 30px;
+  @media (min-width: $md) {
+    margin-bottom: 0;
+  }
+  &-title {
+    margin-bottom: 9px;
+    @media (min-width: $md) {
+      margin-bottom: 13px;
+    }
+  }
+  &-image-wrap {
+    position: relative;
+    margin-bottom: 12px;
+    @media (min-width: $md) {
+      margin-bottom: 16px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  &-cats {
+    position: absolute;
+    left: 15px;
+    top: 11px;
+    right: 15px;
+    @media (min-width: $md) {
+      left: 16px;
+      top: 16px;
+      right: 16px;
+    }
+
+  }
+  &-cat {
+    font-size: 8px;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $primary-color;
+    padding: 5px 15px;
+
+    border-radius: 16px;
+    margin-right: 16px;
+    @media (min-width: $md) {
+      font-size: 10px;
+      padding: 7px 26px;
+    }
+  }
+  &-link {
+    display: block;
+    color: $secondary-color;
+    .sale-persent {
+      color: $accent-color;
+    }
+  }
+  &-price {
+    margin-bottom: 8px;
+    ins {
+      text-decoration: none;
+    }
+  }
+  &-other-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-description {
+    flex-basis: 100%;
+    padding-right: 7%;
+    line-height: 1;
+    @media (min-width: $md) {
+
+    }
+  }
+  &-rating {
+    display: flex;
+    align-items: center;
+    padding: 0 8.6px;
+    .star-rating {
+      display: flex;
+      .star {
+        &.star-half {
+          opacity: .6;
+        }
+        &.star-empty {
+          opacity: .3;
+        }
+
+      }
+    }
+  }
+
+  &-colors {
+    position: relative;
+    padding-right: 4px;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      height: 12px;
+      width: 1px;
+      margin-left: 4px;
+      background-color: currentColor;
+    }
+  }
+  &-colors, &-reviews-count {
+    font-size: 14px;
+    line-height: 12px;
+    color: $primary-color;
+  }
+
+}

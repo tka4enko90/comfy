@@ -1,4 +1,6 @@
 <?php
+wp_enqueue_style( 'product-preview', get_template_directory_uri() . '/dist/css/partials/product-preview.css', '', '', 'all' );
+
 if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID ) ) {
 	setup_postdata( $args['product'] );
 	global $product;
