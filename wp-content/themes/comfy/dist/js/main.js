@@ -208,15 +208,21 @@ jQuery(document).ready(function ($) {
   }); // Change Sub menu image on hover
 
   var subMenu = $('.sub-menu-wrap');
-  subMenu.find('.nav-item-with-image').hover(function () {
+  subMenu.find('.nav-item-with-image').on('mouseenter', function () {
     var itemImg = $(this).attr('data-img'),
         itemDesc = $(this).attr('data-desc'),
         imgWrap = $(this).parents('div.sub-menu-wrap').children('.image-wrap'),
         img = imgWrap.children('img'),
-        imgDesc = imgWrap.children('p');
-    imgDesc.html(itemDesc);
-    img.attr('srcset', '');
-    img.attr('src', itemImg);
+        imgDesc = imgWrap.children('p'),
+        currentImg = imgWrap.find('img').attr('src');
+
+    if ((itemImg.length || itemDesc.length) && currentImg !== itemImg) {
+      img.attr('srcset', '');
+      imgWrap.fadeOut('fast', function () {
+        img.attr('src', itemImg);
+        imgDesc.html(itemDesc);
+      }).fadeIn("fast");
+    }
   });
   $('div.nav-toggle').on('click', function () {
     $(this).toggleClass('active');
