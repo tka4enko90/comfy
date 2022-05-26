@@ -1,9 +1,5 @@
 @import "../../../src/scss/components/vars";
-.section-products {
-  padding: 25px 0;
-  @media (min-width: $sm) {
-    padding: 110px 0;
-  }
+.products-section {
   .section-title {
     margin-bottom: 30px;
     @media (min-width: $sm) {
@@ -16,47 +12,4 @@
       flex-basis: 31.33%;
     }
   }
-  .product {
-    padding-bottom: 84px; // temporary style
-    &-title {
-      margin-bottom: 13px;
-    }
-    &-image-wrap {
-      position: relative;
-      margin-bottom: 16px;
-      img {
-        width: 100%;
-      }
-    }
-    &-cats {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      right: 16px;
-
-    }
-    &-cat {
-      font-size: 10px;
-      text-transform: uppercase;
-      color: $white;
-      background-color: $primary-color;
-      padding: 7px 26px;
-      border-radius: 16px;
-      margin-right: 16px;
-    }
-    &-link {
-      display: block;
-      color: $secondary-color;
-      .sale-persent {
-        color: $accent-color;
-      }
-    }
-    &-price {
-      ins {
-        text-decoration: none;
-      }
-    }
-
-  }
-
 }

@@ -1,3 +1,25 @@
-.section {
-  padding: 80px 0;
+.main .section {
+  margin: 80px 0;
+  @media (min-width: $md) {
+    margin: 160px 0;
+  }
+  &:first-child {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    @media (min-width: $md) {
+      margin-top: 60px;
+      margin-bottom: 120px;
+    }
+  }
+  &:nth-child(2) {
+    margin-top: 32px;
+    @media (min-width: $md) {
+      margin-top: 120px;
+    }
+  }
+  &:last-child {
+    @media (min-width: $md) {
+      margin-bottom: 120px;
+    }
+  }
 }

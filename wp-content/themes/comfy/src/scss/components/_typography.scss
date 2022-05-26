@@ -18,27 +18,27 @@ h1, h2, h3, h4, h5 {
   color: $primary-color;
 }
 h1 {
-  font-size: 64px;
-  line-height: 1.071;
+  font-size: 40px;
+  line-height: 1;
   letter-spacing: -.002em;
-  //letter-spacing: -.128px;
   margin: 0 0 20px 0;
 
-  @media (max-width: $md) {
-    font-size: 40px;
+  @media (min-width: $md) {
+    font-size: 64px;
+    line-height: 1.071;
   }
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1;
-  margin: 0 0 8px 0;
+  margin: 0 0 18px 0;
 
   @media (min-width: $md) {
     font-size: 56px;
-    letter-spacing: .04em;
-    line-height: 1.284;
-    margin: 0 0 20px 0;
+    //letter-spacing: .04em;
+    //line-height: 1.284;
+    margin: 0 0 24px 0;
   }
 }
 
@@ -54,11 +54,14 @@ h3 {
 
 h4 {
   font-size: 24px;
-  margin: 0 0 20px 0;
-  line-height: 1.27;
+  line-height: 1;
+  margin: 0 0 16px 0;
+
 
   @media (min-width: $sm) {
     font-size: 32px;
+    margin: 0 0 20px 0;
+    line-height: 105%;
   }
 }
 

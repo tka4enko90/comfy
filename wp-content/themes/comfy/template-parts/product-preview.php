@@ -1,4 +1,6 @@
 <?php
+wp_enqueue_style( 'product-preview', get_template_directory_uri() . '/dist/css/partials/product-preview.css', '', '', 'all' );
+
 if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID ) ) {
 	setup_postdata( $args['product'] );
 	global $product;
@@ -26,12 +28,14 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 							<?php
 						} else {
 							$terms = get_the_terms( $args['product']->ID, 'product_cat' );
-							foreach ( $terms as $term ) {
-								?>
-								<span class="product-cat">
-									<?php echo $term->name; ?>
-								</span>
-								<?php
+							if ( is_array( $terms ) && 0 < count( $terms ) ) {
+								foreach ( $terms as $term ) {
+									?>
+									<span class="product-cat">
+										<?php echo $term->name; ?>
+									</span>
+									<?php
+								}
 							}
 						}
 						?>
@@ -57,13 +61,22 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 						</span>
 						<?php
 					}
-
 					?>
 				</div>
-				<?php $average = $product->get_average_rating(); ?>
-				<?php if ( $average ) { ?>
-					<?php echo '<div class="star-rating" title="' . sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $average ) . '"><span style="width:' . ( ( $average / 5 ) * 100 ) . '%"><strong itemprop="ratingValue" class="rating">' . $average . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span></div>'; ?>
-				<?php } ?>
+				<div class="product-other-info">
+					<p class="product-description">
+						Includes 1 Core Sheet Set, 1 Duvet Cover,
+						and 2 extra Pillowcases
+					</p>
+					<span class="product-colors">12 colors</span>
+					<?php
+						$rating        = $product->get_average_rating();
+						$reviews_count = $product->get_review_count();
+					?>
+					<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
+					<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+				</div>
+
 			</div>
 		</a>
 	</article>
