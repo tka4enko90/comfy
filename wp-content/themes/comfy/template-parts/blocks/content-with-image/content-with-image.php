@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'content-with-image' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image' . '/' . 'content-with-image' . '.css', '', '', 'all' );
 $section = array(
 	'image_group'    => get_sub_field( 'image' ),
 	'content_group'  => get_sub_field( 'content' ),
@@ -34,18 +35,20 @@ $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-
 			?>
 		</div>
 		<div class="col content-col <?php echo $content_col_class; ?>">
-			<?php
-			echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
-			if ( isset( $section['content_group']['link'] ) ) {
-				if ( ! empty( $section['content_group']['link']['url'] ) && ! empty( $section['content_group']['link']['title'] ) ) {
-					?>
-					<a class="button button-secondary" href="<?php echo $section['content_group']['link']['url']; ?>" <?php echo ! empty( $section['content_group']['link']['target'] ) ? 'target="' . $section['content_group']['link']['target'] . '"' : ''; ?>>
-						<?php echo $section['content_group']['link']['title']; ?>
-					</a>
-					<?php
+			<div>
+				<?php
+				echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
+				if ( isset( $section['content_group']['link'] ) ) {
+					if ( ! empty( $section['content_group']['link']['url'] ) && ! empty( $section['content_group']['link']['title'] ) ) {
+						?>
+						<a class="button button-secondary" href="<?php echo $section['content_group']['link']['url']; ?>" <?php echo ! empty( $section['content_group']['link']['target'] ) ? 'target="' . $section['content_group']['link']['target'] . '"' : ''; ?>>
+							<?php echo $section['content_group']['link']['title']; ?>
+						</a>
+						<?php
+					}
 				}
-			}
-			?>
+				?>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'instagram-links' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'instagram-links' . '/' . 'instagram-links' . '.css', '', '', 'all' );
 $section = array(
 	'title'   => get_sub_field( 'title' ),
 	'account' => get_sub_field( 'account' ),
@@ -7,7 +8,7 @@ $section = array(
 
 ?>
 	<div class="container container-medium">
-		<div class="row justify-content-between">
+		<div class="row">
 			<div class="col-100">
 				<?php
 				if ( ! empty( $section['account'] ) ) {
@@ -37,8 +38,6 @@ $section = array(
 							</a>
 							<?php
 						}
-
-
 						?>
 					</div>
 					<?php
@@ -54,43 +53,38 @@ $section = array(
 				}
 				?>
 			</div>
-		<?php
-		if ( is_array( $section['items'] ) && 0 < count( $section['items'] ) ) {
-			foreach ( $section['items'] as $item ) {
-				?>
-			<div class="instagram-links-col <?php echo ( true === $item['mobile_only'] ) ? 'mobile-only' : ''; ?>">
+			<div class="col-100 instagram-links-cols">
 				<?php
-				if ( ! empty( $item['url'] ) ) {
-					?>
-					<a href="<?php echo $item['url']; ?>" class="instagram-links-link" <?php echo ( isset( $item['in_new_tab'] ) && true === $item['in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
+				if ( is_array( $section['items'] ) && 0 < count( $section['items'] ) ) {
+					foreach ( $section['items'] as $item ) {
+						?>
+						<div class="instagram-links-col <?php echo ( true === $item['mobile_only'] ) ? 'mobile-only' : ''; ?>">
+							<?php
+							if ( ! empty( $item['url'] ) ) {
+								?>
+							<a href="<?php echo $item['url']; ?>" class="instagram-links-link" <?php echo ( isset( $item['in_new_tab'] ) && true === $item['in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
+								<?php
+							}
+								echo ( ! empty( $item['image_id'] ) ) ? wp_get_attachment_image( $item['image_id'], 'cmf_product_preview' ) : '';
+							if ( ! empty( $item['label'] ) ) {
+								?>
+									<span class="instagram-links-label">
+								<?php echo $item['label']; ?>
+						</span>
+									<?php
+							}
+							if ( ! empty( $item['url'] ) ) {
+								?>
+							</a>
+								<?php
+							}
+							?>
+						</div>
 						<?php
-				}
-						echo ( ! empty( $item['image_id'] ) ) ? wp_get_attachment_image( $item['image_id'], 'cmf_product_preview' ) : '';
-				if ( ! empty( $item['label'] ) ) {
-					?>
-					<span class="instagram-links-label">
-						<?php echo $item['label']; ?>
-					</span>
-					<?php
-				}
-				if ( ! empty( $item['url'] ) ) {
-					?>
-				</a>
-					<?php
+					}
 				}
 				?>
 			</div>
-				<?php
-
-				// $item['image_id'] //cmf_product_preview
-				// $item['label']
-				// $item['url']
-				// $item['in_new_tab']
-				// $item['mobile_only']
-
-			}
-		}
-		?>
 		</div>
 	</div>
 

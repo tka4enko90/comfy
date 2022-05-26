@@ -1,6 +1,6 @@
 {
     "key": "group_6283389c1560d",
-    "title": "Product Category",
+    "title": "Product Tag",
     "fields": [
         {
             "key": "field_628338abfcffd",
@@ -44,7 +44,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "product_cat"
+                "value": "product_tag"
             }
         ]
     ],
@@ -57,5 +57,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652781240
+    "modified": 1653476252
 }

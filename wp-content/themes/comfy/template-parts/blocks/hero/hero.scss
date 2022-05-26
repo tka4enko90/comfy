@@ -1,0 +1,36 @@
+@import "../../../src/scss/components/vars";
+.hero-section {
+  .left-col {
+    @media (min-width: $lg) {
+      flex-basis: 54%;
+    }
+
+  }
+  .right-col {
+    @media (min-width: $md) {
+      flex-basis: 345px;
+    }
+    .section-content {
+      padding: 0 0 14px;
+      @media (min-width: $md) {
+        padding: 14px 0;
+      }
+    }
+    .button {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      @media (min-width: $sm) {
+        margin-top: 8px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .image-col {
+    padding: 0;
+
+    @media (min-width: $md) {
+      margin-top: 50px;
+    }
+  }
+}

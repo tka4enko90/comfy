@@ -1,4 +1,6 @@
 <?php
+wp_enqueue_style( 'product-preview', get_template_directory_uri() . '/dist/css/partials/product-preview.css', '', '', 'all' );
+
 if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID ) ) {
 	setup_postdata( $args['product'] );
 	global $product;
@@ -59,7 +61,6 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 						</span>
 						<?php
 					}
-
 					?>
 				</div>
 				<div class="product-other-info">
@@ -68,8 +69,10 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 						and 2 extra Pillowcases
 					</p>
 					<span class="product-colors">12 colors</span>
-					<?php $rating = $product->get_average_rating(); ?>
-					<?php $reviews_count = $product->get_review_count(); ?>
+					<?php
+						$rating        = $product->get_average_rating();
+						$reviews_count = $product->get_review_count();
+					?>
 					<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
 					<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
 				</div>

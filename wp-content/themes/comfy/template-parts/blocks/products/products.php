@@ -1,4 +1,6 @@
-<?php $section = array(
+<?php
+wp_enqueue_style( 'products' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'products' . '/' . 'products' . '.css', '', '', 'all' );
+$section = array(
 	'title'                => get_sub_field( 'title' ),
 	'products_by'          => get_sub_field( 'products_by' ),
 	'term_id'              => get_sub_field( 'category' ),
