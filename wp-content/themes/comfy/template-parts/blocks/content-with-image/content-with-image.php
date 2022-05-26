@@ -35,7 +35,6 @@ $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-
 			?>
 		</div>
 		<div class="col content-col <?php echo $content_col_class; ?>">
-			<div>
 				<?php
 				echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
 				if ( isset( $section['content_group']['link'] ) ) {
@@ -48,7 +47,6 @@ $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-
 					}
 				}
 				?>
-			</div>
 		</div>
 	</div>
 </div>
