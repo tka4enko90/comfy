@@ -669,7 +669,46 @@
                                 "8": "8%",
                                 "7": "7%",
                                 "6": "6%",
-                                "5": "5%"
+                                "5": "5%",
+                                "15px": "15px"
+                            },
+                            "default_value": 10,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_628fc4bf9bb83",
+                            "label": "Desktop Content Padding left",
+                            "name": "desktop_content_padding_left",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6287cf2f1b74e",
+                                        "operator": "==",
+                                        "value": "left"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "10": "10%",
+                                "9": "9%",
+                                "8": "8%",
+                                "7": "7%",
+                                "6": "6%",
+                                "5": "5%",
+                                "15px": "15px"
                             },
                             "default_value": 10,
                             "allow_null": 0,
@@ -1043,5 +1082,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653566853
+    "modified": 1653589234
 }

@@ -7,6 +7,7 @@ $section = array(
 	'container'             => get_sub_field( 'container' ),
 	'image_position'        => get_sub_field( 'image_position' ),
 	'content_width'         => get_sub_field( 'content_width' ),
+	'content_padding_left'  => get_sub_field( 'desktop_content_padding_left' ),
 	'content_padding_right' => get_sub_field( 'desktop_content_padding_right' ),
 );
 // Image size
@@ -24,9 +25,11 @@ $content_col_class  = ( ! empty( $section['content_width'] ) ) ? 'col-md-' . $se
 $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-title-exist' : '';
 
 // Content Padding
-if ( ! empty( $section['image_position'] ) && 'right' === $section['image_position'] ) {
-	$content_col_class .= ( ! empty( $section['content_padding_right'] ) ) ? ' pr-md-' . $section['content_padding_right'] . '' : ' pr-md-10%';
+if ( ! empty( $section['image_position'] ) ) {
+	$padding_key        = 'content_padding_' . $section['image_position'];
+	$content_col_class .= ( ! empty( $section[ $padding_key ] ) ) ? ' p' . $section['image_position'][0] . '-md-' . $section[$padding_key] . '' : ' p' . $section['image_position'][0] . '-md-10 bad';
 }
+
 
 ?>
 <div class="container <?php echo $container_class; ?>">
