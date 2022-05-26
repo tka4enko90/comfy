@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'instagram-links' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'instagram-links' . '/' . 'instagram-links' . '.css', '', '', 'all' );
 $section = array(
 	'title'   => get_sub_field( 'title' ),
 	'account' => get_sub_field( 'account' ),

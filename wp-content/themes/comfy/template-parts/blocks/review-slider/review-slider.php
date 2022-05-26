@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'review-slider' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'review-slider' . '/' . 'review-slider' . '.css', '', '', 'all' );
 wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/dist/css/partials/slick.css', '', '', 'all' );
 
 wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/dist/js/partials/slick.js', array( 'jquery' ), '', true );

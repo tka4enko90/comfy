@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'hero' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'hero' . '/' . 'hero' . '.css', '', '', 'all' );
 $section = array(
 	'title'    => get_sub_field( 'title' ),
 	'content'  => get_sub_field( 'content' ),

@@ -17,7 +17,6 @@ if ( have_rows( 'flexible_sections' ) ) :
 	while ( have_rows( 'flexible_sections' ) ) :
 		the_row();
 		$section_name = str_replace( '_', '-', get_row_layout() );
-		wp_enqueue_style( $section_name . '-section', get_template_directory_uri() . '/' . $section_directory . $section_name . '/' . $section_name . '.css', '', '', 'all' );
 		?>
 		<section class="section <?php echo $section_name . '-section'; ?>">
 			<?php get_template_part( $section_directory . '/' . $section_name . '/' . $section_name ); ?>

@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'content-with-image' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image' . '/' . 'content-with-image' . '.css', '', '', 'all' );
 $section = array(
 	'image_group'    => get_sub_field( 'image' ),
 	'content_group'  => get_sub_field( 'content' ),
