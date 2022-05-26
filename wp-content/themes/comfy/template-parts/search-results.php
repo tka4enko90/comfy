@@ -8,8 +8,6 @@ if ( $args ) :
 			'thumb'   => 'cmf_search_result', // optional
 		);
 		get_template_part( 'template-parts/product-preview', '', $product_args );
-		get_template_part( 'template-parts/product-preview', '', $product_args );
-		get_template_part( 'template-parts/product-preview', '', $product_args );
 	}
 	?>
 	<div class="search-view-all">
