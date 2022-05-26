@@ -467,17 +467,13 @@ main {
     position: relative;
     width: 100%;
     display: flex;
-    .woocommerce-product-search {
+    .woocommerce-product-search, .search-form {
       display: flex;
       width: 100%;
-      .search-field {
+      .search-field, .search-field {
         outline: none;
-
       }
 
-      button {
-        display: none;
-      }
       &.active {
         transition: opacity .5s;
         opacity: 1;
@@ -489,7 +485,7 @@ main {
 
 }
 
-.search-wrap{
+.search-wrap {
   margin: 2px 16px 0 46px;
   font-size: 14px;
   color: $primary-color;

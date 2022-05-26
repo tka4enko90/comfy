@@ -124,7 +124,7 @@ $header_options = array(
 		</div>
 		<div class="header-container">
 			<div class="header-search">
-				<?php echo get_product_search_form(); ?>
+				<?php echo get_search_form(); ?>
 				<div id="search-results"></div>
 			</div>
 		</div>

@@ -5,15 +5,14 @@
  */
 
 get_header();
-if ( ! empty( $_GET['post_type'] && ! empty( $_GET['s'] ) ) ) :
+if ( ! empty( $_GET['s'] ) ) :
 	$query = new WP_Query(
 		array(
-			'post_type'      => $_GET['post_type'],
 			'posts_per_page' => -1,
-			's'              => $_GET['s'],
+			's'              => sanitize_text_field( $_GET['s'] ),
 		)
 	); ?>
-	<main class="main">
+
 		<section class="section">
 			<div class="container">
 				<div class="row">
@@ -33,7 +32,8 @@ if ( ! empty( $_GET['post_type'] && ! empty( $_GET['s'] ) ) ) :
 				</div>
 			</div>
 		</section>
-	</main>
+
 	<?php
+	wp_reset_query();
 endif;
 get_footer();
