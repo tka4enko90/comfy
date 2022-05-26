@@ -1,9 +1,10 @@
 <?php
 wp_enqueue_style( 'instagram-links' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'instagram-links' . '/' . 'instagram-links' . '.css', '', '', 'all' );
 $section = array(
-	'title'   => get_sub_field( 'title' ),
-	'account' => get_sub_field( 'account' ),
-	'items'   => get_sub_field( 'items' ),
+	'title'            => get_sub_field( 'title' ),
+	'account'          => get_sub_field( 'account' ),
+	'items'            => get_sub_field( 'items' ),
+	'links_in_new_tab' => get_sub_field( 'in_new_tab' ),
 );
 
 ?>
@@ -17,7 +18,7 @@ $section = array(
 						<?php
 						if ( ! empty( $section['account']['url'] ) ) {
 							?>
-						<a href="<?php echo $section['account']['url']; ?>" class="instagram-links-section-account-link">
+						<a href="<?php echo $section['account']['url']; ?>" class="instagram-links-section-account-link" <?php echo ( isset( $section['links_in_new_tab'] ) && true === $section['links_in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
 							<?php
 						}
 						?>
