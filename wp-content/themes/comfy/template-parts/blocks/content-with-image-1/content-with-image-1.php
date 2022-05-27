@@ -11,6 +11,7 @@ $settings  = array(
 		//'width'    => '', // if 'size' === custom
 		//'height'   => '', // if 'size' === custom
 	),
+	/*
 	'content_group'  => array(
 		'content' => '', //html string
 		'link'    => array(
@@ -18,7 +19,7 @@ $settings  = array(
 			'url'    => '',
 			'target' => '',
 		),
-	),
+	),*/
 );
 $settings[ 'content_padding_' . $settings['image_position'] ] = '20'; // px
 get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings );

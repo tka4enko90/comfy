@@ -30,9 +30,6 @@ if ( ! empty( $section['image_position'] ) ) {
 	$content_col_class .= ( ! empty( $section[ $padding_key ] ) ) ? ' p' . $section['image_position'][0] . '-md-' . $section[ $padding_key ] . '' : ' p' . $section['image_position'][0] . '-md-10 bad';
 }
 ?>
-<code>
-    <?php print_r($section) ?>
-</code>
 <div class="container <?php echo $container_class; ?>">
 	<div class="row justify-content-between align-items-center <?php echo $row_class; ?>">
 		<div class="col image-col">
