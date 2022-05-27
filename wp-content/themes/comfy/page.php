@@ -21,9 +21,10 @@ get_header(); ?>
 
 		while ( have_rows( 'flexible_sections' ) ) :
 			the_row();
-			$section_name = str_replace( '_', '-', get_row_layout() );
+			$section_name  = str_replace( '_', '-', get_row_layout() );
+			$section_class = str_starts_with( $section_name, 'content-with-image' ) ? 'content-with-image-section ' . $section_name : $section_name;
 			?>
-			<section class="section <?php echo $section_name . '-section'; ?>">
+			<section class="section <?php echo $section_class . '-section'; ?>">
 				<?php get_template_part( $section_directory . '/' . $section_name . '/' . $section_name ); ?>
 			</section>
 			<?php
