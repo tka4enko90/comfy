@@ -16,10 +16,6 @@
     }
   }
   .content-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
     padding-top: 30px;
     $padding-md-vals: 5,6,7,8,9,10;
     @each $padding-md-val in $padding-md-vals {

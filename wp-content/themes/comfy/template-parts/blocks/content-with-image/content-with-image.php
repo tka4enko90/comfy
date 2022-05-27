@@ -27,13 +27,11 @@ $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-
 // Content Padding
 if ( ! empty( $section['image_position'] ) ) {
 	$padding_key        = 'content_padding_' . $section['image_position'];
-	$content_col_class .= ( ! empty( $section[ $padding_key ] ) ) ? ' p' . $section['image_position'][0] . '-md-' . $section[$padding_key] . '' : ' p' . $section['image_position'][0] . '-md-10 bad';
+	$content_col_class .= ( ! empty( $section[ $padding_key ] ) ) ? ' p' . $section['image_position'][0] . '-md-' . $section[ $padding_key ] . '' : ' p' . $section['image_position'][0] . '-md-10 bad';
 }
-
-
 ?>
 <div class="container <?php echo $container_class; ?>">
-	<div class="row justify-content-between <?php echo $row_class; ?>">
+	<div class="row justify-content-between align-items-center <?php echo $row_class; ?>">
 		<div class="col image-col">
 			<?php
 			if ( ! empty( $section['image_group']['title'] ) ) {
@@ -47,7 +45,6 @@ if ( ! empty( $section['image_position'] ) ) {
 			?>
 		</div>
 		<div class="col content-col <?php echo $content_col_class; ?>">
-			<div>
 				<?php
 				echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
 				if ( isset( $section['content_group']['link'] ) ) {
@@ -60,7 +57,6 @@ if ( ! empty( $section['image_position'] ) ) {
 					}
 				}
 				?>
-			</div>
 		</div>
 	</div>
 </div>
