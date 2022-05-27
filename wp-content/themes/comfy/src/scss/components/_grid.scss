@@ -67,30 +67,14 @@
         flex-basis: 33.333%;
       }
     }
-    &-40 {
-      @media (min-width: $md) {
-        flex-basis: 40%;
+    $flex-basis-vals: 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 60, 100;
+    @each $flex-basis-val in $flex-basis-vals {
+      &-#{$flex-basis-val} {
+        @media ( min-width: $md ) {
+          flex-basis: #{$flex-basis-val + '%'};
+        }
       }
-    }
-    &-42 {
-      @media (min-width: $md) {
-        flex-basis: 42%;
-      }
-    }
-    &-50 {
-      @media (min-width: $md) {
-        flex-basis: 50%;
-      }
-    }
-    &-60 {
-      @media (min-width: $md) {
-        flex-basis: 60%;
-      }
-    }
-    &-100 {
-      @media (min-width: $md) {
-        flex-basis: 100%;
-      }
+
     }
   }
 }

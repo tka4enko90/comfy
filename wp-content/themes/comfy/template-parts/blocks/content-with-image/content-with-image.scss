@@ -14,27 +14,22 @@
         margin-bottom: 60px;
       }
     }
+    img {
+      border-radius: 8px;
+    }
   }
   .content-col {
-    $padding-md-vals: 5,6,7,8,9,10;
+    $padding-md-vals: 15, 16, 17, 18, 19, 20;
     @each $padding-md-val in $padding-md-vals {
       &.pr-md-#{$padding-md-val} {
         @media ( min-width: $md ) {
-          padding-right: #{$padding-md-val + '%'};
+          padding-right: #{$padding-md-val + 'px'};
         }
       }
       &.pl-md-#{$padding-md-val} {
         @media ( min-width: $md ) {
-          padding-left: #{$padding-md-val + '%'};
+          padding-left: #{$padding-md-val + 'px'};
         }
-      }
-    }
-    @media (min-width: $md) {
-      &.pr-md-15px {
-        padding-right: 15px;
-      }
-      &.pl-md-15px {
-        padding-left: 15px;
       }
     }
 

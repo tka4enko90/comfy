@@ -1,14 +1,14 @@
 <?php
 wp_enqueue_style( 'content-with-image' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image' . '/' . 'content-with-image' . '.css', '', '', 'all' );
 $section = array(
-	'image_group'           => get_sub_field( 'image' ),
-	'content_group'         => get_sub_field( 'content' ),
+	'image_group'           => isset( $args['image_group'] ) ? $args['image_group'] : get_sub_field( 'image' ),
+	'content_group'         => isset( $args['content_group'] ) ? $args['content_group'] : get_sub_field( 'content' ),
 
-	'container'             => get_sub_field( 'container' ),
-	'image_position'        => get_sub_field( 'image_position' ),
-	'content_width'         => get_sub_field( 'content_width' ),
-	'content_padding_left'  => get_sub_field( 'desktop_content_padding_left' ),
-	'content_padding_right' => get_sub_field( 'desktop_content_padding_right' ),
+	'container'             => isset( $args['container'] ) ? $args['container'] : get_sub_field( 'container' ),
+	'image_position'        => isset( $args['image_position'] ) ? $args['image_position'] : get_sub_field( 'image_position' ),
+	'content_width'         => isset( $args['content_width'] ) ? $args['content_width'] : get_sub_field( 'content_width' ),
+	'content_padding_left'  => isset( $args['content_padding_left'] ) ? $args['content_padding_left'] : get_sub_field( 'desktop_content_padding_left' ),
+	'content_padding_right' => isset( $args['content_padding_right'] ) ? $args['content_padding_right'] : get_sub_field( 'desktop_content_padding_right' ),
 );
 // Image size
 if ( 'custom' === $section['image_group']['size'] ) {
