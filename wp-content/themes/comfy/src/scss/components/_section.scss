@@ -1,25 +1,47 @@
-.main .section {
-  margin: 80px 0;
-  @media (min-width: $md) {
-    margin: 160px 0;
-  }
-  &:first-child {
-    margin-top: 32px;
-    margin-bottom: 32px;
-    @media (min-width: $md) {
-      margin-top: 60px;
-      margin-bottom: 120px;
+@import "vars";
+.main {
+  $margin-md-vals: 120px, 52px;
+  @each $margin-md-val in $margin-md-vals {
+    &.first-section-margin-#{$margin-md-val} {
+      .section {
+        &:first-child {
+          @media (min-width: $md) {
+            margin-bottom: $margin-md-val;
+          }
+        }
+        &:nth-child(2) {
+          @media (min-width: $md) {
+            margin-top: $margin-md-val;
+          }
+        }
+      }
     }
   }
-  &:nth-child(2) {
-    margin-top: 32px;
+
+  .section {
+    margin: 80px 0;
     @media (min-width: $md) {
-      margin-top: 120px;
+      margin: 160px 0;
+    }
+    &:first-child {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      @media (min-width: $md) {
+        margin-top: 56px;
+        margin-bottom: 120px;
+      }
+    }
+    &:nth-child(2) {
+      margin-top: 32px;
+      @media (min-width: $md) {
+        margin-top: 120px;
+      }
+    }
+    &:last-child {
+      @media (min-width: $md) {
+        margin-bottom: 120px;
+      }
     }
   }
-  &:last-child {
-    @media (min-width: $md) {
-      margin-bottom: 120px;
-    }
-  }
+
 }

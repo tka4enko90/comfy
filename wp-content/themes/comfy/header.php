@@ -131,4 +131,3 @@ $header_options = array(
 	</div>
 
 </header>
-<main class="main">

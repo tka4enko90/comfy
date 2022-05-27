@@ -1,0 +1,50 @@
+{
+    "key": "group_6290658068109",
+    "title": "Space between sections",
+    "fields": [
+        {
+            "key": "field_62906598bbdb1",
+            "label": "Space between first two sections",
+            "name": "space_between_first_two_sections",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "120px": "120px",
+                "52px": "52px"
+            },
+            "default_value": "120px",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1653631960
+}
