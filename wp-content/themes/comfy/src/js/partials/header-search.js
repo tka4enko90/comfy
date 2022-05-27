@@ -1,8 +1,8 @@
 (function ($) {
 	var AjaxSearchForm = {
 		settings: {
-			searchForm: $( 'form.woocommerce-product-search' ),
-			searchFormInput: $( 'input#woocommerce-product-search-field-0' ),
+			searchForm: $( 'form#search-form' ),
+			searchFormInput: $( 'input#search-form-input' ),
 			toggleButton: $( 'header__widgets-link--cart, .shipping-change, .add-related-products-js' ),
 			minSearchValLength: 3,
 			searchResultList: $( '#search-results' ),

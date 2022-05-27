@@ -41,12 +41,8 @@ $section = array(
 <?php
 if ( ! empty( $section['image_id'] ) ) {
 	?>
-	<div class="container">
-		<div class="row">
-			<div class="col-100 image-col">
-				<?php echo  wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
-			</div>
-		</div>
+	<div class="container image-container">
+		<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
 	</div>
 	<?php
 }

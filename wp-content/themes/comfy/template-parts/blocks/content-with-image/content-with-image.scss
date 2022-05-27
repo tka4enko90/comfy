@@ -16,14 +16,26 @@
     }
   }
   .content-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-    padding-top: 30px;
+    $padding-md-vals: 5,6,7,8,9,10;
+    @each $padding-md-val in $padding-md-vals {
+      &.pr-md-#{$padding-md-val} {
+        @media ( min-width: $md ) {
+          padding-right: #{$padding-md-val + '%'};
+        }
+      }
+      &.pl-md-#{$padding-md-val} {
+        @media ( min-width: $md ) {
+          padding-left: #{$padding-md-val + '%'};
+        }
+      }
+    }
     @media (min-width: $md) {
-      padding-left: 10%;
-      padding-top: 0;
+      &.pr-md-15px {
+        padding-right: 15px;
+      }
+      &.pl-md-15px {
+        padding-left: 15px;
+      }
     }
 
     &.image-title-exist {
@@ -58,13 +70,6 @@
   }
 
   .image-position-right {
-    .content-col {
-      padding-left: 15px;
-      padding-right: 15px;
-      @media (min-width: $md) {
-        padding-right: 10%;
-      }
-    }
     .image-col {
       @media (min-width: $md) {
         order: 2;

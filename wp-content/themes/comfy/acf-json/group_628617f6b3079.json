@@ -641,6 +641,82 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_628f6ab53690e",
+                            "label": "Desktop Content Padding right",
+                            "name": "desktop_content_padding_right",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6287cf2f1b74e",
+                                        "operator": "==",
+                                        "value": "right"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "10": "10%",
+                                "9": "9%",
+                                "8": "8%",
+                                "7": "7%",
+                                "6": "6%",
+                                "5": "5%",
+                                "15px": "15px"
+                            },
+                            "default_value": 10,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_628fc4bf9bb83",
+                            "label": "Desktop Content Padding left",
+                            "name": "desktop_content_padding_left",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6287cf2f1b74e",
+                                        "operator": "==",
+                                        "value": "left"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "10": "10%",
+                                "9": "9%",
+                                "8": "8%",
+                                "7": "7%",
+                                "6": "6%",
+                                "5": "5%",
+                                "15px": "15px"
+                            },
+                            "default_value": 10,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -699,7 +775,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -719,7 +795,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -743,7 +819,7 @@
                                         "id": ""
                                     },
                                     "return_format": "id",
-                                    "preview_size": "cmf_review_slider",
+                                    "preview_size": "thumbnail",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -939,25 +1015,6 @@
                                     "placeholder": ""
                                 },
                                 {
-                                    "key": "field_628b995a4506f",
-                                    "label": "Open in new tab",
-                                    "name": "in_new_tab",
-                                    "type": "true_false",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "5",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "message": "",
-                                    "default_value": 1,
-                                    "ui": 0,
-                                    "ui_on_text": "",
-                                    "ui_off_text": ""
-                                },
-                                {
                                     "key": "field_628b90ffe6b22",
                                     "label": "Mobile only",
                                     "name": "mobile_only",
@@ -977,6 +1034,25 @@
                                     "ui_off_text": ""
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_628b995a4506f",
+                            "label": "Open links in new tab",
+                            "name": "in_new_tab",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "5",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -1006,5 +1082,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653473246
+    "modified": 1653589234
 }
