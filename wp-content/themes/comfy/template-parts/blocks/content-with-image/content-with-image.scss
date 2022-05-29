@@ -1,20 +1,32 @@
 @import "../../../src/scss/components/vars";
 .content-with-image-section {
-
+  .row {
+    //flex-wrap: nowrap;
+    @media (min-width: $md) {
+     // flex-wrap: wrap;
+    }
+  }
   .image-col {
-    @media ( max-width: $md - 1 ) {
-      padding-top: 32px;
+    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
+      //padding-top: 32px;
+      flex-basis: 50%;
     }
     .section-title {
       margin-top: -10px;
       margin-bottom: 28px;
+      line-height: 124%;
 
       @media (max-width: $md - 1) {
         font-size: 32px;
+        line-height: 104%;
+      }
+
+      @media (min-width: $sm) {
+        text-align: center;
       }
       @media (min-width: $md) {
-        text-align: center;
-        margin-bottom: 60px;
+
+        margin-bottom: 64px;
       }
     }
     img {
@@ -22,6 +34,14 @@
     }
   }
   .content-col {
+    padding-top: 30px;
+    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
+      padding-top: 32px;
+      flex-basis: 50%;
+    }
+    @media (min-width: $md) {
+      padding-top: 0;
+    }
     $padding-md-vals: 15, 16, 17, 18, 19, 20;
     @each $padding-md-val in $padding-md-vals {
       &.pr-md-#{$padding-md-val} {
@@ -39,7 +59,6 @@
     &.image-title-exist {
       @media (min-width: $md) {
         padding-top: 110px;
-        padding-left: 8.5%;
       }
 
     }
@@ -69,7 +88,7 @@
 
   .image-position-right {
     .image-col {
-      @media (min-width: $md) {
+      @media (min-width: $sm) {
         order: 2;
       }
     }

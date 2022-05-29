@@ -4,16 +4,24 @@
     @media (min-width: $lg) {
       flex-basis: 54%;
     }
-
+    .section-title {
+      margin-bottom: 0;
+    }
   }
   .right-col {
+    padding-top: 20px;
     @media (min-width: $md) {
       flex-basis: 345px;
     }
+    @media (min-width: $lg) {
+      padding-top: 0;
+    }
+
+
     .section-content {
       padding: 0 0 14px;
       @media (min-width: $md) {
-        padding: 14px 0;
+        padding: 8px 0 14px;
       }
     }
     .button {
@@ -28,6 +36,7 @@
 
   .image-container {
     padding: 0;
+    margin-top: 10px;
     @media (min-width: $md) {
       margin-top: 50px;
     }

@@ -1,10 +1,12 @@
 @import "../../../src/scss/components/vars";
 .review-slider {
+  margin: 0 -20px;
   &-slide {
     &-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 0 20px;
     }
     &-content {
       @media (max-width: $md - 1) {
@@ -14,8 +16,8 @@
         display: flex;
         align-items: center;
         order: 2;
-        @media (min-width: $md) {
-          flex-basis: 45%;
+        @media (min-width: $sm) {
+          flex-basis: 42%;
           order: 0;
         }
       }
@@ -36,16 +38,18 @@
     }
     &-image {
       flex-basis: 100%;
-      @media (min-width: $md) {
+      @media (min-width: $sm) {
         flex-basis: 48.6%;
       }
     }
 
   }
   .slick-arrow {
+
     z-index: 2;
     position: absolute;
-    bottom: 4px;
+    bottom: 5px;
+    left: 18px;
     font-size: 0;
     background: transparent;
     border: none;
@@ -62,7 +66,7 @@
       transform: rotate(180deg);
     }
     &.slick-next {
-      left: 64px;
+      left: 82px;
     }
   }
 

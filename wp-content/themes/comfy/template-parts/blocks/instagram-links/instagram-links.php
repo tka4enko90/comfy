@@ -70,8 +70,8 @@ $section = array(
 							if ( ! empty( $item['label'] ) ) {
 								?>
 									<span class="instagram-links-label">
-								<?php echo $item['label']; ?>
-						</span>
+										<?php echo $item['label']; ?>
+									</span>
 									<?php
 							}
 							if ( ! empty( $item['url'] ) ) {
