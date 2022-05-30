@@ -76,10 +76,8 @@
     }
   }
   &-rating {
-    display: flex;
-    align-items: center;
     padding: 0 8.6px;
-    .star-rating {
+    .cmf-star-rating {
       display: flex;
       .star {
         &.star-half {

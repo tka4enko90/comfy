@@ -21,10 +21,10 @@
           order: 0;
         }
       }
-      .star-rating {
+      .cmf-star-rating {
         display: flex;
         position: relative;
-        margin: 0 -4px 6px;
+        margin: 0 -4px 16px;
         @media (min-width: $md) {
           top: -34px;
           margin: 0 -4px;
@@ -32,7 +32,12 @@
 
         .star {
           padding: 0 4px;
+          width: 32px;
           flex-basis: 32px;
+          @media (max-width: $sm) {
+            width: 25px;
+            flex-basis: 25px;
+          }
         }
       }
     }
