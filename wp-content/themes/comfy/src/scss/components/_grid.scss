@@ -37,6 +37,11 @@
       max-width: 1042px;
     }
   }
+  &-xs {
+    @media (min-width: $md) {
+      max-width: 868px;
+    }
+  }
 }
 .row {
   display: flex;
@@ -81,4 +86,16 @@
 
     }
   }
+  &-sm {
+    $flex-basis-vals: 50, 100;
+    @each $flex-basis-val in $flex-basis-vals {
+      &-#{$flex-basis-val} {
+        @media ( min-width: $sm ) {
+          flex-basis: #{$flex-basis-val + '%'};
+        }
+      }
+
+    }
+  }
+
 }

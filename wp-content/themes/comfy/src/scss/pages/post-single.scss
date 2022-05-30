@@ -1,0 +1,57 @@
+@import "../components/vars";
+.post {
+  color: $secondary-color;
+  &-heading {
+    padding: 64px 0 60px;
+    text-align: center;
+    @media (min-width: $md) {
+      //width: 828px;
+      //margin: 0 auto;
+    }
+  }
+  &-title {
+    @media (min-width: $md) {
+      font-size: 56px;
+    }
+  }
+  &-subtitle {
+    margin-bottom: 10px;
+  }
+  .post-cats {
+    margin-bottom: 24px;
+  }
+  time {
+    font-size: 14px;
+  }
+  &-content {
+    margin: 64px auto 26px;
+
+    img {
+      margin: 40px 0 16px;
+    }
+    p {
+      margin-bottom: 24px;
+    }
+    h4 {
+      margin: 44px 0 26px 0;
+    }
+
+  }
+
+  &-author {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $line-gray;
+    padding: 40px 0;
+    &-info {
+      flex-grow: 2;
+      padding-left: 32px;
+    }
+    img {
+      min-width: 142px;
+      flex-basis: 142px;
+      border-radius: 100%;
+    }
+
+  }
+}

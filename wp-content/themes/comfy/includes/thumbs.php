@@ -9,7 +9,10 @@ add_action(
 
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'cmf_fullwidth', 1360, 640, true );
+	add_image_size( 'cmf_post_single', 1360, 598, true );
+	add_image_size( 'cmf_post_big', 1186, 480, true );
 	add_image_size( 'cmf_header_nav_image', 403, 256, true );
+	add_image_size( 'cmf_post_preview', 403, 403, true );
 	add_image_size( 'cmf_product_preview', 352, 352, true );
 
 	add_image_size( 'cmf_search_result', 54, 54 );

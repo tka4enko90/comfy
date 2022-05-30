@@ -1,6 +1,6 @@
 @import "vars";
 .main {
-  $margin-md-vals: 120px, 52px;
+  $margin-md-vals: 42px, 52px, 120px;
   @each $margin-md-val in $margin-md-vals {
     &.first-section-margin-#{$margin-md-val} {
       .section {
