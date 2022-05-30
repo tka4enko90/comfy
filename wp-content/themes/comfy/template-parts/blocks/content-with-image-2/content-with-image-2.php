@@ -4,27 +4,12 @@ wp_enqueue_style( 'content-with-image-2' . '-section', get_template_directory_ur
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	//'container'      => 'small',
-	'image_position' => get_sub_field( 'image_position' ),
-	'content_width'  => '35', // %
-	'image_group'    => array(
-		//'title'    => '', // Title above image
+	'content_width' => '35', // %
+	'image_group'   => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_content_with_image_2',
-		//'width'    => '', // if 'size' === custom
-		//'height'   => '', // if 'size' === custom
 	),
-	/*
-	'content_group'  => array(
-		'content' => '', //html string
-		'link'    => array(
-			'title'  => '',
-			'url'    => '',
-			'target' => '',
-		),
-	),*/
 );
-$settings[ 'content_padding_' . $settings['image_position'] ] = '15'; // px
 if ( ! empty( $content_col['icon_id'] ) && ! empty( $content_col['content'] ) ) {
 	ob_start();
 	?>

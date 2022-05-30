@@ -1,31 +1,15 @@
 <?php
 wp_enqueue_style( 'content-with-image-5' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image-5' . '/' . 'content-with-image-5' . '.css', '', '', 'all' );
 
-
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	//'container'      => 'small',
-	//'image_position' => get_sub_field( 'image_position' ),
 	'content_width' => '44', // %
 	'image_group'   => array(
-		//'title'    => '', // Title above image
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_review_slider',
-		//'width'    => '', // if 'size' === custom
-		//'height'   => '', // if 'size' === custom
 	),
-	/*
-	'content_group'  => array(
-		'content' => '', //html string
-		'link'    => array(
-			'title'  => '',
-			'url'    => '',
-			'target' => '',
-		),
-	),*/
 );
-//$settings[ 'content_padding_' . $settings['image_position'] ] = '15'; // px
 if ( ! empty( $content_col['sign_id'] ) && ! empty( $content_col['content'] ) ) {
 	ob_start();
 	?>
