@@ -42,13 +42,13 @@ if ( isset( $section['products_by'] ) ) {
 
 ?>
 	<div class="container">
-		<div class="row justify-content-between">
-			<?php
-			if ( ! empty( $section['title'] ) ) {
-				?>
-				<div class="col-100">
-					<h3 class="section-title"><?php echo $section['title']; ?></h3>
-				</div>
+		<?php
+		if ( ! empty( $section['title'] ) ) {
+			?>
+			<h3 class="section-title"><?php echo $section['title']; ?></h3>
+		<?php } ?>
+		<div class="row">
+
 				<?php
 				if ( isset( $products ) ) {
 					foreach ( $products as $product ) {
@@ -68,8 +68,7 @@ if ( isset( $section['products_by'] ) ) {
 						<?php
 					}
 				}
-			}
-			?>
+				?>
 		</div>
 	</div>
 <?php

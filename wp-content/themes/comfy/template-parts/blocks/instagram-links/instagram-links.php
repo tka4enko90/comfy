@@ -9,51 +9,49 @@ $section = array(
 
 ?>
 	<div class="container">
-		<div class="row">
-			<div class="col-100">
+		<?php
+		if ( ! empty( $section['account'] ) ) {
+			?>
+			<div class="instagram-links-section-account">
 				<?php
-				if ( ! empty( $section['account'] ) ) {
+				if ( ! empty( $section['account']['url'] ) ) {
 					?>
-					<div class="instagram-links-section-account">
-						<?php
-						if ( ! empty( $section['account']['url'] ) ) {
-							?>
-						<a href="<?php echo $section['account']['url']; ?>" class="instagram-links-section-account-link" <?php echo ( isset( $section['links_in_new_tab'] ) && true === $section['links_in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
-							<?php
-						}
+				<a href="<?php echo $section['account']['url']; ?>" class="instagram-links-section-account-link" <?php echo ( isset( $section['links_in_new_tab'] ) && true === $section['links_in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
+					<?php
+				}
+				?>
+					<?php
+					if ( ! empty( $section['account']['icon'] ) ) {
+						echo wp_get_attachment_image( $section['account']['icon'], array( 22, 22 ) );
+					}
+					if ( ! empty( $section['account']['label'] ) ) {
 						?>
+						<h6 class="instagram-links-section-account-heading">
+							<?php echo $section['account']['label']; ?>
+						</h6>
 						<?php
-						if ( ! empty( $section['account']['icon'] ) ) {
-							echo wp_get_attachment_image( $section['account']['icon'], array( 22, 22 ) );
-						}
-						if ( ! empty( $section['account']['label'] ) ) {
-							?>
-							<h6 class="instagram-links-section-account-heading">
-								<?php echo $section['account']['label']; ?>
-							</h6>
-							<?php
-						}
+					}
 
-						if ( ! empty( $section['account']['url'] ) ) {
-							?>
-							</a>
-							<?php
-						}
+					if ( ! empty( $section['account']['url'] ) ) {
 						?>
-					</div>
-					<?php
-				}
-				?>
-				<?php
-				if ( ! empty( $section['title'] ) ) {
+				</a>
+						<?php
+					}
 					?>
-					<h3 class="instagram-links-section-title">
-						<?php echo $section['title']; ?>
-					</h3>
-					<?php
-				}
-				?>
 			</div>
+			<?php
+		}
+		?>
+		<?php
+		if ( ! empty( $section['title'] ) ) {
+			?>
+			<h3 class="instagram-links-section-title">
+				<?php echo $section['title']; ?>
+			</h3>
+			<?php
+		}
+		?>
+		<div class="row">
 			<div class="col-100 instagram-links-cols">
 				<?php
 				if ( is_array( $section['items'] ) && 0 < count( $section['items'] ) ) {

@@ -4,8 +4,7 @@ wp_enqueue_style( 'content-with-image--we-created-comfy' . '-section', get_templ
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	'content_width' => '44', // %
-	'image_group'   => array(
+	'image_group' => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_review_slider',
 	),

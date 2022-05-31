@@ -9,8 +9,12 @@ body {
   font-family: 'Moderat';
   font-weight: normal;
   font-style: normal;
-  font-size: 16px;
-  line-height: 150%; //  142%; for 14px text
+  font-size: 14px;
+  line-height: 142%;
+  @media (min-width: $md) {
+    font-size: 16px;
+    line-height: 150%; //  142%; for 14px text
+  }
 }
 h1, h2, h3, h4, h5 {
   font-family: 'CotfordDisplay';
@@ -98,13 +102,6 @@ a {
   &:hover {
     color: $primary-color;
     text-decoration: none;
-  }
-}
-
-body {
-  font-size: 16px;
-  @media (max-width: $md) {
-    font-size: 14px;
   }
 }
 

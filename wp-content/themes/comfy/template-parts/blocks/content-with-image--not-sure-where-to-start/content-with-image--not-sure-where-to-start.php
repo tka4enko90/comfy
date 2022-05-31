@@ -4,8 +4,7 @@ wp_enqueue_style( 'content-with-image--not-sure-where-to-start' . '-section', ge
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	'content_width' => '35', // %
-	'image_group'   => array(
+	'image_group' => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_content_with_image_2',
 	),

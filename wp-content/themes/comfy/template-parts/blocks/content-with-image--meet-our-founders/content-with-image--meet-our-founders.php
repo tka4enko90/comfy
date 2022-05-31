@@ -1,8 +1,7 @@
 <?php
 $image_col = get_sub_field( 'image' );
 $settings  = array(
-	'content_width' => '50', // %
-	'image_group'   => array(
+	'image_group' => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_content_with_image_3',
 	),

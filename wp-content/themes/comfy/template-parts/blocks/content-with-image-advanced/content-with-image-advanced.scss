@@ -1,99 +1,58 @@
 @import "../../../src/scss/components/vars";
 .content-with-image-advanced-section {
   .row {
-    //flex-wrap: nowrap;
-    @media (min-width: $md) {
-     // flex-wrap: wrap;
-    }
-  }
-  .image-col {
-    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
-      //padding-top: 32px;
-      flex-basis: 50%;
-    }
-    .section-title {
-      margin-top: -10px;
-      margin-bottom: 28px;
-      line-height: 124%;
-
-      @media (max-width: $md - 1) {
-        font-size: 32px;
-        line-height: 104%;
+    align-items: center;
+    &.image-position-right {
+      .col {
+        &:first-child {
+          @media (min-width: $sm) {
+            order: 2;
+          }
+        }
       }
-
+    }
+    .col {
       @media (min-width: $sm) {
-        text-align: center;
+        flex-basis: 50%;
       }
-      @media (min-width: $md) {
-
-        margin-bottom: 64px;
-      }
-    }
-    img {
-      border-radius: 8px;
-    }
-  }
-  .content-col {
-    padding-top: 30px;
-    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
-      padding-top: 32px;
-      flex-basis: 50%;
-    }
-    @media (min-width: $md) {
-      padding-top: 0;
-    }
-    $padding-md-vals: 15, 16, 17, 18, 19, 20;
-    @each $padding-md-val in $padding-md-vals {
-      &.pr-md-#{$padding-md-val} {
-        @media ( min-width: $md ) {
-          padding-right: #{$padding-md-val + 'px'};
+      &:first-child {
+        @media (max-width: $md - 1) {
+          margin-bottom: 32px;
         }
       }
-      &.pl-md-#{$padding-md-val} {
-        @media ( min-width: $md ) {
-          padding-left: #{$padding-md-val + 'px'};
-        }
-      }
-    }
-
-    &.image-title-exist {
-      @media (min-width: $md) {
-        padding-top: 110px;
-      }
-
-    }
-    ul {
-      padding-left: 0;
-      padding-right: 5%;
-      margin-bottom: 0;
-      li {
-        display: block;
-        margin-bottom: 30px;
-        @media (min-width: $md) {
-          margin-bottom: 42px;
-        }
-        &:last-child {
-          margin-bottom: 16px;
-        }
-      }
-    }
-    img {
-      width: auto;
-      margin-bottom: 5px;
-      @media (min-width: $md) {
-        margin-bottom: 10px;
+      &:last-child {
+       img {
+         width: auto;
+       }
       }
     }
   }
-
-  .image-position-right {
-    .image-col {
-      @media (min-width: $sm) {
-        order: 2;
+  h2, h3, h4, h5 {
+    margin: 0;
+  }
+  p {
+    margin: 16px 0 0;
+  }
+  ul {
+    padding: 0;
+    li {
+      display: block;
+      margin-top: 32px;
+      @media (min-width: $md) {
+        margin-top: 48px;
+      }
+      &:first-child {
+        margin-top: 0;
       }
     }
   }
   .button-secondary {
-    margin: 15px 0 0;
+    margin: 24px 0 0;
+    @media (min-width: $sm) {
+      margin-top: 32px;
+    }
+  }
+  .section-title {
+
   }
 }
