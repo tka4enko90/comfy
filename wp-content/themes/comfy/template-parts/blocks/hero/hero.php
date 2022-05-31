@@ -7,7 +7,7 @@ $section = array(
 	'image_id' => get_sub_field( 'image_id' ),
 );
 ?>
-<div class="container container-small">
+<div class="container container-sm">
 	<div class="row justify-content-between">
 		<div class="col left-col">
 			<?php
@@ -47,7 +47,7 @@ $section = array(
 <?php
 if ( ! empty( $section['image_id'] ) ) {
 	?>
-	<div class="container container-large image-container">
+	<div class="container container-lg image-container">
 		<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
 	</div>
 	<?php

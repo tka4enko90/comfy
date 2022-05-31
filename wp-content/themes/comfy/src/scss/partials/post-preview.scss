@@ -1,0 +1,22 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 64px;
+  &-wrap {
+
+  }
+  &-thumb {
+    margin-bottom: 16px;
+    img {
+      border-radius: 8px;
+    }
+  }
+  &-title {
+    font-size: 32px;
+    line-height: 100%;
+    margin-bottom: 32px;
+  }
+
+}
