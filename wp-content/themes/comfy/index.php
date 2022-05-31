@@ -13,7 +13,7 @@ get_header();
 ?>
 <main class="main first-section-margin-52px">
 	<section class="section">
-		<div class="container container-small">
+		<div class="container container-sm">
 			<div class="row">
 				<div class="col-100">
 					<h1 class="page-title"><?php echo $page_title; ?></h1>
@@ -69,7 +69,7 @@ get_header();
 					<div class="content-with-image-section">
 						<?php get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings ); ?>
 					</div>
-					<div class="container container-small">
+					<div class="container container-sm">
 						<div class="row">
 							<div class="col col-100">
 								<h3 class="archive-section-title"><?php _e( 'Latest on our blog', 'comfy' ); ?></h3>
@@ -116,7 +116,7 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="container container-small">
+					<div class="container container-sm">
 						<div class="row">
 					<?php
 					break;

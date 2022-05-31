@@ -42,7 +42,7 @@ $author      = array(
 				</div>
 			</div>
 		</div>
-		<div class="container container-large">
+		<div class="container container-lg">
 			<div class="row">
 				<?php the_post_thumbnail( 'cmf_post_single' ); ?>
 			</div>

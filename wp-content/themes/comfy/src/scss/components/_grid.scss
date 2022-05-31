@@ -17,7 +17,7 @@
     max-width: 1214px;
   }
 
-  &-large {
+  &-lg {
     @media (min-width: $md) {
       max-width: $container-large-tablet-width;
     }
@@ -26,7 +26,7 @@
     }
   }
 
-  &-small {
+  &-sm {
 
     @media (min-width: $md) {
      // max-width: 480px;

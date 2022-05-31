@@ -19,7 +19,7 @@ if ( 'custom' === $section['image_group']['size'] ) {
 	}
 }
 
-$container_class    = ( ! empty( $section['container'] ) && 'medium' !== $section['container'] ) ? 'container-' . $section['container'] : '';
+$container_class    = ( ! empty( $section['container'] ) && 'md' !== $section['container'] ) ? 'container-' . $section['container'] : '';
 $row_class          = ( ! empty( $section['image_position'] ) ) ? 'image-position-' . $section['image_position'] : '';
 $content_col_class  = ( ! empty( $section['content_width'] ) ) ? 'col-md-' . $section['content_width'] : '';
 $content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-title-exist' : '';

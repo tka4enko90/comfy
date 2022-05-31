@@ -15,7 +15,7 @@ $footer_options = array(
 );
 ?>
 <footer class="footer">
-	<div class="container container-large">
+	<div class="container container-lg">
 		<div class="row justify-content-between">
 			<div class="footer-social">
 				<?php
