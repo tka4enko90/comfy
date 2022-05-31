@@ -66,8 +66,8 @@ get_header();
 
 					);
 					?>
-					<div class="content-with-image-section">
-						<?php get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings ); ?>
+					<div class="content-with-image-advanced-section">
+						<?php get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings ); ?>
 					</div>
 					<div class="container container-sm">
 						<div class="row">
