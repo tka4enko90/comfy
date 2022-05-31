@@ -11,7 +11,7 @@
     // max-width: 520px;
   }
   @media (min-width: $xl) {
-    max-width: 1214px;
+    max-width: $container-desktop-width;
   }
 
   &-lg {
@@ -27,11 +27,10 @@
 
     @media (min-width: $md) {
      // max-width: 480px;
-      padding: 0 30px;
     }
     @media (min-width: $xl) {
       padding: 0 20px;
-      max-width: 1042px;
+      max-width: 1050px;
     }
   }
   &-xs {

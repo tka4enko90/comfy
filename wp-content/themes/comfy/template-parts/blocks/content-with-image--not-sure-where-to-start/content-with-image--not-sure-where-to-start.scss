@@ -1,6 +1,20 @@
 @import "../../../src/scss/components/vars";
 .content-with-image--not-sure-where-to-start {
   &-section {
+    .row {
+      .col {
+        &:first-child {
+          @media (min-width: $md ) {
+            flex-basis: 704px;
+          }
+        }
+        &:last-child {
+          @media (min-width: $md ) {
+            flex-basis: 433px;
+          }
+        }
+      }
+    }
     .content-icon {
       position: relative;
       padding-bottom: 20px;

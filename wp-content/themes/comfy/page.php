@@ -21,13 +21,26 @@ get_header(); ?>
 
 		while ( have_rows( 'flexible_sections' ) ) :
 			the_row();
-			$section_name  = str_replace( '_', '-', get_row_layout() );
-			$section_class = str_starts_with( $section_name, 'content-with-image-' ) ? 'content-with-image-advanced-section ' . $section_name : $section_name;
+			$section_classes  = '';
+			$section_name     = str_replace( '_', '-', get_row_layout() );
+			$section_classes .= str_starts_with( $section_name, 'content-with-image-' ) ? 'content-with-image-advanced-section ' . $section_name . '-section' : $section_name . '-section';
+			$args             = array(
+				'section_name' => $section_name,
+			);
+			ob_start();
+			get_template_part( $section_directory . '/' . $section_name . '/' . $section_name, '', $args );
+			$section_layout  = ob_get_clean();
+			$section_classes = apply_filters( $section_name . '_classes', $section_classes );
 			?>
-			<section class="section <?php echo $section_class . '-section'; ?>">
-				<?php get_template_part( $section_directory . '/' . $section_name . '/' . $section_name ); ?>
+			<section class="section <?php echo $section_classes; ?>">
+				<?php echo $section_layout; ?>
 			</section>
 			<?php
+
+
+			if ( ! empty( $classes ) ) {
+				wp_die( $classes );
+			}
 		endwhile;
 	else :
 		the_content();

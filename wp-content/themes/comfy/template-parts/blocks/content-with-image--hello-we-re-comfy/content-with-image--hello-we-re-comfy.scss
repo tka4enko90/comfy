@@ -1,0 +1,19 @@
+@import "../../../src/scss/components/vars";
+.content-with-image--hello-we-re-comfy {
+  &-section {
+    .row {
+      .col {
+        &:first-child {
+          @media (min-width: $md ) {
+            flex-basis: 530px;
+          }
+        }
+        &:last-child {
+          @media (min-width: $md ) {
+            flex-basis: 443px;
+          }
+        }
+      }
+    }
+  }
+}

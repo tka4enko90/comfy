@@ -1,44 +1,47 @@
 @import "../../../src/scss/components/vars";
 .hero-section {
-  .left-col {
-    @media (min-width: $lg) {
-      flex-basis: 54%;
+  .row {
+    .col {
+      &:first-child {
+        @media (min-width: $lg) {
+          flex-basis: 54%;
+        }
+      }
+      &:last-child {
+        @media (min-width: $lg) {
+          flex-basis: 350px;
+        }
+      }
     }
-    .section-title {
+  }
+  .left-col {
+
+
+  }
+  .section-title {
+    margin-bottom: 0;
+  }
+  .section-content {
+    p {
+      margin-top: 8px;
+    }
+    @media (min-width: $md) {
+
+    }
+  }
+  .button {
+    margin-top: 24px;
+    margin-bottom: 0;
+    @media (min-width: $sm) {
+      margin-top: 8px;
       margin-bottom: 0;
     }
   }
-  .right-col {
-    padding-top: 20px;
-    @media (min-width: $md) {
-      flex-basis: 345px;
-    }
-    @media (min-width: $lg) {
-      padding-top: 0;
-    }
 
-
-    .section-content {
-      padding: 0 0 14px;
-      @media (min-width: $md) {
-        padding: 8px 0 14px;
-      }
-    }
-    .button {
-      margin-top: 5px;
-      margin-bottom: 10px;
-      @media (min-width: $sm) {
-        margin-top: 8px;
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .image-container {
-    padding: 0;
+  img {
     margin-top: 10px;
     @media (min-width: $md) {
-      margin-top: 50px;
+      margin-top: 64px;
     }
   }
 }
