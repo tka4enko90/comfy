@@ -1,5 +1,6 @@
 @import "../components/vars";
 .post {
+  margin-bottom: 120px;
   color: $secondary-color;
   &-heading {
     padding: 64px 0 60px;
@@ -18,6 +19,7 @@
     margin-bottom: 10px;
   }
   .post-cats {
+    justify-content: center;
     margin-bottom: 24px;
   }
   time {
@@ -37,21 +39,54 @@
     }
 
   }
-
-  &-author {
+  .post-author {
     display: flex;
-    align-items: center;
+    align-items: start;
     border-top: 1px solid $line-gray;
-    padding: 40px 0;
+    padding-top: 40px;
+    margin-bottom: 0;
+    @media (min-width: $md) {
+      align-items: center;
+    }
     &-info {
       flex-grow: 2;
       padding-left: 32px;
     }
     img {
-      min-width: 142px;
-      flex-basis: 142px;
+      min-width: 80px;
+      flex-basis: 80px;
       border-radius: 100%;
+      @media (min-width: $md) {
+        min-width: 142px;
+        flex-basis: 142px;
+      }
     }
+  }
+  img {
+    border-radius: 8px;
+  }
+}
+.related-posts {
+  margin-bottom: 48px;
+  @media (min-width: $sm) {
+    margin-bottom: 88px;
+  }
+  &-title {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .post {
+    margin-bottom: 32px;
+    &-cats {
+      justify-content: start;
+      margin-bottom: 8px;
+      .post-cat {
+        font-size: 14px;
+      }
+    }
+  }
 
+  img {
+    margin-bottom: 24px;
   }
 }
