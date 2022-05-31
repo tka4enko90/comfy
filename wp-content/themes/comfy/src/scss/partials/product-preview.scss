@@ -1,7 +1,7 @@
 @import "../components/vars";
 .product {
   margin-bottom: 30px;
-  @media (min-width: $md) {
+  @media (min-width: $lg) {
     margin-bottom: 0;
   }
   &-title {
@@ -65,17 +65,19 @@
   }
   &-description {
     flex-basis: 100%;
-    padding-right: 7%;
-    line-height: 1;
+    padding-right: 12%;
+    font-size: 12px;
+    line-height: 1.333em;
+    margin-bottom: 14px;
     @media (min-width: $md) {
-
+      font-size: 14px;
+      padding-right: 20%;
+      margin-bottom: 20px;
     }
   }
   &-rating {
-    display: flex;
-    align-items: center;
     padding: 0 8.6px;
-    .star-rating {
+    .cmf-star-rating {
       display: flex;
       .star {
         &.star-half {
@@ -84,7 +86,6 @@
         &.star-empty {
           opacity: .3;
         }
-
       }
     }
   }

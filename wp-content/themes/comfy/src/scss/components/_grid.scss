@@ -11,26 +11,30 @@
     padding: 0 15px;
   }
   @media (min-width: $md) {
-    max-width: $container-tablet-width;
+    // max-width: 520px;
   }
   @media (min-width: $xl) {
-    max-width: $container-desktop-width;
+    max-width: 1214px;
   }
-  &-medium {
+
+  &-large {
     @media (min-width: $md) {
-     // max-width: 520px;
+      max-width: $container-large-tablet-width;
     }
     @media (min-width: $xl) {
-      max-width: 1214px;
+      max-width: $container-large-desktop-width;
     }
   }
 
   &-small {
+
     @media (min-width: $md) {
      // max-width: 480px;
+      padding: 0 30px;
     }
     @media (min-width: $xl) {
-    max-width: 1042px;
+      padding: 0 15px;
+      max-width: 1042px;
     }
   }
 }
@@ -67,30 +71,14 @@
         flex-basis: 33.333%;
       }
     }
-    &-40 {
-      @media (min-width: $md) {
-        flex-basis: 40%;
+    $flex-basis-vals: 33, 35, 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 60, 100;
+    @each $flex-basis-val in $flex-basis-vals {
+      &-#{$flex-basis-val} {
+        @media ( min-width: $md ) {
+          flex-basis: #{$flex-basis-val + '%'};
+        }
       }
-    }
-    &-42 {
-      @media (min-width: $md) {
-        flex-basis: 42%;
-      }
-    }
-    &-50 {
-      @media (min-width: $md) {
-        flex-basis: 50%;
-      }
-    }
-    &-60 {
-      @media (min-width: $md) {
-        flex-basis: 60%;
-      }
-    }
-    &-100 {
-      @media (min-width: $md) {
-        flex-basis: 100%;
-      }
+
     }
   }
 }

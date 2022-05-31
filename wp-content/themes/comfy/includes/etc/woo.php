@@ -53,7 +53,7 @@ function cmf_star_rating( $args = array() ) {
 		$title = sprintf( __( '%s rating' ), number_format_i18n( $rating, 1 ) );
 	}
 
-	$output  = '<div class="star-rating">';
+	$output  = '<div class="cmf-star-rating">';
 	$output .= '<span class="screen-reader-text">' . $title . '</span>';
 	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-full" >', $full_stars );
 	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-half" >', $half_stars );

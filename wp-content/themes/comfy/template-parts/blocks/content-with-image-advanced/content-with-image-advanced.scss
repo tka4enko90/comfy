@@ -1,47 +1,64 @@
 @import "../../../src/scss/components/vars";
-.content-with-image-section {
-
+.content-with-image-advanced-section {
+  .row {
+    //flex-wrap: nowrap;
+    @media (min-width: $md) {
+     // flex-wrap: wrap;
+    }
+  }
   .image-col {
+    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
+      //padding-top: 32px;
+      flex-basis: 50%;
+    }
     .section-title {
       margin-top: -10px;
       margin-bottom: 28px;
+      line-height: 124%;
 
       @media (max-width: $md - 1) {
         font-size: 32px;
+        line-height: 104%;
+      }
+
+      @media (min-width: $sm) {
+        text-align: center;
       }
       @media (min-width: $md) {
-        text-align: center;
-        margin-bottom: 60px;
+
+        margin-bottom: 64px;
       }
+    }
+    img {
+      border-radius: 8px;
     }
   }
   .content-col {
-    $padding-md-vals: 5,6,7,8,9,10;
+    padding-top: 30px;
+    @media (min-width: $sm) and ( max-width: $lg - 1 ) {
+      padding-top: 32px;
+      flex-basis: 50%;
+    }
+    @media (min-width: $md) {
+      padding-top: 0;
+    }
+    $padding-md-vals: 15, 16, 17, 18, 19, 20;
     @each $padding-md-val in $padding-md-vals {
       &.pr-md-#{$padding-md-val} {
         @media ( min-width: $md ) {
-          padding-right: #{$padding-md-val + '%'};
+          padding-right: #{$padding-md-val + 'px'};
         }
       }
       &.pl-md-#{$padding-md-val} {
         @media ( min-width: $md ) {
-          padding-left: #{$padding-md-val + '%'};
+          padding-left: #{$padding-md-val + 'px'};
         }
-      }
-    }
-    @media (min-width: $md) {
-      &.pr-md-15px {
-        padding-right: 15px;
-      }
-      &.pl-md-15px {
-        padding-left: 15px;
       }
     }
 
     &.image-title-exist {
       @media (min-width: $md) {
         padding-top: 110px;
-        padding-left: 8.5%;
       }
 
     }
@@ -71,7 +88,7 @@
 
   .image-position-right {
     .image-col {
-      @media (min-width: $md) {
+      @media (min-width: $sm) {
         order: 2;
       }
     }

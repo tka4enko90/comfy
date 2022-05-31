@@ -1,7 +1,14 @@
 @import 'vars';
 
 main {
-  padding-top: 112px; // Header crunch
+  padding-top: 90px;
+  @media (min-width: $md) {
+    padding-top: 112px; // Header crunch
+  }
+  @media (min-width: $mobile-header-breakpoint) {
+    padding-top: 112px; // Header crunch
+  }
+
 }
 .nav-toggle {
   $width: 14px;

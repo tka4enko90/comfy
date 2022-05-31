@@ -1,13 +1,18 @@
 @import "../../../src/scss/components/vars";
 .products-section {
   .section-title {
-    margin-bottom: 30px;
+    margin-bottom: 34px;
     @media (min-width: $sm) {
-      margin-bottom: 60px;
+      line-height: 86%;
+      margin-bottom: 70px;
     }
   }
   .col {
     flex-basis: 100%;
+
+    @media (min-width: $sm) {
+      flex-basis: 50%;
+    }
     @media (min-width: $lg) {
       flex-basis: 31.33%;
     }

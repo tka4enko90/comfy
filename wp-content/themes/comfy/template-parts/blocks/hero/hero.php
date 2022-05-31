@@ -20,28 +20,34 @@ $section = array(
 			}
 			?>
 		</div>
-		<div class="col right-col">
-			<div class="section-content">
-				<?php
-				echo ( ! empty( $section['content'] ) ) ? $section['content'] : '';
-				if ( isset( $section['link'] ) ) {
-					if ( isset( $section['link']['url'] ) && isset( $section['link']['title'] ) ) {
-						?>
-						<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
-							<?php echo $section['link']['title']; ?>
-						</a>
-						<?php
+		<?php
+		if ( ! empty( $section['content'] ) || ! empty( $section['link']['url'] ) ) {
+			?>
+			<div class="col right-col">
+				<div class="section-content">
+					<?php
+					echo ( ! empty( $section['content'] ) ) ? $section['content'] : '';
+					if ( isset( $section['link'] ) ) {
+						if ( isset( $section['link']['url'] ) && isset( $section['link']['title'] ) ) {
+							?>
+							<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+								<?php echo $section['link']['title']; ?>
+							</a>
+							<?php
+						}
 					}
-				}
-				?>
+					?>
+				</div>
 			</div>
-		</div>
+			<?php
+		}
+		?>
 	</div>
 </div>
 <?php
 if ( ! empty( $section['image_id'] ) ) {
 	?>
-	<div class="container image-container">
+	<div class="container container-large image-container">
 		<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
 	</div>
 	<?php

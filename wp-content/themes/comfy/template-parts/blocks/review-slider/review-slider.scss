@@ -1,10 +1,12 @@
 @import "../../../src/scss/components/vars";
 .review-slider {
+  margin: 0 -20px;
   &-slide {
     &-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 0 20px;
     }
     &-content {
       @media (max-width: $md - 1) {
@@ -14,15 +16,15 @@
         display: flex;
         align-items: center;
         order: 2;
-        @media (min-width: $md) {
-          flex-basis: 45%;
+        @media (min-width: $sm) {
+          flex-basis: 42%;
           order: 0;
         }
       }
-      .star-rating {
+      .cmf-star-rating {
         display: flex;
         position: relative;
-        margin: 0 -4px 6px;
+        margin: 0 -4px 16px;
         @media (min-width: $md) {
           top: -34px;
           margin: 0 -4px;
@@ -30,22 +32,29 @@
 
         .star {
           padding: 0 4px;
+          width: 32px;
           flex-basis: 32px;
+          @media (max-width: $sm) {
+            width: 25px;
+            flex-basis: 25px;
+          }
         }
       }
     }
     &-image {
       flex-basis: 100%;
-      @media (min-width: $md) {
+      @media (min-width: $sm) {
         flex-basis: 48.6%;
       }
     }
 
   }
   .slick-arrow {
+
     z-index: 2;
     position: absolute;
-    bottom: 4px;
+    bottom: 5px;
+    left: 18px;
     font-size: 0;
     background: transparent;
     border: none;
@@ -62,7 +71,7 @@
       transform: rotate(180deg);
     }
     &.slick-next {
-      left: 64px;
+      left: 82px;
     }
   }
 

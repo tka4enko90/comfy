@@ -1,0 +1,21 @@
+@import "../../../src/scss/components/vars";
+.content-with-image--not-sure-where-to-start {
+  &-section {
+    .content-icon {
+      position: relative;
+      padding-bottom: 20px;
+      @media (min-width: $sm ) {
+        padding-bottom: 26px;
+      }
+      img {
+        position: absolute;
+        top: -55px;
+        @media (max-width: $sm - 1 ) {
+          position: static;
+          margin-top: -6px;
+          max-width: 40px;
+        }
+      }
+    }
+  }
+}

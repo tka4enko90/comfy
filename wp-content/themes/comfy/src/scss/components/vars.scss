@@ -14,8 +14,12 @@ $std-transition-length: 300ms;
 $transition: all $std-transition-length ease-in;
 
 // Container
-$container-desktop-width: 1360px;
+$container-large-desktop-width: 1360px;
+$container-desktop-width: 1214px;
+
+$container-large-tablet-width: 100%;
 $container-tablet-width: 768px;
+
 $container-breakpoint-window: 10px;
 
 

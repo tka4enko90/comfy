@@ -32,7 +32,9 @@ h1 {
 h2 {
   font-size: 32px;
   line-height: 1;
+  letter-spacing: -.02em;
   margin: 0 0 18px 0;
+
 
   @media (min-width: $md) {
     font-size: 56px;
@@ -44,7 +46,8 @@ h2 {
 
 h3 {
   font-size: 24px;
-  line-height: 1.333;
+  //line-height: 86%;
+  letter-spacing: -.02em;
   margin: 0 0 20px 0;
 
   @media (min-width: $sm) {
@@ -54,6 +57,7 @@ h3 {
 
 h4 {
   font-size: 24px;
+  letter-spacing: -.02em;
   line-height: 1;
   margin: 0 0 16px 0;
 
@@ -67,7 +71,7 @@ h4 {
 
 h5 {
   font-size: 20px;
-
+  letter-spacing: -.02em;
   font-weight: 400;
   line-height: 1.27;
   margin: 0 0 20px 0;
