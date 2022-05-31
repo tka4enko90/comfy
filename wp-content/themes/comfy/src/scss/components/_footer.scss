@@ -6,7 +6,7 @@ footer {
     @media (min-width: $md) {
       padding-top: 80px;
     }
-    @media (max-width: 880px) {
+    @media (max-width: $mobile-header-breakpoint -1 ) {
       overflow: hidden; // mobile crunch
     }
     h3 {
