@@ -1,5 +1,5 @@
 <?php
-wp_enqueue_style( 'content-with-image-2' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image-2' . '/' . 'content-with-image-2' . '.css', '', '', 'all' );
+wp_enqueue_style( 'content-with-image--not-sure-where-to-start' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image--not-sure-where-to-start' . '/' . 'content-with-image--not-sure-where-to-start' . '.css', '', '', 'all' );
 
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
@@ -22,4 +22,4 @@ if ( ! empty( $content_col['icon_id'] ) && ! empty( $content_col['content'] ) ) 
 }
 $settings['content_group']['link'] = $content_col['link'];
 
-get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings );
+get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings );

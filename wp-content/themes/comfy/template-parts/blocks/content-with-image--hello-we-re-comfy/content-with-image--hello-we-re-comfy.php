@@ -10,4 +10,4 @@ $settings  = array(
 	),
 );
 $settings[ 'content_padding_' . $settings['image_position'] ] = '20'; // px
-get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings );
+get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings );

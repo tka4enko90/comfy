@@ -1,5 +1,5 @@
 <?php
-wp_enqueue_style( 'content-with-image-5' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image-5' . '/' . 'content-with-image-5' . '.css', '', '', 'all' );
+wp_enqueue_style( 'content-with-image--we-created-comfy' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image--we-created-comfy' . '/' . 'content-with-image--we-created-comfy' . '.css', '', '', 'all' );
 
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
@@ -36,4 +36,4 @@ if ( ! empty( $content_col['sign_id'] ) && ! empty( $content_col['content'] ) ) 
 }
 $settings['content_group']['link'] = $content_col['link'];
 
-get_template_part( 'template-parts/blocks/content-with-image/content-with-image', '', $settings );
+get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings );

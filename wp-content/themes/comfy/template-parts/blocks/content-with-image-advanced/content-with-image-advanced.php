@@ -1,5 +1,5 @@
 <?php
-wp_enqueue_style( 'content-with-image' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image' . '/' . 'content-with-image' . '.css', '', '', 'all' );
+wp_enqueue_style( 'content-with-image' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image-advanced' . '/' . 'content-with-image-advanced' . '.css', '', '', 'all' );
 $section = array(
 	'image_group'           => isset( $args['image_group'] ) ? $args['image_group'] : get_sub_field( 'image' ),
 	'content_group'         => isset( $args['content_group'] ) ? $args['content_group'] : get_sub_field( 'content' ),
