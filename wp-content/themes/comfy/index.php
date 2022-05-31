@@ -58,7 +58,6 @@ get_header();
 					?>
 
 					<?php
-
 					$settings['content_group']['content'] = ob_get_clean();
 					$settings['content_group']['link']    = array(
 						'url'   => get_permalink(),

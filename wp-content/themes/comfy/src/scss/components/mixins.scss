@@ -37,4 +37,8 @@
 @mixin button-secondary-white {
   color: #fff;
   border: 1.5px solid #fff;
+  transition: color $std-transition-length ease, background-color $std-transition-length ease;
+  &:hover {
+    background-color: #fff;
+  }
 }
