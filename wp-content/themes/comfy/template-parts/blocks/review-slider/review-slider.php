@@ -10,7 +10,7 @@ $section = array(
 
 if ( is_array( $section['slides'] ) && 0 < count( $section['slides'] ) ) {
 	?>
-	<div class="container container-medium">
+	<div class="container">
 		<div class="row">
 			<div class="col-100">
 				<div class="review-slider">

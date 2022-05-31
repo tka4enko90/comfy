@@ -41,7 +41,7 @@ if ( isset( $section['products_by'] ) ) {
 }
 
 ?>
-	<div class="container container-medium">
+	<div class="container">
 		<div class="row justify-content-between">
 			<?php
 			if ( ! empty( $section['title'] ) ) {

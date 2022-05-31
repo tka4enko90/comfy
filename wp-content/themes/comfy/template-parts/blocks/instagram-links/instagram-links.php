@@ -8,7 +8,7 @@ $section = array(
 );
 
 ?>
-	<div class="container container-medium">
+	<div class="container">
 		<div class="row">
 			<div class="col-100">
 				<?php
