@@ -7,16 +7,12 @@
           flex-basis: 54%;
         }
       }
-      &:last-child {
+      &:nth-child(2) {
         @media (min-width: $lg) {
           flex-basis: 350px;
         }
       }
     }
-  }
-  .left-col {
-
-
   }
   .section-title {
     margin-bottom: 0;
