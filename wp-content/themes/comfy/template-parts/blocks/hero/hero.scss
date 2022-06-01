@@ -37,8 +37,12 @@
 
   img {
     margin-top: 32px;
+    @media (min-width: $sm) {
+      border-radius: 8px;
+    }
     @media (min-width: $md) {
       margin-top: 64px;
     }
+
   }
 }

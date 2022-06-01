@@ -35,6 +35,9 @@
         flex-basis: 50%;
       }
       &:first-child {
+        img {
+          border-radius: 8px;
+        }
         @media (max-width: $md - 1) {
           margin-bottom: 32px;
         }
