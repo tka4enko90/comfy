@@ -24,14 +24,7 @@
   }
 
   &-sm {
-
-    @media (min-width: $md) {
-     // max-width: 480px;
-    }
-    @media (min-width: $xl) {
-      padding: 0 20px;
-      max-width: 1050px;
-    }
+    max-width: 945px;
   }
   &-xs {
     @media (min-width: $md) {
