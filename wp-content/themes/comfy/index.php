@@ -11,14 +11,10 @@ $post_counter      = 0;
 
 get_header();
 ?>
-<main class="main first-section-margin-52px">
+<main class="main first-section-margin-64px">
 	<section class="section">
 		<div class="container container-sm">
-			<div class="row">
-				<div class="col-100">
-					<h1 class="page-title"><?php echo $page_title; ?></h1>
-				</div>
-			</div>
+            <h1 class="page-title"><?php echo $page_title; ?></h1>
 		</div>
 	</section>
 	<?php

@@ -1,13 +1,15 @@
 @import "../components/vars";
 .post {
-  margin-bottom: 120px;
+  margin-bottom: 60px;
   color: $secondary-color;
+  @media (min-width: $md) {
+    margin-bottom: 120px;
+  }
   &-heading {
-    padding: 64px 0 60px;
+    margin: 32px 0;
     text-align: center;
     @media (min-width: $md) {
-      //width: 828px;
-      //margin: 0 auto;
+      margin: 64px 0 60px;
     }
   }
   &-title {
@@ -16,26 +18,40 @@
     }
   }
   &-subtitle {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .post-cats {
     justify-content: center;
-    margin-bottom: 24px;
+    @media (min-width: $md) {
+      margin-bottom: 20px;
+    }
   }
   time {
     font-size: 14px;
+    @media (max-width: $md - 1) {
+      display: block;
+      margin-top: 16px;
+    }
   }
   &-content {
-    margin: 64px auto 26px;
-
+    margin: 32px auto 26px;
+    @media (min-width: $md) {
+      margin: 64px auto 26px;
+    }
     img {
-      margin: 40px 0 16px;
+      margin: 18px 0 0;
+      @media (min-width: $md) {
+        margin: 44px 0 26px;
+      }
     }
     p {
       margin-bottom: 24px;
     }
     h4 {
-      margin: 44px 0 26px 0;
+      margin: 40px 0 16px;
+      @media (min-width: $md) {
+        margin: 44px 0 26px;
+      }
     }
 
   }
@@ -67,13 +83,17 @@
   }
 }
 .related-posts {
-  margin-bottom: 48px;
+  margin-bottom: 80px;
   @media (min-width: $sm) {
-    margin-bottom: 88px;
+    margin-bottom: 88px; // (120 - 32)
   }
   &-title {
     text-align: center;
     margin-bottom: 64px;
+    @media (max-width: $md - 1) {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
   }
   .post {
     margin-bottom: 32px;
