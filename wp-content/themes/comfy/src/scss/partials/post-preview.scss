@@ -1,9 +1,13 @@
+@import "../components/vars";
 .post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
+  @media (min-width: $sm) {
+    margin-bottom: 64px;
+  }
   &-wrap {
 
   }
@@ -14,9 +18,12 @@
     }
   }
   &-title {
-    font-size: 32px;
+    font-size: 24px;
     line-height: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    @media (min-width: $sm) {
+      font-size: 32px;
+    }
   }
 
 }
