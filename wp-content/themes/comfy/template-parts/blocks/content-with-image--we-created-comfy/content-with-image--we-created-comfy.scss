@@ -1,6 +1,22 @@
+@import "../../../src/scss/components/vars";
 .content-with-image--we-created-comfy {
   &-section {
+    .row {
+      .col {
+        &:first-child {
+          @media (min-width: $xl ) {
+            flex-basis: 617px;
+          }
+        }
+        &:last-child {
+          @media (min-width: $xl ) {
+            flex-basis: 530px;
+          }
+        }
+      }
+    }
     .content-sign {
+      margin-top: 28px;
       text-align: right;
     }
   }

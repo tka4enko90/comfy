@@ -1,14 +1,17 @@
 <?php
-wp_enqueue_style( 'content-with-image--not-sure-where-to-start' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image--not-sure-where-to-start' . '/' . 'content-with-image--not-sure-where-to-start' . '.css', '', '', 'all' );
+if ( ! empty( $args['section_name'] ) ) {
+	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
+
+}
 
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	'content_width' => '35', // %
-	'image_group'   => array(
+	'image_group'  => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_content_with_image_2',
 	),
+	'section_name' => $args['section_name'],
 );
 if ( ! empty( $content_col['icon_id'] ) && ! empty( $content_col['content'] ) ) {
 	ob_start();

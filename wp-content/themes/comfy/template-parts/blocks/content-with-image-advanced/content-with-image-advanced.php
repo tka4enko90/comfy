@@ -19,22 +19,27 @@ if ( 'custom' === $section['image_group']['size'] ) {
 	}
 }
 
-$container_class    = ( ! empty( $section['container'] ) && 'medium' !== $section['container'] ) ? 'container-' . $section['container'] : '';
-$row_class          = ( ! empty( $section['image_position'] ) ) ? 'image-position-' . $section['image_position'] : '';
-$content_col_class  = ( ! empty( $section['content_width'] ) ) ? 'col-md-' . $section['content_width'] : '';
-$content_col_class .= ( ! empty( $section['image_group']['title'] ) ) ? ' image-title-exist' : '';
-
-// Content Padding
-if ( ! empty( $section['image_position'] ) ) {
-	$padding_key        = 'content_padding_' . $section['image_position'];
-	$content_col_class .= ( ! empty( $section[ $padding_key ] ) ) ? ' p' . $section['image_position'][0] . '-md-' . $section[ $padding_key ] . '' : ' p' . $section['image_position'][0] . '-md-15';
+$container_class = ( ! empty( $section['container'] ) && 'md' !== $section['container'] ) ? ' container-' . $section['container'] : '';
+if ( ! empty( $args['section_name'] ) && ! empty( $section['image_position'] ) && 'right' === $section['image_position'] ) {
+	add_filter(
+		$args['section_name'] . '_classes',
+		function ( $classes ) {
+			return  $classes . ' ' . 'image-position-right';
+		}
+	);
 }
 ?>
-<div class="container <?php echo $container_class; ?>">
-	<div class="row justify-content-between align-items-center <?php echo $row_class; ?>">
-		<div class="col image-col">
+<div class="container<?php echo $container_class; ?>">
+	<div class="row">
+		<div class="col">
 			<?php
 			if ( ! empty( $section['image_group']['title'] ) ) {
+				add_filter(
+					$args['section_name'] . '_classes',
+					function ( $classes ) {
+						return  $classes . ' ' . 'image-title-exist';
+					}
+				);
 				?>
 				<h3 class="section-title">
 					<?php echo $section['image_group']['title']; ?>
@@ -47,7 +52,7 @@ if ( ! empty( $section['image_position'] ) ) {
 		<?php
 		if ( ! empty( $section['content_group']['content'] ) || ! empty( $section['content_group']['link'] ) ) {
 			?>
-			<div class="col content-col <?php echo $content_col_class; ?>">
+			<div class="col">
 				<?php
 				echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
 				if ( isset( $section['content_group']['link'] ) ) {

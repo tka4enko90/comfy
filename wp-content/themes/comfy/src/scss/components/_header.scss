@@ -58,9 +58,11 @@ main {
     opacity: 0;
     transform: translateY(-100%);
     transition: transform $std-transition-length ease-in-out, opacity $std-transition-length ease-in;
+    pointer-events: none;
     &.active {
       transform: translateY(0);
       opacity: 1;
+      pointer-events: all;
     }
     position: fixed;
     left: 0;
@@ -214,12 +216,12 @@ main {
     @media (min-width: $mobile-header-breakpoint) {
       padding: 0 15px;
     }
-    @media (min-width: $lg) {
+    @media (min-width: $xl) {
       padding: 0 5%;
     }
 
     @media (min-width: $xxl) {
-      padding: 0 14.666%;
+      padding: 0 14.4%;
     }
     &:before {
       content: '';

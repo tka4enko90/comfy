@@ -1,9 +1,6 @@
 @import "../components/vars";
 .product {
   margin-bottom: 30px;
-  @media (min-width: $lg) {
-    margin-bottom: 0;
-  }
   &-title {
     margin-bottom: 9px;
     @media (min-width: $md) {

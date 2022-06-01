@@ -17,6 +17,7 @@
             },
             "choices": {
                 "120px": "120px",
+                "64px": "64px",
                 "52px": "52px"
             },
             "default_value": "120px",
@@ -46,5 +47,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653631960
+    "modified": 1654062101
 }

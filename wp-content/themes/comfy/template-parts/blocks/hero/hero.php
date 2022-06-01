@@ -1,5 +1,9 @@
 <?php
-wp_enqueue_style( 'hero' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'hero' . '/' . 'hero' . '.css', '', '', 'all' );
+if ( ! empty( $args['section_name'] ) ) {
+	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
+
+}
+
 $section = array(
 	'title'    => get_sub_field( 'title' ),
 	'content'  => get_sub_field( 'content' ),
@@ -7,7 +11,7 @@ $section = array(
 	'image_id' => get_sub_field( 'image_id' ),
 );
 ?>
-<div class="container container-small">
+<div class="container container-sm">
 	<div class="row justify-content-between">
 		<div class="col left-col">
 			<?php
@@ -47,8 +51,10 @@ $section = array(
 <?php
 if ( ! empty( $section['image_id'] ) ) {
 	?>
-	<div class="container container-large image-container">
-		<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
+	<div class="container container-lg">
+		<div class="row">
+			<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
+		</div>
 	</div>
 	<?php
 }
