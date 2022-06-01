@@ -47,10 +47,8 @@
         flex-basis: 48.6%;
       }
     }
-
   }
   .slick-arrow {
-
     z-index: 2;
     position: absolute;
     bottom: 5px;
@@ -81,6 +79,9 @@
       @media (min-width: $md) {
         margin-bottom: 30px;
       }
+    }
+    &-name {
+      margin: 0;
     }
   }
 }

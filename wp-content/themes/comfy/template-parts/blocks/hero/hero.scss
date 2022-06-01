@@ -19,23 +19,24 @@
   }
   .section-content {
     p {
-      margin-top: 8px;
+      margin-top: 16px;
+      margin-bottom: 0;
+      @media (min-width: $lg) {
+        margin-top: 8px;
+      }
     }
-    @media (min-width: $md) {
 
-    }
   }
   .button {
     margin-top: 24px;
     margin-bottom: 0;
     @media (min-width: $sm) {
-      margin-top: 8px;
-      margin-bottom: 0;
+
     }
   }
 
   img {
-    margin-top: 10px;
+    margin-top: 32px;
     @media (min-width: $md) {
       margin-top: 64px;
     }

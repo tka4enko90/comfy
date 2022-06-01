@@ -12,14 +12,17 @@
   &.image-title-exist {
     .row {
       .col {
-        &:first-child, &:last-child {
-          padding-top: 104px;
-        }
         &:first-child {
           position: relative;
+          padding-top: 64px;
         }
         &:last-child {
 
+        }
+        &:first-child, &:last-child {
+          @media (min-width: $sm) {
+            padding-top: 104px;
+          }
         }
       }
     }
@@ -27,6 +30,7 @@
   .row {
     align-items: center;
     .col {
+      flex-basis: 100%;
       @media (min-width: $sm) {
         flex-basis: 50%;
       }
@@ -69,11 +73,14 @@
     }
   }
   .section-title {
-    font-size: 40px;
-    text-align: center;
+    font-size: 32px;
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 0;
-    right: 0;
+    right: 20px;
+    @media (min-width: $sm) {
+      font-size: 40px;
+      text-align: center;
+    }
   }
 }

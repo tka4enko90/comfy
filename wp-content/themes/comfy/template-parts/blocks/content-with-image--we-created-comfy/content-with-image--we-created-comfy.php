@@ -1,13 +1,16 @@
 <?php
-wp_enqueue_style( 'content-with-image--we-created-comfy' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'content-with-image--we-created-comfy' . '/' . 'content-with-image--we-created-comfy' . '.css', '', '', 'all' );
+if ( ! empty( $args['section_name'] ) ) {
+	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
+}
 
 $image_col   = get_sub_field( 'image' );
 $content_col = get_sub_field( 'content' );
 $settings    = array(
-	'image_group' => array(
+	'image_group'  => array(
 		'image_id' => $image_col['image_id'],
 		'size'     => 'cmf_review_slider',
 	),
+	'section_name' => $args['section_name'],
 );
 if ( ! empty( $content_col['sign_id'] ) && ! empty( $content_col['content'] ) ) {
 	ob_start();
