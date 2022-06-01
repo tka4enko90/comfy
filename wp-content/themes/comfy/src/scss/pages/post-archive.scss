@@ -55,126 +55,112 @@
 
     }
     &-thumb {
-      height: 90vw;
-      @media (min-width: $sm) and (max-width: $md ){
-        height: 300px;
 
-      }
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-      @media (min-width: $md) {
-        height: auto;
-      }
     }
-    @media (min-width: $md) {
-      &-big {
-        flex: 1 1 100%;
-        margin: 0 -40px 80px;
-        position: relative;
-        @media (min-width: $sm) {
-          margin: 0 -40x 0;
-        }
-        .post {
-          margin: 0;
-          flex: 1;
-          color:#fff;
+    &-big {
+      flex: 1 1 100%;
+      margin: 0 -40px 80px;
+      position: relative;
+      @media (min-width: $sm) {
+        margin: 0 -40x 0;
+      }
+      .post {
+        margin: 0;
+        flex: 1;
+        color:#fff;
 
-          &-cats, &-title, .button{
-            position: relative;
-            color: #fff;
-            border-color: #fff;
-          }
-          &-title {
-            font-size: 56px;
-            max-width: 400px;
-          }
-          .button {
-            margin-top: 40px;
-          }
-          &-wrap {
-            width: 100%;
-            padding: 40px 40px 40px 48px;
-          }
-          &-thumb {
+        &-cats, &-title, .button{
+          position: relative;
+          color: #fff;
+          border-color: #fff;
+        }
+        &-title {
+          font-size: 56px;
+          max-width: 400px;
+        }
+        .button {
+          margin-top: 40px;
+        }
+        &-wrap {
+          width: 100%;
+          padding: 40px 40px 40px 48px;
+        }
+        &-thumb {
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: 0;
+          z-index: 0;
+          border-radius: 8px;
+          overflow: hidden;
+
+          &:after {
+            content: '';
             position: absolute;
-            left: 0;
             top: 0;
             right: 0;
             bottom: 0;
-            margin: 0;
-            z-index: 0;
-            border-radius: 8px;
-            overflow: hidden;
-
-            &:after {
-              content: '';
+            left: 0;
+            background: linear-gradient(90deg, #283455 0%, rgba(40, 52, 85, 0) 100%);
+            opacity: 0.34;
+          }
+          //@media (min-width: $mobile-header-breakpoint) {
+          //  position: relative;
+          //}
+          @media (max-width: $mobile-header-breakpoint - 1) {
+            img {
               position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              background: linear-gradient(90deg, #283455 0%, rgba(40, 52, 85, 0) 100%);
-              opacity: 0.34;
-            }
-            //@media (min-width: $mobile-header-breakpoint) {
-            //  position: relative;
-            //}
-            @media (max-width: $mobile-header-breakpoint - 1) {
-              img {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                height: 100%;
-                width: auto;
-                max-width: initial;
-              }
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              height: 100%;
+              width: auto;
+              max-width: initial;
             }
           }
-          &-content {
-            z-index: 2;
-            padding: 40px 20px;
-            color: #fff;
+        }
+        &-content {
+          z-index: 2;
+          padding: 40px 20px;
+          color: #fff;
+          @media ( min-width: $mobile-header-breakpoint ) {
+            position: absolute;
+            top: 41px;
+            //right: 48px;
+            bottom: 41px;
+            left: 28px;
+            width: 403px;
+          }
+          @media (max-width: $mobile-header-breakpoint - 1) {
+            min-height: 480px;
+          }
+          .button {
+            position: absolute;
+
+            bottom: 40px;
+            left: 20px;
             @media ( min-width: $mobile-header-breakpoint ) {
-              position: absolute;
-              top: 41px;
-              //right: 48px;
-              bottom: 41px;
-              left: 28px;
-              width: 403px;
-            }
-            @media (max-width: $mobile-header-breakpoint - 1) {
-              min-height: 480px;
-            }
-            .button {
-              position: absolute;
-
-              bottom: 40px;
-              left: 20px;
-              @media ( min-width: $mobile-header-breakpoint ) {
-                bottom: 0;
-              }
+              bottom: 0;
             }
           }
-          &-cat {
-            color: inherit;
-            a {
-              &:hover {
-                color: inherit;
-                opacity: .6;
-              }
-            }
-            &s {
-              margin-bottom: 24px;
+        }
+        &-cat {
+          color: inherit;
+          a {
+            &:hover {
+              color: inherit;
+              opacity: .6;
             }
           }
-          &-title-big {
-            color: inherit;
-            margin-bottom: 32px;
+          &s {
+            margin-bottom: 24px;
           }
+        }
+        &-title-big {
+          color: inherit;
+          margin-bottom: 32px;
         }
       }
     }
