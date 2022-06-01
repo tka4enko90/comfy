@@ -34,6 +34,9 @@
           padding: 0 4px;
           width: 32px;
           flex-basis: 32px;
+          &.star-empty {
+            opacity: .3;
+          }
           @media (max-width: $sm) {
             width: 25px;
             flex-basis: 25px;
