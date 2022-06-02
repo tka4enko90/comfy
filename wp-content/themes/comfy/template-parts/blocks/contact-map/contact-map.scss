@@ -1,0 +1,63 @@
+@import "../../../src/scss/components/vars";
+
+.contact-map-section {
+  color: $white;
+  text-align: center;
+  .section-wrap {
+    background-color: $primary-color;
+    border-radius: 8px;
+    overflow: hidden;
+    @media (min-width: $xl) {
+      margin: 0 -20px;
+    }
+  }
+  #map {
+    height: 335px;
+    @media (min-width: $xl) {
+      height: 600px;
+    }
+  }
+  .row {
+    @media (min-width: $lg) {
+      padding: 0 75px;
+    }
+    @media (min-width: $xl) {
+      padding: 0 175px;
+    }
+    @media (max-width: $lg ) {
+      justify-content: center;
+    }
+    .col {
+      flex-basis: 268px;
+      &:first-child {
+        h4 {
+          @media (max-width: $md - 1 ) {
+            margin-top: 40px;
+          }
+        }
+      }
+      &:last-child {
+        p {
+          @media (max-width: $md - 1 ) {
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+    }
+  }
+  h4 {
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 16px;
+    @media (max-width: $sm) {
+      margin-top: 32px;
+    }
+  }
+  p {
+    margin-bottom: 50px;
+    @media (max-width: $md - 1 ) {
+      margin-bottom: 0;
+    }
+  }
+}
