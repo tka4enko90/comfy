@@ -8,7 +8,7 @@
 
 .archive-section {
   &-title {
-
+    flex-basis: 100%;
     line-height: 96%;
     margin-top: 120px;
     margin-bottom: 34px;
@@ -19,31 +19,8 @@
       margin-bottom: 64px;
     }
   }
-  .content-with-image-advanced-section {
-    .row {
-      .col {
-        &:first-child {
-          @media (max-width: $sm - 1) {
-            margin-bottom: 16px;
-          }
-
-        }
-        &:last-child {
-          @media (min-width: $xl) {
-            flex-basis: 530px;
-          }
-        }
-      }
-    }
-  }
-
-  .content-col {
-    .post-cats {
-      margin-bottom: 18px;
-    }
-  }
-
   .post {
+    flex-basis: 403px;
     &-col {
       display: flex;
       justify-content: center;
@@ -57,19 +34,51 @@
     &-thumb {
 
     }
+    &-first {
+      flex: 1 1 100%;
+      margin: 0 -86px;
+
+      .post {
+        flex: 1 1 100%;
+        margin: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        &-thumb {
+          flex-basis: 577px;
+          margin: 0;
+        }
+        &-info {
+          padding: 0 20px;
+          flex-basis: 510px;
+        }
+        &-title {
+          font-size: 56px;
+          margin-bottom: 16px;
+        }
+        &-cats {
+          margin-bottom: 18px;
+        }
+        p {
+          margin-bottom: 22px;
+        }
+      }
+    }
     &-big {
       flex: 1 1 100%;
-      margin: 0 -40px 80px;
+      margin: 18px -40px 80px;
+      padding: 40px 40px 40px 48px;
       position: relative;
-      @media (min-width: $sm) {
-        margin: 0 -40x 0;
+      @media (min-width: $xl) {
+        margin: 18px -68px 80px;
       }
+
       .post {
         margin: 0;
         flex: 1;
         color:#fff;
 
-        &-cats, &-title, .button{
+        &-cats, &-title, .button, p{
           position: relative;
           color: #fff;
           border-color: #fff;
@@ -79,11 +88,14 @@
           max-width: 400px;
         }
         .button {
-          margin-top: 40px;
-        }
-        &-wrap {
-          width: 100%;
-          padding: 40px 40px 40px 48px;
+          margin-top: 158px;
+          &:hover {
+            background-color: $white;
+            color: $primary-color;
+          }
+          @media (min-width: $xl) {
+            margin-top: 101px;
+          }
         }
         &-thumb {
           position: absolute;
@@ -106,9 +118,6 @@
             background: linear-gradient(90deg, #283455 0%, rgba(40, 52, 85, 0) 100%);
             opacity: 0.34;
           }
-          //@media (min-width: $mobile-header-breakpoint) {
-          //  position: relative;
-          //}
           @media (max-width: $mobile-header-breakpoint - 1) {
             img {
               position: absolute;
@@ -145,6 +154,9 @@
               bottom: 0;
             }
           }
+          p {
+            position: relative;
+          }
         }
         &-cat {
           color: inherit;
@@ -164,8 +176,6 @@
         }
       }
     }
-
-
   }
   .pagination {
     display: flex;
