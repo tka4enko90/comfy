@@ -1,90 +1,32 @@
 @import "vars";
-
+@import "mixins";
 
 .container {
-  width: 100%;
-  padding: 0 20px;
+  padding-right: ($column-gap / 2);
+  padding-left: ($column-gap / 2);
   margin-right: auto;
   margin-left: auto;
-
-  @media (min-width: $md) {
-    // max-width: 520px;
-  }
-  @media (min-width: $xl) {
-    max-width: $container-desktop-width;
-  }
-
-  &-lg {
-    @media (min-width: $md) {
-      max-width: $container-large-tablet-width;
-    }
-    @media (min-width: $xl) {
-      max-width: $container-large-desktop-width;
-    }
-  }
-
-  &-sm {
-    max-width: 1050px;
-  }
-  &-xs {
-    @media (min-width: $md) {
-      max-width: 868px;
+  @each $breakpoint, $width in $container-widths {
+    @include device-up($breakpoint, $grid-breakpoints) {
+      max-width: $width;
     }
   }
 }
+
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -20px;
+  margin: 0 #{-$column-gap / 2} ;
   justify-content: space-between;
 }
 
 .col {
-  padding: 0 20px;
-  &-25 {
-    padding: 0 20px;
-    flex-basis: 25%;
-  }
-  &-33 {
-    padding: 0 20px;
-    flex-basis: 33.333%;
-  }
-  &-50 {
-    padding: 0 20px;
-    flex-basis: 50%;
-  }
-
+  padding: 0 $column-gap / 2;
+  max-width: 100%;
   &-100 {
-    padding: 0 20px;
+    padding: 0 $column-gap / 2;
     flex-basis: 100%;
-    width: 100%;
-  }
-  &-md {
-    &-33 {
-      @media (min-width: $md) {
-        flex-basis: 33.333%;
-      }
-    }
-    $flex-basis-vals: 33, 35, 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 60, 100;
-    @each $flex-basis-val in $flex-basis-vals {
-      &-#{$flex-basis-val} {
-        @media ( min-width: $md ) {
-          flex-basis: #{$flex-basis-val + '%'};
-        }
-      }
-
-    }
-  }
-  &-sm {
-    $flex-basis-vals: 50, 100;
-    @each $flex-basis-val in $flex-basis-vals {
-      &-#{$flex-basis-val} {
-        @media ( min-width: $sm ) {
-          flex-basis: #{$flex-basis-val + '%'};
-        }
-      }
-
-    }
+    max-width: 100%;
   }
 
 }

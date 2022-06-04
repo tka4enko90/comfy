@@ -15,4 +15,6 @@ add_action(
 
 remove_action('wp_head', 'print_emoji_detection_script', 7);// REMOVE EMOJI ICONS Script
 remove_action('wp_print_styles', 'print_emoji_styles');     // REMOVE EMOJI ICONS Style
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 add_filter('use_block_editor_for_post_type', '__return_false', 10);// Disable Gutenberg editor.
