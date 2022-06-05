@@ -1,7 +1,8 @@
 @import "../components/vars";
+@import "../components/mixins";
 .page-title {
   line-height: 1.1;
-  @media (max-width: $sm - 1) {
+  @include media-breakpoint-down (xs) {
     margin-bottom: 0;
   }
 }
@@ -10,12 +11,14 @@
   &-title {
     flex-basis: 100%;
     line-height: 96%;
-    margin-top: 120px;
+    padding: 0 #{$column-gap / 2};
+    margin-top: 80px;
     margin-bottom: 34px;
     font-size: 32px;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up (md) {
       font-size: 40px;
       text-align: center;
+      margin-top: 120px;
       margin-bottom: 64px;
     }
   }
@@ -26,8 +29,9 @@
       justify-content: center;
       padding: 0 20px;
       flex-basis: 100%;
-      @media (min-width: $sm) {
+      @include media-breakpoint-up (sm) {
         flex-basis: 50%;
+        max-width: 50%;
       }
 
     }
@@ -35,26 +39,42 @@
 
     }
     &-first {
+      max-width: initial;
       flex: 1 1 100%;
-      margin: 0 -86px;
+      padding: 0;
+      @include media-breakpoint-up(xl) {
+        margin: 0 -86px;
+      }
 
       .post {
         flex: 1 1 100%;
         margin: 0;
-        flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+
+        @include media-breakpoint-up(sm) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
         &-thumb {
-          flex-basis: 577px;
-          margin: 0;
+          padding: 0 #{$column-gap / 2};
+          @include media-breakpoint-up(xl) {
+            flex-basis: 617px;
+            margin: 0;
+          }
+
         }
         &-info {
-          padding: 0 20px;
-          flex-basis: 510px;
+          padding: 0 #{$column-gap / 2};
+          @include media-breakpoint-up(xl) {
+            flex-basis: 530px;
+          }
         }
         &-title {
-          font-size: 56px;
+          font-size: 32px;
           margin-bottom: 16px;
+          @include media-breakpoint-up(xl) {
+            font-size: 56px;
+          }
         }
         &-cats {
           margin-bottom: 18px;
@@ -65,11 +85,16 @@
       }
     }
     &-big {
+      max-width: initial;
       flex: 1 1 100%;
-      margin: 18px -40px 80px;
-      padding: 40px 40px 40px 48px;
+      margin: 18px 0 80px;
+      padding: 40px 20px;
       position: relative;
-      @media (min-width: $xl) {
+
+      @include media-breakpoint-up (md) {
+        padding: 40px 40px 40px 48px;
+      }
+      @include media-breakpoint-up (xl) {
         margin: 18px -68px 80px;
       }
 
@@ -84,16 +109,21 @@
           border-color: #fff;
         }
         &-title {
-          font-size: 56px;
+          font-size: 32px;
+          margin-bottom: 16px;
           max-width: 400px;
+          @include media-breakpoint-up(sm) {
+            font-size: 56px;
+            margin-bottom: 28px;
+          }
         }
         .button {
-          margin-top: 158px;
+          margin-top: 156px;
           &:hover {
             background-color: $white;
             color: $primary-color;
           }
-          @media (min-width: $xl) {
+          @include media-breakpoint-up (md) {
             margin-top: 101px;
           }
         }
@@ -105,8 +135,10 @@
           bottom: 0;
           margin: 0;
           z-index: 0;
-          border-radius: 8px;
           overflow: hidden;
+          @include media-breakpoint-up(md) {
+            border-radius: 8px;
+          }
 
           &:after {
             content: '';
@@ -118,7 +150,7 @@
             background: linear-gradient(90deg, #283455 0%, rgba(40, 52, 85, 0) 100%);
             opacity: 0.34;
           }
-          @media (max-width: $mobile-header-breakpoint - 1) {
+          @include media-breakpoint-down (lg) {
             img {
               position: absolute;
               top: 50%;
@@ -128,34 +160,6 @@
               width: auto;
               max-width: initial;
             }
-          }
-        }
-        &-content {
-          z-index: 2;
-          padding: 40px 20px;
-          color: #fff;
-          @media ( min-width: $mobile-header-breakpoint ) {
-            position: absolute;
-            top: 41px;
-            //right: 48px;
-            bottom: 41px;
-            left: 28px;
-            width: 403px;
-          }
-          @media (max-width: $mobile-header-breakpoint - 1) {
-            min-height: 480px;
-          }
-          .button {
-            position: absolute;
-
-            bottom: 40px;
-            left: 20px;
-            @media ( min-width: $mobile-header-breakpoint ) {
-              bottom: 0;
-            }
-          }
-          p {
-            position: relative;
           }
         }
         &-cat {
