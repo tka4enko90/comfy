@@ -7,8 +7,6 @@ wp_enqueue_style( 'post-archive', get_template_directory_uri() . '/dist/css/page
 $page_title = __( 'Blog', 'comfy' );
 
 $post_button_label = __( 'Read more', 'comfy' );
-$post_counter      = 0;
-
 get_header();
 ?>
 <main class="main first-section-margin-64px">
@@ -52,33 +50,6 @@ get_header();
 					$args['class']      = 'post-big';
 					$args['excerpt']    = $excerpt;
 				}
-				/*
-				switch ( $i++ ) {
-					case 0:
-						$args = array(
-							'image_size'       => 'cmf_review_slider',
-							'class'            => 'post-first',
-							'content_wrap'     => true,
-							'btn_with_content' => true,
-							'excerpt'          => $excerpt,
-
-						);
-						break;
-					case 1:
-						?>
-						<h3 class="archive-section-title"><?php echo __( 'Latest on our blog', 'comfy' ); ?></h3>
-						<?php
-						break;
-					case 5:
-						$args = array(
-							'image_size' => 'cmf_post_big',
-							'class'      => 'post-big',
-							'excerpt'    => $excerpt,
-						);
-						break;
-
-				}
-				*/
 				?>
 				<div class="post-col <?php echo ! empty( $args['class'] ) ? $args['class'] : ''; ?>">
 					<?php get_template_part( 'template-parts/post', 'preview', $args ); ?>
