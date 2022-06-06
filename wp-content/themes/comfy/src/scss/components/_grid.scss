@@ -23,10 +23,34 @@
 .col {
   padding: 0 $column-gap / 2;
   max-width: 100%;
+
+  &-50 {
+    padding: 0 20px;
+    flex-basis: 50%;
+  }
   &-100 {
     padding: 0 $column-gap / 2;
     flex-basis: 100%;
     max-width: 100%;
+  }
+
+  &-md {
+    &-33 {
+      @include media-breakpoint-up(md) {
+        padding: 0 $column-gap / 2;
+        flex-basis: 33.333%;
+      }
+    }
+
+    $flex-basis-vals: 50;
+    @each $flex-basis-val in $flex-basis-vals {
+      &-#{$flex-basis-val} {
+        @include media-breakpoint-up(md){
+          padding: 0 $column-gap / 2;
+          flex-basis: #{$flex-basis-val + '%'};
+        }
+      }
+    }
   }
 
 }
