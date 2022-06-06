@@ -173,20 +173,21 @@ var map = {
 			window.addEventListener( "load", this.mapInit.bind( this ) );
 		}
 	},
-	mapInit:  function() {
-		var map    = new google.maps.Map(
-			document.getElementById( this.settings.mapId ),
-			{
-				center: new google.maps.LatLng( this.settings.coordinates ),
-				zoom: this.settings.zoom,
-				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				styles: this.settings.styles
-			}
-		),
-			marker = new google.maps.Marker(
+	mapInit: function () {
+		var coordinates = new google.maps.LatLng( this.settings.coordinates ),
+			map         = new google.maps.Map(
+				document.getElementById( this.settings.mapId ),
 				{
-					position: new google.maps.LatLng( this.settings.coordinates ),
+					center: coordinates,
+					zoom: this.settings.zoom,
+					disableDefaultUI: true,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					styles: this.settings.styles
+				}
+			);
+			new google.maps.Marker(
+				{
+					position: coordinates,
 					map: map,
 					icon: this.settings.mapIconUrl
 				}
