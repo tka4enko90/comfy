@@ -1,0 +1,14 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.benefits-section {
+  .row {
+    .col {
+      &:first-child {
+
+      }
+      &:nth-child(2) {
+
+      }
+    }
+  }
+}
