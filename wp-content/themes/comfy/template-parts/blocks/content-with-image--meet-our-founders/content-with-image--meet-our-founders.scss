@@ -3,10 +3,21 @@
 .content-with-image--meet-our-founders {
   &-section {
     &.image-position-right {
-      .row .col:last-child {
-        @include media-breakpoint-up(lg) {
-          margin-right: 86px;
-          margin-left: 0;
+      .row {
+        .col {
+          &:first-child {
+            @include media-breakpoint-up(lg) {
+              margin-right: 86px;
+              margin-left: 0;
+            }
+          }
+          &:last-child {
+            @include media-breakpoint-up(lg) {
+              margin-right: 0;
+              margin-left: 0;
+            }
+          }
+
         }
       }
     }
