@@ -4,24 +4,24 @@
   .section {
     &-title {
       margin-bottom: 40px;
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         margin-bottom: 64px;
       }
     }
     &-col {
       padding: 0 20px;
       &:first-child {
-        @media (min-width: $xl) {
+        @include media-breakpoint-up(xl) {
           flex-basis: 530px;
         }
       }
       &:nth-child(2) {
         display: none;
-        @media (min-width: $xl) {
+        @include media-breakpoint-up(xl) {
           flex-basis: 617px;
         }
       }
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         flex-basis: 50%;
         &:nth-child(2) {
           display: block;
