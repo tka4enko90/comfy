@@ -1,4 +1,6 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+
 .review-slider {
   margin: 0 -20px;
   &-slide {
@@ -9,14 +11,14 @@
       padding: 0 20px;
     }
     &-content {
-      @media (max-width: $md - 1) {
+      @include media-breakpoint-down(sm) {
         padding-top: 36px;
       }
       &-wrap {
         display: flex;
         align-items: center;
         order: 2;
-        @media (min-width: $sm) {
+        @include media-breakpoint-up(sm) {
           flex-basis: 42%;
           order: 0;
         }
@@ -25,7 +27,7 @@
         display: flex;
         position: relative;
         margin: 0 -4px 16px;
-        @media (min-width: $md) {
+       @include media-breakpoint-up(md) {
           top: -34px;
           margin: 0 -4px;
         }
@@ -46,7 +48,7 @@
     }
     &-image {
       flex-basis: 100%;
-      @media (min-width: $sm) {
+      @include media-breakpoint-up(sm) {
         flex-basis: 48.6%;
       }
       img {
@@ -65,7 +67,7 @@
     outline: none;
     line-height: 0;
     cursor: pointer;
-    @media (max-width: $md - 1) {
+    @include media-breakpoint-down(sm) {
       visibility: hidden;
     }
     &:hover {
@@ -82,7 +84,7 @@
   .review {
     &-title {
       margin-bottom: 18px;
-      @media (min-width: $md) {
+     @include media-breakpoint-up(md) {
         margin-bottom: 30px;
       }
     }
