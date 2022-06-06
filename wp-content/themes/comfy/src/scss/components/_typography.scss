@@ -11,6 +11,7 @@ body {
   font-style: normal;
   font-size: 14px;
   line-height: 142%;
+  color: $secondary-color;
   @media (min-width: $md) {
     font-size: 16px;
     line-height: 150%; //  142%; for 14px text
@@ -50,7 +51,7 @@ h2 {
 
 h3 {
   font-size: 24px;
-  //line-height: 86%;
+  line-height: 1;
   letter-spacing: -.02em;
   margin: 0 0 20px 0;
 
