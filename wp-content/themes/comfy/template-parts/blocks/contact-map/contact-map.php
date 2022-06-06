@@ -20,7 +20,13 @@ if ( ! empty( $section['maps_api_key'] ) ) {
 ?>
 <div class="container container-lg">
 	<div class="section-wrap">
-		<div id="map"></div>
+		<?php
+		if ( ! empty( $section['maps_api_key'] ) && ! empty( $section['map_settings']['coordinates']['lat'] ) && ! empty( $section['map_settings']['coordinates']['lng'] ) && isset( $section['map_settings']['zoom'] ) ) {
+			?>
+			<div id="map"></div>
+			<?php
+		}
+		?>
 		<div class="row">
 			<?php
 			if ( ! empty( $section['call'] ) ) {
