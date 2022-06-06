@@ -15,18 +15,9 @@ $section = array(
 if ( ! empty( $section['maps_api_key'] ) ) {
 	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $section['maps_api_key'], '', '', false );
 	wp_enqueue_script( 'cmf-map', get_template_directory_uri() . '/template-parts/blocks/contact-map/contact-map.js', array( 'google-maps', 'jquery' ), '', false );
-
+	wp_localize_script( 'cmf-map', 'cmfMap', $section['map_settings'] );
 }
 ?>
-<script type="text/javascript" id="cmf-map-js-extra">
-	window.cmfMap = {
-		"zoom":<?php echo ! empty( $section['map_settings']['zoom'] ) ? $section['map_settings']['zoom'] : 10; ?>,
-		"coordinates":{
-			"lat":<?php echo ! empty( $section['map_settings']['coordinates']['lat'] ) ? $section['map_settings']['coordinates']['lat'] : 0; ?>,
-			"lng":<?php echo ! empty( $section['map_settings']['coordinates']['lng'] ) ? $section['map_settings']['coordinates']['lng'] : 0; ?>
-		}
-	};
-</script>
 <div class="container container-lg">
 	<div class="section-wrap">
 		<div id="map"></div>

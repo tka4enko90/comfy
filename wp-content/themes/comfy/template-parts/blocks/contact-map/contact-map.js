@@ -2,10 +2,10 @@ var map = {
 	settings: {
 		mapId: 'map',
 		coordinates : {
-			'lat': window.cmfMap.coordinates.lat,
-			'lng': window.cmfMap.coordinates.lng
+			'lat':parseFloat( cmfMap.coordinates.lat ),
+			'lng': parseFloat( cmfMap.coordinates.lng )
 		},
-		zoom: window.cmfMap.zoom,
+		zoom: parseInt( cmfMap.zoom ),
 		mapIconUrl: '/wp-content/themes/comfy/dist/img/map-icon.svg',
 		styles: [
 			{
@@ -169,10 +169,11 @@ var map = {
 		],
 	},
 	init: function () {
-		window.addEventListener( "load", this.mapInit.bind( this ) );
+		if (this.settings.coordinates.lat && this.settings.coordinates.lng && this.settings.zoom) {
+			window.addEventListener( "load", this.mapInit.bind( this ) );
+		}
 	},
 	mapInit:  function() {
-		console.log( cmfMap );
 		var map    = new google.maps.Map(
 			document.getElementById( this.settings.mapId ),
 			{
