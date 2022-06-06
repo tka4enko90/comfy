@@ -1,0 +1,44 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.contact-form-section {
+  .section {
+    &-title {
+      margin-bottom: 40px;
+      @media (min-width: $md) {
+        margin-bottom: 64px;
+      }
+    }
+    &-col {
+      padding: 0 20px;
+      &:first-child {
+        @media (min-width: $xl) {
+          flex-basis: 530px;
+        }
+      }
+      &:nth-child(2) {
+        display: none;
+        @media (min-width: $xl) {
+          flex-basis: 617px;
+        }
+      }
+      @media (min-width: $md) {
+        flex-basis: 50%;
+        &:nth-child(2) {
+          display: block;
+        }
+      }
+    }
+  }
+  .row {
+    align-items: center;
+  }
+
+  .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    input, textarea {
+      margin-top: 12px;
+    }
+  }
+}
