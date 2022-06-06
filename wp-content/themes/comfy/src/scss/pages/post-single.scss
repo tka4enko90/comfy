@@ -1,19 +1,20 @@
 @import "../components/vars";
-.post {
-  margin-bottom: 60px;
+@import "../components/mixins";
+.story {
+  margin-bottom: 80px;
   color: $secondary-color;
-  @media (min-width: $md) {
+  @include media-breakpoint-up(md) {
     margin-bottom: 120px;
   }
   &-heading {
     margin: 32px 0;
     text-align: center;
-    @media (min-width: $md) {
+    @include media-breakpoint-up(md) {
       margin: 64px 0 60px;
     }
   }
   &-title {
-    @media (min-width: $md) {
+  @include media-breakpoint-up(md) {
       font-size: 56px;
     }
   }
@@ -22,25 +23,25 @@
   }
   .post-cats {
     justify-content: center;
-    @media (min-width: $md) {
+    @include media-breakpoint-up(md) {
       margin-bottom: 20px;
     }
   }
   time {
     font-size: 14px;
-    @media (max-width: $md - 1) {
+    @include media-breakpoint-down(lg) {
       display: block;
       margin-top: 16px;
     }
   }
   &-content {
     margin: 32px auto 26px;
-    @media (min-width: $md) {
+    @include media-breakpoint-up(md) {
       margin: 64px auto 26px;
     }
     img {
       margin: 18px 0 0;
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         margin: 44px 0 26px;
       }
     }
@@ -49,19 +50,22 @@
     }
     h4 {
       margin: 40px 0 16px;
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         margin: 44px 0 26px;
       }
     }
 
   }
-  .post-author {
+  .story-author {
     display: flex;
     align-items: start;
     border-top: 1px solid $line-gray;
     padding-top: 40px;
     margin-bottom: 0;
-    @media (min-width: $md) {
+    p {
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-up(md) {
       align-items: center;
     }
     &-info {
@@ -72,7 +76,7 @@
       min-width: 80px;
       flex-basis: 80px;
       border-radius: 100%;
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         min-width: 142px;
         flex-basis: 142px;
       }
@@ -83,20 +87,29 @@
   }
 }
 .related-posts {
-  margin-bottom: 80px;
-  @media (min-width: $sm) {
+  margin-bottom: 48px; //(80 - 32)
+  @include media-breakpoint-up(sm) {
     margin-bottom: 88px; // (120 - 32)
+  }
+  .row {
+    justify-content: center;
   }
   &-title {
     text-align: center;
-    margin-bottom: 64px;
-    @media (max-width: $md - 1) {
-      font-size: 32px;
-      margin-bottom: 32px;
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 32px;
+    @include media-breakpoint-up(lg) {
+      font-size: 40px;
+      margin-bottom: 64px;
     }
   }
   .post {
-    margin-bottom: 32px;
+    padding: 0 20px;
+    @include media-breakpoint-up(sm) {
+      max-width: 50%;
+      padding: 0 16px;
+    }
     &-cats {
       justify-content: start;
       margin-bottom: 8px;

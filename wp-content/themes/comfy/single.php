@@ -21,15 +21,15 @@ $author      = array(
 	while ( have_posts() ) :
 		the_post();
 		?>
-	<article class="post">
+	<article class="story">
 		<div class="container container-xs">
-			<div class="post-heading">
+			<div class="story-heading">
 				<?php get_template_part( 'template-parts/post', 'cats' ); ?>
-				<h1 class="post-title"><?php the_title(); ?></h1>
+				<h1 class="story-title"><?php the_title(); ?></h1>
 				<?php
 				if ( ! empty( $post_fields['subtitle'] ) ) {
 					?>
-					<p class="post-subtitle">
+					<p class="story-subtitle">
 						<?php echo $post_fields['subtitle']; ?>
 					</p>
 					<?php
@@ -44,16 +44,16 @@ $author      = array(
 			</div>
 		</div>
 		<div class="container container-xs">
-			<div class="post-content">
+			<div class="story-content">
 				<?php the_content(); ?>
 			</div>
-			<figure class="post-author">
+			<figure class="story-author">
 				<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
-				<figcaption class="post-author-info">
+				<figcaption class="story-author-info">
 					<?php
 					if ( ! empty( $author['name'] ) ) {
 						?>
-						<h5 class="post-author-name"><?php echo $author['name']; ?></h5>
+						<h5 class="story-author-name"><?php echo $author['name']; ?></h5>
 						<?php
 					}
 					if ( ! empty( $author['info'] ) ) {
@@ -74,12 +74,9 @@ $author      = array(
 		if ( ! empty( $tags ) ) {
 			?>
 			<section class="related-posts">
+				<h3 class="related-posts-title"><?php _e( 'Related posts', 'comfy' ); ?></h3>
 				<div class="container">
 					<div class="row">
-						<div class="col-100">
-							<h3 class="related-posts-title"><?php _e( 'Related posts', 'comfy' ); ?></h3>
-						</div>
-
 						<?php
 						$tag_ids = array();
 						foreach ( $tags as $individual_tag ) {
@@ -92,22 +89,14 @@ $author      = array(
 							'ignore_sticky_posts' => 1,
 						);
 
-						$my_query = new wp_query( $args );
+						$new_query = new wp_query( $args );
 
-						while ( $my_query->have_posts() ) {
-							$my_query->the_post();
-							?>
-							<div class="col-100 col-sm-50">
-								<article class="post">
-									<?php the_post_thumbnail( 'cmf_review_slider' ); ?>
-									<?php get_template_part( 'template-parts/post', 'cats' ); ?>
-									<h4><?php the_title(); ?></h4>
-									<a class="button button-secondary" href="<?php the_permalink(); ?>">
-										<?php echo __( 'Read more', 'comfy' ); ?>
-									</a>
-								</article>
-							</div>
-							<?php
+						while ( $new_query->have_posts() ) {
+							$new_query->the_post();
+							$args = array(
+								'image_size' => 'cmf_review_slider',
+							);
+							get_template_part( 'template-parts/post', 'preview', $args );
 						}
 						$post = $orig_post;
 						wp_reset_query();

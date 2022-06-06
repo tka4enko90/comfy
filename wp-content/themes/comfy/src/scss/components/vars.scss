@@ -14,28 +14,38 @@ $std-transition-length: 300ms;
 $transition: all $std-transition-length ease-in;
 
 // Container
+$container-widths: (
+        reset: 1224px,
+        sm: 1050px,
+        lg: 1360px,
+);
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 480px,
+        md: 768px,
+        lg: 1080px,
+        xl: 1240px,
+        xxl: 1400px
+);
+
+$column-gap: 40px;
+
+// Deprecated vars !
 $container-large-desktop-width: 1360px;
 $container-desktop-width: 1224px;
-
 $container-large-tablet-width: 100%;
 $container-tablet-width: 768px;
-
 $container-breakpoint-window: 10px;
-
-
-//Devises width
-$xxl: 1400px;
-$xl: $container-desktop-width + $container-breakpoint-window;
-$lg: 1080px;
-
-$mobile-header-breakpoint: 1039px;
-
-$md: $container-tablet-width + $container-breakpoint-window;
 $sm: 480px;
+$md: $container-tablet-width + $container-breakpoint-window;
+$mobile-header-breakpoint: 1039px;
+$lg: 1080px;
+$xl: $container-desktop-width + $container-breakpoint-window;
+$xxl: 1400px;
 
 
 
-
-//Search Vars
+//Header Search Vars
 $search-input-text-color: #5d5d5d;
 $search-input-border-color: #becbd2;
