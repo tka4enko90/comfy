@@ -23,22 +23,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_629e38e04cc98",
-                            "label": "Content",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
                             "key": "field_6286495b08e1b",
                             "label": "Title",
                             "name": "title",
@@ -114,47 +98,6 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
-                        },
-                        {
-                            "key": "field_629e38ee4cc99",
-                            "label": "Style",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_629e3903be2c8",
-                            "label": "Desktop Content Width",
-                            "name": "content_width",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "350": "310px",
-                                "440": "400px"
-                            },
-                            "default_value": false,
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -2453,5 +2396,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654584946
+    "modified": 1654591394
 }
