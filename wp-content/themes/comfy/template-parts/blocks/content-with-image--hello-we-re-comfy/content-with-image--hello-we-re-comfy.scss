@@ -2,7 +2,7 @@
 @import "../../../src/scss/components/mixins";
 .content-with-image--hello-we-re-comfy {
   &-section {
-    .row {
+    .container {
       .col {
         &:first-child {
           @include media-breakpoint-up(md) {
@@ -11,7 +11,18 @@
         }
         &:last-child {
           @include media-breakpoint-up(md) {
-            flex-basis: 443px;
+            flex-basis: 528px;
+            margin-right: 86px;
+          }
+        }
+      }
+      &.container-sm {
+        .col {
+          &:last-child {
+            @include media-breakpoint-up(md) {
+              flex-basis: 443px;
+              margin-right: 0;
+            }
           }
         }
       }
