@@ -1,15 +1,16 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .hero-section {
   .row {
     .col {
       &:first-child {
-        @media (min-width: $lg) {
+        @include media-breakpoint-up(lg) {
           flex-basis: 54%;
         }
       }
       &:nth-child(2) {
-        @media (min-width: $lg) {
-          flex-basis: 350px;
+        @include media-breakpoint-up(lg) {
+          flex-basis: 440px;
         }
       }
     }
@@ -21,7 +22,7 @@
     p {
       margin-top: 16px;
       margin-bottom: 0;
-      @media (min-width: $lg) {
+      @include media-breakpoint-up(lg) {
         margin-top: 8px;
       }
     }
@@ -30,19 +31,18 @@
   .button {
     margin-top: 24px;
     margin-bottom: 0;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up(sm) {
 
     }
   }
 
   img {
     margin-top: 32px;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up(sm) {
       border-radius: 8px;
     }
-    @media (min-width: $md) {
+    @include media-breakpoint-up(md) {
       margin-top: 64px;
     }
-
   }
 }
