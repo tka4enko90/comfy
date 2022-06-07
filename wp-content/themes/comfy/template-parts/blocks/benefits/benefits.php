@@ -57,7 +57,14 @@ $section = array(
 		if ( ! empty( $section['image_id'] ) ) {
 			?>
 			<div class="col">
-				<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_benefits_section' ); ?>
+				<?php
+				if ( ! empty( $section['title'] ) ) {
+					?>
+				<h2 class="section-title mobile"><?php echo $section['title']; ?></h2>
+					<?php
+				}
+				echo wp_get_attachment_image( $section['image_id'], 'cmf_benefits_section' );
+				?>
 			</div>
 			<?php
 		}
