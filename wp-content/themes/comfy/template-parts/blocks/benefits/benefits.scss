@@ -2,12 +2,43 @@
 @import "../../../src/scss/components/mixins";
 .benefits-section {
   .row {
+    @include media-breakpoint-up(md) {
+      flex-wrap: nowrap;
+    }
     .col {
       &:first-child {
-
+        flex-basis: 705px;
+        display: flex;
+        flex-wrap: wrap;
       }
       &:nth-child(2) {
+        @include media-breakpoint-up(xl) {
+          flex-basis: 442px;
+        }
+      }
+    }
+  }
+  .section-title {
+    flex-basis: 100%;
+    margin-bottom: 48px;
+  }
+  .benefit {
+    @include media-breakpoint-up(md) {
+      flex-basis: 50%;
+      margin-bottom: 40px;
+      &:nth-child(even) {
+        padding-right: 16.5px;
+      }
+      &:nth-child(odd) {
+        padding-left: 16.5px;
+      }
 
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 24px;
       }
     }
   }
