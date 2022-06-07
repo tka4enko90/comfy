@@ -1,0 +1,44 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.contact-form-section {
+  .section {
+    &-title {
+      margin-bottom: 40px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 64px;
+      }
+    }
+    &-col {
+      padding: 0 20px;
+      &:first-child {
+        @include media-breakpoint-up(xl) {
+          flex-basis: 530px;
+        }
+      }
+      &:nth-child(2) {
+        display: none;
+        @include media-breakpoint-up(xl) {
+          flex-basis: 617px;
+        }
+      }
+      @include media-breakpoint-up(md) {
+        flex-basis: 50%;
+        &:nth-child(2) {
+          display: block;
+        }
+      }
+    }
+  }
+  .row {
+    align-items: center;
+  }
+
+  .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    input, textarea {
+      margin-top: 12px;
+    }
+  }
+}

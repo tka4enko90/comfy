@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 
 html {
   text-rendering: optimizeLegibility; // https://www.w3docs.com/tools/editor/16548
@@ -11,7 +12,8 @@ body {
   font-style: normal;
   font-size: 14px;
   line-height: 142%;
-  @media (min-width: $md) {
+  color: $secondary-color;
+  @include media-breakpoint-up(md) {
     font-size: 16px;
     line-height: 150%; //  142%; for 14px text
   }
@@ -27,7 +29,7 @@ h1 {
   letter-spacing: -.02em;
   margin: 0 0 20px 0;
 
-  @media (min-width: $md) {
+  @include media-breakpoint-up(md) {
     font-size: 64px;
     line-height: 1.02;
   }
@@ -39,22 +41,19 @@ h2 {
   letter-spacing: -.02em;
   margin: 0 0 18px 0;
 
-
-  @media (min-width: $md) {
+  @include media-breakpoint-up(md) {
     font-size: 56px;
-    //letter-spacing: .04em;
-    //line-height: 1.284;
     margin: 0 0 24px 0;
   }
 }
 
 h3 {
   font-size: 24px;
-  //line-height: 86%;
+  line-height: 1;
   letter-spacing: -.02em;
   margin: 0 0 20px 0;
 
-  @media (min-width: $sm) {
+  @include media-breakpoint-up(md) {
     font-size: 40px;
   }
 }
@@ -66,7 +65,7 @@ h4 {
   margin: 0 0 16px 0;
 
 
-  @media (min-width: $sm) {
+  @include media-breakpoint-up(md) {
     font-size: 32px;
     margin: 0 0 20px 0;
     line-height: 105%;
@@ -80,7 +79,7 @@ h5 {
   line-height: 1.27;
   margin: 0 0 20px 0;
 
-  @media (min-width: $sm) {
+  @include media-breakpoint-up(md) {
     font-size: 24px;
   }
 }
