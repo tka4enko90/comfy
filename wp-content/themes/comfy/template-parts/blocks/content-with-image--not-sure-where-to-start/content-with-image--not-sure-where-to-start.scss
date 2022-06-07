@@ -1,15 +1,16 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image--not-sure-where-to-start {
   &-section {
     .row {
       .col {
         &:first-child {
-          @media (min-width: $md ) {
+          @include media-breakpoint-up(lg) {
             flex-basis: 704px;
           }
         }
         &:last-child {
-          @media (min-width: $md ) {
+          @include media-breakpoint-up(lg) {
             flex-basis: 433px;
           }
         }
@@ -18,13 +19,13 @@
     .content-icon {
       position: relative;
       padding-bottom: 20px;
-      @media (min-width: $sm ) {
+      @include media-breakpoint-up(sm) {
         padding-bottom: 26px;
       }
       img {
         position: absolute;
         top: -55px;
-        @media (max-width: $sm - 1 ) {
+        @include media-breakpoint-down(xs) {
           position: static;
           margin-top: -6px;
           max-width: 40px;

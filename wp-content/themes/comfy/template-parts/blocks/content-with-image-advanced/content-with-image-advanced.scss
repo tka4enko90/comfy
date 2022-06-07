@@ -1,9 +1,10 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image-advanced-section {
   &.image-position-right {
     .col {
       &:first-child {
-        @media (min-width: $sm) {
+        @include media-breakpoint-up(sm) {
           order: 2;
         }
       }
@@ -20,7 +21,7 @@
 
         }
         &:first-child, &:last-child {
-          @media (min-width: $sm) {
+          @include media-breakpoint-up(sm) {
             padding-top: 104px;
           }
         }
@@ -29,16 +30,19 @@
   }
   .row {
     align-items: center;
+    @include media-breakpoint-up(sm){
+      flex-wrap: nowrap;
+    }
     .col {
       flex-basis: 100%;
-      @media (min-width: $sm) {
+      @include media-breakpoint-up(sm) {
         flex-basis: 50%;
       }
       &:first-child {
         img {
           border-radius: 8px;
         }
-        @media (max-width: $md - 1) {
+        @include media-breakpoint-down(sm) {
           margin-bottom: 32px;
         }
       }
@@ -61,7 +65,7 @@
     li {
       display: block;
       margin-top: 32px;
-      @media (min-width: $md) {
+      @include media-breakpoint-up(md) {
         margin-top: 48px;
       }
       &:first-child {
@@ -71,7 +75,7 @@
   }
   .button-secondary {
     margin: 24px 0 0;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up(sm) {
       margin-top: 32px;
     }
   }
@@ -81,7 +85,7 @@
     left: 20px;
     top: 0;
     right: 20px;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up(sm) {
       font-size: 40px;
       text-align: center;
     }

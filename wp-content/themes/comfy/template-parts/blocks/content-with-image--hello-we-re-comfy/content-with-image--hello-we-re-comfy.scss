@@ -1,16 +1,28 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image--hello-we-re-comfy {
   &-section {
-    .row {
+    .container {
       .col {
         &:first-child {
-          @media (min-width: $md ) {
+          @include media-breakpoint-up(md) {
             flex-basis: 530px;
           }
         }
         &:last-child {
-          @media (min-width: $md ) {
-            flex-basis: 443px;
+          @include media-breakpoint-up(md) {
+            flex-basis: 528px;
+            margin-right: 86px;
+          }
+        }
+      }
+      &.container-sm {
+        .col {
+          &:last-child {
+            @include media-breakpoint-up(md) {
+              flex-basis: 443px;
+              margin-right: 0;
+            }
           }
         }
       }
