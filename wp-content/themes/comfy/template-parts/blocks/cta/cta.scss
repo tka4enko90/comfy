@@ -1,0 +1,35 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.cta-section {
+  text-align: center;
+  .container {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: -57px;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background-color: $line-gray;
+
+      @include media-breakpoint-up(md) {
+        top: -65px;
+      }
+    }
+  }
+  .section-title {
+    margin-bottom: 24px;
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+body .main .section.cta-section {
+  margin-top: 113px;
+  @include media-breakpoint-up(sm) {
+    margin-top: 129px;
+  }
+
+}
