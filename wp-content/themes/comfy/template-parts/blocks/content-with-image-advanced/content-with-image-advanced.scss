@@ -42,7 +42,7 @@
         img {
           border-radius: 8px;
         }
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(xs) {
           margin-bottom: 32px;
         }
       }
