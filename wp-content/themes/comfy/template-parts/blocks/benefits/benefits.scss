@@ -1,0 +1,81 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.benefits-section {
+  .row {
+    @include media-breakpoint-up(sm) {
+      flex-wrap: nowrap;
+    }
+    .col {
+      flex-basis: 100%;
+      &:first-child {
+        display: flex;
+        flex-wrap: wrap;
+        @include media-breakpoint-up(sm) {
+          flex-basis: 50%;
+        }
+        @include media-breakpoint-up(xl) {
+          flex-basis: 705px;
+        }
+        @include media-breakpoint-down(xs) {
+          order: 2;
+          //margin-top: 32px;
+        }
+      }
+      &:nth-child(2) {
+        @include media-breakpoint-up(sm) {
+          flex-basis: 50%;
+        }
+        @include media-breakpoint-up(md) {
+          flex-basis: 442px;
+        }
+      }
+    }
+  }
+  .section-title {
+    flex-basis: 100%;
+    margin-bottom: 32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 48px;
+    }
+    &.mobile {
+      display: none;
+    }
+    @include media-breakpoint-down(xs) {
+      display: none;
+
+      &.mobile {
+        display: block;
+      }
+    }
+  }
+  .benefit {
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 56px;
+    }
+    @include media-breakpoint-up(md) {
+      flex-basis: 50%;
+      &:nth-child(even) {
+        padding-right: 16.5px;
+      }
+      &:nth-child(odd) {
+        padding-left: 16.5px;
+      }
+    }
+
+    &-title {
+      margin: 32px 0 16px;
+      @include media-breakpoint-up(sm) {
+        margin: 0 0 24px;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .button {
+    margin-top: 24px;
+    @include media-breakpoint-up(lg) {
+      margin-top: 28px;
+    }
+  }
+}
