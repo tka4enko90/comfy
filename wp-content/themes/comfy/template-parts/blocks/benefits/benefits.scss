@@ -39,13 +39,12 @@
     }
     &.mobile {
       display: none;
+      @include media-breakpoint-down(xs) {
+        display: block;
+      }
     }
     @include media-breakpoint-down(xs) {
       display: none;
-
-      &.mobile {
-        display: block;
-      }
     }
   }
   .benefit {
