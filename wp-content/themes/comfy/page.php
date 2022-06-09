@@ -12,13 +12,6 @@ get_header(); ?>
 	if ( have_rows( 'flexible_sections' ) ) :
 		$section_directory = 'template-parts/blocks/';
 
-		add_filter(
-			'acf-flexible-content-preview.images_path',
-			function ( $path ) {
-				return 'template-parts/blocks';
-			}
-		);
-
 		while ( have_rows( 'flexible_sections' ) ) :
 			the_row();
 			$section_classes  = '';
