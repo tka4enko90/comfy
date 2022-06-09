@@ -61,7 +61,7 @@ $section = array(
 							<?php
 							if ( ! empty( $item['url'] ) ) {
 								?>
-							<a href="<?php echo $item['url']; ?>" class="instagram-links-link" <?php echo ( isset( $item['in_new_tab'] ) && true === $item['in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
+							<a href="<?php echo $item['url']; ?>" class="instagram-links-link" <?php echo ( isset( $section['links_in_new_tab'] ) && true === $section['links_in_new_tab'] ) ? 'target="_blank"' : ''; ?>>
 								<?php
 							}
 								echo ( ! empty( $item['image_id'] ) ) ? wp_get_attachment_image( $item['image_id'], 'cmf_product_preview' ) : '';
