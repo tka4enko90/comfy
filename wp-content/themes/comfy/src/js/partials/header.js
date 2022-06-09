@@ -47,12 +47,7 @@
 			$( 'div#primary-header-nav-container' ).toggleClass( 'active' )
 		}
 	);
-	$('.search-wrap').on(
-		'click',
-		function(e) {
-			//alert(1)
-		}
-	);
+
 	$( 'body' ).on(
 		'click',
 		function(e) {
