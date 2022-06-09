@@ -42,7 +42,6 @@ $footer_options = array(
 						}
 					}
 					?>
-
 				</div>
 			</div>
 			<ul class="footer-widgets">
