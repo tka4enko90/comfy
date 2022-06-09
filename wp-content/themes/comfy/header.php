@@ -86,28 +86,23 @@ $header_options = array(
 					</a>
 				</div>
 			</div>
-
-			<div class="d-flex align-items-center">
-				<?php
-				if ( isset( $header_options['additional_link'] ) ) {
-					if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
-						?>
-						<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
-							<?php echo $header_options['additional_link']['title']; ?>
-						</a>
-						<?php
-					}
-				}
-				?>
-				<!-- Searchform Template Start -->
-				<div class="search-wrap secondary-header-nav-el">
-					<i id="search-icon"></i>
-				</div>
-				<!-- END Searchform Template -->
-			</div>
 		</div>
 
 		<div class="secondary-header-nav">
+			<?php
+			if ( isset( $header_options['additional_link'] ) ) {
+				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+					?>
+					<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+						<?php echo $header_options['additional_link']['title']; ?>
+					</a>
+					<?php
+				}
+			}
+			?>
+			<div class="search-wrap secondary-header-nav-el">
+				<?php get_template_part( 'template-parts/inline-svg/icon', 'search' ); ?>
+			</div>
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'account' ); ?>
 			</a>
