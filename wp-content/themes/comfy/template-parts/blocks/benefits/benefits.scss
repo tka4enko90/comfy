@@ -76,5 +76,8 @@
     @include media-breakpoint-up(lg) {
       margin-top: 28px;
     }
+    &-wrap {
+      flex-basis: 100%;
+    }
   }
 }
