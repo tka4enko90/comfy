@@ -121,6 +121,7 @@ $header_options = array(
 			<div class="header-search">
 				<?php echo get_search_form(); ?>
 				<div id="search-results"></div>
+                <div class="search-close-icon"></div>
 			</div>
 		</div>
 	</div>

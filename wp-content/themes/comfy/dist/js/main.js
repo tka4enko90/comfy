@@ -290,12 +290,14 @@ jQuery(document).ready(function ($) {
     $(this).toggleClass('active');
     $('div#primary-header-nav-container').toggleClass('active');
   });
+  $('.search-wrap').on('click', function (e) {//alert(1)
+  });
   $('body').on('click', function (e) {
-    if ($(e.target).is('#search-icon')) {
-      $('.search-wrap, .header-container').toggleClass('active');
-      $('#woocommerce-product-search-field-0').focus();
-    } else if (!$(e.target).parents('.header-container').length) {
-      $('.search-wrap, .header-container').removeClass('active');
+    if ($(e.target).is('.search-wrap svg')) {
+      $('.header-container').toggleClass('active');
+      $('#search-form-input').focus();
+    } else if ($(e.target).is('.search-close-icon') || !$(e.target).parents('.header-container').length) {
+      $('.header-container').removeClass('active');
     }
   });
   $('body').on('click', '.search-view-all a', function (e) {
