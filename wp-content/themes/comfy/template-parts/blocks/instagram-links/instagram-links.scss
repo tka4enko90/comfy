@@ -2,16 +2,15 @@
 .instagram-links {
   &-section {
     &-title {
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       letter-spacing: -.04em;
       @media (min-width: $md) {
-        margin-bottom: 76px;
+        margin-bottom: 64px;
       }
       @media (max-width: $md - 1) {
         font-size: 32px;
         max-width: 180px;
         line-height: 1;
-
       }
     }
     &-account {
@@ -50,13 +49,13 @@
     margin-bottom: 20px;
     @media (min-width: $md) {
       flex-basis: 25%;
-      margin-bottom: 0;
     }
     &s {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       padding: 0 5px;
+      margin-bottom: -20px;
     }
   }
   &-link {
