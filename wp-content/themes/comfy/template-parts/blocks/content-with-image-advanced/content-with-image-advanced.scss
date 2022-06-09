@@ -41,6 +41,10 @@
       &:first-child {
         img {
           border-radius: 8px;
+          @include media-breakpoint-down(lg) {
+            max-height: 80vh;
+            object-fit: cover;
+          }
         }
         @include media-breakpoint-down(xs) {
           margin-bottom: 32px;
