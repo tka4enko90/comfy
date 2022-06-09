@@ -37,6 +37,16 @@ form, form.wpcf7-form {
       border-bottom: 2px solid $white;
       color: $white;
       padding: 14px 0;
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $white;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $white;
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        color: $white;
+      }
     }
     &[type="submit"] {
 
