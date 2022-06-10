@@ -25,9 +25,7 @@ function cmf_ajax_search() {
 	//Search Product Categories
 	ob_start();
 	get_template_part( 'template-parts/search-results', '', $products );
-
 	$response['layout'] = ob_get_clean();
-	wp_reset_query();
 	wp_send_json_success( $response );
 }
 
