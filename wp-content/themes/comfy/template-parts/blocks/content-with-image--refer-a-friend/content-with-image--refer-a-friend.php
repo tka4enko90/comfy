@@ -17,25 +17,11 @@ if ( ! empty( $content_col['content'] ) ) {
 	?>
 	<?php
 	echo ( ! empty( $content_col['content'] ) ) ? $content_col['content'] : '';
-	if ( ! empty( $content_col['sign_id'] ) ) {
-		?>
-		<div class="content-sign">
-			<?php
-			echo wp_get_attachment_image( $content_col['sign_id'], 'cmf_sign' );
-			if ( ! empty( $content_col['sign_text'] ) ) {
-				?>
-			<p>
-				<?php echo $content_col['sign_text']; ?>
-			</p>
-				<?php
-			}
-			?>
-		</div>
-		<?php
+	if ( ! empty( $content_col['shortcode'] ) ) {
+		echo do_shortcode( $content_col['shortcode'] );
 	}
 
 	$settings['content_group']['content'] = ob_get_clean();
 }
-$settings['content_group']['link'] = $content_col['link'];
 
 get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings );

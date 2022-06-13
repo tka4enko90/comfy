@@ -1,6 +1,6 @@
 @import "../../../src/scss/components/vars";
 @import "../../../src/scss/components/mixins";
-.content-with-image--why-comfy {
+.content-with-image--how-it-works {
   &-section {
     &.image-position-right {
       .row .col:last-child {
@@ -19,10 +19,7 @@
         }
         &:last-child {
           @include media-breakpoint-up(lg) {
-            flex-basis: 443px;
-          }
-          @include media-breakpoint-up(xl) {
-            margin-right: 86px;
+            flex-basis: 356px;
           }
         }
       }
