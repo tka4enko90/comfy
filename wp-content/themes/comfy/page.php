@@ -12,13 +12,6 @@ get_header(); ?>
 	if ( have_rows( 'flexible_sections' ) ) :
 		$section_directory = 'template-parts/blocks/';
 
-		add_filter(
-			'acf-flexible-content-preview.images_path',
-			function ( $path ) {
-				return 'template-parts/blocks';
-			}
-		);
-
 		while ( have_rows( 'flexible_sections' ) ) :
 			the_row();
 			$section_classes  = '';
@@ -29,18 +22,19 @@ get_header(); ?>
 			);
 			ob_start();
 			get_template_part( $section_directory . '/' . $section_name . '/' . $section_name, '', $args );
-			$section_layout  = ob_get_clean();
-			$section_classes = apply_filters( $section_name . '_classes', $section_classes );
+			$section_layout           = ob_get_clean();
+			$filtered_section_classes = apply_filters( $section_name . '_classes', $section_classes );
 			?>
-			<section class="section <?php echo $section_classes; ?>">
+			<section class="section <?php echo $filtered_section_classes; ?>">
 				<?php echo $section_layout; ?>
 			</section>
 			<?php
-
-
-			if ( ! empty( $classes ) ) {
-				wp_die( $classes );
-			}
+			add_filter(
+				$args['section_name'] . '_classes',
+				function ( $classes ) use ( $section_classes ) {
+					return  $section_classes;
+				}
+			);
 		endwhile;
 	else :
 		the_content();

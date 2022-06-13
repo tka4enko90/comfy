@@ -1,0 +1,56 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+body {
+}
+.faq-section {
+  .faq {
+    &-chapter {
+      &-title {
+        margin: 56px 0 16px;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    &-item {
+      padding: 24px 0;
+      border-bottom: 1px solid $line-gray;
+      &-title {
+        margin: 0;
+        padding-right: 32px;
+        position: relative;
+        cursor: pointer;
+        pointer-events: all;
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          top: 12px;
+          right: 0;
+          width: 16px;
+          height: 2px;
+          border-radius: 2px;
+          background-color: $primary-color;
+          @include media-breakpoint-up(md) {
+            top: 14px;
+          }
+        }
+        &:before {
+          transition: transform $std-transition-length ease-in;
+          transform: rotate(90deg);
+        }
+        &.active {
+          &:before {
+            transform: rotate(0deg);
+          }
+        }
+      }
+      &-content {
+        display: none;
+        margin-top: 16px;
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

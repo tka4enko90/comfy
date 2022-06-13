@@ -1,15 +1,16 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image--we-created-comfy {
   &-section {
     .row {
       .col {
         &:first-child {
-          @media (min-width: $xl ) {
+          @include media-breakpoint-up(xl ) {
             flex-basis: 617px;
           }
         }
         &:last-child {
-          @media (min-width: $xl ) {
+          @include media-breakpoint-up(xl ) {
             flex-basis: 530px;
           }
         }

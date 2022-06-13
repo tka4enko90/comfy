@@ -1,9 +1,10 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image--why-comfy {
   &-section {
     &.image-position-right {
       .row .col:last-child {
-        @media (min-width: $lg) {
+        @include media-breakpoint-up(lg) {
           margin-right: 86px;
           margin-left: 0;
         }
@@ -12,15 +13,15 @@
     .row {
       .col {
         &:first-child {
-          @media (min-width: $lg ) {
+          @include media-breakpoint-up(lg) {
             flex-basis: 530px;
           }
         }
         &:last-child {
-          @media (min-width: $lg ) {
+          @include media-breakpoint-up(lg) {
             flex-basis: 443px;
           }
-          @media (min-width: $xl) {
+          @include media-breakpoint-up(xl) {
             margin-right: 86px;
           }
         }

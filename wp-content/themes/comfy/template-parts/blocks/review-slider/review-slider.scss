@@ -8,6 +8,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
       padding: 0 20px;
     }
     &-content {
@@ -25,11 +26,9 @@
       }
       .cmf-star-rating {
         display: flex;
-        position: relative;
-        margin: 0 -4px 16px;
+        margin: 0 -4px 21px;
        @include media-breakpoint-up(md) {
-          top: -34px;
-          margin: 0 -4px;
+          margin: 0 -4px 42px;
         }
 
         .star {
@@ -84,12 +83,15 @@
   .review {
     &-title {
       margin-bottom: 18px;
-     @include media-breakpoint-up(md) {
-        margin-bottom: 30px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 24px;
       }
     }
     &-name {
-      margin: 0;
+      margin: 0 0 21px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 42px;
+      }
     }
   }
 }

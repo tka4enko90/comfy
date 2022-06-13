@@ -1,0 +1,47 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.partners-section {
+  .section-title {
+    text-align: center;
+    margin-bottom: 32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 64px;
+    }
+  }
+  .col {
+    @include media-breakpoint-up(sm) {
+      flex-basis: 50%;
+    }
+    @include media-breakpoint-up(lg) {
+      flex-basis: 530px;
+    }
+  }
+  img {
+    margin-bottom: 16px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 48px;
+    }
+  }
+  .partner {
+    &-address {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    &-title {
+
+    }
+    &-description {
+      margin-bottom: 32px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 70px;
+      }
+    }
+  }
+  .row {
+    margin-bottom: -32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: -70px;
+    }
+  }
+
+}

@@ -46,7 +46,7 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 				<?php echo get_the_post_thumbnail( $args['product']->ID, $args['thumb'] ); ?>
 			</div>
 			<div class="product-info">
-				<h5 class="product-title"><?php echo $args['product']->post_title; ?></h5>
+				<h5 class="product-title"><?php echo get_the_title( $args['product'] ); ?></h5>
 				<div class="product-price">
 					<?php
 					$sale = $product->get_price() / $product->get_regular_price();
