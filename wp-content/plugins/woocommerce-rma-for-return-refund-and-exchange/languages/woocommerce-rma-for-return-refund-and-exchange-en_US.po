@@ -1,0 +1,2169 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RMA Return Refund & Exchange for WooCommerce Pro 5.0.2\n"
+"POT-Creation-Date: 2022-06-08 09:25+0530\n"
+"PO-Revision-Date: 2022-06-08 09:25+0530\n"
+"Last-Translator: \n"
+"Language-Team: WP Swings\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr_e;esc_attr_x;esc_html__;"
+"esc_html_e;esc_html__;esc_html_x;_n_noop;_nx_noop\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:260
+msgid "Id of some field is missing"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:263
+msgid "Settings saved !"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:335
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:29
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:39
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:94
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:576
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:760
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:773
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:784
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:793
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:802
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:254
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:554
+msgid "Exchange"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:340
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:30
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:40
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:354
+msgid "Wallet"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:359
+msgid "Global Shipping"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:364
+msgid "Integration"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:378
+msgid "License"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:384
+msgid "System Status"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:557
+msgid "Exchange Products Requested"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:655
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1028
+msgid "Manually By Admin(RMA)"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:669
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1059
+msgid "REFUND ACCEPTED - ORDER "
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:736
+msgid "User Wallet"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:788
+msgid "Add amount to Customer Wallet"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:795
+msgid "Provide Coupon Amount (Enter only number and decimal amount)"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:798
+msgid "Change Coupon Amount"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:933
+msgid "Exchange Products"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:936
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:74
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:141
+msgid "Item"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:937
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:75
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:142
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:277
+msgid "Name"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:938
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:76
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:143
+msgid "Cost"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:939
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:77
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:144
+msgid "Qty"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:940
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:66
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:138
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:78
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:130
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:145
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:245
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:83
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:144
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:347
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:392
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:402
+#: public/partials/wps-exchange-request-form.php:113
+#: public/partials/wps-exchange-request-form.php:398
+msgid "Total"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:965
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:103
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:229
+msgid "SKU:"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:968
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:106
+msgid "Variation ID:"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:972
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:110
+msgid "No longer exists"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1017
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1090
+msgid "h:i a"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1049
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1107
+msgid "Amount is added in customer wallet."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1121
+msgid ""
+"The wallet is not enabled, Please Enable the wallet to add the amount to the "
+"customer wallet."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1183
+msgid "Product Stock is updated Successfully."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1185
+#, php-format
+msgid "%s Product Stock is updated Successfully."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1188
+msgid ""
+"Product Stock is not updated as manage stock setting of product is disable."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1190
+#, php-format
+msgid ""
+"%s Product Stock is not updated as manage stock setting of product is "
+"disable."
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1224
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:374
+msgid "Here the Returnship Label Link for Order"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1246
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:366
+msgid "State"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1362
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1448
+msgid "Accounts"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1363
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1449
+msgid "Accounts settings"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1384
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1471
+msgid "Carrier ID"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1387
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1474
+msgid "Carrier Name"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1390
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1477
+msgid "Carrier Services"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1959
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:1991
+msgid "Please upload only image or pdf"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:2084
+msgid "Please Click"
+msgstr ""
+
+#: admin/class-rma-return-refund-exchange-for-woocommerce-pro-admin.php:2085
+msgid "To Goto the Migration Page to the Start Migration"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:49
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:62
+msgid "Minimum Order"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:50
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:63
+msgid "Exclude Categories"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:51
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:64
+msgid "Exclude Products"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:189
+msgid "This Fees amount is deducted from Refund amount"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-policies-setting-html.php:205
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:278
+msgid "Save"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:31
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:382
+msgid "Return Ship Label Attachment :"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:33
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:384
+msgid "Upload"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:38
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:389
+msgid "Return Label Attachment"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:40
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:391
+msgid "Change Attachment"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:48
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:399
+msgid "Validate your Return label attachment here."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:53
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:404
+msgid "Create Return Label"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-returnship-html.php:64
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:414
+msgid "Upload your Return label attachment here."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:30
+msgid "Enable Exchange"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:36
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:48
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:59
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:70
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:81
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:92
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:103
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:114
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:142
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:163
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:174
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:186
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:197
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:208
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:244
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:311
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:322
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:333
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:355
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:366
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:377
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:388
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:399
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:427
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:448
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:494
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:568
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:658
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:669
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:680
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:723
+msgid "YES"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:37
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:49
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:60
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:71
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:82
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:93
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:104
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:115
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:143
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:164
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:175
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:187
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:198
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:209
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:245
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:312
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:323
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:334
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:356
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:367
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:378
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:389
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:400
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:428
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:449
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:495
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:569
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:659
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:670
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:681
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:724
+msgid "NO"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:41
+msgid "Enable Cancel"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:53
+msgid "Enable wallet"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:64
+msgid "Enable Single Refund and Exchange Request Per Order"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:75
+msgid "Enable Refund & Exchange For Exchange Approved Order"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:86
+msgid "Show Sidebar For Refund,Exchange & Cancel Form"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:97
+msgid "Hide Refund,Exchange,Cancel Button For COD When Processing"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:108
+msgid "Guest Feature via Phone Number"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:119
+msgid "Refund,Exchange,Cancel Functionality Start From Order Status Date"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:127
+msgid "Guest Form Shortcode"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:135
+msgid "Enable To Reset The License On Deactivation Of The Plugin."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:157
+msgid "Enable To Refund on Sales Item"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:168
+msgid "Deduct Coupon Amount During Refund"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:180
+msgid "Enable Auto Accept Refund Request"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:191
+msgid "Enable To Block Customer Refund Request Mail"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:202
+msgid "Enable To Auto Restock When Refund Request Accepted"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:222
+msgid "Reason of Refund Placeholder"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:227
+msgid "Enter Reason of Refund Placeholder Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:230
+msgid "Refund Request Form Shipping Fee Description"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:233
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:170
+msgid ""
+"This Extra Shipping Fee Will be Deducted from Total Amount When the Refund "
+"Request is approved"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:235
+msgid "Change Shipping Fee Description on Refund Request Form"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:238
+msgid "Enable Refund Note On Product Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:249
+msgid "Refund Note on Product Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:257
+msgid "Refund Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:262
+msgid "Enter Refund Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:265
+msgid "Refund Form Custom CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:272
+msgid "Write the Refund Form CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:284
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:551
+msgid "Order Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:285
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:552
+msgid "Order View Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:286
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:553
+msgid "Thank You Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:289
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:556
+msgid "Default"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:295
+msgid "Select Pages To Hide Exchange Button"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:305
+msgid "Enable Exchange Request With Same Product Or Its Variations"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:316
+msgid "Enable to show Manage Stock Button"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:327
+msgid "Enable Attachment"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:338
+msgid "Attachement Limit"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:340
+msgid "By default, It will take 5. If not given any."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:349
+msgid "Enable to Exchange on Sales Item"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:360
+msgid "Deduct Coupon Amount During Exchange"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:371
+msgid "Enable To Block Customer Exchange Request Mail"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:382
+msgid "Enable To Auto Restock When Exchange Request Accepted"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:393
+msgid "Show Add-To-Cart Button"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:413
+msgid "Exchange Button Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:418
+msgid "Enter Exchange Button Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:421
+msgid "Enable Exchange Reason Description"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:432
+msgid "Predefined Exchange Reason"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:439
+msgid "Enter the multiple reason separated by comma"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:442
+msgid "Enable Exchange Rules"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:453
+msgid "Exchange Rules Editor"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:458
+msgid "Write the Refund Rules( HTML + CSS )"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:462
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:624
+msgid "Select The Page To Redirect"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:472
+msgid "Reason Of Exchange Placeholder"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:477
+msgid "Enter Reason of Exchange Placeholder Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:480
+msgid "Exchange Request Form Shipping Fee Description"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:483
+#: public/partials/wps-exchange-request-form.php:341
+msgid ""
+"This Extra Shipping Fee Will be Deducted from Total Amount When the Exchange "
+"Request is approved"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:485
+msgid "Change Shipping Fee Description on Exchange Request Form"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:488
+msgid "Enable Exchange Note on Product Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:499
+msgid "Exchange Note On Product Page"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:507
+msgid "Exchange With Same Product Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:510
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:78
+msgid ""
+"Click on the product(s) to exchange with selected product(s) or its "
+"variation(s)."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:512
+msgid ""
+"Add text to display on Exchange form to Exchanging with the same product(s) "
+"and it's variation(s)."
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:515
+msgid "Exchange Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:520
+msgid "Enter Exchange Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:523
+msgid "Exchange Form Custom CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:530
+msgid "Write the Exchange form CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:538
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:636
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:703
+msgid "Save Setting"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:562
+msgid "Enable Cancel Order's Product"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:573
+msgid "Select Pages To Hide Cancel Button"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:588
+msgid "Cancel Order Button Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:593
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:601
+msgid "Enter Cancel Button Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:596
+msgid "Cancel Product Button Text"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:604
+msgid "Cancel Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:609
+msgid "Enter Cancel Form Wrapper Class"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:612
+msgid "Cancel Form Custom CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:619
+msgid "Write the Cancel form CSS"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:650
+msgid "Enable To Use Wallet System For WooCommerce Plugin"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:663
+msgid "Enable To Select Refund Method For The Customer"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:674
+msgid "Cancel Order Amount to Wallet"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:685
+msgid "Wallet Coupon Prefix"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:690
+msgid "Please Enter the Wallet Coupon Prefix"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:693
+msgid "Wallet Shortcode"
+msgstr ""
+
+#: admin/partials/admin_setting/class-wps-rma-setting-extend.php:717
+msgid "Enable To Block Mail"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:19
+msgid "Your Exchange Request is Accepted."
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:24
+#: admin/partials/email_template/wps-rma-refund-email-template.php:30
+msgid "Order "
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:25
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:30
+msgid "Exchanged From"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:29
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:75
+#: admin/partials/email_template/wps-rma-refund-email-template.php:34
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1373
+#: common/partials/email_template/wps-rma-cancel-prod-email-template.php:17
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:34
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:92
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:346
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:401
+#: public/partials/wps-cancel-request-form.php:80
+#: public/partials/wps-exchange-request-form.php:111
+#: public/partials/wps-exchange-request-form.php:395
+msgid "Product"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:30
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:76
+#: admin/partials/email_template/wps-rma-refund-email-template.php:35
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1374
+#: common/partials/email_template/wps-rma-cancel-prod-email-template.php:18
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:35
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:93
+#: public/partials/wps-cancel-request-form.php:81
+#: public/partials/wps-exchange-request-form.php:112
+#: public/partials/wps-exchange-request-form.php:396
+msgid "Quantity"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:31
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:77
+#: admin/partials/email_template/wps-rma-refund-email-template.php:36
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1375
+#: common/partials/email_template/wps-rma-cancel-prod-email-template.php:19
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:36
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:94
+#: public/partials/wps-exchange-request-form.php:243
+#: public/partials/wps-exchange-request-form.php:397
+msgid "Price"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:71
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:88
+msgid "Exchanged To"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:159
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:162
+msgid "Extra Amount Need to Pay:"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:160
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:163
+msgid "Click here to Pay"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:168
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:181
+msgid "Left Amount After Exchange:"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:188
+msgid "Your new order id is: #"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:189
+msgid "Click here to View Order Received"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:192
+#: admin/partials/email_template/wps-rma-refund-email-template.php:135
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:170
+msgid "Customer details"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:195
+#: admin/partials/email_template/wps-rma-refund-email-template.php:139
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:173
+msgid "Email"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:198
+#: admin/partials/email_template/wps-rma-refund-email-template.php:144
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:176
+msgid "Tel"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:204
+#: admin/partials/email_template/wps-rma-refund-email-template.php:151
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:182
+msgid "Shipping Address"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-accept-email-template.php:208
+#: admin/partials/email_template/wps-rma-refund-email-template.php:155
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:186
+msgid "Billing Address"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-exchange-request-cancel-email-template.php:16
+msgid "Your Exchange Request is Cancelled"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-refund-email-template.php:21
+msgid "Your order has been refunded"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-refund-email-template.php:25
+msgid "Refund: Order "
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-refund-email-template.php:28
+msgid ""
+"Your order has been refunded. There are more details below for your "
+"reference:"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-refund-email-template.php:121
+msgid "Payment Method"
+msgstr ""
+
+#: admin/partials/email_template/wps-rma-refund-email-template.php:127
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:450
+msgid "Refund Amount"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-cancel.php:37
+#, php-format
+msgid "To Configure Cancel Related Email %s."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:66
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:332
+msgid "Following product exchange request is made on"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:70
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:397
+msgid "Exchanged Product"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:137
+msgid "Requested Product"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:256
+msgid "The fees amount is added to the Paid amount"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:303
+msgid "Extra Amount Paid"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:323
+msgid "Left Amount After Exchange"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:343
+#: emails/class-wps-rma-cancel-request-email.php:152
+#: emails/class-wps-rma-exchange-request-accept-email.php:195
+#: emails/class-wps-rma-exchange-request-cancel-email.php:193
+#: emails/class-wps-rma-exchange-request-email.php:195
+#: emails/class-wps-rma-refund-email.php:156
+#: emails/class-wps-rma-returnship-email.php:167
+msgid "Subject"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:346
+msgid "Reason"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:354
+msgid "Bank Details"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:361
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:369
+msgid "Attachment"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:425
+msgid "Accept Request"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:426
+msgid "Cancel Request"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:447
+msgid "Refundable Amount of this order is "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:459
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:517
+msgid "Above product exchange request is approved on"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:467
+msgid "A new order is generated for your exchange request."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:478
+msgid "When Product Back in stock then for stock management-click on "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:478
+msgid "Manage Stock"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:488
+msgid "Above product exchange request is cancelled on "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:505
+msgid "No request from customer"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange-meta.php:506
+msgid "Initiate Exchange Request"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange.php:39
+#, php-format
+msgid "To Configure Exchange Request Email %s."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange.php:45
+#, php-format
+msgid "To Configure Exchange Request Accept Email %s."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-exchange.php:51
+#, php-format
+msgid "To Configure Exchange Request Cancel Email %s."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-global-shipping.php:21
+msgid "Enable Global Shipping"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-global-shipping.php:91
+msgid "Enable Product Category Based Shipping"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-global-shipping.php:116
+msgid "Select Product Categories"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-global-shipping.php:145
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:123
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:439
+msgid "Save Settings"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license-info.php:27
+#, php-format
+msgid "%s day"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license-info.php:36
+msgid "Activate"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license-info.php:41
+#, php-format
+msgid ""
+" the license key before %s or you may risk losing data and the plugin will "
+"also become dysfunctional."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license-info.php:53
+msgid " Your trial period is over please activate license to use the features."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license.php:11
+msgid "Your License"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license.php:15
+msgid ""
+"This is the License Activation Panel. After purchasing extension from "
+"wpswings you will get the purchase code of this extension. Please verify "
+"your purchase below so that you can use feature of this plugin."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license.php:21
+msgid "Purchase Code : "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license.php:23
+msgid "Enter your code here..."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-license.php:30
+msgid "Validate"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:20
+msgid "Return Ship Setting"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:25
+msgid "Enable Shiping Label"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:55
+msgid "Enable ShipEngine Shiping Label"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:85
+msgid "Enable ShipStation Shiping Label"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:119
+#, php-format
+msgid "To Configure Returnship Related Email %s."
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:133
+msgid "ShipEngine Configuration"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:160
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:226
+msgid "Log Out"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:180
+msgid " Enter Your API Key"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:187
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:259
+msgid "Validate Account"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:199
+msgid "Shipstation Configuration"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:248
+msgid " Enter Your API Key "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:253
+msgid " Enter Your Secret Key "
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:270
+msgid "Ship Integration Details"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:288
+msgid "Company Name"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:299
+msgid "Address"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:310
+msgid "City"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:321
+msgid "Postcode/ZIP"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:332
+msgid "Country"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:393
+msgid "Phone"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:404
+msgid "Weight Unit"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:411
+msgid "Ounce"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:412
+msgid "Pound"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:413
+msgid "Gram"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:414
+msgid "Kilogram"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:420
+msgid "Dimensions Unit"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:428
+msgid "Inch"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-returnship-label.php:429
+msgid "Centimeter"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-system-status.php:30
+msgid "WP Variables"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-system-status.php:31
+msgid "WP Values"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-system-status.php:56
+msgid "System Variables"
+msgstr ""
+
+#: admin/partials/rma-return-refund-exchange-for-woocommerce-pro-system-status.php:57
+msgid "System Values"
+msgstr ""
+
+#: class-rma-return-refund-exchange-for-woocommerce-pro-update.php:139
+msgid "Plugin Description"
+msgstr ""
+
+#: class-rma-return-refund-exchange-for-woocommerce-pro-update.php:143
+msgid "Plugin Change Log"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:89
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:819
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:838
+msgid "My Wallet"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:95
+msgid "Please Select Products You Want to Refund."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:96
+msgid "Please Enter Refund Subject."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:97
+msgid "Please Enter Refund Reason."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:98
+msgid "Please Enter Correct Quantity."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:99
+msgid "Please Select Products You Want to Exchange."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:100
+msgid "Please Enter Exchange Subject."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:101
+msgid "Please Enter Exchange reason."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:102
+msgid "Choose Exchange Products Before Submitting The Request."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:103
+msgid "Remaining Amount After Exchange."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:104
+#: public/partials/wps-exchange-request-form.php:558
+msgid "Extra Amount Need to Pay"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:105
+msgid "Please Enter Order Email"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:106
+msgid "Please Enter Order Phone Number"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:107
+msgid "Please Enter Order Id"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:108
+msgid "Please Enter Order Id & Order Email"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:109
+msgid "Please Enter Order Id & Phone Number"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:110
+msgid "Please Select Product To Make a Refund Request"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:122
+msgid "You have insufficient Wallet Amount."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:123
+msgid "Please Enter the valid wallet amount."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:124
+msgid "Do you want to cancel the product(s)?"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:125
+msgid "Do you want to cancel the whole order?"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:126
+msgid "Please Select Product(s) you want to Cancel."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:156
+msgid " minimum order exceed must be less than "
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:163
+msgid " order must be greater than "
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:170
+msgid " order must be less than equal to "
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:177
+msgid " order must be greater than equal to "
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:187
+msgid " Can't make on the order on COD during processing"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:191
+msgid "Refund & Exchange Can't make on Exchange Approved Order"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:227
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:819
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:838
+msgid "Coupon Code"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:228
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:819
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:838
+msgid "Wallet Amount"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:247
+#, php-format
+msgid "Exchange Requested <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:259
+#, php-format
+msgid "Exchange Approved <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:271
+#, php-format
+msgid "Exchange Cancelled <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:283
+#, php-format
+msgid "Partially Cancelled <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:299
+msgid "Exchange Requested"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:300
+msgid "Exchange Approved"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:301
+msgid "Exchange Cancelled"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:302
+msgid "Partially Cancelled"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:528
+msgid "View Order"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:901
+msgid "Your order is cancelled"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:919
+msgid "Your selected product(s) removed from the order."
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:951
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:952
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:736
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:737
+msgid "CANCELLED - ORDER "
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1174
+msgid "Exchange Form"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1175
+msgid "Add Exchange Form into your page"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1177
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1193
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1209
+msgid "RMA FORMS"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1190
+msgid "Cancel Form"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1191
+msgid "Add Cancel Form into your page"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1206
+msgid "Guest Form"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1207
+msgid "Add Guest Form into your page"
+msgstr ""
+
+#: common/class-rma-return-refund-exchange-for-woocommerce-pro-common.php:1456
+#, php-format
+msgid ""
+"Your wallet doesn't have a sufficient amount to place an order. For using "
+"Wallet amount use the Coupon Code: %1$s %2$s %3$s"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-cancel-order-email-template.php:9
+msgid "Order"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-cancel-order-email-template.php:9
+msgid "Cancelled by the Customer"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-cancel-prod-email-template.php:13
+msgid "Product(s) cancelled by the customer of the order #"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:25
+msgid "Reason of Exchange"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:150
+msgid "Extra Shipping Charges"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:154
+msgid "Shipping"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:155
+msgid "Charge"
+msgstr ""
+
+#: common/partials/email_template/wps-rma-exchange-request-email-template.php:167
+msgid "Extra Amount"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:103
+msgid "Cancel Request for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:110
+msgid "Cancel Request Email"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:143
+#: emails/class-wps-rma-exchange-request-accept-email.php:186
+#: emails/class-wps-rma-exchange-request-cancel-email.php:184
+#: emails/class-wps-rma-exchange-request-email.php:186
+#: emails/class-wps-rma-refund-email.php:147
+#: emails/class-wps-rma-returnship-email.php:158
+#, php-format
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:160
+#: emails/class-wps-rma-exchange-request-accept-email.php:203
+#: emails/class-wps-rma-exchange-request-cancel-email.php:201
+#: emails/class-wps-rma-exchange-request-email.php:203
+#: emails/class-wps-rma-refund-email.php:164
+#: emails/class-wps-rma-returnship-email.php:175
+msgid "Heading"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:174
+#: emails/class-wps-rma-exchange-request-accept-email.php:226
+#: emails/class-wps-rma-exchange-request-cancel-email.php:224
+#: emails/class-wps-rma-exchange-request-email.php:226
+#: emails/class-wps-rma-refund-email.php:187
+#: emails/class-wps-rma-returnship-email.php:198
+msgid "Plain text"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:175
+#: emails/class-wps-rma-exchange-request-accept-email.php:227
+#: emails/class-wps-rma-exchange-request-cancel-email.php:225
+#: emails/class-wps-rma-exchange-request-email.php:227
+#: emails/class-wps-rma-refund-email.php:188
+#: emails/class-wps-rma-returnship-email.php:199
+msgid "HTML"
+msgstr ""
+
+#: emails/class-wps-rma-cancel-request-email.php:176
+#: emails/class-wps-rma-exchange-request-accept-email.php:228
+#: emails/class-wps-rma-exchange-request-cancel-email.php:226
+#: emails/class-wps-rma-exchange-request-email.php:228
+#: emails/class-wps-rma-refund-email.php:189
+#: emails/class-wps-rma-returnship-email.php:200
+msgid "Multipart"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-accept-email.php:146
+msgid ""
+"Exchange Reuqest Accept for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-accept-email.php:153
+msgid "Exchange Request Accept Email"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-accept-email.php:211
+#: emails/class-wps-rma-exchange-request-cancel-email.php:209
+#: emails/class-wps-rma-exchange-request-email.php:211
+#: emails/class-wps-rma-refund-email.php:172
+#: emails/class-wps-rma-returnship-email.php:183
+msgid "Custom Email"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-accept-email.php:212
+#: emails/class-wps-rma-exchange-request-cancel-email.php:210
+#: emails/class-wps-rma-exchange-request-email.php:212
+#: emails/class-wps-rma-refund-email.php:173
+#: emails/class-wps-rma-returnship-email.php:184
+msgid "If N/A then default email will send."
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-accept-email.php:214
+#: emails/class-wps-rma-exchange-request-cancel-email.php:212
+#: emails/class-wps-rma-exchange-request-email.php:214
+#: emails/class-wps-rma-refund-email.php:175
+#: emails/class-wps-rma-returnship-email.php:186
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:682
+msgid "N/A"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-cancel-email.php:144
+msgid ""
+"Exchange Reuqest Cancel for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-cancel-email.php:151
+msgid "Exchange Request Cancel Email"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-email.php:146
+msgid "Exchange Request for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-exchange-request-email.php:153
+msgid "Exchange Request Email"
+msgstr ""
+
+#: emails/class-wps-rma-refund-email.php:108
+msgid "Refund Amount for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-refund-email.php:115
+msgid "Refund Amount Email"
+msgstr ""
+
+#: emails/class-wps-rma-returnship-email.php:119
+msgid "Returnship for order {order_id} message from {message_date}"
+msgstr ""
+
+#: emails/class-wps-rma-returnship-email.php:126
+msgid "Returnship Email"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:57
+#: gateway/class-wps-rma-wallet-gateway.php:94
+msgid "Wallet Payment"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:58
+msgid ""
+"This payment method is used for the user who wants to make the payment from "
+"their Wallet."
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:84
+msgid "Enable/Disable"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:86
+msgid "Enable Wallet Payment"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:91
+msgid "Title"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:93
+msgid ""
+"This controls the title for the payment method the customer sees during "
+"checkout."
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:99
+msgid "Description"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:101
+msgid "Payment method description that the customer will see on your checkout."
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:102
+msgid "Your amount is deducted from your wallet."
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:107
+msgid "Instructions"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:109
+msgid "Instructions that will be added to the thank you page and emails."
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:131
+#: gateway/class-wps-rma-wallet-gateway.php:137
+msgid "[Your Amount :"
+msgstr ""
+
+#: gateway/class-wps-rma-wallet-gateway.php:182
+msgid "Awaiting Wallet payment"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:65
+msgid "exchange-request-form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:66
+msgid "Exchange Request Form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:81
+msgid "guest-request-form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:82
+msgid "Guest Return/Exchange Request Form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:97
+msgid "cancel-request-form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro-activator.php:98
+msgid "Cancel Request Form"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:583
+#, php-format
+msgid ""
+"Unable to locate file at location \"%s\". Some features may not work "
+"properly in this plugin. Please contact us!"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:640
+msgid "N/A (phpversion function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:649
+msgid "N/A (make sure exec function is enabled)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:652
+msgid "N/A (ABSPATH constant not defined)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:655
+msgid "N/A (php_uname function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:658
+msgid "N/A (get_bloginfo function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:661
+msgid "N/A (get_option function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:664
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:667
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:670
+msgid "Yes"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:664
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:667
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:670
+msgid "No"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:673
+msgid "N/A (count_users function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:676
+msgid "0"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:679
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:685
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:688
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:716
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:719
+msgid "N/A (ini_get function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:700
+msgid "N/A (gethostname function does not exist)"
+msgstr ""
+
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:703
+#: includes/class-rma-return-refund-exchange-for-woocommerce-pro.php:712
+msgid "N/A (make sure exec is enabled)"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:280
+msgid ""
+"Your Giftcard has been expired so you can not proceed with the exchange. "
+"Thanks"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:287
+msgid ""
+"Your Giftcard has been used so you can not proceed with the exchange. Thanks"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:333
+msgid "User Request to Exchange Product"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:345
+msgid ""
+"Exchange request placed successfully. You have received a notification mail "
+"regarding this, Please check your mail. Soon You redirect to the My Account "
+"Page. Thanks"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:484
+msgid "Added the Exchanged item info"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:648
+msgid "User Request of Exchange Product is Cancelled."
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:690
+msgid "Backordered"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:762
+msgid "User has cancelled some product of order."
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:815
+msgid "An order cancelled by a customer."
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:854
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:868
+msgid "Successfully Verified. Please Wait."
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:1372
+msgid "RMA wallet Amount"
+msgstr ""
+
+#: includes/rma-return-refund-exchange-for-woocommerce-pro-common-functions.php:1373
+msgid "Migrated RMA Amount"
+msgstr ""
+
+#: index.php:14 public/index.php:14
+msgid "oops looks like nothing is here"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:96
+msgid ""
+"Heads up, We highly recommend Also Update Latest Org Plugin. From Now the "
+"Pro version is dependent upon our Org Plugin. The latest update includes "
+"some substantial changes across different areas of the plugin"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:96
+msgid ""
+"Please download and activate the Return Refund and Exchange for WooCommerce "
+"From WordPress"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:96
+msgid "It requires minimum 4.0.0 Version to work"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:96
+msgid "To download the Return Refund and Exchange for WooCommerce, Please "
+msgstr ""
+
+#: mwb-woocommerce-rma.php:137
+msgid "Please activate "
+msgstr ""
+
+#: mwb-woocommerce-rma.php:156
+msgid "please install"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:156
+msgid "from WordPress before installing the pro plugin."
+msgstr ""
+
+#: mwb-woocommerce-rma.php:227 mwb-woocommerce-rma.php:233
+msgid "RMA Return Refund & Exchange for WooCommerce Pro"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:297
+msgid "Demo"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:298
+msgid "Documentation"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:299
+msgid "Support"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:318
+msgid "Settings"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:351
+msgid "OrderId or Phone Number is Invalid"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:353
+msgid "OrderId or Email is Invalid"
+msgstr ""
+
+#: mwb-woocommerce-rma.php:495
+msgid ""
+"Woocommerce is not activated, Please activate Woocommerce first to install "
+"WooCommerce RMA | Return-Refund-Exchange."
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:162
+msgid ""
+"Exchange Request Already has been made and accepted for the items you have "
+"given"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:166
+msgid "Quanity given for items is greater than the order's items quantity"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:170
+msgid "Please Enter the variations to continue the process."
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:174
+msgid "Please enter the correct product id to continue the process"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:178
+msgid "Please enter the correct variation id to continue the process"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:182
+msgid "There is wrong details given in the from products exchange"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:186
+msgid "There is wrong details given in the to products exchange"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:190
+msgid "Products are given by you doesn't a valid json format"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:194
+msgid "These item id does not belong to the order"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:198
+msgid "Please give the item ids which needs to be exchange"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:202
+msgid "Please give the item qty which needs to be exchange"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:212
+msgid "Exchange Request send successfully"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:220
+msgid "Please Provide the data for the products"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:223
+msgid "Please Provide the reason for exchange"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:226
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:277
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:328
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:430
+msgid "Please Provide the order id to perform the process"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:229
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:280
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:331
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:433
+msgid "Please Provide the correct order id to perform the process"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:263
+msgid "Exchange Request Accepted Successfully"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:266
+msgid "Some problem occur while exchange request accepting"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:270
+msgid "You have approved the exchange request already"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:273
+msgid ""
+"You can only perform the exchange request accept when the request has been "
+"made earlier"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:314
+msgid "Exchange Request Cancel Successfully"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:317
+msgid "some problem occurred while exchange request canceling"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:321
+msgid "You have cancelled the exchange request already"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:324
+msgid ""
+"You can only perform the exchange request cancel when the request has been "
+"made earlier"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:357
+msgid "This order is already cancelled"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:362
+msgid "The order is cancelled"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:365
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:419
+msgid "Some problem occur while order cancelling"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:402
+msgid "Please give the item ids which needs to be cancelled"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:405
+msgid "please give the qty for the item."
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:408
+msgid "These item id does not belongs to the order's item"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:411
+msgid "The item quantity must be less than order's item quantity"
+msgstr ""
+
+#: package/rest-api/version1/class-rma-return-refund-exchange-for-woocommerce-pro-api-process.php:416
+msgid "The order partially has been cancelled"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:90
+#: public/partials/wps-cancel-request-form.php:79
+#: public/partials/wps-exchange-request-form.php:110
+msgid "Check All"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:127
+msgid "It means product can't be refunded."
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:145
+#: public/partials/wps-exchange-request-form.php:578
+msgid "Select Amount Refund Method :"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:149
+#: public/partials/wps-exchange-request-form.php:582
+msgid "Refund Into the Wallet"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:152
+#: public/partials/wps-exchange-request-form.php:585
+msgid "Refund Through Manual Method"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:180
+#: public/partials/wps-exchange-request-form.php:351
+msgid "Shipping Charges"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:181
+#: public/partials/wps-exchange-request-form.php:352
+msgid "Amount"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:281
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:585
+msgid "Cancel Product"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:286
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:580
+msgid "Cancel Order"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:342
+msgid "Exchange Requested Product"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:472
+msgid "Extra Cost"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:488
+#: public/partials/wps-exchange-request-form.php:290
+#: public/partials/wps-exchange-request-form.php:533
+msgid "Total Amount"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:498
+msgid "Pay Amount"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:505
+msgid "Refundable Amount"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:526
+msgid "Above product exchange request is cancelled on"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:686
+msgid "Pay"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:819
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:838
+msgid "Regenerate Coupon Code"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:852
+#: public/partials/wps-guest-form.php:50
+msgid "ERROR"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:859
+#: public/partials/wps-guest-form.php:59
+msgid "Enter Order Id"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:864
+#: public/partials/wps-guest-form.php:67
+msgid "Enter Phone Number"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:869
+#: public/partials/wps-guest-form.php:74
+msgid "Enter Order Email"
+msgstr ""
+
+#: public/class-rma-return-refund-exchange-for-woocommerce-pro-public.php:874
+#: public/partials/wps-guest-form.php:81
+msgid "Submit"
+msgstr ""
+
+#: public/partials/wps-cancel-request-form.php:30
+#: public/partials/wps-exchange-request-form.php:31
+msgid "Please give the correct order id"
+msgstr ""
+
+#: public/partials/wps-cancel-request-form.php:61
+msgid "Order's Product Cancel Request Form"
+msgstr ""
+
+#: public/partials/wps-cancel-request-form.php:152
+msgid "Total Price"
+msgstr ""
+
+#: public/partials/wps-cancel-request-form.php:182
+msgid "Cancel Product(s)"
+msgstr ""
+
+#: public/partials/wps-cancel-request-form.php:211
+msgid "Cancel Request Can't make on this order"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:100
+msgid "Order's Product Exchange Request Form"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:165
+msgid "Your Giftcard cannot be exchanged."
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:250
+#: public/partials/wps-exchange-request-form.php:274
+#: public/partials/wps-exchange-request-form.php:295
+#: public/partials/wps-exchange-request-form.php:511
+#: public/partials/wps-exchange-request-form.php:521
+#: public/partials/wps-exchange-request-form.php:539
+msgid "(incl. tax)"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:254
+#: public/partials/wps-exchange-request-form.php:278
+#: public/partials/wps-exchange-request-form.php:299
+msgid "(excl. tax)"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:320
+msgid "It means product can't be exchanged."
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:378
+msgid "CHOOSE PRODUCTS"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:399
+msgid "Remove"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:595
+msgid "Please Enter the bank details for manual refund"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:610
+msgid "Subject of Exchange Request :"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:631
+msgid "Other"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:639
+msgid "Write your exchange reason"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:650
+msgid "Description for Refund Reason :"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:659
+msgid "Write your description for exchange"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:668
+#: public/partials/wps-exchange-request-form.php:673
+msgid "No Reason Enter"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:688
+msgid "Attach Files"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:697
+msgid "Add More"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:699
+msgid "Only .png, .jpeg extension file is supported."
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:706
+msgid "Submit Request"
+msgstr ""
+
+#: public/partials/wps-exchange-request-form.php:745
+msgid "Exchange Request Can't make on this order"
+msgstr ""
+
+#: public/partials/wps-guest-form.php:39
+msgid "Refund/Exchange Request Form"
+msgstr ""
