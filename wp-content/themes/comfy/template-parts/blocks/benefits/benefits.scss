@@ -39,13 +39,12 @@
     }
     &.mobile {
       display: none;
+      @include media-breakpoint-down(xs) {
+        display: block;
+      }
     }
     @include media-breakpoint-down(xs) {
       display: none;
-
-      &.mobile {
-        display: block;
-      }
     }
   }
   .benefit {
@@ -76,6 +75,9 @@
     margin-top: 24px;
     @include media-breakpoint-up(lg) {
       margin-top: 28px;
+    }
+    &-wrap {
+      flex-basis: 100%;
     }
   }
 }

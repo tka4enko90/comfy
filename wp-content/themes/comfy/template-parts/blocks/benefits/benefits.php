@@ -45,9 +45,11 @@ $section = array(
 			if ( isset( $section['button'] ) ) {
 				if ( ! empty( $section['button']['url'] ) && ! empty( $section['button']['title'] ) ) {
 					?>
-					<a class="button button-secondary" href="<?php echo $section['button']['url']; ?>" <?php echo ! empty( $section['button']['target'] ) ? 'target="' . $section['button']['target'] . '"' : ''; ?>>
-						<?php echo $section['button']['title']; ?>
-					</a>
+					<div class="button-wrap">
+						<a class="button button-secondary" href="<?php echo $section['button']['url']; ?>" <?php echo ! empty( $section['button']['target'] ) ? 'target="' . $section['button']['target'] . '"' : ''; ?>>
+							<?php echo $section['button']['title']; ?>
+						</a>
+					</div>
 					<?php
 				}
 			}
