@@ -1,0 +1,56 @@
+
+#wps_wrma_order_exchange .wc-order-item-thumbnail, 
+.wps_wrma_order_requested img{
+	width: 80px;
+    height: auto;
+    display: inline-block;
+}
+#wps_wrma_order_exchange .wc-order-item-thumbnail img{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+#wps_wrma_order_exchange  table.wps-wrma__order-exchange-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#wps_wrma_order_exchange  table.wps-wrma__order-exchange-table th,
+#wps_wrma_order_exchange  table.wps-wrma__order-exchange-table td{
+	text-align: center;
+    padding: 10px;
+}
+#wps_wrma_order_exchange  table.wps-wrma__order-exchange-table td{
+    border-bottom: 1px solid #eeeeee;
+    width: 20%;
+}
+#wps_wrma_order_exchange  table.wps-wrma__order-exchange-table > thead > tr > th{
+    border-bottom: 1px solid #eeeeee;
+}
+.wps_wrma_order_requested_wrap{
+	margin-top: 30px;
+}
+#wps_wrma_order_exchange input[type="text"],
+#wps_rma_order_refund input[type="text"],
+#wps_wrma_order_exchange input[type="number"],
+#wps_rma_order_refund input[type="number"]{
+	min-height: 40px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+#wps_wrma_order_exchange input.save_ship_ex_cost2, 
+#wps_rma_order_refund input.save_ship_ex_cost {
+    font-size: 14px;
+    padding: 11px 25px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #2196F3;
+    color: #ffffff;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+}
+.wps-wrma__order-exchange-table{
+    margin-bottom: 40px;
+}
+

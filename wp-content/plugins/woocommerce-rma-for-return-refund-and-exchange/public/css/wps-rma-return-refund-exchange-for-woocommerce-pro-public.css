@@ -1,0 +1,212 @@
+/* Create Color variables here
+ * follow this link for Color name
+ * https://chir.ag/projects/name-that-color/
+ * and use $c prefix.
+ * use lowercase for color code and variable name 
+ * i.e $c-black: #000000; */
+/* Create Typo variables here
+ * use $ff prefix for font family
+ * use $fs for font size
+ i.e $ff-roboto-b: Roboto-bold;
+ * $fs-large: 40px; */
+/* Placeholders */
+/* Mixins */
+/* SCSS Functions */
+/* Enter Your Global CSS here */
+* {
+  box-sizing: border-box;
+}
+*:after, *:before {
+  box-sizing: border-box;
+}
+
+/* Enter Button Global CSS Here */
+/* Header CSS */
+/* Footer CSS */
+/* Navigation CSS */
+/* Sidebar CSS */
+/* About page css */
+/* Home Page CSS */
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+/*common-css*/
+.wps-wrma-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wps-wrma-display-block {
+  display: block;
+}
+
+/*exchange_request_form*/
+.wps-rma-form__wrapper .product-select img {
+  margin: 0 auto;
+  max-width: 40px;
+  min-width: 40px;
+}
+
+.wps-rma-form__wrapper .wps-rma__prod-img {
+  width: 80px;
+  height: auto;
+  min-width: 60px;
+}
+
+.wps-rma-product__table-wrapper th, .wps-rma-product__table-wrapper td {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.wps-rma-form__wrapper i {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.wps-rma-form__wrapper i img {
+  width: 20px;
+  min-width: 20px;
+}
+
+.wps-rma-form__wrapper .product-quantity input {
+  min-width: 197px;
+}
+
+.wps-rma-form__wrapper th.product-check input {
+  margin-right: 5px;
+}
+
+.wps-rma-form__wrapper .wb-rma-product__table {
+  min-width: 720px;
+}
+
+.wps-rma-form__wrapper .wps-rma-product__table-wrapper {
+  overflow: auto;
+}
+
+.wps-rma-form__wrapper select#wps_rma_exchange_request_subject {
+  padding: 5px 105px 5px 5px;
+  border-radius: 0;
+}
+
+.wps-rma-form__wrapper select#wps_rma_exchange_request_subject:focus-visible {
+  outline: none;
+}
+
+.wps-rma-form__wrapper .wps_wrma_product_title {
+  margin-left: 20px;
+}
+
+.wps-rma-form__wrapper .wps_wrma_product_table {
+  margin-bottom: 0;
+}
+
+.wps-rma-form__wrapper .wps_wrma_exchanged_products_wrapper {
+  margin-bottom: 30px;
+  overflow: auto;
+}
+
+.wps-rma-form__wrapper .wps_rma_exchange_request_subject {
+  width: 100%;
+}
+
+.woocommerce-customer-details {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/*Refund form css*/
+.wps_rma_refund_form_wrapper i {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.wps_rma_refund_form_wrapper i img {
+  height: 20px;
+  margin-right: 3px;
+}
+
+#wps_wrma_exchange_request_form_wrapper .wps_wrma_product_table_wrapper {
+  position: relative;
+}
+
+#wps_wrma_exchange_request_form_wrapper .wps_rma_exchange_notification_checkbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wps-rma-form__wrapper .wps_wrma_exchnaged_product_remove a {
+  margin: 0 auto;
+}
+#wps_wrma_exchange_request_container, #wps_wrma_return_request_container {
+  text-align: center;
+}
+
+.exchange {
+  margin-top: 4px;
+}
+
+.wps_rma_cancel_order, .cancel {
+  margin-top: 4px;
+}
+
+.wps_rma_guest_form label {
+  display: table-cell;
+  text-align: right;
+}
+
+.wps_rma_guest_form input {
+  display: table-cell;
+}
+
+.wps-wrma_customer_detail {
+  padding: 0 15px;
+}
+
+.wps_rma_product_from_submit {
+  padding: 0 15px;
+}
+
+.wps-rma-form__row {
+  padding: 0 15px;
+}
+
+.wps-rma-form__wrapper .order_details {
+  border-collapse: collapse;
+}
+
+.wps-rma-form__wrapper .order_details th,
+.wps-rma-form__wrapper .order_details td {
+  border: 1px solid #cccccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.wps-rma-form__wrapper .order_details td {
+  background-color: #ffffff;
+}
+
+#wps_wrma_exchange_request_form_wrapper .wps-rma-subject__dropdown select {
+  padding: 5px 105px 5px 5px;
+  border-radius: 0;
+  width: 100%;
+}
+
+.wps_wrma_exhange_shop {
+  width: 100% !important;
+}
+
+@media only screen and (max-width: 520px) {
+  .wps-wrma-col.wps-wrma-txt-col {
+    margin-bottom: 30px;
+  }
+
+  #wps_wrma_exchange_request_form_wrapper form#wps_rma_exchnage_request_form,
+#wps_wrma_exchange_request_form_wrapper form#wps_rma_exchnage_request_form p {
+    margin-bottom: 0;
+  }
+}
