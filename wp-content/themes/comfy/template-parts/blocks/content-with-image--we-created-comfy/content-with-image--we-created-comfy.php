@@ -12,7 +12,7 @@ $settings    = array(
 	),
 	'section_name' => $args['section_name'],
 );
-if ( ! empty( $content_col['sign_id'] ) && ! empty( $content_col['content'] ) ) {
+if ( ! empty( $content_col['content'] ) ) {
 	ob_start();
 	?>
 	<?php

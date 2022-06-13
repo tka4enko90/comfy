@@ -16,7 +16,7 @@
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "medium",
+            "preview_size": "cmf_header_nav_image",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -64,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653485476
+    "modified": 1654763639
 }

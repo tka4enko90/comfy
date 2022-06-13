@@ -1,0 +1,42 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.rewards {
+  &-section {
+    .row {
+      margin-bottom: -32px;
+      @include media-breakpoint-up(sm) {
+        flex-wrap: nowrap;
+      }
+      .col {
+        @include media-breakpoint-down(xs) {
+          flex-basis: 100%;
+        }
+      }
+    }
+
+    .section-title {
+      margin-bottom: 32px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 64px;
+      }
+    }
+  }
+  &-item {
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: opacity $std-transition-length ease-in;
+    &:hover {
+      opacity: .8;
+    }
+    &-title {
+      color: $primary-color;
+      font-size: 20px;
+      margin: 16px 0 0;
+      text-transform: none;
+      @include media-breakpoint-up(md) {
+        margin: 24px 0 0;
+        font-size: 24px;
+      }
+    }
+  }
+}

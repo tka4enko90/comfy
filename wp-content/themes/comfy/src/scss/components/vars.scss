@@ -25,10 +25,12 @@ $grid-breakpoints: (
         reset: 0,
         xs: 376px,
         sm: 480px,
-        md: 769px,
+        md: 768px,
+        mobile-nav: 1039px,
         lg: 1080px,
         xl: 1281px,
-        xxl: 1400px
+        xxl: 1400px,
+        footer-fluid: 1600px
 );
 
 $column-gap: 40px;
