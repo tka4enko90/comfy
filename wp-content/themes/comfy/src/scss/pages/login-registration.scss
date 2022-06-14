@@ -1,0 +1,145 @@
+@import "../components/vars";
+@import "../components/mixins";
+.log-reg-section{
+  margin: 64px 0 120px;
+  .row {
+    flex-wrap: nowrap;
+    align-items: center;
+    .col {
+      &:first-child {
+        @include media-breakpoint-down(mobile-nav) {
+          flex-basis: 100%;
+        }
+        @include media-breakpoint-up(lg) {
+          flex-basis: 530px;
+        }
+        @include media-breakpoint-up(lg) {
+          margin-left: 84px;
+        }
+      }
+      &:nth-child(2) {
+        display: none;
+        @include media-breakpoint-up(lg) {
+          display: block;
+        }
+        img {
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+  .form-title {
+    margin-bottom: 32px;
+    @include media-breakpoint-up(md) {
+      margin: 64px 0 24px;
+    }
+  }
+  form.woocommerce-form.ajax-account-form  {
+    border: none;
+    padding: 0;
+    margin-bottom: 32px;
+    &.register {
+      .full-name {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -16px;
+        width: auto;
+        .label {
+          display: block;
+          margin: 0 16px 16px;
+          flex-basis: 100%;
+        }
+
+        .form-field {
+          margin-left: 16px;
+          margin-right: 16px;
+          flex-basis: 50%;
+          max-width: calc( 50% - 32px);
+          @include media-breakpoint-down(xs) {
+            flex-basis: 100%;
+            max-width: calc( 100% - 32px);
+            &:last-child {
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+      .woocommerce-privacy-policy-text {
+        display: none;
+      }
+      #password-strength {
+        display: block;
+        margin-top: -6px;
+        padding: 6px 0 0;
+        font-weight: 500;
+        line-height: 180%;
+        border-radius: 0 0 8px 8px;
+
+        &.strong {
+          background-color: $primary-color;
+          border-color: $primary-color;
+          color: $white;
+        }
+      }
+    }
+    .form-field {
+      &.error {
+        input {
+          border: 1px solid $error-color;
+        }
+        .error-message {
+          font-size: 12px;
+          line-height: 1;
+          color: $error-color;
+          text-transform: none;
+          padding: 0 3px;
+        }
+      }
+    }
+    .woocommerce-form-row {
+      padding: 0;
+      margin-bottom: 24px;
+      &.form-row-button {
+        margin-top: 32px;
+      }
+    }
+    label {
+      margin-bottom: 16px;
+    }
+    input {
+      &[type="text"], &[type="email"], &[type="password"] {
+        padding-top: 14.5px;
+        padding-bottom: 14.5px;
+        margin-bottom: 0;
+      }
+    }
+    button[type="submit"] {
+      margin-top: 0;
+      font-size: 12px;
+      font-weight: 500;
+      @include button;
+      @include button-primary;
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+        line-height: 13px;
+      }
+    }
+  }
+  .form-msg {
+    margin-bottom: 32px;
+  }
+  .link-text {
+    color: $primary-color;
+    a {
+      text-decoration: underline;
+      transition: opacity $std-transition-length/2 ease-in;
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+}
+
+.main {
+  min-height: 100vh;
+}

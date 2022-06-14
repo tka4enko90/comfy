@@ -8,8 +8,10 @@
     ],
     "partials/slick": [
       "./src/js/partials/slick.js"
+    ],
+    "partials/ajax-account-forms": [
+      "./src/js/partials/ajax-account-forms.js"
     ]
-
   },
   "cacheBusting": "[name]",
   "webserver" : {
