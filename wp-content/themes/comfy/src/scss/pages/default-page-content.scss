@@ -1,0 +1,53 @@
+@import "../components/vars";
+@import "../components/mixins";
+
+.the-content-section {
+  h1 {
+    margin-bottom: 32px;
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 64px;
+    }
+  }
+  h5 {
+    font-family: 'Moderat';
+    margin: 40px 0 16px;
+    @include media-breakpoint-up(lg) {
+      margin: 64px 0 24px;
+    }
+  }
+  ul {
+    padding: 0;
+    li {
+      display: block;
+      position: relative;
+      padding-left: 40px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 11px;
+        left: 28px;
+        width: 2px;
+        height: 2px;
+        border-radius: 100%;
+        background-color: currentColor;
+      }
+    }
+  }
+
+  .payment-methods-images {
+    margin: 36px -4px;
+    @include media-breakpoint-up(lg) {
+      margin: 46px -18px;
+    }
+    img {
+      width: auto;
+      margin: 4px;
+      @include media-breakpoint-up(lg) {
+        margin: 18px;
+      }
+      @include media-breakpoint-down(xs) {
+        max-width: calc(25% - 8px);
+      }
+    }
+  }
+}
