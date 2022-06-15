@@ -36,15 +36,6 @@ get_header(); ?>
 				}
 			);
 		endwhile;
-	else :
-		wp_enqueue_style( 'default-page-content', get_template_directory_uri() . '/dist/css/pages/default-page-content.css', '', '', 'all' );
-		?>
-		<section class="section the-content-section">
-			<div class="container">
-				<?php the_content(); ?>
-			</div>
-		</section>
-		<?php
 	endif;
 	?>
 </main>
