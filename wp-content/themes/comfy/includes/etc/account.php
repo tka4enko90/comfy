@@ -162,7 +162,7 @@ add_action(
 	'parse_request',
 	function ( $wp ) {
 		if ( 'my-account/registration' === $wp->request ) {
-			get_template_part( 'template-parts/registration-page' );
+			get_template_part( 'template-parts/pages/registration-page' );
 			exit;
 		}
 	}
