@@ -2,14 +2,14 @@
 
 // Buttons
 @mixin button {
-  padding: 12px 40px;
+  padding: 13.5px 40px;
   font-size: 10px;
   text-transform: uppercase;
   border-radius: 8px;
-  line-height: 108%;
+  line-height: 1;
   letter-spacing: .004em;
   @media (min-width: $md) {
-    padding: 16px 56px;
+    padding: 16.5px 56px;
     font-size: 12px;
   }
 }
