@@ -93,7 +93,7 @@ $header_options = array(
 			if ( isset( $header_options['additional_link'] ) ) {
 				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
 					?>
-					<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+					<a class="mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
 						<?php echo $header_options['additional_link']['title']; ?>
 					</a>
 					<?php
