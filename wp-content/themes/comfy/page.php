@@ -36,8 +36,6 @@ get_header(); ?>
 				}
 			);
 		endwhile;
-	else :
-		the_content();
 	endif;
 	?>
 </main>

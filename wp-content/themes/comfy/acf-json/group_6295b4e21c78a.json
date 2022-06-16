@@ -3199,6 +3199,35 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_62aa01793a178": {
+                    "key": "layout_62aa01793a178",
+                    "name": "content",
+                    "label": "Content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_62aa01813a179",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Section",
@@ -3216,7 +3245,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -3224,5 +3253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1655126963
+    "modified": 1655308716
 }
