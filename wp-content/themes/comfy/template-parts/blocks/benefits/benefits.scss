@@ -1,6 +1,15 @@
 @import "../../../src/scss/components/vars";
 @import "../../../src/scss/components/mixins";
 .benefits-section {
+  &.image-left {
+    .col {
+      &:first-child {
+        @include media-breakpoint-up(sm) {
+          order: 2;
+        }
+      }
+    }
+  }
   .row {
     @include media-breakpoint-up(sm) {
       flex-wrap: nowrap;

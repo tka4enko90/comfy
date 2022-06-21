@@ -53,8 +53,7 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 					echo ( 1 !== $sale ) ? '<span>' . __( 'From: ', 'comfy' ) . '</span>' : '';
 					echo preg_replace( '/.00/', '', $product->get_price_html() );
 					if ( 1 !== $sale ) {
-						$sale = strval( 1 - $sale );
-						$sale = $sale[2] . $sale[3] . '%';
+						$sale = round( ( 1 - $sale ) * 100 ) . '%';
 						?>
 						<span class="sale-persent">
 							<?php echo __( 'Save ' ) . ' ' . $sale; ?>

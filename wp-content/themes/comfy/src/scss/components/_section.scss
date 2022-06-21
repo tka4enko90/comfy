@@ -1,7 +1,7 @@
 @import "vars";
 @import "mixins";
 .main {
-  $margin-md-vals: 52px, 64px, 120px;
+  $margin-md-vals: 32px, 64px, 120px;
   @each $margin-md-val in $margin-md-vals {
     &.first-section-margin-#{$margin-md-val} {
       .section {

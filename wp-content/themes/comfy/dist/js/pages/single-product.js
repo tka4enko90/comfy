@@ -81,87 +81,87 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/partials/ajax-account-forms.js":
-/*!***********************************************!*\
-  !*** ./src/js/partials/ajax-account-forms.js ***!
-  \***********************************************/
+/***/ "./src/js/pages/single-product.js":
+/*!****************************************!*\
+  !*** ./src/js/pages/single-product.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-jQuery(document).ready(function ($) {
-  var forms = $('form#login-form, form#registration-form, form#lost-password'),
-      ajaxFail = function ajaxFail(response) {
-    if (response['responseJSON']['data']['errors']) {
-      showErrors(response['responseJSON']['data']['errors']);
-      $([document.documentElement, document.body]).animate({
-        scrollTop: $('#' + Object.keys(response['responseJSON']['data']['errors'])[0]).offset().top - 200
-      }, 600);
+jQuery(function ($) {
+  var body = $('body');
+  $(document).on('found_variation', 'form.cart', function (event, variation) {
+    console.log(variation);
+
+    if (variation.price_html) {
+      $('.summary > p.price').html(variation.price_html);
     }
-  },
-      ajaxSuccess = function ajaxSuccess(response) {
-    if (response.success === true) {
-      if (response.data && response.data['redirect_to']) {
-        location.replace(response.data['redirect_to']);
+
+    $('.woocommerce-variation-price').hide();
+  });
+  $(document).on('hide_variation', 'form.cart', function (event, variation) {
+    $('.summary > p.price').html(cmfProduct.price_html);
+  });
+  body.on('click', '.woocommerce-product-gallery__image a', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('zoom-active');
+  });
+  body.on('click', '.gallery-nav-item', function () {
+    var scrollTo = $('.gallery-item-' + $(this).data('item'));
+    scrollTo.addClass('Test-123');
+    $([document.documentElement, document.body]).animate({
+      scrollTop: scrollTo.offset().top - 120 //($( '#' + Object.keys( 'gallery-item-' + $( this ).data( 'item' ) )).offset().top - 200)
+
+    }, 600);
+  });
+  body.on('click', '.btn-qty', function () {
+    var $this = $(this);
+    var $qty = $this.closest('.quantity').find('.qty');
+    var val = parseFloat($qty.val());
+    var max = parseFloat($qty.attr('max'));
+    var min = parseFloat($qty.attr('min'));
+    var step = parseFloat($qty.attr('step'));
+    var $button = $this.closest('.card-product').find('.add_to_cart_button');
+    $(".actions .button[name='update_cart']").removeAttr('disabled');
+
+    if ($this.is('.plus')) {
+      if (max && max <= val) {
+        $qty.val(max);
+        $button.attr('data-quantity', max);
       } else {
-        location.reload();
+        $qty.val(val + step);
+        $button.attr('data-quantity', val + step);
+      }
+    } else {
+      if (min && min >= val) {
+        $qty.val(min);
+        $button.attr('data-quantity', min);
+      } else if (val > 1) {
+        $qty.val(val - step);
+        $button.attr('data-quantity', val - step);
       }
     }
-  },
-      clearErrors = function clearErrors() {
-    $('.error-message').remove();
-    $('.form-field.error').removeClass('error');
-  },
-      showErrors = function showErrors(errors) {
-    clearErrors();
-
-    for (var key in errors) {
-      var elWrap = $("#" + key).parents('.form-field');
-      elWrap.addClass('error');
-      elWrap.append('<span class="error-message">' + errors[key] + '</span>');
-    }
-  };
-
-  if (forms) {
-    forms.submit(function (e) {
-      e.preventDefault();
-      var formFields = $(this).serializeArray(),
-          formData = {};
-
-      for (var i = 0; i < formFields.length; i++) {
-        formData[formFields[i]['name']] = formFields[i]['value'];
-      }
-
-      formData['security'] = cpm_object.account_nonce_key;
-      window.ajaxCall(formData).success(ajaxSuccess).fail(ajaxFail);
-      return false;
-    });
-
-    if ($('form#lost-password #user_login')[0]) {
-      $('#user_login').on('keyup', function () {
-        $('button[type="submit"]').attr('disabled', false);
-      });
-    }
-  }
+  });
 });
 
 /***/ }),
 
-/***/ 4:
-/*!*****************************************************!*\
-  !*** multi ./src/js/partials/ajax-account-forms.js ***!
-  \*****************************************************/
+/***/ 2:
+/*!**********************************************!*\
+  !*** multi ./src/js/pages/single-product.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/js/partials/ajax-account-forms.js */"./src/js/partials/ajax-account-forms.js");
+module.exports = __webpack_require__(/*! ./src/js/pages/single-product.js */"./src/js/pages/single-product.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=ajax-account-forms.js.map
+//# sourceMappingURL=single-product.js.map

@@ -69,27 +69,17 @@
     @media (min-width: $md) {
       font-size: 14px;
       padding-right: 20%;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
   }
   &-rating {
-    padding: 0 8.6px;
-    .cmf-star-rating {
-      display: flex;
-      .star {
-        &.star-half {
-          opacity: .6;
-        }
-        &.star-empty {
-          opacity: .3;
-        }
-      }
-    }
+    margin-right: 8.6px;
   }
 
   &-colors {
     position: relative;
     padding-right: 4px;
+    margin-right: 8.6px;
     &:after {
       content: '';
       position: absolute;
@@ -106,4 +96,15 @@
     color: $primary-color;
   }
 
+}
+.cmf-star-rating {
+  display: flex;
+  .star {
+    &.star-half {
+      opacity: .6;
+    }
+    &.star-empty {
+      opacity: .3;
+    }
+  }
 }

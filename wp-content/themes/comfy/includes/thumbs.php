@@ -14,6 +14,8 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'cmf_header_nav_image', 403, 256, true );
 	add_image_size( 'cmf_post_preview', 403, 403, true );
 	add_image_size( 'cmf_product_preview', 352, 352, true );
+	add_image_size( 'cmf_product_preview_small', 142, 142, true );
+	add_image_size( 'cmf_product_single', 609 );
 
 	add_image_size( 'cmf_search_result', 54, 54 );
 	add_image_size( 'cmf_content_with_image_2_icon', 64, 64 );
