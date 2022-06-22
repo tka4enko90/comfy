@@ -9,7 +9,7 @@
 }
 .single-product {
   .mobile-info {
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(md) {
       display: none;
     }
     .woocommerce-product-rating {
@@ -46,7 +46,7 @@
       margin-bottom: 32px;
       font-size: 16px;
       color: $primary-color;
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(sm) {
         margin-top: 16px;
       }
       ins {
@@ -326,12 +326,12 @@
       }
 
       .product_title {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
           display: none;
         }
       }
       .woocommerce-product-rating {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
           display: none;
         }
       }
@@ -536,6 +536,7 @@
 
   }
   .upsells-products-section {
+    overflow: hidden;
     .section-title {
       margin-bottom: 64px;
     }
