@@ -214,9 +214,22 @@
 			);
 		},
 		initSizeGuide: function() {
-			$( '.size-guide' ).click(
+			var sizeGuideWrap = $( '#size-guide-wrap' ),
+			body              = $( 'body' );
+
+			$( '.size-guide-link' ).click(
 				function () {
-					$( '#size-guide-wrap' ).addClass( 'active' );
+					sizeGuideWrap.addClass( 'active' );
+					body.css( 'overflow', 'hidden' );
+				}
+			);
+			body.on(
+				'click',
+				function (e) {
+					if ($( e.target ).is( sizeGuideWrap ) || $( e.target ).is( '.close-guide' )) {
+						sizeGuideWrap.removeClass( 'active' );
+						body.removeAttr( "style" );
+					}
 				}
 			);
 		},

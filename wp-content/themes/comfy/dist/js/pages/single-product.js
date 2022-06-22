@@ -261,8 +261,17 @@
       });
     },
     initSizeGuide: function initSizeGuide() {
-      $('.size-guide').click(function () {
-        $('#size-guide-wrap').addClass('active');
+      var sizeGuideWrap = $('#size-guide-wrap'),
+          body = $('body');
+      $('.size-guide-link').click(function () {
+        sizeGuideWrap.addClass('active');
+        body.css('overflow', 'hidden');
+      });
+      body.on('click', function (e) {
+        if ($(e.target).is(sizeGuideWrap) || $(e.target).is('.close-guide')) {
+          sizeGuideWrap.removeClass('active');
+          body.removeAttr("style");
+        }
       });
     },
     init: function init() {

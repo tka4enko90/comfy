@@ -70,7 +70,7 @@
     .variations_form {
       position: relative;
       margin-bottom: 32px;
-      .size-guide {
+      .size-guide-link {
         position: absolute;
         right: 0;
         top: -50px;
@@ -597,6 +597,7 @@
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: 3;
     overflow: hidden;
     pointer-events: none;
     background-color: transparent;
@@ -615,9 +616,39 @@
       bottom: 0;
       width: 50%;
       background-color: $white;
-      padding: 140px 36px;
+      padding: 64px;
       transform: translateX(100%);
       transition: transform $std-transition-length ease-in;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .close-guide {
+      position: absolute;
+      top: 86px;
+      right: 64px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 1.5px;
+        margin-top: -1.5px;
+        border-radius: 1.5px;
+        background-color: $primary-color;
+        transition: transform $std-transition-length ease-in;
+        transform: rotate(0deg);
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
     }
   }
 }
