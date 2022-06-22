@@ -73,7 +73,7 @@
       .size-guide {
         position: absolute;
         right: 0;
-        top: 6px;
+        top: -50px;
         color: $primary-color;
         @include media-breakpoint-up(sm) {
           top: -60px;
@@ -269,10 +269,24 @@
           margin-bottom: 16px;
           a {
             display: block;
-            cursor: zoom-in;
+            position: relative;
+            border-radius: 8px;
             margin-bottom: 16px;
+            cursor: zoom-in;
             &.zoom-active {
               cursor: zoom-out;
+              max-width: initial;
+              overflow: hidden;
+              img {
+                position: absolute;
+                bottom: 50%;
+                right: 50%;
+                transform: translate(50%, 50%);
+                max-width: initial;
+                min-width: 150%;
+                width: auto;
+                height: auto;
+              }
             }
           }
           &:last-child {

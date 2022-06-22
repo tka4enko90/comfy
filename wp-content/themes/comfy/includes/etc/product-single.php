@@ -122,10 +122,10 @@ add_action(
 				if ( 'Size' === $taxonomy ) {
 					?>
 					<div id="size-guide-wrap">
-                        <div class="size-guide">
-                            <span class="close-guide"></span>
-                            <h2><?php _e( 'Size Guide' ); ?></h2>
-                        </div>
+						<div class="size-guide">
+							<span class="close-guide"></span>
+							<h2><?php _e( 'Size Guide' ); ?></h2>
+						</div>
 					</div>
 					<?php
 				}

@@ -26,28 +26,34 @@ if ( class_exists( 'WC_Additional_Variation_Images_Frontend' ) ) {
 			if ( empty( $image_ids ) ) {
 				wp_send_json_error();
 			}
-
-			$gallery_html  = '<div class="woocommerce-product-gallery woocommerce-product-gallery--wcavi woocommerce-product-gallery--variation-' . absint( $variation_id ) . ' woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-' . esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ) . ' images" data-columns="' . esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ) . '" style="opacity: 0; transition: opacity .25s ease-in-out;">';
-			$gallery_nav   = '<figure class="woocommerce-product-gallery-nav">';
-			$gallery_items = '<figure class="woocommerce-product-gallery-items">';
-
-			foreach ( $image_ids as $id ) {
-				$gallery_nav .= '<div data-item="' . $id . '" class="gallery-nav-item gallery-nav-item-' . $id . '">';
-				$gallery_nav .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, false ), $id );
-				$gallery_nav .= '</div>';
-
-				$gallery_items .= '<div class="gallery-item gallery-item-' . $id . '" data-item="' . $id .'">';
-				$gallery_items .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id );
-				$gallery_items .= '</div>';
-			}
-
-			$gallery_items .= '</figure>';
-			$gallery_nav   .= '</figure>';
-
-			$gallery_html .= $gallery_nav . $gallery_items;
-			$gallery_html .= '</div>';
-
-			wp_send_json( array( 'main_images' => $gallery_html ) );
+			ob_start();
+			?>
+			<div class="woocommerce-product-gallery woocommerce-product-gallery--wcavi woocommerce-product-gallery--variation-<?php echo absint( $variation_id ); ?> woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?> images" data-columns="<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
+			<figure class="woocommerce-product-gallery-nav">
+				<?php
+				foreach ( $image_ids as $id ) {
+					?>
+					<div data-item="<?php echo $id; ?>" class="gallery-nav-item gallery-nav-item-<?php echo $id; ?>">
+						<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, false ), $id ); ?>
+					</div>
+					<?php
+				}
+				?>
+			</figure>
+			<figure class="woocommerce-product-gallery-items">
+				<?php
+				foreach ( $image_ids as $id ) {
+					?>
+					<div data-item="<?php echo $id; ?>" class="gallery-item gallery-item-<?php echo $id; ?>">
+						<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id ); ?>
+					</div>
+					<?php
+				}
+				?>
+			</figure>
+			</div>
+			<?php
+			wp_send_json( array( 'main_images' => ob_get_clean() ) );
 		},
 		0
 	);
