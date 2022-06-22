@@ -172,7 +172,9 @@ jQuery(function ($) {
       }
     }
   });
-  $('.size-guide').click(function () {});
+  $('.size-guide').click(function () {
+    $('#size-guide-wrap').addClass('active');
+  });
 
   function initpPoductCarousel() {
     var productCarousel = $('.woocommerce-product-gallery-items');

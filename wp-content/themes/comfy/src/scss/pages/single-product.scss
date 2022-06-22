@@ -576,7 +576,33 @@
     }
   }
 
-  #size-guide {
-    display: none;
+  #size-guide-wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: transparent;
+    transition: background-color $std-transition-length ease;
+    &.active {
+      pointer-events: all;
+      background-color: #05050633;
+      .size-guide {
+        transform: translateX(0);
+      }
+    }
+    .size-guide {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      background-color: $white;
+      padding: 140px 36px;
+      transform: translateX(100%);
+      transition: transform $std-transition-length ease-in;
+    }
   }
 }

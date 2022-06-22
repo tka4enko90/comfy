@@ -107,7 +107,7 @@ jQuery(
 		);
 		$( '.size-guide' ).click(
 			function () {
-
+				$( '#size-guide-wrap' ).addClass( 'active' );
 			}
 		);
 

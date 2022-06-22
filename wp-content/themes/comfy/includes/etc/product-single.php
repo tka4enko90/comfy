@@ -121,8 +121,11 @@ add_action(
 			foreach ( array_keys( $product->get_variation_attributes() ) as $taxonomy ) {
 				if ( 'Size' === $taxonomy ) {
 					?>
-					<div id="size-guide">
-						<h2><?php _e( 'Care Guide' ); ?></h2>
+					<div id="size-guide-wrap">
+                        <div class="size-guide">
+                            <span class="close-guide"></span>
+                            <h2><?php _e( 'Size Guide' ); ?></h2>
+                        </div>
 					</div>
 					<?php
 				}
