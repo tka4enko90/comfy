@@ -112,7 +112,7 @@ jQuery(
 				$currentGallery.each(
 					function () {
 						if ($(this).hasClass('slick-initialized')) {
-							$(this).slick('unslick');
+							$(this).slick('refresh');
 						}
 						$(this).slick(
 							{
@@ -125,7 +125,8 @@ jQuery(
 								mobileFirst: true,
 								responsive: [
 									{
-										breakpoint: 480
+										breakpoint: 480,
+										settings: "unslick"
 									}
 								]
 							}

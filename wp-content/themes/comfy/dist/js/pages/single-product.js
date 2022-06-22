@@ -181,7 +181,7 @@ jQuery(function ($) {
       if ($currentGallery.length) {
         $currentGallery.each(function () {
           if ($(this).hasClass('slick-initialized')) {
-            $(this).slick('unslick');
+            $(this).slick('refresh');
           }
 
           $(this).slick({
@@ -193,7 +193,8 @@ jQuery(function ($) {
             speed: 1000,
             mobileFirst: true,
             responsive: [{
-              breakpoint: 480
+              breakpoint: 480,
+              settings: "unslick"
             }]
           });
         });
