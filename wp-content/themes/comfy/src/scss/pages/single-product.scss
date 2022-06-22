@@ -45,6 +45,9 @@
       margin-bottom: 32px;
       font-size: 16px;
       color: $primary-color;
+      @include media-breakpoint-down(xs) {
+        margin-top: 16px;
+      }
       ins {
         font-weight: 400;
         text-decoration: none;
@@ -479,23 +482,57 @@
       margin-bottom: -16px;
     }
   }
-  .reviews-section {
+  .comments-archive-section {
+    .product-rating {
+      width: 160px;
+      margin: 0 auto 22px;
+      .cmf-star-rating {
+        .star {
+          flex-basis: 21.33px;
+          max-width: 21.33px;
+          margin: 0 5px ;
+          &.star-empty {
+            opacity: .3;
+          }
+        }
+      }
+    }
     .woocommerce-Reviews {
       &-title, &-rating-text {
         text-align: center;
       }
       &-rating-text {
         font-size: 12px;
-        margin-bottom: 120px;
-      }
-      .cmf-star-rating {
-        width: 160px;
-        margin: 0 auto 22px;
-        .star {
-          margin: 0 5px;
+        margin-bottom: 56px;
+        @include media-breakpoint-up(sm) {
+          margin-bottom: 120px;
         }
       }
     }
+    .commentlist {
+      padding: 0;
+    }
+    nav.woocommerce-pagination {
+      ul.page-numbers {
+        border: none;
+        li {border: none;}
+        .page-numbers {
+          color: $primary-color;
+          &:hover {
+            background-color: transparent;
+            opacity: .8;
+          }
+          &.current {
+            background-color: transparent;
+            text-decoration: underline;
+            font-weight: bold;
+            opacity: 1;
+          }
+
+        }
+      }
+    }
+
   }
   .upsells-products-section {
     .section-title {

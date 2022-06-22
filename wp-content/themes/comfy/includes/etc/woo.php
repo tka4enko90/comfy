@@ -66,3 +66,29 @@ function cmf_star_rating( $args = array() ) {
 
 	return $output;
 }
+
+
+
+// Add custom meta (ratings) fields to the default comment form
+// Default comment form includes name, email address and website URL
+// Default comment form elements are hidden when user is logged in
+
+add_filter( 'comment_form_fields', 'custom_fields' );
+function custom_fields( $fields ) {
+
+	$fields['phone'] = '<p class="comment-form-phone">' .
+		'<label for="review-title">' . __( 'Review title' ) . '</label>' .
+		'<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" /></p>';
+	return $fields;
+}
+
+add_action(
+	'comment_post',
+	function( $comment_id ) {
+		if ( ( isset( $_POST['review-title'] ) ) && ( ’ != $_POST['review-title'] ) ) {
+			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
+			add_comment_meta( $comment_id, 'title', $review_title );
+		}
+	}
+);
+

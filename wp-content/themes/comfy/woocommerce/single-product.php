@@ -137,7 +137,8 @@ if ( ! empty( $additional_products['items'] ) ) {
 ?>
 </section>
 
-<section class="section reviews-section">
+<?php wp_enqueue_style( 'comments-archive', get_template_directory_uri() . '/dist/css/pages/comments-archive.css', '', '', 'all' ); ?>
+<section class="section comments-archive-section">
 	<div class="container container-sm">
 		<?php comments_template(); ?>
 	</div>

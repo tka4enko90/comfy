@@ -41,13 +41,17 @@ if ( ! comments_open() ) {
 		<?php
 		$rating = $product->get_average_rating();
 		if ( 0 < $rating ) {
-			cmf_star_rating(
-				array(
-					'rating'        => $rating,
-					'rounded_stars' => false,
-				)
-			);
 			?>
+			<div class="product-rating">
+				<?php
+				cmf_star_rating(
+					array(
+						'rating'        => $rating,
+						'rounded_stars' => false,
+					)
+				);
+				?>
+			</div>
 			<p class="woocommerce-Reviews-rating-text">
 				<?php echo $rating . ' ' . __( 'out of 5 stars', 'comfy' ); ?>
 			</p>
