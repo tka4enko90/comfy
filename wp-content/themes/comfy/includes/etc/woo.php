@@ -58,10 +58,6 @@ function cmf_star_rating( $args = array() ) {
 	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-full" >', $full_stars );
 	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-half" >', $half_stars );
 	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-empty" >', $empty_stars );
-	/*
-	$output .= str_repeat( '<div class="star star-full" aria-hidden="true"></div>', $full_stars );
-	$output .= str_repeat( '<div class="star star-half" aria-hidden="true"></div>', $half_stars );
-	$output .= str_repeat( '<div class="star star-empty" aria-hidden="true"></div>', $empty_stars );*/
 	$output .= '</div>';
 
 	if ( $parsed_args['echo'] ) {
