@@ -34,19 +34,46 @@ jQuery(
 			'.gallery-nav-item',
 			function () {
 				const scrollTo = $( '.gallery-item-' + $( this ).data( 'item' ) );
-				scrollTo.addClass( 'Test-123' );
+				$( '.gallery-nav-item.active' ).removeClass( 'active' );
+				$( this ).addClass( 'active' );
 				$( [document.documentElement, document.body] ).animate(
 					{
-						scrollTop: (scrollTo.offset().top - 120)//($( '#' + Object.keys( 'gallery-item-' + $( this ).data( 'item' ) )).offset().top - 200)
+						scrollTop: (scrollTo.offset().top - 120)
 					},
 					600
 				);
 			}
 		);
+		$.fn.isInViewport = function(offset) {
+			if ($( this ).length) {
+				var elementTop     = $( this ).offset().top,
+					elementBottom  = elementTop + $( this ).outerHeight(),
+					viewportTop    = $( window ).scrollTop(),
+					viewportBottom = viewportTop + $( window ).height();
 
-		body.on(
-			'click',
-			'.btn-qty',
+				return elementBottom > viewportTop && (elementTop + offset) < viewportBottom;
+			}
+		};
+		$( window ).on(
+			'resize scroll',
+			function() {
+				var galleryItem = $( 'div.gallery-item' );
+				galleryItem.each(
+					function () {
+						if ($( this ).isInViewport( 360 )) {
+							console.log( $( this ).data( 'item' ) );
+							const currentGalleryNavItem = $( '.gallery-nav-item-' + $( this ).data( 'item' ) );
+							if ( ! currentGalleryNavItem.hasClass( 'active' )) {
+								$( '.gallery-nav-item.active' ).removeClass( 'active' );
+								currentGalleryNavItem.addClass( 'active' );
+							}
+						}
+					}
+				);
+			}
+		);
+
+		$( '.btn-qty' ).click(
 			function () {
 				let $this   = $( this );
 				let $qty    = $this.closest( '.quantity' ).find( '.qty' );
@@ -76,6 +103,48 @@ jQuery(
 					}
 				}
 
+			}
+		);
+		$( '.size-guide' ).click(
+			function () {
+
+			}
+		);
+
+		function initpPoductCarousel() {
+			var productCarousel = $( '.woocommerce-product-gallery-items' );
+			if (productCarousel.length) {
+				productCarousel.each(
+					function () {
+						if ($( this ).hasClass( 'slick-initialized' )) {
+							return;
+						}
+						$( this ).slick(
+							{
+								infinite: true,
+								dots: true,
+								arrows: false,
+								slidesToShow: 1,
+								slidesToScroll: 1,
+								speed: 1000,
+								mobileFirst: true,
+								responsive: [
+									{
+										breakpoint: 480,
+										settings: "unslick"
+								}
+								]
+							}
+						);
+					}
+				);
+			}
+		}
+		$( document ).on(
+			'found_variation',
+			'form.cart',
+			function () {
+				initpPoductCarousel();
 			}
 		);
 
