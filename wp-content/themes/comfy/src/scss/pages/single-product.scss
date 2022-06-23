@@ -349,11 +349,6 @@
           display: none;
         }
       }
-    }
-    .woocommerce-variation-add-to-cart {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 0;
       .quantity {
         display: flex;
         align-items: center;
@@ -423,6 +418,12 @@
           padding: 17.5px 40px;
         }
       }
+    }
+    .woocommerce-variation-add-to-cart {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0;
+
     }
     .in-stock {
       line-height: 1;
@@ -652,21 +653,22 @@
     background-color: transparent;
     transition: background-color $std-transition-length ease;
     &.active {
+      opacity: 1;
       pointer-events: all;
       background-color: #05050633;
       .size-guide {
-        transform: translateX(0);
+        transform: translateX(-100%);
       }
     }
     .size-guide {
       position: absolute;
       top: 0;
-      right: 0;
+      left: 100%;
       bottom: 0;
       width: 50%;
       background-color: $white;
       padding: 64px;
-      transform: translateX(100%);
+      transform: translateX(0);
       transition: transform $std-transition-length ease-in;
       overflow-y: scroll;
       &::-webkit-scrollbar {

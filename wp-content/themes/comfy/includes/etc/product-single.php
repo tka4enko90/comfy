@@ -54,9 +54,14 @@ add_action(
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 40 );
 
+
+
 // Move up sells section
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 add_action( 'woocommerce_after_main_content', 'woocommerce_upsell_display', 9 );
+
+//Remove linked products from product summary
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 add_action(
 	'woocommerce_single_variation',
