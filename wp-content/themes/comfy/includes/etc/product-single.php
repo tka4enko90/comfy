@@ -63,6 +63,9 @@ add_action( 'woocommerce_after_main_content', 'woocommerce_upsell_display', 9 );
 //Remove linked products from product summary
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+//Remove sale flash
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
 add_action(
 	'woocommerce_single_variation',
 	function () {
