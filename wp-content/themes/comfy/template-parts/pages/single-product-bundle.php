@@ -49,6 +49,57 @@ if ( post_password_required() ) {
 		do_action( 'woocommerce_single_product_summary' );
 		?>
 	</div>
+    <?php
+    /** WC Core action. */
+    do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+
+    <form method="post" enctype="multipart/form-data" class="cart cart_group bundle_form <?php echo esc_attr( $classes ); ?>"><?php
+
+        /**
+         * 'woocommerce_before_bundled_items' action.
+         *
+         * @param WC_Product_Bundle $product
+         */
+        do_action( 'woocommerce_before_bundled_items', $product );
+
+        $bundled_items = $product->get_bundled_items();
+        foreach ( $bundled_items as $bundled_item ) {
+
+            /**
+             * 'woocommerce_bundled_item_details' action.
+             *
+             * @hooked wc_pb_template_bundled_item_details_wrapper_open  -   0
+             * @hooked wc_pb_template_bundled_item_thumbnail             -   5 *
+             * @hooked wc_pb_template_bundled_item_details_open          -  10
+             * @hooked wc_pb_template_bundled_item_title                 -  15
+             * @hooked wc_pb_template_bundled_item_description           -  20
+             * @hooked wc_pb_template_bundled_item_product_details       -  25
+             * @hooked wc_pb_template_bundled_item_details_close         -  30 *
+             * @hooked wc_pb_template_bundled_item_details_wrapper_close - 100
+             */
+            do_action( 'woocommerce_bundled_item_details', $bundled_item, $product );
+        }
+
+        /**
+         * 'woocommerce_after_bundled_items' action.
+         *
+         * @param  WC_Product_Bundle  $product
+         */
+        do_action( 'woocommerce_after_bundled_items', $product );
+
+        /**
+         * 'woocommerce_bundles_add_to_cart_wrap' action.
+         *
+         * @since  5.5.0
+         *
+         * @param  WC_Product_Bundle  $product
+         */
+        do_action( 'woocommerce_bundles_add_to_cart_wrap', $product );
+
+        ?></form><?php
+    /** WC Core action. */
+    do_action( 'woocommerce_after_add_to_cart_form' );
+    ?>
 
 	<?php
 	/**
