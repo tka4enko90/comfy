@@ -32,12 +32,19 @@ get_header( 'shop' ); ?>
 	?>
 <section class="section product-main-content-section">
 	<div class="container">
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			global $product;
+			if ( $product->is_type( 'bundle' ) ) {
+				get_template_part( 'template-parts/pages/single-product-bundle' );
+			} else {
+				wc_get_template_part( 'content', 'single-product' );
+			}
 
-		<?php endwhile; // end of the loop. ?>
+		endwhile; // end of the loop.
+		?>
 	</div>
 </section>
 <?php
