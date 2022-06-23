@@ -205,6 +205,7 @@
       $('body').on('click', '.woocommerce-product-gallery__image a', function (e) {
         e.preventDefault();
         var img = $(this).children('img'),
+            imgWidth = img.width(),
             imgHeight = img.height(),
             zoomedUrl = img.data('large_image');
         $(this).toggleClass('zoom-active');
@@ -216,8 +217,8 @@
             var offs = $(this).offset(),
                 x = e.pageX - offs.left,
                 y = e.pageY - offs.top;
-            img.css('right', Math.round(x / img.attr('width') * 100) + '%');
-            img.css('bottom', Math.round(y / img.attr('height') * 100) + '%');
+            img.css('right', Math.round(x / imgWidth * 100) + '%');
+            img.css('bottom', Math.round(y / imgHeight * 100) + '%');
           });
         } else {
           img.attr('srcset', img.attr('src'));
