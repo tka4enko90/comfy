@@ -436,7 +436,9 @@
 
     .woocommerce-tabs {
       ul.tabs {
+        display: flex;
         padding: 0;
+        margin-bottom: 24px;
         &:before {
           border-color: $line-gray;
         }
@@ -458,6 +460,53 @@
             a {
               color: $primary-color;
               border-bottom: 1px solid $primary-color;
+            }
+          }
+        }
+      }
+
+      .faq {
+        &-item {
+          padding: 24px 0;
+          border-bottom: 1px solid $line-gray;
+          &:first-child {
+            padding-top: 0;
+          }
+          &-title {
+            margin: 0;
+            font-size: 16px;
+            padding-right: 32px;
+            position: relative;
+            cursor: pointer;
+            pointer-events: all;
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              top: 12px;
+              right: 0;
+              width: 12px;
+              height: 2px;
+              border-radius: 2px;
+              background-color: $primary-color;
+              @include media-breakpoint-up(md) {
+                top: 9px;
+              }
+            }
+            &:before {
+              transition: transform $std-transition-length ease-in;
+              transform: rotate(90deg);
+            }
+            &.active {
+              &:before {
+                transform: rotate(0deg);
+              }
+            }
+          }
+          &-content {
+            display: none;
+            margin-top: 16px;
+            p:last-child {
+              margin-bottom: 0;
             }
           }
         }

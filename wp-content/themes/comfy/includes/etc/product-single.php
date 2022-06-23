@@ -168,8 +168,29 @@ function cmf_get_product_shipping_tab() {
 	echo ! empty( $content ) ? $content : '';
 }
 function cmf_get_product_faq_tab() {
-	$content = get_field( 'faq' );
-	echo ! empty( $content ) ? $content : '';
+	$faq_items = get_field( 'faq' );
+	if ( ! empty( $faq_items ) ) {
+		foreach ( $faq_items as $item ) {
+			?>
+			<div class="faq-item">
+				<?php
+				if ( ! empty( $item['title'] ) ) {
+					?>
+					<h5 class="faq-item-title"><?php echo $item['title']; ?></h5>
+					<?php
+				}
+				if ( ! empty( $item['content'] ) ) {
+					?>
+					<div class="faq-item-content">
+						<?php echo $item['content']; ?>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+			<?php
+		}
+	}
 }
 
 //Product tabs

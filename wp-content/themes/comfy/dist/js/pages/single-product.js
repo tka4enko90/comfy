@@ -112,7 +112,7 @@
         $('.summary > p.price').html(cmfProduct.price_html);
       });
     },
-    initpPoductCarousel: function initpPoductCarousel(variation_id) {
+    initProductCarousel: function initProductCarousel(variation_id) {
       var $currentGallery;
 
       if (variation_id) {
@@ -157,9 +157,9 @@
       var self = this;
       $(window).on('wc_additional_variation_images_frontend_lightbox_done resize', function () {
         if (self.isVariableProduct()) {
-          self.initpPoductCarousel($('[name="variation_id"]').val());
+          self.initProductCarousel($('[name="variation_id"]').val());
         } else {
-          self.initpPoductCarousel(false);
+          self.initProductCarousel(false);
         }
 
         $('.woocommerce-product-gallery__wrapper').css('opacity', '1');
@@ -274,6 +274,16 @@
         }
       });
     },
+    initFaq: function initFaq() {
+      var slideSpeed = 600;
+      $('.faq-item-title').on('click', function () {
+        if (!$(this).hasClass('active')) {
+          $('.faq-item-title.active').removeClass('active').parent('.faq-item').find('.faq-item-content').slideToggle(slideSpeed);
+        }
+
+        $(this).toggleClass('active').parent('.faq-item').find('.faq-item-content').slideToggle(slideSpeed);
+      });
+    },
     init: function init() {
       this.initGallery();
       this.initGalleryNav();
@@ -281,6 +291,7 @@
       this.initQtyButtons();
       this.initProductVariationPrice();
       this.initSizeGuide();
+      this.initFaq();
     }
   };
   productPage.init();
