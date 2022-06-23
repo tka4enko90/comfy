@@ -49,7 +49,7 @@ get_header( 'shop' ); ?>
 </section>
 <?php
 $benefits_section = get_field( 'benefits' );
-if ( ! empty( $benefits_section ) ) {
+if ( ! empty( $benefits_section['benefits'] ) ) {
 	$benefits_section['section_name'] = 'benefits';
 	?>
 	<section class="section benefits-section<?php echo ! empty( $benefits_section['image_position'] ) && 'left' === $benefits_section['image_position'] ? ' image-left' : ''; ?>">
