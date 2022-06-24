@@ -107,7 +107,7 @@
 				'click',
 				'.gallery-nav-item',
 				function () {
-					const scrollTo = $( '.gallery-item-' + $( this ).data( 'item' ) );
+					const scrollTo = $( this ).parents( '.woocommerce-product-gallery' ).find( ( '.gallery-item-' + $( this ).data( 'item' ) ) );
 					$( '.gallery-nav-item.active' ).removeClass( 'active' );
 					$( this ).addClass( 'active' );
 					$( [document.documentElement, document.body] ).animate(
