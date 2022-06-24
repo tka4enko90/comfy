@@ -1,13 +1,5 @@
 <?php
 
-// WordPress support
-add_action(
-	'after_setup_theme',
-	function () {
-		add_theme_support( 'woocommerce' );
-	}
-);
-
 function cmf_star_rating( $args = array() ) {
 
 	$defaults    = array(
@@ -67,21 +59,46 @@ function cmf_star_rating( $args = array() ) {
 	return $output;
 }
 
+// WordPress support
+add_action(
+	'after_setup_theme',
+	function () {
+		add_theme_support( 'woocommerce' );
+	}
+);
 
 
-// Add custom meta (ratings) fields to the default comment form
-// Default comment form includes name, email address and website URL
-// Default comment form elements are hidden when user is logged in
+add_filter(
+	'woocommerce_breadcrumb_defaults',
+	function( $args ) {
+		$args['delimiter']   = ' → ';
+		$args['wrap_before'] = '<section class="section section-breadcrumbs"><div class="container">';
+		$args['wrap_after']  = '</div></section>';
+		return $args;
+	}
+);
+add_filter(
+	'woocommerce_get_breadcrumb',
+	function ( $breadcrumb ) {
+		if ( is_singular() ) {
+			array_pop( $breadcrumb );
+		}
+		return $breadcrumb;
+	}
+);
 
-add_filter( 'comment_form_fields', 'custom_fields' );
-function custom_fields( $fields ) {
 
-	$fields['phone'] = '<p class="comment-form-phone">' .
+// Add title field to comment form
+add_filter(
+	'comment_form_fields',
+	function( $fields ) {
+
+		$fields['phone'] = '<p class="comment-form-phone">' .
 		'<label for="review-title">' . __( 'Review title' ) . '</label>' .
 		'<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" /></p>';
-	return $fields;
-}
-
+		return $fields;
+	}
+);
 add_action(
 	'comment_post',
 	function( $comment_id ) {

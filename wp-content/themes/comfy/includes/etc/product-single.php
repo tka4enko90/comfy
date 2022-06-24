@@ -25,15 +25,6 @@ add_action(
 	}
 );
 
-add_filter(
-	'woocommerce_breadcrumb_defaults',
-	function( $args ) {
-		$args['delimiter']   = ' → ';
-		$args['wrap_before'] = '<section class="section section-breadcrumbs"><div class="container">';
-		$args['wrap_after']  = '</div></section>';
-		return $args;
-	}
-);
 
 // Add buttons minus/plus to quantity
 add_action(
