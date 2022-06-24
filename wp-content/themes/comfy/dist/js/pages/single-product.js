@@ -100,8 +100,6 @@
     },
     initProductVariationPrice: function initProductVariationPrice() {
       $(document).on('found_variation', 'form.cart', function (event, variation) {
-        console.log(variation);
-
         if (variation.price_html) {
           $('.summary > p.price').html(variation.price_html);
         }
@@ -180,7 +178,7 @@
       };
 
       $('body').on('click', '.gallery-nav-item', function () {
-        var scrollTo = $('.gallery-item-' + $(this).data('item'));
+        var scrollTo = $(this).parents('.woocommerce-product-gallery').find('.gallery-item-' + $(this).data('item'));
         $('.gallery-nav-item.active').removeClass('active');
         $(this).addClass('active');
         $([document.documentElement, document.body]).animate({

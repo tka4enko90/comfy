@@ -528,11 +528,13 @@
         display: flex;
       }
       &-title {
+        font-size: 24px;
         margin-bottom: 16px;
       }
       &-desc {
         max-width: 142px;
         margin-left: 31px;
+        margin-bottom: 24px;
         p {
           &.label {
             margin-bottom: 8px;
@@ -545,7 +547,8 @@
       }
     }
     .row {
-      margin-bottom: -16px;
+      justify-content: flex-start;
+      margin-bottom: -40px;
     }
   }
   .comments-archive-section {
