@@ -100,8 +100,6 @@
     },
     initProductVariationPrice: function initProductVariationPrice() {
       $(document).on('found_variation', 'form.cart', function (event, variation) {
-        console.log(variation);
-
         if (variation.price_html) {
           $('.summary > p.price').html(variation.price_html);
         }
