@@ -25,6 +25,13 @@ add_action(
 	}
 );
 
+// Remove variation "Clear" button
+add_filter(
+	'woocommerce_reset_variations_link',
+	function () {
+		return;
+	}
+);
 
 // Add buttons minus/plus to quantity
 add_action(
