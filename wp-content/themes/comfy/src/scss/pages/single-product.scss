@@ -216,6 +216,7 @@
     .product.type-product {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       @include media-breakpoint-down(sm) {
         flex-wrap: wrap;
       }
@@ -332,6 +333,8 @@
       margin-bottom: 16px;
     }
     .summary {
+      position: sticky;
+      top: 136px;
       @include media-breakpoint-up(md){
         margin-left: 87px;
       }
