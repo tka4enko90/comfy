@@ -274,7 +274,7 @@
       });
     },
     initFaq: function initFaq() {
-      var slideSpeed = 600;
+      var slideSpeed = 300;
       $('.faq-item-title').on('click', function () {
         if (!$(this).hasClass('active')) {
           $('.faq-item-title.active').removeClass('active').parent('.faq-item').find('.faq-item-content').slideToggle(slideSpeed);

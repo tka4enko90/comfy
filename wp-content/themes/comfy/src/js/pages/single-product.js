@@ -234,7 +234,7 @@
 			);
 		},
 		initFaq: function() {
-			var slideSpeed = 600;
+			var slideSpeed = 300;
 			$( '.faq-item-title' ).on(
 				'click',
 				function() {
