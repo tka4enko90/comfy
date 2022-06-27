@@ -549,8 +549,13 @@
       }
     }
     .row {
-      justify-content: flex-start;
       margin-bottom: -40px;
+      @include media-breakpoint-down(lg) {
+        justify-content: flex-start;
+        .col {
+          flex-grow: 1;
+        }
+      }
     }
   }
   .comments-archive-section {
