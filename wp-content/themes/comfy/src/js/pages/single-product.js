@@ -14,13 +14,6 @@
 					$( '.woocommerce-variation-price' ).hide();
 				}
 			);
-			$( document ).on(
-				'hide_variation',
-				'form.cart',
-				function (event, variation) {
-					$( '.summary > p.price' ).html( cmfProduct.price_html );
-				}
-			);
 		},
 		initProductCarousel: function (variation_id) {
 			var $currentGallery;
