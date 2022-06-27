@@ -59,18 +59,19 @@ remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_pr
 
 add_action(
 	'woocommerce_single_variation',
-	function () {
-		$includes = get_field( 'includes' );
-		if ( ! empty( $includes ) ) {
-			?>
+	'cmf_product_includes',
+	15
+);
+function cmf_product_includes() {
+	$includes = get_field( 'includes' );
+	if ( ! empty( $includes ) ) {
+		?>
 		<p class="includes">
 			<?php echo __( 'Includes:', 'comfy' ) . ' ' . $includes; ?>
 		</p>
-			<?php
-		}
-	},
-	15
-);
+		<?php
+	}
+}
 
 // Custom Variation price display
 add_filter(
@@ -97,7 +98,7 @@ add_filter(
 add_filter(
 	'woocommerce_dropdown_variation_attribute_options_html',
 	function ( $html, $args ) {
-		if ( 'Size' === $args['attribute'] ) {
+		if ( 'pa_size' === $args['attribute'] ) {
 			ob_start();
 			?>
 			<a class="size-guide-link" href="#">
@@ -119,8 +120,8 @@ add_action(
 	function () {
 		global $product;
 		if ( $product->is_type( 'variable' ) ) {
-			foreach ( array_keys( $product->get_variation_attributes() ) as $taxonomy ) {
-				if ( 'Size' === $taxonomy ) {
+			foreach ( array_keys( $product->get_variation_attributes() ) as $variation_attribute ) {
+				if ( 'pa_size' === $variation_attribute ) {
 					$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
 					?>
 					<div id="size-guide-wrap">
@@ -140,10 +141,13 @@ add_action(
 
 add_action(
 	'woocommerce_single_variation',
-	function () {
-		global $product;
-		if ( $product->is_in_stock() ) {
-			?>
+	'cmf_product_in_stock',
+	20
+);
+function cmf_product_in_stock() {
+	global $product;
+	if ( $product->is_in_stock() ) {
+		?>
 		<div class="clear"></div>
 		<p class="in-stock">
 			<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,11 +155,9 @@ add_action(
 			</svg>
 			<?php _e( 'In Stock & Ready to Ship', 'comfy' ); ?>
 		</p>
-			<?php
-		}
-	},
-	20
-);
+		<?php
+	}
+}
 
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );

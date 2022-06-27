@@ -1,0 +1,35 @@
+
+#primary {
+  .bundle-steps-wrap {
+    .bundle-step {
+      display: none;
+      &.current-step {
+        display: block;
+      }
+    }
+  }
+  .bundle_form {
+    .bundled_product {
+      display: flex;
+      .variation-gallery-wrap {
+        flex-basis: 696px;
+        &.active-variation-gallery {
+          .default-product-gallery {
+            display: none;
+          }
+        }
+        .woocommerce-product-gallery {
+          display: none;
+          width: 100%;
+          &.active {
+            display: flex;
+          }
+        }
+      }
+      .details {
+        flex-basis: 403px;
+      }
+    }
+  }
+}
+

@@ -15,34 +15,28 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+if ( ! isset( $product_id ) ) {
+	exit;
+}
 
-?><div class="<?php echo esc_attr( implode( ' ', $gallery_classes ) ); ?>"><?php
+$product             = wc_get_product( $product_id );
+$product_gallery_ids = $product->get_gallery_image_ids();
+//$product_gallery_ids = array_filter( explode( ',', get_post_meta( $variation_id, '_wc_additional_variation_images', true ) ) );
+$columns         = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
+$wrapper_classes = apply_filters(
+	'woocommerce_single_product_image_gallery_classes',
+	array(
+		'woocommerce-product-gallery',
+		'woocommerce-product-gallery--' . ( isset( $product_gallery_ids[0] ) ? 'with-images' : 'without-images' ),
+		'woocommerce-product-gallery--columns-' . absint( $columns ),
+		'images',
+	)
+);
+?>
+	<div class="variation-gallery-wrap">
+		<div class="default-product-gallery active <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
+			<?php get_template_part( 'template-parts/product/gallery', '', array( 'image_ids' => $product_gallery_ids ) ); ?>
+		</div>
+	</div>
+<?php
 
-	if ( has_post_thumbnail( $product_id ) ) {
-
-		$image_post_id = get_post_thumbnail_id( $product_id );
-		$image_title   = esc_attr( get_the_title( $image_post_id ) );
-		$image_data    = wp_get_attachment_image_src( $image_post_id, 'full' );
-		$image_link    = $image_data[ 0 ];
-		$image         = get_the_post_thumbnail( $product_id, $image_size, array(
-			'title'                   => $image_title,
-			'data-caption'            => get_post_field( 'post_excerpt', $image_post_id ),
-			'data-large_image'        => $image_link,
-			'data-large_image_width'  => $image_data[ 1 ],
-			'data-large_image_height' => $image_data[ 2 ],
-		) );
-
-		$html  = '<figure class="bundled_product_image woocommerce-product-gallery__image">';
-		$html .= sprintf( '<a href="%1$s" class="image zoom" title="%2$s" data-rel="%3$s">%4$s</a>', $image_link, $image_title, $image_rel, $image );
-		$html .= '</figure>';
-
-	} else {
-
-		$html  = '<figure class="bundled_product_image woocommerce-product-gallery__image--placeholder">';
-		$html .= sprintf( '<a href="%1$s" class="placeholder_image zoom" data-rel="%3$s"><img class="wp-post-image" src="%1$s" alt="%2$s"/></a>', wc_placeholder_img_src(), __( 'Bundled product placeholder image', 'woocommerce-product-bundles' ), $image_rel );
-		$html .= '</figure>';
-	}
-
-	echo apply_filters( 'woocommerce_bundled_product_image_html', $html, $product_id, $bundled_item );
-
-?></div>

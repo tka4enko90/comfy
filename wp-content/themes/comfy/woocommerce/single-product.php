@@ -38,7 +38,7 @@ get_header( 'shop' ); ?>
 
 			global $product;
 			if ( $product->is_type( 'bundle' ) ) {
-				get_template_part( 'template-parts/pages/single-product-bundle' );
+				get_template_part( 'template-parts/product/single-product-bundle' );
 			} else {
 				wc_get_template_part( 'content', 'single-product' );
 			}

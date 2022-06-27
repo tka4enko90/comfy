@@ -129,7 +129,7 @@
       }
       .variable-items-wrapper {
         display: flex;
-        padding: 0;
+        padding: 0 50px 0 0;
         margin: 0 -8px;
         &.color-variable-items-wrapper {
           .variable-item {
@@ -258,6 +258,7 @@
         }
       }
       &-items {
+        flex-grow: 2;
         max-width: 100%;
         margin-bottom: -16px;
         &.slick-initialized {
@@ -411,10 +412,18 @@
 
       }
     }
-    .button {
+    .single_add_to_cart_button, .button-primary {
       @include button;
       @include button-primary;
       flex-grow: 2;
+      @include media-breakpoint-down(sm) {
+        padding: 17.5px 40px;
+      }
+    }
+    .button-secondary {
+      background-color: transparent;
+      @include button;
+      @include button-secondary;
       @include media-breakpoint-down(sm) {
         padding: 17.5px 40px;
       }
