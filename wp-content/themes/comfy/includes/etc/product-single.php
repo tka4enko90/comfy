@@ -1,6 +1,6 @@
 <?php
 
-function cmf_get_colors_count() {
+function cmf_get_variation_colors_count() {
 	global $product;
 	$color_counter = 0;
 	if ( $product->is_type( 'variable' ) ) {
@@ -253,7 +253,7 @@ add_action(
 		$rating        = $product->get_average_rating();
 		$reviews_count = $product->get_review_count();
 		$includes      = get_field( 'includes', $product->get_id() );
-		$color_counter = cmf_get_colors_count();
+		$color_counter = cmf_get_variation_colors_count();
 
 		?>
 		<div class="product-other-info">
@@ -321,7 +321,7 @@ add_action(
 		<h1 class="product_title"><?php the_title(); ?></h1>
 		<div class="d-flex">
 			<?php
-			$color_counter = cmf_get_colors_count();
+			$color_counter = cmf_get_variation_colors_count();
 			if ( ! empty( $color_counter ) ) {
 				?>
 				<span class="product-colors"><?php echo $color_counter . ' ' . __( 'colors', 'comfy' ); ?></span>
