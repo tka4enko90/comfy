@@ -180,18 +180,19 @@ function cmf_get_product_shipping_tab() {
 function cmf_get_product_faq_tab() {
 	$faq_items = get_field( 'faq' );
 	if ( ! empty( $faq_items ) ) {
+		$i = 0;
 		foreach ( $faq_items as $item ) {
 			?>
 			<div class="faq-item">
 				<?php
 				if ( ! empty( $item['title'] ) ) {
 					?>
-					<h5 class="faq-item-title"><?php echo $item['title']; ?></h5>
+					<h5 class="faq-item-title<?php echo ( 0 === $i ) ? ' active' : ''; ?>"><?php echo $item['title']; ?></h5>
 					<?php
 				}
 				if ( ! empty( $item['content'] ) ) {
 					?>
-					<div class="faq-item-content">
+					<div class="faq-item-content"  <?php echo ( 0 === $i ) ? 'style="display: block;"' : ''; ?>>
 						<?php echo $item['content']; ?>
 					</div>
 					<?php
@@ -199,6 +200,7 @@ function cmf_get_product_faq_tab() {
 				?>
 			</div>
 			<?php
+			$i++;
 		}
 	}
 }
