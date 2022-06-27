@@ -346,3 +346,11 @@ add_action(
 	}
 );
 
+//Product Gallery large size
+add_filter(
+	'woocommerce_gallery_full_size',
+	function () {
+		return'cmf_product_single_zoomed';
+	}
+);
+
