@@ -43,7 +43,7 @@
       padding: 7px 26px;
     }
   }
-  &-link {
+  &-link, .woocommerce-loop-product__link {
     display: block;
     color: $secondary-color;
     .sale-persent {

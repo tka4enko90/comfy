@@ -646,7 +646,7 @@
           flex-wrap: wrap;
         }
 
-        li.product {
+        .product {
           margin: 0 32px 32px;
           flex-basis: 100%;
           @include media-breakpoint-up(md) {
@@ -656,8 +656,13 @@
             ins {
               color: $primary-color;
             }
-            .sale-persent {
-              color: $accent-color;
+            .price {
+              display: inline-block;
+              margin-right: 6px;
+              margin-bottom: 0;
+            }
+            .credit {
+              display: none;
             }
           }
           .woocommerce-loop-product__title {
