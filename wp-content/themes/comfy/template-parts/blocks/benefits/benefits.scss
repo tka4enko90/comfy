@@ -12,6 +12,9 @@
   }
   .row {
     @include media-breakpoint-up(sm) {
+      margin-bottom: -56px;
+    }
+    @include media-breakpoint-up(sm) {
       flex-wrap: nowrap;
     }
     .col {
@@ -19,20 +22,22 @@
       &:first-child {
         display: flex;
         flex-wrap: wrap;
-        @include media-breakpoint-up(sm) {
-          flex-basis: 50%;
-        }
         @include media-breakpoint-up(xl) {
           flex-basis: 705px;
         }
         @include media-breakpoint-down(xs) {
           order: 2;
-          //margin-top: 32px;
         }
       }
       &:nth-child(2) {
         @include media-breakpoint-up(sm) {
           flex-basis: 50%;
+          @include media-breakpoint-up(sm) {
+            flex-basis: 50%;
+            img {
+              margin-bottom: 56px;
+            }
+          }
         }
         @include media-breakpoint-up(md) {
           flex-basis: 442px;
@@ -82,6 +87,9 @@
   }
   .button {
     margin-top: 24px;
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 56px;
+    }
     @include media-breakpoint-up(lg) {
       margin-top: 28px;
     }
