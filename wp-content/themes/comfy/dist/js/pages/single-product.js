@@ -106,9 +106,6 @@
 
         $('.woocommerce-variation-price').hide();
       });
-      $(document).on('hide_variation', 'form.cart', function (event, variation) {
-        $('.summary > p.price').html(cmfProduct.price_html);
-      });
     },
     initProductCarousel: function initProductCarousel(variation_id) {
       var $currentGallery;
@@ -274,7 +271,7 @@
       });
     },
     initFaq: function initFaq() {
-      var slideSpeed = 600;
+      var slideSpeed = 300;
       $('.faq-item-title').on('click', function () {
         if (!$(this).hasClass('active')) {
           $('.faq-item-title.active').removeClass('active').parent('.faq-item').find('.faq-item-content').slideToggle(slideSpeed);
