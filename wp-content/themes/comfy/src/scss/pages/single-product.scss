@@ -9,6 +9,7 @@
 }
 .single-product {
   .mobile-info {
+    flex-basis: 100%;
     @include media-breakpoint-up(md) {
       display: none;
     }

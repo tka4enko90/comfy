@@ -148,14 +148,31 @@
       }
     },
     updateLastStepGallery: function updateLastStepGallery() {
-      var lastStepGallery = $('#bundle-last-step-gallery'),
-          lastStepGalleryNav = lastStepGallery.find('.woocommerce-product-gallery-nav').empty(),
-          lastStepGalleryItems = lastStepGallery.find('.woocommerce-product-gallery-items').empty();
+      var lastStepGalleryNav = $('#bundle-last-step-gallery .woocommerce-product-gallery-nav').empty(),
+          lastStepGalleryItems = $('#bundle-last-step-gallery .woocommerce-product-gallery-items').empty();
+
+      if (lastStepGalleryItems.hasClass('slick-initialized')) {
+        lastStepGalleryItems.slick('unslick').empty();
+      }
+
       $('.variation-gallery-wrap .woocommerce-product-gallery.active').each(function () {
-        var galleryItem = $(this).find('.gallery-item').first().clone(),
+        var galleryItem = $(this).find('.woocommerce-product-gallery-items').hasClass('slick-initialized') ? $(this).find('.slick-slide[data-slick-index="0"] .gallery-item').first().clone() : $(this).find('.gallery-item').first().clone(),
             galleryItemNav = $(this).find('.gallery-nav-item').first().clone();
         lastStepGalleryItems.append(galleryItem);
         lastStepGalleryNav.append(galleryItemNav);
+      });
+      lastStepGalleryItems.not('.slick-initialized').slick({
+        infinite: true,
+        dots: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1000,
+        mobileFirst: true,
+        responsive: [{
+          breakpoint: 480,
+          settings: "unslick"
+        }]
       });
     },
     updateLastStepItems: function updateLastStepItems() {
@@ -186,6 +203,7 @@
     ajaxSuccess: function ajaxSuccess(response) {
       if (response['main_images'] && response['variation_id']) {
         this.appendVariationGallery(response['variation_id'], response['main_images']);
+        $(window).trigger('wc_additional_variation_images_frontend_lightbox_done');
       }
     },
     ajaxFail: function ajaxFail(response) {
@@ -218,6 +236,7 @@
         e.preventDefault();
         self.currentStep = $(this).data('step');
         self.goToStep(self.currentStep);
+        $('.woocommerce-product-gallery-items.slick-initialized').slick('refresh');
       });
     },
     init: function init() {

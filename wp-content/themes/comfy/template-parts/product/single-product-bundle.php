@@ -107,6 +107,10 @@ $bundle_steps_num = count( $bundled_items ) + 1;
 		}
 		?>
 		<div class="bundle-step" data-step="<?php echo $bundle_step_counter; ?>">
+			<div class="mobile-info">
+				<p class="bundle-step-description"><?php _e( 'Review your bundle', 'comfy' ); ?></p>
+                <h3 class="product_title"><?php echo the_title(); ?></h3>
+			</div>
 			<div class="product type-product">
 				<?php
 				/**

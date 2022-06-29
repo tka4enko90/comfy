@@ -113,13 +113,19 @@
       if (variation_id) {
         $currentGallery = $('.woocommerce-product-gallery--variation-' + variation_id).find('.woocommerce-product-gallery-items');
       } else {
-        $currentGallery = $('.woocommerce-product-gallery').find('.woocommerce-product-gallery-items');
+        $currentGallery = $('.woocommerce-product-gallery-items');
       }
 
       if ($currentGallery.length) {
         $currentGallery.each(function () {
+          if (!$(this).find('.woocommerce-product-gallery__image').length) {
+            return;
+          }
+
           if ($(this).hasClass('slick-initialized')) {
             $(this).slick('refresh');
+            $(this).slick('resize');
+            return;
           }
 
           $(this).slick({
@@ -261,6 +267,7 @@
           body = $('body');
       $('.size-guide-link').click(function () {
         sizeGuideWrap.addClass('active');
+        body.css('width', body.width());
         body.css('overflow', 'hidden');
       });
       body.on('click', function (e) {
@@ -288,6 +295,10 @@
       this.initProductVariationPrice();
       this.initSizeGuide();
       this.initFaq();
+      var self = this;
+      $('.bundle-step-button').on('click', function () {
+        self.initProductCarousel();
+      });
     }
   };
   productPage.init();

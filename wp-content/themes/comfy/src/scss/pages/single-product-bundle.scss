@@ -17,9 +17,13 @@ body.single-product #primary {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+      }
 
       .variation-gallery-wrap {
         flex-basis: 696px;
+        max-width: 100%;
         &.active-variation-gallery {
           .default-product-gallery {
             display: none;
@@ -38,6 +42,9 @@ body.single-product #primary {
       .bundle-item {
         display: flex;
         margin-bottom: 24px;
+        @include media-breakpoint-down(xs) {
+          margin-bottom: 16px;
+        }
         &-thumb {
           flex-basis: 142px;
           margin-right: 32px;
@@ -62,9 +69,36 @@ body.single-product #primary {
 
       }
     }
+    .bundle_button {
+      @include media-breakpoint-down(sm) {
+        button {
+          padding: 16px 56px;
+        }
+      }
+    }
   }
-  .details {
+  .details, .bundle_data {
     padding: 0;
+    .bundle_price {
+      .price {
+        margin-top: 8px;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: 16px;
+      flex-basis: 100%;
+      .bundle-step-description {
+        display: none;
+      }
+      .product_title {
+        display: none;
+      }
+      .bundle_price {
+        .price {
+          margin-top: 0;
+        }
+      }
+    }
   }
   .bundled_product_summary {
     margin: 0;
@@ -101,6 +135,13 @@ body.single-product #primary {
       }
     }
   }
+  .mobile-info {
+    .product_title {
+      margin-bottom: 24px;
+    }
+  }
+
+
   .bundle-steps-btns {
     display: flex;
     justify-content: space-between;
@@ -109,6 +150,9 @@ body.single-product #primary {
       margin: 0 16px;
 
     }
+  }
+  .in-stock, .woocommerce-tabs.wc-tabs-wrapper {
+    margin-top: 16px;
   }
 }
 

@@ -10,6 +10,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 56px;
+    &:before {
+      display: none;
+    }
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
     }

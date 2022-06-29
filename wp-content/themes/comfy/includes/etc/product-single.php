@@ -155,7 +155,7 @@ add_action(
 );
 function cmf_product_in_stock() {
 	global $product;
-	if ( $product->is_in_stock() && ! $product->is_type( 'bundle' ) ) {
+	if ( $product->is_in_stock() ) {
 		?>
 		<div class="clear"></div>
 		<p class="in-stock">

@@ -39,19 +39,30 @@ add_action(
 	}
 );
 
+add_action( 'woocommerce_bundled_item_details', 'cmf_bundle_step_text', 12, 2 );
 add_action(
 	'woocommerce_bundled_item_details',
 	function ( $bundled_item, $product ) {
-		$bundled_items    = $product->get_bundled_items();
-		$bundle_steps_num = count( $bundled_items );
-		$step_counter     = $bundled_item->get_id();
+
 		?>
-		<p class="bundle-step-description"><?php echo __( 'Step', 'comfy' ) . ' ' . $step_counter . ' ' . __( 'of', 'comfy' ) . ' ' . $bundle_steps_num; ?></p>
+	<div class="mobile-info">
+		<?php cmf_bundle_step_text( $bundled_item, $product ); ?>
+		<h1><?php echo $bundled_item->get_title(); ?></h1>
+	</div>
 		<?php
 	},
-	12,
+	2,
 	2
 );
+
+function cmf_bundle_step_text( $bundled_item, $product ) {
+	$bundled_items    = $product->get_bundled_items();
+	$bundle_steps_num = count( $bundled_items );
+	$step_counter     = $bundled_item->get_id();
+	?>
+	<p class="bundle-step-description"><?php echo __( 'Step', 'comfy' ) . ' ' . $step_counter . ' ' . __( 'of', 'comfy' ) . ' ' . $bundle_steps_num; ?></p>
+	<?php
+}
 
 //Remove bundle product single price
 remove_action( 'woocommerce_bundled_single_variation', 'wc_pb_template_single_variation', 10 );

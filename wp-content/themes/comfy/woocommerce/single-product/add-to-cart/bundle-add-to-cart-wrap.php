@@ -26,8 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		?>
 		<div class="bundle_wrap">
-			<p><?php _e( 'Review your bundle', 'comfy' ); ?></p>
-			<h3><?php the_title(); ?></h3>
+			<p class="bundle-step-description"><?php _e( 'Review your bundle', 'comfy' ); ?></p>
+			<h3 class="product_title"><?php the_title(); ?></h3>
 			<div id="bundle-items" class="bundle-items">
 				<?php
 				$bundled_items = $product->get_bundled_items();
@@ -84,20 +84,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 *
 			 * @since 6.7.6
 			 */
-			do_action( 'woocommerce_before_bundle_availability' );
-			?>
-			<div class="bundle_availability">
-				<?php
-				// Availability html.
-				echo $availability_html;
-				?>
-			</div>
-			<?php
-			/**
-			 * 'woocommerce_bundles_after_bundle_price' action.
-			 *
-			 * @since 6.7.6
-			 */
 			do_action( 'woocommerce_before_bundle_add_to_cart_button' );
 			?>
 			<div class="bundle_button">
@@ -113,6 +99,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</div>
 			<?php
+			/**
+			 * 'woocommerce_bundles_after_bundle_price' action.
+			 *
+			 * @since 6.7.6
+			 */
+			do_action( 'woocommerce_before_bundle_availability' );
+
+			cmf_product_in_stock();
+
+
 			// No longer needed as this has been moved to the 'add-to-cart/composite-button.php' template. Leaving this here for back-compat.
 			?>
 			<input type="hidden" name="add-to-cart" value="<?php echo $product_id; ?>"/>
