@@ -297,11 +297,11 @@ add_action(
 	'woocommerce_after_shop_loop_item_title',
 	function () {
 		global $product;
-		switch ( $product->get_type() ) {
-			case 'bundle':
-				// bundle price
-				break;
-			case 'variable':
+		?>
+		<div class="product-price">
+			<?php
+			if ( $product->is_type( 'variable' ) ) {
+				//Get price of default product variation
 				$default_attributes = $product->get_default_attributes();
 				foreach ( $product->get_available_variations() as $variation ) {
 					$is_default = true;
@@ -312,40 +312,36 @@ add_action(
 						}
 					}
 					if ( $is_default ) {
-						$default_variation_price = $variation['price_html'];
+						echo $variation['price_html'];
 					}
 				}
-				break;
-		}
-		$regular_price = $product->get_regular_price();
-		echo '<div class="product-price">';
+			} else {
+				$regular_price = $product->get_regular_price();
+				if ( 0.00 < $regular_price ) {
+					$sale = $product->get_price() / $regular_price;
+					if ( 1 > $sale ) {
+						?>
+						<span>
+							<?php _e( 'From: ', 'comfy' ); ?>
+						</span>
+						<?php
+					}
+				}
 
-		if ( isset( $default_variation_price ) ) {
-			echo $default_variation_price;
-		} else {
-			if ( 0.00 < $regular_price ) {
-				$sale = $product->get_price() / $regular_price;
-				if ( 1 > $sale ) {
+				echo preg_replace( '/.00/', '', $product->get_price_html() );
+
+				if ( isset( $sale ) && 1 > $sale ) {
+					$sale = round( ( 1 - $sale ) * 100 ) . '%';
 					?>
-					<span>
-						<?php _e( 'From: ', 'comfy' ); ?>
+					<span class="sale-persent">
+						<?php echo __( 'Save ' ) . ' ' . $sale; ?>
 					</span>
 					<?php
 				}
 			}
-
-			echo preg_replace( '/.00/', '', $product->get_price_html() );
-			if ( isset( $sale ) && 1 > $sale ) {
-				$sale = round( ( 1 - $sale ) * 100 ) . '%';
-				?>
-				<span class="sale-persent">
-				<?php echo __( 'Save ' ) . ' ' . $sale; ?>
-			</span>
-				<?php
-			}
-		}
-
-		echo '</div>';
+			?>
+		</div>
+		<?php
 
 	},
 	5
