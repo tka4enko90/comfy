@@ -106,7 +106,7 @@ add_filter(
 add_filter(
 	'woocommerce_dropdown_variation_attribute_options_html',
 	function ( $html, $args ) {
-		if ( 'Size' === $args['attribute'] ) {
+		if ( 'pa_size' === $args['attribute'] ) {
 			ob_start();
 			?>
 			<a class="size-guide-link" href="#">
@@ -129,7 +129,7 @@ add_action(
 		global $product;
 		if ( $product->is_type( 'variable' ) ) {
 			foreach ( array_keys( $product->get_variation_attributes() ) as $taxonomy ) {
-				if ( 'Size' === $taxonomy ) {
+				if ( 'pa_size' === $taxonomy ) {
 					$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
 					?>
 					<div id="size-guide-wrap">
@@ -145,7 +145,6 @@ add_action(
 		}
 	}
 );
-
 
 add_action(
 	'woocommerce_single_variation',

@@ -259,7 +259,8 @@
     initSizeGuide: function initSizeGuide() {
       var sizeGuideWrap = $('#size-guide-wrap'),
           body = $('body');
-      $('.size-guide-link').click(function () {
+      $('.size-guide-link').click(function (e) {
+        e.preventDefault();
         sizeGuideWrap.addClass('active');
         body.css('overflow', 'hidden');
       });

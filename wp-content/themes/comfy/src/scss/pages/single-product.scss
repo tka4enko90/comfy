@@ -737,6 +737,18 @@
       &::-webkit-scrollbar {
         display: none;
       }
+      @include media-breakpoint-down(lg) {
+        width: 80%;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 64px 32px;
+      }
+      @include media-breakpoint-down(xs) {
+        padding: 64px 20px;
+        width: 98%;
+      }
+
+
     }
     .close-guide {
       position: absolute;
@@ -745,6 +757,9 @@
       width: 24px;
       height: 24px;
       cursor: pointer;
+      @include media-breakpoint-down(sm) {
+        top: 64px;
+      }
       &:before, &:after {
         content: '';
         position: absolute;
