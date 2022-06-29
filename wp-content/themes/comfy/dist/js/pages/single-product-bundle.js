@@ -154,8 +154,8 @@
       $('.variation-gallery-wrap .woocommerce-product-gallery.active').each(function () {
         var galleryItem = $(this).find('.gallery-item').first().clone(),
             galleryItemNav = $(this).find('.gallery-nav-item').first().clone();
-        galleryItem.appendTo(lastStepGalleryItems);
-        galleryItemNav.appendTo(lastStepGalleryNav);
+        lastStepGalleryItems.append(galleryItem);
+        lastStepGalleryNav.append(galleryItemNav);
       });
     },
     updateLastStepItems: function updateLastStepItems() {
