@@ -1,5 +1,9 @@
-
-#primary {
+@import "../components/vars";
+@import "../components/mixins";
+body.single-product #primary {
+  .bundled_product_title {
+    margin-bottom: 28px;
+  }
   .bundle-steps-wrap {
     .bundle-step {
       display: none;
@@ -11,6 +15,9 @@
   .bundle_form {
     .bundled_product {
       display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
       .variation-gallery-wrap {
         flex-basis: 696px;
         &.active-variation-gallery {
@@ -26,9 +33,81 @@
           }
         }
       }
-      .details {
-        flex-basis: 403px;
+    }
+    .bundle-items {
+      .bundle-item {
+        display: flex;
+        margin-bottom: 24px;
+        &-thumb {
+          flex-basis: 142px;
+          margin-right: 32px;
+          img {
+            border-radius: 8px;
+          }
+        }
+        &-title {
+          color: $primary-color;
+          margin: 0;
+        }
+        &-attribute {
+          margin: 8px 0 0;
+          font-size: 12px;
+        }
+        &-change-link {
+          margin: 4px 0 0;
+          font-size: 12px;
+          text-decoration: underline;
+          color: $primary-color;
+        }
+
       }
+    }
+  }
+  .details {
+    padding: 0;
+  }
+  .bundled_product_summary {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .variations_form {
+    margin: 0;
+    .variations {
+      width: 100%;
+      tr {
+        position: relative;
+        .size-guide-link {
+          top: 0;
+        }
+        &:first-child {
+          border-top: 0;
+          .label {
+            margin-top: 0;
+          }
+        }
+        td {
+          position: static;
+        }
+      }
+      .label {
+        padding: 0;
+        margin-top: 24px;
+        label {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .bundle-steps-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -16px;
+    .button {
+      margin: 0 16px;
+
     }
   }
 }

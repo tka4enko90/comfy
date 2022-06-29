@@ -55,18 +55,49 @@
 		},
 		updateLastStepGallery: function() {
 			var lastStepGallery      = $( '#bundle-last-step-gallery' ),
-				lastStepGalleryNav   = lastStepGallery.find( '.woocommerce-product-gallery-nav' ),
-				lastStepGalleryItems = lastStepGallery.find( '.woocommerce-product-gallery-items' );
+				lastStepGalleryNav   = lastStepGallery.find( '.woocommerce-product-gallery-nav' ).empty(),
+				lastStepGalleryItems = lastStepGallery.find( '.woocommerce-product-gallery-items' ).empty();
 
 			$( '.variation-gallery-wrap .woocommerce-product-gallery.active' ).each(
 				function () {
-					var galleryItem    = $( this ).find( '.gallery-item' ).first(),
-						galleryItemNav = $( this ).find( '.gallery-nav-item' ).first();
+					var galleryItem    = $( this ).find( '.gallery-item' ).first().clone(),
+						galleryItemNav = $( this ).find( '.gallery-nav-item' ).first().clone();
 					galleryItem.appendTo( lastStepGalleryItems );
 					galleryItemNav.appendTo( lastStepGalleryNav );
 
 				}
 			);
+		},
+		updateLastStepItems: function() {
+			$( '.variations_form' ).each(
+				function () {
+					var variationsData    = $( this ).data( 'product_variations' ),
+					variationId           = parseInt( $( this ).find( 'input.variation_id' ).attr( 'value' ) ),
+					currentVariationImage = {},
+					productId             = $( this ).data( 'product_id' ),
+					bundledItem           = $( '#bundle-item-' + productId );
+					$( this ).find( '.attribute_options' ).each(
+						function () {
+							var attributeName       = $( this ).find( '.variable-items-wrapper' ).data( 'attribute_name' ),
+								attributeValueLabel = $( this ).find( '.variable-item.selected' ).data( 'title' );
+							bundledItem.find( '.' + attributeName ).text( attributeValueLabel )
+						}
+					);
+					$( variationsData ).each(
+						function () {
+							if (variationId === this['variation_id']) {
+								currentVariationImage = this.image;
+								return;
+							}
+						}
+					);
+					bundledItem.find( 'img' ).attr( 'src', currentVariationImage.src ).attr( 'srcset', currentVariationImage.srcset );
+				}
+			);
+		},
+		updateLastStep: function() {
+			this.updateLastStepItems();
+			this.updateLastStepGallery();
 		},
 		ajaxSuccess: function(response) {
 			if (response['main_images'] && response['variation_id']) {
@@ -75,6 +106,12 @@
 		},
 		ajaxFail: function(response) {
 			console.log( response )
+		},
+		goToStep: function(stepNum) {
+			var oldStep = $( '.bundle-step.current-step' ),
+				newStep = $( '.bundle-step[data-step=' + stepNum + ']' );
+			newStep.addClass( 'current-step' );
+			oldStep.removeClass( 'current-step' );
 		},
 		initStepsBtns: function() {
 			var self = this;
@@ -87,13 +124,18 @@
 					} else {
 						self.currentStep++
 					}
-					var oldStep = $( '.bundle-step.current-step' ),
-						newStep = $( '.bundle-step[data-step=' + self.currentStep + ']' );
 					if (self.currentStep === self.stepsNum) {
-						self.updateLastStepGallery();
+						self.updateLastStep();
 					}
-					newStep.addClass( 'current-step' );
-					oldStep.removeClass( 'current-step' );
+					self.goToStep( self.currentStep )
+				}
+			);
+			$( '.bundle-item-change-link' ).on(
+				'click',
+				function (e) {
+					e.preventDefault();
+					self.currentStep = $( this ).data( 'step' );
+					self.goToStep( self.currentStep )
 				}
 			);
 		},

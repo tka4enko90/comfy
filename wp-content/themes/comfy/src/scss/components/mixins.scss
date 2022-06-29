@@ -26,8 +26,10 @@
 }
 
 @mixin button-secondary {
+  background-color: transparent;
   color: $primary-color;
   border: 1.5px solid $primary-color;
+  transition: background-color $std-transition-length ease;
   &:hover {
     background-color: $primary-color;
     color: #fff;
