@@ -597,8 +597,12 @@
           justify-content: flex-start;
           .col {
             flex-grow: 1;
+            @include media-breakpoint-up(sm) {
+              flex-basis: 50%;
+            }
           }
         }
+
       }
     }
     .comments-archive-section {
