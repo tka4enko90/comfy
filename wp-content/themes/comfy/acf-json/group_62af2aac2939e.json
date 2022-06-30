@@ -743,7 +743,7 @@
                             "min": 0,
                             "max": 0,
                             "layout": "table",
-                            "button_label": "",
+                            "button_label": "Add Table Heading",
                             "sub_fields": [
                                 {
                                     "key": "field_62bd452fffcff",
@@ -848,5 +848,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1656572323
+    "modified": 1656580591
 }

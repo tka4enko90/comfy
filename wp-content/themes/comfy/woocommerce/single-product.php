@@ -61,9 +61,10 @@ if ( ! empty( $benefits_section['benefits'] ) ) {
 
 <?php
 if ( $product->is_type( 'bundle' ) ) {
-	$bundle_breakdown = get_field( 'the_bundle_breakdown' );
+	$bundle_breakdown     = get_field( 'the_bundle_breakdown' );
+	$checkbox_icon_layout = '<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4.75L5 8.5L13 1" stroke="#283455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 	?>
-<section class=" section bundle-breakdown">
+<section class="section bundle-breakdown">
 	<div class="container">
 		<?php
 		if ( ! empty( $bundle_breakdown['title'] ) ) {
@@ -73,57 +74,59 @@ if ( $product->is_type( 'bundle' ) ) {
 		}
 		if ( ! empty( $bundle_breakdown['table'] ) ) {
 			?>
-		<table class="bundle-breakdown-table">
-			<?php
-			if ( ! empty( $bundle_breakdown['table']['headings'] ) ) {
-				?>
-				<tr>
-					<th></th>
+		<div class="bundle-breakdown-table-wrap">
+			<table class="bundle-breakdown-table">
 				<?php
-				foreach ( $bundle_breakdown['table']['headings'] as $heading ) {
-					?>
-					<th>
-					<?php
-					echo ( ! empty( $heading['image_id'] ) ) ? wp_get_attachment_image( $heading['image_id'], 'cmf_bundle_breakdown' ) : '';
-					if ( ! empty( $heading['title'] ) ) {
-						?>
-							<p class="bundle-breakdown-title">
-						<?php echo $heading['title']; ?>
-							</p>
-							<?php
-					}
-					if ( ! empty( $heading['price'] ) ) {
-						?>
-							<p class="bundle-breakdown-price">
-							<?php echo $heading['price']; ?>
-							</p>
-							<?php
-					}
-					?>
-					</th>
-					<?php
-				}
-				?>
-				</tr>
-				<?php
-			}
-			if ( ! empty( $bundle_breakdown['table']['table_content']['body'] ) ) {
-				foreach ( $bundle_breakdown['table']['table_content']['body'] as $table_row ) {
+				if ( ! empty( $bundle_breakdown['table']['headings'] ) ) {
 					?>
 					<tr>
+						<th></th>
 						<?php
-						foreach ( $table_row as $table_el ) {
+						foreach ( $bundle_breakdown['table']['headings'] as $heading ) {
 							?>
-							<th><?php echo ( ! empty( $table_el['c'] ) ) ? $table_el['c'] : ''; ?></th>
+							<th>
+								<?php
+								echo ( ! empty( $heading['image_id'] ) ) ? wp_get_attachment_image( $heading['image_id'], 'cmf_bundle_breakdown' ) : '';
+								if ( ! empty( $heading['title'] ) ) {
+									?>
+									<p class="bundle-breakdown-table-title">
+										<?php echo $heading['title']; ?>
+									</p>
+									<?php
+								}
+								if ( ! empty( $heading['price'] ) ) {
+									?>
+									<p class="bundle-breakdown-table-price">
+										<?php echo $heading['price']; ?>
+									</p>
+									<?php
+								}
+								?>
+							</th>
 							<?php
 						}
 						?>
 					</tr>
 					<?php
 				}
-			}
-			?>
-		</table>
+				if ( ! empty( $bundle_breakdown['table']['table_content']['body'] ) ) {
+					foreach ( $bundle_breakdown['table']['table_content']['body'] as $table_row ) {
+						?>
+						<tr>
+							<?php
+							foreach ( $table_row as $table_el ) {
+								?>
+								<td><?php echo ( ! empty( $table_el['c'] ) ) ? str_replace( '+', $checkbox_icon_layout, $table_el['c'] ) : ''; ?></td>
+								<?php
+							}
+							?>
+						</tr>
+						<?php
+					}
+				}
+				?>
+			</table>
+		</div>
 			<?php
 		}
 		?>
