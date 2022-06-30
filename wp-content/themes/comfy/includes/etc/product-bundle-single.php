@@ -4,7 +4,6 @@ add_action(
 	function () {
 		global $product;
 		if ( $product->is_type( 'bundle' ) ) {
-			echo cmf_get_bundle_display_price( $product );
 			cmf_product_includes();
 			?>
 			<button class="button button-primary bundle-step-button"><?php _e( 'Start building', 'comfy' ); ?></button>
@@ -54,16 +53,4 @@ function cmf_bundle_step_text( $bundled_item, $product ) {
 
 //Remove bundle product single price
 remove_action( 'woocommerce_bundled_single_variation', 'wc_pb_template_single_variation', 10 );
-
-//Remove default bundle price
-add_action(
-	'woocommerce_single_product_summary',
-	function () {
-		global $product;
-		if ( $product->is_type( 'bundle' ) ) {
-			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-		}
-	},
-	0
-);
 
