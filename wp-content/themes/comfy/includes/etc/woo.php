@@ -140,6 +140,17 @@ add_filter(
 	0,
 	2
 );
+add_filter(
+	'woocommerce_get_price_html',
+	function ( $price, $product ) {
+		if ( ! $product->is_type( 'bundle' ) ) {
+			return $price;
+		}
+		return cmf_get_bundle_display_price( $product );
+	},
+	1,
+	2
+);
 
 // WordPress support
 add_action(
