@@ -129,7 +129,7 @@ add_filter(
 			$sale = round( ( 1 - $sale ) * 100 ) . '%';
 			?>
 			<span class="sale-persent">
-				<?php echo __( 'Saves you ' ) . ' ' . $sale; ?>
+				<?php echo __( 'Saves you' ) . ' ' . $sale; ?>
 			</span>
 			<?php
 		}
@@ -137,6 +137,17 @@ add_filter(
 		return ob_get_clean();
 	},
 	0,
+	2
+);
+add_filter(
+	'woocommerce_get_price_html',
+	function ( $price, $product ) {
+		if ( ! $product->is_type( 'bundle' ) ) {
+			return $price;
+		}
+		return cmf_get_bundle_display_price( $product );
+	},
+	1,
 	2
 );
 

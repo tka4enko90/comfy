@@ -128,7 +128,6 @@ add_action(
 	}
 );
 
-
 add_action(
 	'woocommerce_single_variation',
 	'cmf_product_in_stock',
@@ -283,19 +282,14 @@ add_action(
 		?>
 		<div class="product-price">
 			<?php
-			switch ( $product->get_type() ) {
-				case 'variable':
-					//Get price of default product variation
-					$default_attributes = $product->get_default_attributes();
-					$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
-					$variable_product   = wc_get_product( $variation_id );
-					echo $variable_product->get_price_html();
-					break;
-				case 'bundle':
-					echo cmf_get_bundle_display_price( $product );
-					break;
-				default:
-					echo $product->get_price_html();
+			if ( $product->is_type( 'variable' ) ) {
+				//Get price of default product variation
+				$default_attributes = $product->get_default_attributes();
+				$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
+				$variable_product   = wc_get_product( $variation_id );
+				echo $variable_product->get_price_html();
+			} else {
+				echo $product->get_price_html();
 			}
 			?>
 		</div>
