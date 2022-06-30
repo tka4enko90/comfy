@@ -59,6 +59,57 @@ function cmf_star_rating( $args = array() ) {
 	return $output;
 }
 
+function cmf_find_matching_product_variation( $product, $attributes ) {
+	foreach ( $attributes as $key => $value ) {
+		if ( strpos( $key, 'attribute_' ) === 0 ) {
+			continue;
+		}
+		unset( $attributes[ $key ] );
+		$attributes[ sprintf( 'attribute_%s', $key ) ] = $value;
+	}
+	if ( class_exists( 'WC_Data_Store' ) ) {
+		$data_store = WC_Data_Store::load( 'product' );
+		return $data_store->find_matching_product_variation( $product, $attributes );
+	}
+	return $product->get_matching_variation( $attributes );
+
+}
+
+add_filter(
+	'woocommerce_get_price_html',
+	function ( $price, $product ) {
+		$price         = preg_replace( '/.00/', '', $price );
+		$regular_price = $product->get_regular_price();
+
+		ob_start();
+		if ( 0.00 < $regular_price ) {
+			$sale = $product->get_price() / $regular_price;
+			if ( 1 > $sale ) {
+				?>
+				<span>
+							<?php _e( 'From: ', 'comfy' ); ?>
+						</span>
+				<?php
+			}
+		}
+
+		echo $price;
+
+		if ( isset( $sale ) && 1 > $sale ) {
+			$sale = round( ( 1 - $sale ) * 100 ) . '%';
+			?>
+			<span class="sale-persent">
+				<?php echo __( 'Save ' ) . ' ' . $sale; ?>
+			</span>
+			<?php
+		}
+
+		return ob_get_clean();
+	},
+	0,
+	2
+);
+
 // WordPress support
 add_action(
 	'after_setup_theme',

@@ -51,29 +51,7 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 			<div class="product-info">
 				<h5 class="product-title"><?php echo get_the_title( $args['product'] ); ?></h5>
 				<div class="product-price">
-					<?php
-					$regular_price = $product->get_regular_price();
-					if ( 0.00 !== $regular_price ) {
-						$sale = $product->get_price() / $regular_price;
-						if ( 1 > $sale ) {
-							?>
-							<span>
-								<?php _e( 'From: ', 'comfy' ); ?>
-							</span>
-							<?php
-						}
-					}
-
-					echo preg_replace( '/.00/', '', $product->get_price_html() );
-					if ( isset( $sale ) && 1 > $sale ) {
-						$sale = round( ( 1 - $sale ) * 100 ) . '%';
-						?>
-						<span class="sale-persent">
-							<?php echo __( 'Save ' ) . ' ' . $sale; ?>
-						</span>
-						<?php
-					}
-					?>
+					<?php echo $product->get_price_html(); ?>
 				</div>
 				<div class="product-other-info">
 					<?php
