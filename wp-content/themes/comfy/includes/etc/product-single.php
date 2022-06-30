@@ -280,36 +280,19 @@ add_action(
 		?>
 		<div class="product-price">
 			<?php
-			if ( $product->is_type( 'variable' ) ) {
-				//Get price of default product variation
-				$default_attributes = $product->get_default_attributes();
-				$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
-				$variable_product   = wc_get_product( $variation_id );
-				echo $variable_product->get_price_html();
-
-			} else {
-				$regular_price = $product->get_regular_price();
-				if ( 0.00 < $regular_price ) {
-					$sale = $product->get_price() / $regular_price;
-					if ( 1 > $sale ) {
-						?>
-						<span>
-							<?php _e( 'From: ', 'comfy' ); ?>
-						</span>
-						<?php
-					}
-				}
-
-				echo preg_replace( '/.00/', '', $product->get_price_html() );
-
-				if ( isset( $sale ) && 1 > $sale ) {
-					$sale = round( ( 1 - $sale ) * 100 ) . '%';
-					?>
-					<span class="sale-persent">
-						<?php echo __( 'Save ' ) . ' ' . $sale; ?>
-					</span>
-					<?php
-				}
+			switch ( $product->get_type() ) {
+				case 'variable':
+					//Get price of default product variation
+					$default_attributes = $product->get_default_attributes();
+					$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
+					$variable_product   = wc_get_product( $variation_id );
+					echo $variable_product->get_price_html();
+					break;
+				case 'bundle':
+					echo $product->get_price_html();
+					break;
+				default:
+					echo $product->get_price_html();
 			}
 			?>
 		</div>

@@ -87,8 +87,8 @@ add_filter(
 			if ( 1 > $sale ) {
 				?>
 				<span>
-							<?php _e( 'From: ', 'comfy' ); ?>
-						</span>
+					<?php _e( 'From: ', 'comfy' ); ?>
+				</span>
 				<?php
 			}
 		}
