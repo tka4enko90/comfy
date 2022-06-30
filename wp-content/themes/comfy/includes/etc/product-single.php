@@ -287,15 +287,12 @@ add_action(
 				//Get price of default product variation
 				$default_attributes = $product->get_default_attributes();
 				$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
-				$variable_product   = wc_get_product( $variation_id );
-				echo $variable_product->get_price_html();
-			} else {
-				echo $product->get_price_html();
+				$product            = wc_get_product( $variation_id );
 			}
+			echo $product->get_price_html();
 			?>
 		</div>
 		<?php
-
 	},
 	5
 );
