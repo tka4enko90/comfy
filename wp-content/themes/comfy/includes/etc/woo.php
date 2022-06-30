@@ -99,7 +99,7 @@ add_filter(
 			$sale = round( ( 1 - $sale ) * 100 ) . '%';
 			?>
 			<span class="sale-persent">
-				<?php echo __( 'Save ' ) . ' ' . $sale; ?>
+				<?php echo __( 'Saves you ' ) . ' ' . $sale; ?>
 			</span>
 			<?php
 		}
