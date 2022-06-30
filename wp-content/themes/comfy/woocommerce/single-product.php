@@ -60,75 +60,147 @@ if ( ! empty( $benefits_section['benefits'] ) ) {
 ?>
 
 <?php
-$additional_products = get_field( 'additional_products' );
+if ( $product->is_type( 'bundle' ) ) {
+	$bundle_breakdown = get_field( 'the_bundle_breakdown' );
+	?>
+<section class=" section bundle-breakdown">
+	<div class="container">
+		<?php
+		if ( ! empty( $bundle_breakdown['title'] ) ) {
+			?>
+			<h3 class="section-title"><?php echo $bundle_breakdown['title']; ?></h3>
+			<?php
+		}
+		if ( ! empty( $bundle_breakdown['table'] ) ) {
+			?>
+		<table class="bundle-breakdown-table">
+			<?php
+			if ( ! empty( $bundle_breakdown['table']['headings'] ) ) {
+				?>
+				<tr>
+					<th></th>
+				<?php
+				foreach ( $bundle_breakdown['table']['headings'] as $heading ) {
+					?>
+					<th>
+					<?php
+					echo ( ! empty( $heading['image_id'] ) ) ? wp_get_attachment_image( $heading['image_id'], 'cmf_bundle_breakdown' ) : '';
+					if ( ! empty( $heading['title'] ) ) {
+						?>
+							<p class="bundle-breakdown-title">
+						<?php echo $heading['title']; ?>
+							</p>
+							<?php
+					}
+					if ( ! empty( $heading['price'] ) ) {
+						?>
+							<p class="bundle-breakdown-price">
+							<?php echo $heading['price']; ?>
+							</p>
+							<?php
+					}
+					?>
+					</th>
+					<?php
+				}
+				?>
+				</tr>
+				<?php
+			}
+			if ( ! empty( $bundle_breakdown['table']['table_content']['body'] ) ) {
+				foreach ( $bundle_breakdown['table']['table_content']['body'] as $table_row ) {
+					?>
+					<tr>
+						<?php
+						foreach ( $table_row as $table_el ) {
+							?>
+							<th><?php echo ( ! empty( $table_el['c'] ) ) ? $table_el['c'] : ''; ?></th>
+							<?php
+						}
+						?>
+					</tr>
+					<?php
+				}
+			}
+			?>
+		</table>
+			<?php
+		}
+		?>
+	</div>
+</section>
+	<?php
+}
+
+		$additional_products = get_field( 'additional_products' );
 if ( ! empty( $additional_products['items'] ) ) {
 	?>
 	<section class="section additional-products-section">
 		<div class="container">
-			<?php
-			if ( ! empty( $additional_products['title'] ) ) {
-				?>
+	<?php
+	if ( ! empty( $additional_products['title'] ) ) {
+		?>
 				<h3 class="section-title">
-					<?php echo $additional_products['title']; ?>
+			<?php echo $additional_products['title']; ?>
 				</h3>
 				<?php
-			}
-			?>
+	}
+	?>
 			<div class="row">
-				<?php
-				foreach ( $additional_products['items'] as $item ) {
-					if ( ! empty( $item['product'] ) ) {
-						$image = wp_get_attachment_image( get_post_thumbnail_id( $item['product'] ), 'cmf_product_preview_small' );
-						$link  = get_permalink( $item['product'] );
-						?>
+		<?php
+		foreach ( $additional_products['items'] as $item ) {
+			if ( ! empty( $item['product'] ) ) {
+				$image = wp_get_attachment_image( get_post_thumbnail_id( $item['product'] ), 'cmf_product_preview_small' );
+				$link  = get_permalink( $item['product'] );
+				?>
 						<div class="col">
 							<a href="<?php echo ! empty( $link ) ? $link : ''; ?>" class="additional-product-link">
-								<?php
-								if ( ! empty( $image ) ) {
-									?>
+						<?php
+						if ( ! empty( $image ) ) {
+							?>
 									<div class="additional-product-thumb">
-										<?php echo $image; ?>
+								<?php echo $image; ?>
 									</div>
 									<?php
-								}
-								?>
+						}
+						?>
 								<div class="additional-product-desc">
 									<h5 class="additional-product-title">
-										<?php
-										if ( ! empty( $item['custom_product_title'] ) ) {
-											echo $item['custom_product_title'];
-										} else {
-											echo get_the_title( $item['product'] );
-										}
-										?>
+								<?php
+								if ( ! empty( $item['custom_product_title'] ) ) {
+									echo $item['custom_product_title'];
+								} else {
+									echo get_the_title( $item['product'] );
+								}
+								?>
 									</h5>
-									<?php
-									if ( ! empty( $item['description_items'] ) ) {
-										foreach ( $item['description_items'] as $description ) {
-											if ( ! empty( $description['label'] ) ) {
-												?>
+							<?php
+							if ( ! empty( $item['description_items'] ) ) {
+								foreach ( $item['description_items'] as $description ) {
+									if ( ! empty( $description['label'] ) ) {
+										?>
 												<p class="label">
-													<?php echo $description['label']; ?>
+											<?php echo $description['label']; ?>
 												</p>
 												<?php
-											}
-											if ( ! empty( $description['description'] ) ) {
-												?>
-												<p class="description">
-													<?php echo $description['description']; ?>
-												</p>
-												<?php
-											}
-										}
 									}
-									?>
+									if ( ! empty( $description['description'] ) ) {
+										?>
+												<p class="description">
+											<?php echo $description['description']; ?>
+												</p>
+												<?php
+									}
+								}
+							}
+							?>
 								</div>
 							</a>
 						</div>
 						<?php
-					}
-				}
-				?>
+			}
+		}
+		?>
 			</div>
 		</div>
 	</section>

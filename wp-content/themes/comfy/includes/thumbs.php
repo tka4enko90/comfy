@@ -18,6 +18,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'cmf_product_single', 609 );
 	add_image_size( 'cmf_product_single_zoomed', 1318 );
 
+	add_image_size( 'cmf_bundle_breakdown', 96, 96, true );
 	add_image_size( 'cmf_search_result', 54, 54 );
 	add_image_size( 'cmf_content_with_image_2_icon', 64, 64 );
 	add_image_size( 'cmf_logo', 91, 32 );
