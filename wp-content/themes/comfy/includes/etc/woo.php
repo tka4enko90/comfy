@@ -109,6 +109,8 @@ add_filter(
 	0,
 	2
 );
+
+// Product bundle price filter
 add_filter(
 	'woocommerce_get_price_html',
 	function ( $price, $product ) {
