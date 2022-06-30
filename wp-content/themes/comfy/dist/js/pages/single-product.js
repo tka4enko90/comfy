@@ -262,6 +262,7 @@
       $('.size-guide-link').click(function (e) {
         e.preventDefault();
         sizeGuideWrap.addClass('active');
+        body.css('width', body.width());
         body.css('overflow', 'hidden');
       });
       body.on('click', function (e) {
