@@ -292,7 +292,7 @@ add_action(
 					echo $variable_product->get_price_html();
 					break;
 				case 'bundle':
-					echo $product->get_price_html();
+					echo cmf_get_bundle_display_price( $product );
 					break;
 				default:
 					echo $product->get_price_html();

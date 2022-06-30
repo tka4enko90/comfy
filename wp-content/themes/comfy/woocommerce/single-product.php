@@ -135,7 +135,7 @@ if ( $product->is_type( 'bundle' ) ) {
 	<?php
 }
 
-		$additional_products = get_field( 'additional_products' );
+$additional_products = get_field( 'additional_products' );
 if ( ! empty( $additional_products['items'] ) ) {
 	?>
 	<section class="section additional-products-section">
