@@ -71,7 +71,7 @@
     .variations_form {
       position: relative;
       margin-bottom: 32px;
-      .size-guide-link {
+      .guide-link {
         position: absolute;
         right: 0;
         top: -50px;
@@ -531,8 +531,9 @@
             &:before, &:after {
               content: '';
               position: absolute;
-              top: 12px;
+              top: 50%;
               right: 0;
+              margin-top: -1px;
               width: 12px;
               height: 2px;
               border-radius: 2px;
@@ -598,8 +599,12 @@
           justify-content: flex-start;
           .col {
             flex-grow: 1;
+            @include media-breakpoint-up(sm) {
+              flex-basis: 50%;
+            }
           }
         }
+
       }
     }
     .comments-archive-section {
@@ -734,6 +739,18 @@
       &::-webkit-scrollbar {
         display: none;
       }
+      @include media-breakpoint-down(lg) {
+        width: 80%;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 64px 32px;
+      }
+      @include media-breakpoint-down(xs) {
+        padding: 64px 20px;
+        width: 98%;
+      }
+
+
     }
     .close-guide {
       position: absolute;
@@ -742,6 +759,9 @@
       width: 24px;
       height: 24px;
       cursor: pointer;
+      @include media-breakpoint-down(sm) {
+        top: 64px;
+      }
       &:before, &:after {
         content: '';
         position: absolute;

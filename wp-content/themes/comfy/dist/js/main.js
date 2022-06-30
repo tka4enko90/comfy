@@ -316,6 +316,7 @@ jQuery(document).ready(function ($) {
     $('div#primary-header-nav-container').toggleClass('active');
 
     if ($(this).hasClass('active')) {
+      body.css('width', body.width());
       body.css('overflow', 'hidden');
     } else {
       body.removeAttr("style");

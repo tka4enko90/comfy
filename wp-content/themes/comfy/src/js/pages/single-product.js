@@ -217,7 +217,8 @@
 			body              = $( 'body' );
 
 			$( '.size-guide-link' ).click(
-				function () {
+				function (e) {
+					e.preventDefault();
 					sizeGuideWrap.addClass( 'active' );
 					body.css( 'width', body.width() );
 					body.css( 'overflow', 'hidden' );
