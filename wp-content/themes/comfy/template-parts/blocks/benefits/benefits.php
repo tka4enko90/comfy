@@ -1,13 +1,23 @@
 <?php
+$section = array(
+	'title'          => ! empty( $args['title'] ) ? $args['title'] : get_sub_field( 'title' ),
+	'benefits'       => ! empty( $args['benefits'] ) ? $args['benefits'] : get_sub_field( 'benefits' ),
+	'image_id'       => ! empty( $args['image_id'] ) ? $args['image_id'] : get_sub_field( 'image_id' ),
+	'button'         => ! empty( $args['button'] ) ? $args['button'] : get_sub_field( 'button' ),
+	'image_position' => ! empty( $args['image_position'] ) ? $args['image_position'] : get_sub_field( 'image_position' ),
+);
 if ( ! empty( $args['section_name'] ) ) {
 	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
+	if ( ! empty( $section['image_position'] ) && 'left' === $section['image_position'] ) {
+		add_filter(
+			$args['section_name'] . '_classes',
+			function ( $classes ) {
+				return  $classes . 'image-left';
+			}
+		);
+	}
 }
-$section = array(
-	'title'    => get_sub_field( 'title' ),
-	'benefits' => get_sub_field( 'benefits' ),
-	'image_id' => get_sub_field( 'image_id' ),
-	'button'   => get_sub_field( 'button' ),
-);
+
 ?>
 <div class="container">
 	<div class="row">
