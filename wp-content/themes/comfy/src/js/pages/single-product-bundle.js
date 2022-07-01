@@ -61,14 +61,15 @@
 				lastStepGalleryItems.slick( 'unslick' ).empty();
 			}
 
-				$( '.variation-gallery-wrap .woocommerce-product-gallery.active' ).each(
-					function () {
-						var galleryItem    = $( this ).find( '.woocommerce-product-gallery-items' ).hasClass( 'slick-initialized' ) ? $( this ).find( '.slick-slide[data-slick-index="0"] .gallery-item' ).first().clone() : $( this ).find( '.gallery-item' ).first().clone(),
-							galleryItemNav = $( this ).find( '.gallery-nav-item' ).first().clone();
-						lastStepGalleryItems.append( galleryItem );
-						lastStepGalleryNav.append( galleryItemNav );
-					}
-				);
+			$( '.variation-gallery-wrap .woocommerce-product-gallery.active' ).each(
+				function () {
+					var galleryItem    = $( this ).find( '.woocommerce-product-gallery-items' ).hasClass( 'slick-initialized' ) ? $( this ).find( '.slick-slide[data-slick-index="0"] .gallery-item' ).first().clone() : $( this ).find( '.gallery-item' ).first().clone(),
+						galleryItemNav = $( this ).find( '.gallery-nav-item' ).first().clone();
+					lastStepGalleryItems.append( galleryItem );
+					lastStepGalleryNav.append( galleryItemNav );
+				}
+			);
+
 			lastStepGalleryItems.not( '.slick-initialized' ).slick(
 				{
 					infinite: true,
