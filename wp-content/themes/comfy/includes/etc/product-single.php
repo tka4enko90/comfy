@@ -330,7 +330,7 @@ add_filter(
 );
 
 // Move JGM_Widget
-if(class_exists('JGM_Widget')) {
+//if(class_exists('JGM_Widget')) {
     remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
-}
+//}
 
