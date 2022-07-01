@@ -158,7 +158,7 @@ body.single-product #primary {
   .bundle-breakdown {
     .section-title {
       margin-bottom: 64px;
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(sm) {
         font-size: 32px;
         margin-bottom: 40px;
       }
@@ -171,14 +171,18 @@ body.single-product #primary {
 
     &-table {
       &-wrap {
-        overflow-y: scroll;
+        overflow-y: visible;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
       width: 648px;
 
       text-align: center;
       color: $primary-color;
       @include media-breakpoint-up(sm) {
-        width: 1224px;
+        width: 1184px;
       }
       tr {
         &:nth-child(even) {
