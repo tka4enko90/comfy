@@ -329,29 +329,13 @@ add_filter(
 	}
 );
 
-// Move JGM_Widget
-//if ( class_exists( 'JGM_Widget' ) ) {
-
-	add_action(
-		'woocommerce_after_single_product_summary',
-		function () {
-            remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
-			?>
-		<h1>Test</h1>
-			<?php
-		},
-		13
-	);
-	remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
-	add_action(
-		'woocommerce_after_single_product_summary',
-		function () {
-			?>
-		<h1>Test</h1>
-			<?php
-		},
-		15
-	);
-
-//}
-
+// Remove JGM_Widget from product_summary
+add_action(
+	'woocommerce_after_single_product_summary',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
+		}
+	},
+	13
+);
