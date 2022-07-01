@@ -339,3 +339,7 @@ add_action(
 	},
 	13
 );
+
+add_filter('cmf_review_filter', function($html) {
+    return '<h1>Test</h1>' . $html;
+});
