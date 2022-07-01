@@ -173,30 +173,3 @@ add_filter(
 		return $breadcrumb;
 	}
 );
-
-
-// Add title field to comment form
-add_filter(
-	'comment_form_fields',
-	function( $fields ) {
-		ob_start();
-		?>
-		<p class="comment-form-phone">
-			<label for="review-title"><?php _e( 'Review title', 'comfy' ); ?></label>
-			<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" />
-		</p>
-		<?php
-		$fields['phone'] = ob_get_clean();
-		return $fields;
-	}
-);
-add_action(
-	'comment_post',
-	function( $comment_id ) {
-		if ( ( isset( $_POST['review-title'] ) ) && ( ’ != $_POST['review-title'] ) ) {
-			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
-			add_comment_meta( $comment_id, 'title', $review_title );
-		}
-	}
-);
-
