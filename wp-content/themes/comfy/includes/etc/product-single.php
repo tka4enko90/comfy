@@ -340,6 +340,9 @@ add_action(
 	13
 );
 
-add_filter('cmf_review_filter', function($html) {
-    return '<h1>Test</h1>' . $html;
-});
+add_filter(
+	'cmf_review_widget',
+	function( $html ) {
+		return str_replace( '<h2 class="jdgm-rev-widg__title">', '<h2 class="jdgm-rev-widg__title"><span id="jdgm-rev-widg__rev-counter"></span>', $html );
+	}
+);

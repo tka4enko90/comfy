@@ -140,7 +140,7 @@ if ( ! empty( $additional_products['items'] ) ) {
 <?php wp_enqueue_style( 'comments-archive', get_template_directory_uri() . '/dist/css/pages/comments-archive.css', '', '', 'all' ); ?>
 <section class="section comments-archive-section">
 	<div class="container container-sm">
-		<?php echo apply_filters( 'cmf_review_filter', do_shortcode( '[jgm-review-widget]' ) ); ?>
+		<?php echo apply_filters( 'cmf_review_widget', do_shortcode( '[jgm-review-widget]' ) ); ?>
 	</div>
 </section>
 <?php

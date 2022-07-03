@@ -6,41 +6,29 @@
   }
 }
 .comments-archive-section {
-  .comment {
+  .jdgm-rev {
     display: flex;
     justify-content: space-between;
     margin-bottom: 56px;
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
     }
-    &-details {
+    &__header {
       flex-basis: 84px;
       color: $primary-color;
       margin-bottom: 74px;
       @include media-breakpoint-down(xs) {
         margin-bottom: 16px;
       }
-      .cmf-star-rating {
-        display: flex;
-        margin: 5px -2.65px 11px;
-        @include media-breakpoint-up(sm) {
-          margin: 5px -2.65px 26px;
-        }
-        .star {
-          flex-basis: 10px;
-          max-width: 12.67px;
-          margin: 0 2.65px ;
-          &.star-empty {
-            opacity: .3;
-          }
-        }
-      }
     }
-    &-author {
+    &__author {
       margin-bottom: 8px;
     }
+    &__timestamp {
+      position: static;
+    }
 
-    &-info {
+    &__content__title {
       flex-basis: 750px;
       @include media-breakpoint-up(sm) {
         margin-left: 30px;
