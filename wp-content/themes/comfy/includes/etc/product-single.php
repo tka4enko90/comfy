@@ -342,7 +342,13 @@ add_action(
 
 add_filter(
 	'cmf_review_widget',
+
 	function( $html ) {
+        ?>
+        <code>
+            <?php esc_html_e($html); ?>
+        </code>
+        <?php
 		$html = str_replace( '<h2 class="jdgm-rev-widg__title">', '<h2 class="jdgm-rev-widg__title"><span id="jdgm-rev-widg__rev-counter"></span>', $html );
 		$html = str_replace( 'jdgm-rev-widg__title"', 'jdgm-rev-widg__title test-777"', $html );
 		return   $html;
