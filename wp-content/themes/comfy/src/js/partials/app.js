@@ -10,5 +10,8 @@
 	if (revsWrap.length) {
 		console.log( 'revsWrap' );
 		console.log( 'revsNum: ' + revsNum );
+		if(revsCounter.length) {
+			alert('ok');
+		}
 	}
 })( jQuery );

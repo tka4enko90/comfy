@@ -345,8 +345,8 @@ add_filter(
 
 	function( $html ) {
 
-		$html = str_replace( "<h2 class='jdgm-rev-widg__title'>", "<h2 class='jdgm-rev-widg__title test'><span id='jdgm-rev-widg__rev-counter'></span>", $html );
-		//$html = str_replace( 'jdgm-rev-widg__title\'', 'jdgm-rev-widg__title test-777\' ', $html );
+		$html = str_replace( "<div class='jdgm-rev-widg__header'>", "<div class='jdgm-rev-widg__header'><h2 class='section-title'><span id='jdgm-rev-widg__rev-counter'></span>" . __('Reviews') . '</h2>', $html );
+
         ?>
         <code>
             <?php esc_html_e($html); ?>
