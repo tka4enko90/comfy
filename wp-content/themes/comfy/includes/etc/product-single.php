@@ -344,7 +344,7 @@ add_filter(
 	'cmf_review_widget',
 	function( $html ) {
 		$html = str_replace( '<h2 class="jdgm-rev-widg__title">', '<h2 class="jdgm-rev-widg__title"><span id="jdgm-rev-widg__rev-counter"></span>', $html );
-		$html = str_replace( 'jdgm-rev-widg__title">', 'jdgm-rev-widg__title test-777"> Test-777', $html );
+		$html = str_replace( 'jdgm-rev-widg__title"', 'jdgm-rev-widg__title test-777"', $html );
 		return   $html;
 	}
 );
