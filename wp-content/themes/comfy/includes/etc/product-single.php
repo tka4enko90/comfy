@@ -343,6 +343,11 @@ add_action(
 add_filter(
 	'cmf_review_widget',
 	function( $html ) {
+	    ?>
+        <code>
+            <?php echo print_r($html); ?>
+        </code>
+        <?php
 		return str_replace( '<h2 class="jdgm-rev-widg__title">', '<h2 class="jdgm-rev-widg__title"><span id="jdgm-rev-widg__rev-counter"></span>', $html );
 	}
 );
