@@ -3,6 +3,8 @@
 function cmf_get_variation_colors_count() {
 	global $product;
 	$color_counter = 0;
+	echo 'id - ' . $product->get_id() . ';<br>';
+	echo 'type - ' . $product->get_type() . ';<br>';
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
 		print_r($variations);
