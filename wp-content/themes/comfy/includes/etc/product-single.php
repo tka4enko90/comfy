@@ -4,8 +4,7 @@ function cmf_get_variation_colors_count() {
 	global $product;//
 	$color_counter = 0;
 	if($product->is_type( 'variation' )) {
-	    //setup_postdata()
-        echo 'parent_id  - ' . $product->get_parent_id() . ';<br>';
+	    setup_postdata($product->get_parent_id());
     }
 	echo 'id - ' . $product->get_id() . ';<br>';
 	echo 'type - ' . $product->get_type() . ';<br>';
