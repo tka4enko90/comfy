@@ -72,6 +72,13 @@
       @include media-breakpoint-down(xs) {
         margin-bottom: 16px;
       }
+      .jdgm-rev__timestamp {
+        position: static;
+        order: 2;
+        @include media-breakpoint-down(md) {
+          margin: 0;
+        }
+      }
     }
     &__title {
       font-family: 'CotfordDisplay';
@@ -109,11 +116,7 @@
         }
       }
     }
-    &__timestamp {
-      position: static;
-      margin: 0;
-      order: 2;
-    }
+
     &__icon {
       display: none;
     }
