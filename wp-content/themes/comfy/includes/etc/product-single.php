@@ -7,8 +7,8 @@ function cmf_get_variation_colors_count() {
 		$variations = $product->get_variation_attributes();
 		print_r($variations);
 		if ( isset( $variations['pa_color'] ) ) {
-		    echo 'COLOR OK';
 			$color_counter = count( $variations['pa_color'] );
+            echo 'COLOR OK - ' . $color_counter . ';<br>';
 		}
 	}
 	return $color_counter;
