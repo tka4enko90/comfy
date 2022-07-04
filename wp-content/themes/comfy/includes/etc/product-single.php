@@ -343,6 +343,8 @@ add_action(
 add_filter(
 	'cmf_review_widget',
 	function( $html ) {
-		return   str_replace( "<div class='jdgm-rev-widg__header'>", "<div class='jdgm-rev-widg__header'><h2 class='section-title'><span id='jdgm-rev-widg__rev-counter'></span>" . __( 'Reviews' ) . '</h2>', $html );
+		$html = str_replace( "<div class='jdgm-rev-widg__header'>", "<div class='jdgm-rev-widg__header'><h2 class='section-title'><span id='jdgm-rev-widg__rev-counter'></span>" . __( 'Reviews' ) . '</h2>', $html );
+		$html = str_replace( "<div class='jdgm-rev-widg__summary-text'>", "<p class='jdgm-rev-widg__summary-rating-text'><span id='jdgm-rev-widg__summary-rating-num'></span>" . __( 'out of 5 stars' ) . "</p><div class='jdgm-rev-widg__summary-text'>", $html );
+		return   $html;
 	}
 );

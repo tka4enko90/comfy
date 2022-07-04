@@ -6,14 +6,20 @@
   }
 }
 .comments-archive-section {
+  .section-title {
+    margin-bottom: 16px;
+  }
   .jdgm-rev {
     display: flex;
     justify-content: space-between;
     margin-bottom: 56px;
+    border: none;
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
     }
     &__header {
+      display: flex;
+      flex-direction: column;
       flex-basis: 84px;
       color: $primary-color;
       margin-bottom: 74px;
@@ -21,33 +27,50 @@
         margin-bottom: 16px;
       }
     }
+    &__rating {
+      position: static;
+      margin: 0 auto;
+      .jdgm-star {
+        font-size: 10px;
+      }
+    }
     &__author {
       margin-bottom: 8px;
     }
     &__timestamp {
       position: static;
+      order: 2;
     }
 
-    &__content__title {
+    &__content {
       flex-basis: 750px;
       @include media-breakpoint-up(sm) {
         margin-left: 30px;
       }
     }
     &-title {
-      margin-bottom: 16px;
+      display: none;
     }
-  }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    .page-numbers {
-      margin: 0 8px;
-      color: $primary-color;
-      &.current {
-        text-decoration: underline;
-        font-weight: bold;
+    &-widg {
+      padding: 0;
+      border: none;
+      &__summary {
+        &-stars{
+          .jdgm-star {
+            font-size: 21px;
+          }
+        }
+        &-rating-text {
+
+        }
+        &-text {
+          display: none;
+        }
+      }
+      .jdgm-histogram {
+        display: none;
       }
     }
   }
+
 }
