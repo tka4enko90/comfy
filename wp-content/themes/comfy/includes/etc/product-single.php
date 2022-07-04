@@ -1,7 +1,9 @@
 <?php
 
-function cmf_get_variation_colors_count() {
-	global $product;
+function cmf_get_variation_colors_count($product) {
+	if(!isset($product)) {
+        global $product;
+    }
 	$color_counter = 0;
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
@@ -258,7 +260,7 @@ add_action(
 		global $product;
 
 		$includes      = get_field( 'includes', $product->get_id() );
-		$color_counter = cmf_get_variation_colors_count();
+		$color_counter = cmf_get_variation_colors_count($product);
 
 		?>
 		<div class="product-other-info">
