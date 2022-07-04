@@ -119,6 +119,7 @@
     }
 
     &__content {
+      margin: 0;
       @include media-breakpoint-up(sm) {
         margin-left: 30px;
       }
