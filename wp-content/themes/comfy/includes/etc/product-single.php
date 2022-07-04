@@ -3,21 +3,21 @@
 function cmf_get_variation_colors_count() {
 	global $product;//
 	$color_counter = 0;
-	if($product->is_type( 'variation' )) {
-	    setup_postdata($product->get_parent_id());
-    }
+	if ( $product->is_type( 'variation' ) ) {
+		$product = wc_get_product( $product->get_parent_id() );
+	}
 	echo 'id - ' . $product->get_id() . ';<br>';
 	echo 'type - ' . $product->get_type() . ';<br>';
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
-		print_r($variations);
+		print_r( $variations );
 		if ( isset( $variations['pa_color'] ) ) {
 			$color_counter = count( $variations['pa_color'] );
-            echo 'COLOR OK (1) - ' . $color_counter . ';<br>';
-            return $color_counter;
+			echo 'COLOR OK (1) - ' . $color_counter . ';<br>';
+			return $color_counter;
 		}
 	}
-    echo 'COLOR OK - (2) ' . $color_counter . ';<br>';
+	echo 'COLOR OK - (2) ' . $color_counter . ';<br>';
 	return $color_counter;
 }
 add_action(
@@ -270,7 +270,7 @@ add_action(
 		?>
 		<div class="product-other-info">
 			<?php
-            echo 'COLOR OK (3) - ' . $color_counter . ';<br>';
+			echo 'COLOR OK (3) - ' . $color_counter . ';<br>';
 			if ( ! empty( $includes ) ) {
 				?>
 				<p class="product-description">
