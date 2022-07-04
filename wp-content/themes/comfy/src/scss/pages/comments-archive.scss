@@ -9,6 +9,13 @@
   .section-title {
     margin-bottom: 16px;
   }
+  .jdgm-all-reviews-widget {
+    padding: 0;
+    border: none;
+    .jdgm-histogram {
+      display: none;
+    }
+  }
   .jdgm-rev {
     display: flex;
     flex-wrap: wrap;
@@ -20,10 +27,7 @@
       margin-bottom: 56px;
     }
 
-    .jdgm-all-reviews-widget {
-      padding: 0;
-      border: none;
-    }
+
     &-widg, .jdgm-all-reviews {
       padding: 0;
       border: none;
