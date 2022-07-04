@@ -119,10 +119,13 @@
     }
 
     &__content {
-      flex-basis: 750px;
       @include media-breakpoint-up(sm) {
         margin-left: 30px;
       }
+      @include media-breakpoint-up(lg) {
+        flex-basis: 750px;
+      }
+
     }
 
   }
