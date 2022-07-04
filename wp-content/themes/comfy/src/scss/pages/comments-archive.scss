@@ -11,21 +11,32 @@
   }
   .jdgm-rev {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 56px;
     border: none;
-    @include media-breakpoint-down(xs) {
-      flex-wrap: wrap;
-    }
+
     &__header {
       display: flex;
       flex-direction: column;
       flex-basis: 84px;
       color: $primary-color;
       margin-bottom: 74px;
+      text-align: center;
       @include media-breakpoint-down(xs) {
         margin-bottom: 16px;
       }
+    }
+    &__title {
+      font-family: 'CotfordDisplay';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: $primary-color;
+    }
+    &__body {
+      color: $primary-color;
     }
     &__rating {
       position: static;
@@ -35,10 +46,14 @@
       }
     }
     &__author {
-      margin-bottom: 8px;
+      &-wrapper {
+        font-weight: normal;
+        margin: 26px 0 8px;
+      }
     }
     &__timestamp {
       position: static;
+      margin: 0;
       order: 2;
     }
 
@@ -48,20 +63,22 @@
         margin-left: 30px;
       }
     }
-    &-title {
-      display: none;
-    }
+
     &-widg {
       padding: 0;
       border: none;
+      &-title {
+        display: none;
+      }
       &__summary {
-        &-stars{
+        &-stars {
+          margin: 22px 0;
           .jdgm-star {
             font-size: 21px;
           }
         }
         &-rating-text {
-
+          font-size: 12px;
         }
         &-text {
           display: none;
