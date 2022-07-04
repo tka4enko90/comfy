@@ -8,10 +8,11 @@ function cmf_get_variation_colors_count() {
 		print_r($variations);
 		if ( isset( $variations['pa_color'] ) ) {
 			$color_counter = count( $variations['pa_color'] );
-            echo 'COLOR OK - ' . $color_counter . ';<br>';
+            echo 'COLOR OK (1) - ' . $color_counter . ';<br>';
+            return $color_counter;
 		}
 	}
-    echo 'COLOR OK - ' . $color_counter . ';<br>';
+    echo 'COLOR OK - (2) ' . $color_counter . ';<br>';
 	return $color_counter;
 }
 add_action(
