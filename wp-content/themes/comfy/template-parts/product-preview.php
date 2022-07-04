@@ -6,11 +6,6 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 	if ( ! isset( $args['thumb'] ) ) {
 		$args['thumb'] = 'cmf_product_preview';
 	}
-
-	$rating        = $product->get_average_rating();
-	$reviews_count = $product->get_review_count();
-	$color_counter = cmf_get_variation_colors_count();
-	$includes      = get_field( 'includes', $product->get_id() );
 	?>
 	<article class="product">
 		<a href="<?php echo $product->get_permalink(); ?>" class="product-link">
@@ -53,7 +48,6 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 				<div class="product-other-info">
 					<?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
 				</div>
-
 			</div>
 		</a>
 	</article>
