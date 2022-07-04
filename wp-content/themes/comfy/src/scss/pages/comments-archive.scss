@@ -74,8 +74,11 @@
           font-size: 16px;
         }
         &__next-page, &__last-page {
+          position: relative;
           &:before {
             content: '';
+            position: absolute;
+            top: 5px;
             border-bottom: 1.23px solid $primary-color;
             border-right: 1.23px solid $primary-color;
             width: 6px;
