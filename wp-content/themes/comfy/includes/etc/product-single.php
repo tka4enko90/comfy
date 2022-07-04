@@ -239,12 +239,17 @@ add_filter(
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
 // Content Product -> Rating & Product info
-if(class_exists('JGM_Widget')) {
-    add_action( 'woocommerce_after_shop_loop_item_title', array( 'JGM_Widget', 'judgeme_preview_badge' ), 5 );
-} else {
-    remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
-}
-
+add_action(
+	'woocommerce_after_shop_loop_item_title',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			add_action( 'woocommerce_after_shop_loop_item_title', array( 'JGM_Widget', 'judgeme_preview_badge' ), 5 );
+		} else {
+			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+		}
+	},
+	4
+);
 add_action(
 	'woocommerce_after_shop_loop_item_title',
 	function () {
