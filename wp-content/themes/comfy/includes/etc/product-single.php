@@ -1,8 +1,12 @@
 <?php
 
 function cmf_get_variation_colors_count() {
-	global $product;
+	global $product;//
 	$color_counter = 0;
+	if($product->is_type( 'variation' )) {
+	    //setup_postdata()
+        print_r($product);
+    }
 	echo 'id - ' . $product->get_id() . ';<br>';
 	echo 'type - ' . $product->get_type() . ';<br>';
 	if ( $product->is_type( 'variable' ) ) {
