@@ -67,6 +67,7 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 						<span class="product-colors"><?php echo $color_counter . __( 'colors', 'comfy' ); ?></span>
 						<?php
 					}
+					do_action( 'woocommerce_after_shop_loop_item_title' );
 					?>
 					<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
 					<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
