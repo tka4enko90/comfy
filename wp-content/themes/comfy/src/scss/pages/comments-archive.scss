@@ -73,8 +73,31 @@
         &__page, &.jdgm-curt {
           font-size: 16px;
         }
+        &__next-page, &__last-page {
+          &:before {
+            content: '';
+            border-bottom: 1.23px solid $primary-color;
+            border-right: 1.23px solid $primary-color;
+            width: 6px;
+            height: 6px;
+          }
+          &:after {
+            content: '';
+            width: 8.5px;
+            border: 1.23px solid $primary-color;
+          }
+        }
+        &__next-page {
+          &:before {
+            transform: rotate(-45deg);
+          }
+        }
+        &__last-page {
+          &:before {
+            transform: rotate(45deg);
+          }
+        }
       }
-
     }
 
     &__header {
