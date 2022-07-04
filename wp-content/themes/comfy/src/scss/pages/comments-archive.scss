@@ -69,7 +69,11 @@
       &__sort-wrapper {
         display: none;
       }
-
+      .jdgm-paginate {
+        &__page, &.jdgm-curt {
+          font-size: 16px;
+        }
+      }
 
     }
 
