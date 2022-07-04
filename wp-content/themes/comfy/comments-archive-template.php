@@ -25,7 +25,6 @@ get_header();
 		</div>
 	</section>
 </main>
-<?php wp_list_comments(); ?>
 <?php
 get_footer();
 

@@ -20,7 +20,11 @@
       margin-bottom: 56px;
     }
 
-    &-widg {
+    .jdgm-all-reviews-widget {
+      padding: 0;
+      border: none;
+    }
+    &-widg, .jdgm-all-reviews {
       padding: 0;
       border: none;
       &__title {
