@@ -70,49 +70,17 @@
         display: none;
       }
       .jdgm-paginate {
-        &__page, &.jdgm-curt {
+        &__page {
           font-size: 16px;
+          &.jdgm-curt {
+            font-weight: 700;
+          }
         }
         &__next-page, &__prev-page {
-          position: relative;
-          width: 24px;
-          height: 24px;
-          &:before, &:after {
-            content: '';
-            position: absolute;
-            right: 0;
-            border-radius: 1px;
-          }
           &:before {
-            top: 9px;
-            border-bottom: 1.23px solid $primary-color;
-            border-right: 1.23px solid $primary-color;
-            width: 6px;
-            height: 6px;
-          }
-          &:after {
-            top: 11.3px;
-            width: 8.5px;
-            height: 1.23px;
-            background-color: $primary-color;
-          }
-        }
-        &__next-page {
-          &:before {
-            transform: rotate(-45deg);
-          }
-        }
-        &__prev-page {
-          &:before, &:after {
-            right: auto;
-            left: 0;
-          }
-          &:before {
-            transform: rotate(45deg);
-
-          }
-          &:after {
-
+            content: url("%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.50468 5L10.0547 5' stroke='%23283455' stroke-width='1.2381' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6.64119 0.999999L10.5039 5L6.64119 9' stroke='%23283455' stroke-width='1.2381' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            width: 9px;
+            height: 8px;
           }
         }
       }
