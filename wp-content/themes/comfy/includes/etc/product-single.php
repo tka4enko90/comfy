@@ -5,7 +5,6 @@ function cmf_get_variation_colors_count() {
 	$color_counter = 0;
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
-		print_r($variations);
 		if ( isset( $variations['pa_color'] ) ) {
 			$color_counter = count( $variations['pa_color'] );
 		}
@@ -262,6 +261,7 @@ add_action(
 		?>
 		<div class="product-other-info">
 			<?php
+            echo $color_counter;
 			if ( ! empty( $includes ) ) {
 				?>
 				<p class="product-description">
