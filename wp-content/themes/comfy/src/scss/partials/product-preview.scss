@@ -75,9 +75,12 @@
     }
   }
   &-rating {
-    font-size: 10px;
+
+    .jdgm-star {
+      font-size: 10.6px;
+      font-weight: 600;
+    }
     .jdgm-prev-badge__text {
-      font-size: 16px;
       color: $primary-color;
       margin-left: 8.6px;
     }
@@ -86,7 +89,7 @@
   &-colors {
     position: relative;
     padding-right: 4px;
-    margin-right: 8.6px;
+    margin-right: 8px;
     &:after {
       content: '';
       position: absolute;
@@ -97,7 +100,7 @@
       background-color: currentColor;
     }
   }
-  &-colors, &-reviews-count {
+  &-colors, .jdgm-prev-badge__text {
     font-size: 14px;
     line-height: 12px;
     color: $primary-color;
