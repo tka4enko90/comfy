@@ -103,14 +103,16 @@
           }
         }
         &__prev-page {
-          &:before {
-            transform: rotate(45deg);
+          &:before, &:after {
             right: auto;
             left: 0;
           }
+          &:before {
+            transform: rotate(45deg);
+
+          }
           &:after {
-            right: auto;
-            left: 0;
+
           }
         }
       }
