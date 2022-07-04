@@ -1,9 +1,7 @@
 <?php
 
-function cmf_get_variation_colors_count($product = []) {
-	if(empty($product)) {
-        global $product;
-    }
+function cmf_get_variation_colors_count() {
+	global $product;
 	$color_counter = 0;
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
@@ -13,6 +11,7 @@ function cmf_get_variation_colors_count($product = []) {
             echo 'COLOR OK - ' . $color_counter . ';<br>';
 		}
 	}
+    echo 'COLOR OK - ' . $color_counter . ';<br>';
 	return $color_counter;
 }
 add_action(
@@ -260,12 +259,12 @@ add_action(
 		global $product;
 
 		$includes      = get_field( 'includes', $product->get_id() );
-		$color_counter = cmf_get_variation_colors_count($product);
+		$color_counter = cmf_get_variation_colors_count();
 
 		?>
 		<div class="product-other-info">
 			<?php
-            echo $color_counter;
+            echo 'COLOR OK (3) - ' . $color_counter . ';<br>';
 			if ( ! empty( $includes ) ) {
 				?>
 				<p class="product-description">
