@@ -1,7 +1,7 @@
 <?php
 
-function cmf_get_variation_colors_count($product) {
-	if(!isset($product)) {
+function cmf_get_variation_colors_count($product = []) {
+	if(empty($product)) {
         global $product;
     }
 	$color_counter = 0;
