@@ -74,6 +74,7 @@
       }
       .jdgm-rev__timestamp {
         position: static;
+        margin: 0;
         order: 2;
         @include media-breakpoint-down(md) {
           margin: 0;
@@ -130,6 +131,10 @@
         flex-basis: 750px;
       }
 
+    }
+    &__reply {
+      background-color: transparent;
+      border-color: transparent;
     }
 
   }
