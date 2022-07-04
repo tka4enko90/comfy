@@ -243,9 +243,10 @@ add_action(
 	'woocommerce_after_shop_loop_item_title',
 	function () {
 		if ( class_exists( 'JGM_Widget' ) ) {
+            wp_die('ok');
 			add_action( 'woocommerce_after_shop_loop_item_title', array( 'JGM_Widget', 'judgeme_preview_badge' ), 5 );
 		} else {
-		    wp_die('not ok');
+            wp_die('not ok');
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 		}
 	},
