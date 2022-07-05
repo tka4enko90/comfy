@@ -145,10 +145,10 @@ add_filter(
 		<span>
 			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 		</span>
-			<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
-			<?php cmf_the_credit_text( $min_price ); ?>
-		</div>
+		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
 		<?php
+		cmf_the_credit_text( $min_price );
+
 		return ob_get_clean();
 	},
 	1,
