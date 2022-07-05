@@ -9,6 +9,7 @@
 }
 .single-product {
   .mobile-info {
+    flex-basis: 100%;
     @include media-breakpoint-up(md) {
       display: none;
     }
@@ -57,6 +58,7 @@
         color: $accent-color;
       }
       .credit {
+        display: block;
         font-size: 14px;
         svg {
           margin-left: 8px;

@@ -29,31 +29,15 @@ if ( class_exists( 'WC_Additional_Variation_Images_Frontend' ) ) {
 			ob_start();
 			?>
 			<div class="woocommerce-product-gallery woocommerce-product-gallery--wcavi woocommerce-product-gallery--variation-<?php echo absint( $variation_id ); ?> woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?> images" data-columns="<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-			<figure class="woocommerce-product-gallery-nav">
-				<?php
-				foreach ( $image_ids as $id ) {
-					?>
-					<div data-item="<?php echo $id; ?>" class="gallery-nav-item gallery-nav-item-<?php echo $id; ?>">
-						<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, false ), $id ); ?>
-					</div>
-					<?php
-				}
-				?>
-			</figure>
-			<figure class="woocommerce-product-gallery-items">
-				<?php
-				foreach ( $image_ids as $id ) {
-					?>
-					<div data-item="<?php echo $id; ?>" class="gallery-item gallery-item-<?php echo $id; ?>">
-						<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id ); ?>
-					</div>
-					<?php
-				}
-				?>
-			</figure>
+				<?php get_template_part( 'template-parts/product/gallery', '', array( 'image_ids' => $image_ids ) ); ?>
 			</div>
 			<?php
-			wp_send_json( array( 'main_images' => ob_get_clean() ) );
+			wp_send_json(
+				array(
+					'main_images'  => ob_get_clean(),
+					'variation_id' => $variation_id,
+				)
+			);
 		},
 		0
 	);

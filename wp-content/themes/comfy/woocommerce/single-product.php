@@ -32,12 +32,19 @@ get_header( 'shop' ); ?>
 	?>
 <section class="section product-main-content-section">
 	<div class="container">
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			global $product;
+			if ( $product->is_type( 'bundle' ) ) {
+				get_template_part( 'template-parts/product/single-product-bundle' );
+			} else {
+				wc_get_template_part( 'content', 'single-product' );
+			}
 
-		<?php endwhile; // end of the loop. ?>
+		endwhile; // end of the loop.
+		?>
 	</div>
 </section>
 <?php
@@ -53,75 +60,150 @@ if ( ! empty( $benefits_section['benefits'] ) ) {
 ?>
 
 <?php
+if ( $product->is_type( 'bundle' ) ) {
+	$bundle_breakdown     = get_field( 'the_bundle_breakdown' );
+	$checkbox_icon_layout = '<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4.75L5 8.5L13 1" stroke="#283455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+	?>
+<section class="section bundle-breakdown">
+	<div class="container">
+		<?php
+		if ( ! empty( $bundle_breakdown['title'] ) ) {
+			?>
+			<h3 class="section-title"><?php echo $bundle_breakdown['title']; ?></h3>
+			<?php
+		}
+		if ( ! empty( $bundle_breakdown['table'] ) ) {
+			?>
+		<div class="bundle-breakdown-table-wrap">
+			<table class="bundle-breakdown-table">
+				<?php
+				if ( ! empty( $bundle_breakdown['table']['headings'] ) ) {
+					?>
+					<tr>
+						<th></th>
+						<?php
+						foreach ( $bundle_breakdown['table']['headings'] as $heading ) {
+							?>
+							<th>
+								<?php
+								echo ( ! empty( $heading['image_id'] ) ) ? wp_get_attachment_image( $heading['image_id'], 'cmf_bundle_breakdown' ) : '';
+								if ( ! empty( $heading['title'] ) ) {
+									?>
+									<p class="bundle-breakdown-table-title">
+										<?php echo $heading['title']; ?>
+									</p>
+									<?php
+								}
+								if ( ! empty( $heading['price'] ) ) {
+									?>
+									<p class="bundle-breakdown-table-price">
+										<?php echo $heading['price']; ?>
+									</p>
+									<?php
+								}
+								?>
+							</th>
+							<?php
+						}
+						?>
+					</tr>
+					<?php
+				}
+				if ( ! empty( $bundle_breakdown['table']['table_content']['body'] ) ) {
+					foreach ( $bundle_breakdown['table']['table_content']['body'] as $table_row ) {
+						?>
+						<tr>
+							<?php
+							foreach ( $table_row as $table_el ) {
+								?>
+								<td><?php echo ( ! empty( $table_el['c'] ) ) ? str_replace( '+', $checkbox_icon_layout, $table_el['c'] ) : ''; ?></td>
+								<?php
+							}
+							?>
+						</tr>
+						<?php
+					}
+				}
+				?>
+			</table>
+		</div>
+			<?php
+		}
+		?>
+	</div>
+</section>
+	<?php
+}
+
 $additional_products = get_field( 'additional_products' );
 if ( ! empty( $additional_products['items'] ) ) {
 	?>
 	<section class="section additional-products-section">
 		<div class="container">
-			<?php
-			if ( ! empty( $additional_products['title'] ) ) {
-				?>
+	<?php
+	if ( ! empty( $additional_products['title'] ) ) {
+		?>
 				<h3 class="section-title">
-					<?php echo $additional_products['title']; ?>
+			<?php echo $additional_products['title']; ?>
 				</h3>
 				<?php
-			}
-			?>
+	}
+	?>
 			<div class="row">
-				<?php
-				foreach ( $additional_products['items'] as $item ) {
-					if ( ! empty( $item['product'] ) ) {
-						$image = wp_get_attachment_image( get_post_thumbnail_id( $item['product'] ), 'cmf_product_preview_small' );
-						$link  = get_permalink( $item['product'] );
-						?>
+		<?php
+		foreach ( $additional_products['items'] as $item ) {
+			if ( ! empty( $item['product'] ) ) {
+				$image = wp_get_attachment_image( get_post_thumbnail_id( $item['product'] ), 'cmf_product_preview_small' );
+				$link  = get_permalink( $item['product'] );
+				?>
 						<div class="col">
 							<a href="<?php echo ! empty( $link ) ? $link : ''; ?>" class="additional-product-link">
-								<?php
-								if ( ! empty( $image ) ) {
-									?>
+						<?php
+						if ( ! empty( $image ) ) {
+							?>
 									<div class="additional-product-thumb">
-										<?php echo $image; ?>
+								<?php echo $image; ?>
 									</div>
 									<?php
-								}
-								?>
+						}
+						?>
 								<div class="additional-product-desc">
 									<h5 class="additional-product-title">
-										<?php
-										if ( ! empty( $item['custom_product_title'] ) ) {
-											echo $item['custom_product_title'];
-										} else {
-											echo get_the_title( $item['product'] );
-										}
-										?>
+								<?php
+								if ( ! empty( $item['custom_product_title'] ) ) {
+									echo $item['custom_product_title'];
+								} else {
+									echo get_the_title( $item['product'] );
+								}
+								?>
 									</h5>
-									<?php
-									if ( ! empty( $item['description_items'] ) ) {
-										foreach ( $item['description_items'] as $description ) {
-											if ( ! empty( $description['label'] ) ) {
-												?>
+							<?php
+							if ( ! empty( $item['description_items'] ) ) {
+								foreach ( $item['description_items'] as $description ) {
+									if ( ! empty( $description['label'] ) ) {
+										?>
 												<p class="label">
-													<?php echo $description['label']; ?>
+											<?php echo $description['label']; ?>
 												</p>
 												<?php
-											}
-											if ( ! empty( $description['description'] ) ) {
-												?>
-												<p class="description">
-													<?php echo $description['description']; ?>
-												</p>
-												<?php
-											}
-										}
 									}
-									?>
+									if ( ! empty( $description['description'] ) ) {
+										?>
+												<p class="description">
+											<?php echo $description['description']; ?>
+												</p>
+												<?php
+									}
+								}
+							}
+							?>
 								</div>
 							</a>
 						</div>
 						<?php
-					}
-				}
-				?>
+			}
+		}
+		?>
 			</div>
 		</div>
 	</section>
