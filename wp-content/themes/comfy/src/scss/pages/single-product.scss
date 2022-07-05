@@ -356,7 +356,7 @@
           display: none;
         }
       }
-      .woocommerce-product-rating {
+      .woocommerce-product-rating, .jdgm-widget.jdgm-preview-badge {
         @include media-breakpoint-down(sm) {
           display: none;
         }
