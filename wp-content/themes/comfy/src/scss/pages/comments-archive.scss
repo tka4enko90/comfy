@@ -121,6 +121,9 @@
     @include media-breakpoint-up(md) {
       margin-bottom: 56px;
     }
+    &:first-child {
+      margin-top: 0;
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -208,6 +211,13 @@
           display: none;
         }
       }
+      .jdgm-form {
+        .jdgm-submit-rev {
+          margin-top: 15px;
+          @include button;
+          @include button-primary;
+        }
+      }
     }
 
     &__header {
@@ -293,14 +303,6 @@
       }
       .jdgm-rev__replier-wrapper {
         margin-top: 0;
-      }
-    }
-
-    .jdgm-form {
-      .jdgm-submit-rev {
-        margin-top: 15px;
-        @include button;
-        @include button-primary;
       }
     }
 
