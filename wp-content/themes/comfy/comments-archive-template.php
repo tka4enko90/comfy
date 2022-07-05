@@ -1,30 +1,54 @@
 <?php /* Template Name: Comments Archive Page */
 wp_enqueue_style( 'comments-archive', get_template_directory_uri() . '/dist/css/pages/comments-archive.css', '', '', 'all' );
-
-$template = array(
-	'comments_per_page' => get_field( 'comments_per_page' ),
-);
-
-$paged          = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-$offset         = $paged > 1 ? $template['comments_per_page'] * $paged : 0;
-$comments_query = array(
-	'number' => $template['comments_per_page'] * 5,
-	'offset' => $offset,
-	'paged'  => $paged,
-);
-
-// Select all comment types and filter out spam later for better query performance.
-$comments = array();
-
 get_header();
 ?>
 <main class="main">
-	<section class="comments-archive-section">
+	<?php $chosen_comment = get_field( 'chosen_comment' ); ?>
+	<section class="section first-comment-section">
 		<div class="container">
-			<?php echo apply_filters( 'cmf_review_widget', do_shortcode( '[jgm-all-reviews]' ) ); ?>
+			<div class="row">
+				<?php
+				if ( ! empty( $chosen_comment['image_id'] ) ) {
+					?>
+					<div class="col">
+						<?php echo wp_get_attachment_image( $chosen_comment['image_id'], 'cmf_reviews_archive' ); ?>
+					</div>
+					<?php
+				}
+				?>
+				<div class="col">
+					<?php
+					if ( ! empty( $chosen_comment['comment_title'] ) ) {
+						?>
+						<h2 class="section-title"><?php echo '"' . $chosen_comment['comment_title'] . '"'; ?></h2>
+						<?php
+					}
+					if ( ! empty( $chosen_comment['rating'] ) ) {
+						cmf_star_rating(
+							array(
+								'rating'        => $chosen_comment['rating'],
+								'rounded_stars' => false,
+							)
+						);
+					}
+					if ( ! empty( $chosen_comment['author_name'] ) ) {
+						?>
+						<p class="author-name">
+							<?php echo $chosen_comment['author_name']; ?>
+						</p>
+						<?php
+					}
+
+					?>
+				</div>
+			</div>
 		</div>
 	</section>
+	<section class="section comments-archive-section">
+		<?php echo apply_filters( 'cmf_review_widget', do_shortcode( '[jgm-all-reviews]' ) ); ?>
+	</section>
 </main>
+<?php wp_list_comments(); ?>
 <?php
 get_footer();
 

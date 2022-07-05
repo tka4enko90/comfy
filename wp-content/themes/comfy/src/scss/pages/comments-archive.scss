@@ -1,10 +1,47 @@
 @import "../components/vars";
 @import "../components/mixins";
-.page-template-comments-archive-template {
-  .comments-archive-section {
-    margin: 120px 0;
+
+.first-comment-section {
+  .row {
+    align-items: center;
+    @include media-breakpoint-up(sm) {
+      flex-wrap: nowrap;
+    }
+    .col {
+      &:nth-child(2) {
+        flex-basis: 515px;
+        @include media-breakpoint-down(xs) {
+          order: -1;
+        }
+      }
+    }
   }
+  .section-title {
+    margin-bottom: 37px;
+    @include media-breakpoint-down(xs) {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  }
+  .cmf-star-rating {
+    margin: 0 -5.3px 22px;
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 20px;
+    }
+    .star {
+      max-width: 21px;
+      margin: 0 5.3px;
+    }
+  }
+  .author-name {
+    margin-bottom: 32px;
+    @include media-breakpoint-up(sm) {
+     margin: 0;
+    }
+  }
+
 }
+
 .comments-archive-section {
   .section-title {
     margin-bottom: 16px;
