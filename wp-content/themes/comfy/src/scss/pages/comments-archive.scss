@@ -46,7 +46,10 @@
 
 .comments-archive-section {
   .section-title {
-    margin-bottom: 16px;
+    margin-bottom: 22px;
+    @include media-breakpoint-down(sm) {
+      font-size: 32px;
+    }
   }
   .jdgm-all-reviews-widget {
     position: relative;
@@ -113,6 +116,7 @@
         display: none;
       }
       &__header {
+        text-align: center;
         margin-bottom: 58px;
         @include media-breakpoint-up(md) {
           margin-bottom: 120px;
