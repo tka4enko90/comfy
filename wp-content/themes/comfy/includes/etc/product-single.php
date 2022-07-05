@@ -108,26 +108,34 @@ add_filter(
 add_action(
 	'woocommerce_after_main_content',
 	function () {
+
+		ob_start();
+		$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
+		?>
+		<div id="size-guide-wrap">
+			<div class="size-guide">
+				<span class="close-guide"></span>
+				<h2><?php _e( 'Size Guide' ); ?></h2>
+				<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
+			</div>
+		</div>
+		<?php
+		$size_guide_html = ob_get_clean();
+
 		global $product;
 		if ( $product->is_type( 'variable' ) ) {
 			foreach ( array_keys( $product->get_variation_attributes() ) as $taxonomy ) {
 				if ( 'pa_size' === $taxonomy ) {
-					$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
-					?>
-					<div id="size-guide-wrap">
-						<div class="size-guide">
-							<span class="close-guide"></span>
-							<h2><?php _e( 'Size Guide' ); ?></h2>
-							<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
-						</div>
-					</div>
-					<?php
+					echo $size_guide_html;
+					return;
 				}
 			}
 		}
+		if ( $product->is_type( 'bundle' ) ) {
+			echo $size_guide_html;
+		}
 	}
 );
-
 
 add_action(
 	'woocommerce_single_variation',

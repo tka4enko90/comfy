@@ -142,7 +142,6 @@ add_filter(
 		ob_start();
 		$min_price = $product->get_min_raw_price();
 		?>
-		<div class="price">
 		<span>
 			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 		</span>
