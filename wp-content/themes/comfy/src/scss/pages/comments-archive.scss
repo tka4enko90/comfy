@@ -49,10 +49,40 @@
     margin-bottom: 16px;
   }
   .jdgm-all-reviews-widget {
+    position: relative;
     padding: 0;
     border: none;
     .jdgm-histogram {
       display: none;
+    }
+    .jdgm-widget-actions-wrapper {
+      @include media-breakpoint-up(lg) {
+        position: absolute;
+        right: 0;
+      }
+    }
+    .jdgm-rev {
+      &-widg {
+        &__summary-inner {
+          display: none;
+        }
+      }
+      &__content {
+        padding-bottom: 30px;
+      }
+      &__prod-info-wrapper {
+        text-align: left;
+        padding-top: 16px;
+        border: none;
+        @include media-breakpoint-up(lg){
+          padding-left: 30px;
+        }
+        .jdgm-rev__prod-link-prefix {
+          &:before {
+            content: 'On';
+          }
+        }
+      }
     }
   }
 
@@ -213,6 +243,9 @@
       }
       @include media-breakpoint-up(lg) {
         flex-basis: 750px;
+      }
+      @include media-breakpoint-down(xs) {
+        flex-basis: 100%;
       }
 
     }
