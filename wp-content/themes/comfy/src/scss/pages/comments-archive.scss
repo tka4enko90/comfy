@@ -55,6 +55,7 @@
       display: none;
     }
   }
+
   .jdgm-rev {
     display: flex;
     flex-wrap: wrap;
@@ -66,8 +67,7 @@
       margin-bottom: 56px;
     }
 
-
-    &-widg, .jdgm-all-reviews {
+    &-widg {
       padding: 0;
       border: none;
       &__title {

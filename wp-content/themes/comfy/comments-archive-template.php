@@ -45,7 +45,7 @@ get_header();
 		</div>
 	</section>
 	<section class="section comments-archive-section">
-		<?php echo apply_filters( 'cmf_review_widget', do_shortcode( '[jgm-all-reviews]' ) ); ?>
+		<div class="container container-md"><?php echo apply_filters( 'cmf_review_widget', do_shortcode( '[jgm-all-reviews]' ) ); ?></div>
 	</section>
 </main>
 <?php wp_list_comments(); ?>
