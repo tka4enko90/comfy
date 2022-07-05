@@ -75,7 +75,10 @@
         padding-top: 16px;
         border: none;
         @include media-breakpoint-up(lg){
-          padding-left: 30px;
+          width: 750px;
+          right: 0;
+          left: auto;
+          padding: 0;
         }
         .jdgm-rev__prod-link-prefix {
           &:before {
