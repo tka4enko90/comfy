@@ -64,6 +64,7 @@
         right: 0;
       }
       .jdgm-write-rev-link {
+        display: none;
         margin: 0;
       }
     }
@@ -77,6 +78,7 @@
         padding-bottom: 30px;
       }
       &__prod-info-wrapper {
+        color: $secondary-color;
         text-align: left;
         padding-top: 16px;
         border: none;
@@ -89,11 +91,18 @@
         @include media-breakpoint-down(xs) {
           left: 0;
         }
-        .jdgm-rev__prod-link-prefix {
-          &:before {
-            content: 'On';
+        .jdgm-rev__prod-link {
+          color: $secondary-color;
+          &-prefix {
+            &:before {
+              content: 'On';
+            }
           }
         }
+      }
+      &__reply {
+        margin-bottom: 30px;
+        margin-top: -30px;
       }
     }
 
@@ -278,6 +287,21 @@
     &__reply {
       background-color: transparent;
       border-color: transparent;
+      @include media-breakpoint-up(lg) {
+        width: 750px;
+        margin-left: auto;
+      }
+      .jdgm-rev__replier-wrapper {
+        margin-top: 0;
+      }
+    }
+
+    .jdgm-form {
+      .jdgm-submit-rev {
+        margin-top: 15px;
+        @include button;
+        @include button-primary;
+      }
     }
 
   }
