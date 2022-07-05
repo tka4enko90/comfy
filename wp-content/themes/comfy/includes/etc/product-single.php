@@ -108,31 +108,37 @@ add_filter(
 add_action(
 	'woocommerce_after_main_content',
 	function () {
-
-		ob_start();
-		$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
-		?>
-		<div id="size-guide-wrap">
-			<div class="size-guide">
-				<span class="close-guide"></span>
-				<h2><?php _e( 'Size Guide' ); ?></h2>
-				<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
-			</div>
-		</div>
-		<?php
-		$size_guide_html = ob_get_clean();
+		$variation_attrs = array();
 
 		global $product;
-		if ( $product->is_type( 'variable' ) ) {
-			foreach ( array_keys( $product->get_variation_attributes() ) as $taxonomy ) {
-				if ( 'pa_size' === $taxonomy ) {
-					echo $size_guide_html;
-					return;
+		switch ( $product->get_type() ) {
+			case 'bundle':
+				foreach ( $product->get_bundled_items() as $item ) {
+					$bundle_product  = wc_get_product( $item->get_product_id() );
+					$variation_attrs = array_merge( $bundle_product->get_variation_attributes(), $variation_attrs );
 				}
-			}
+				break;
+			case 'variable':
+				$variation_attrs = $product->get_variation_attributes();
+				break;
+			default:
+				return;
+				break;
 		}
-		if ( $product->is_type( 'bundle' ) ) {
-			echo $size_guide_html;
+
+        //phpcs:disable
+		if ( in_array( 'pa_size', array_keys( $variation_attrs ) ) ) {
+		    // phpcs:enable
+			$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
+			?>
+			<div id="size-guide-wrap">
+				<div class="size-guide">
+					<span class="close-guide"></span>
+					<h2><?php _e( 'Size Guide' ); ?></h2>
+					<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
+				</div>
+			</div>
+			<?php
 		}
 	}
 );
