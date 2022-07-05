@@ -96,6 +96,10 @@
         }
       }
     }
+
+    .jdgm-branding-footer.jdgm-link {
+      display: none;
+    }
   }
 
   .jdgm-rev {
@@ -107,6 +111,9 @@
     border: none;
     @include media-breakpoint-up(md) {
       margin-bottom: 56px;
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
 
     &-widg {
