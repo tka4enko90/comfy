@@ -124,3 +124,14 @@
     }
   }
 }
+.jdgm-widget {
+  .jdgm-star {
+    font-size: 21px;
+    &.jdgm--off {
+      &:before {
+        content: "\e000";
+        opacity: .3;
+      }
+    }
+  }
+}

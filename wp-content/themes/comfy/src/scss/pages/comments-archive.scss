@@ -60,6 +60,9 @@
         position: absolute;
         right: 0;
       }
+      .jdgm-write-rev-link {
+        margin: 0;
+      }
     }
     .jdgm-rev {
       &-widg {
@@ -79,6 +82,9 @@
           right: 0;
           left: auto;
           padding: 0;
+        }
+        @include media-breakpoint-down(xs) {
+          left: 0;
         }
         .jdgm-rev__prod-link-prefix {
           &:before {
@@ -129,6 +135,12 @@
           margin-bottom: 22px;
           .jdgm-star {
             font-size: 21px;
+            &.jdgm--off {
+              &:before {
+                content: "\e000";
+                opacity: .3;
+              }
+            }
           }
         }
         &-rating-text {
