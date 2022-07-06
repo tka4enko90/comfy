@@ -3,6 +3,9 @@
 function cmf_get_variation_colors_count() {
 	global $product;
 	$color_counter = 0;
+	if ( $product->is_type( 'variation' ) ) {
+		$product = wc_get_product( $product->get_parent_id() );
+	}
 	if ( $product->is_type( 'variable' ) ) {
 		$variations = $product->get_variation_attributes();
 		if ( isset( $variations['pa_color'] ) ) {
