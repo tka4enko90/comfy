@@ -125,7 +125,7 @@
                             "taxonomy": "product_cat",
                             "field_type": "select",
                             "allow_null": 0,
-                            "add_term": 1,
+                            "add_term": 0,
                             "save_terms": 0,
                             "load_terms": 0,
                             "return_format": "object",
@@ -236,7 +236,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "default_value": "shop now",
+                                            "default_value": "",
                                             "placeholder": "",
                                             "prepend": "",
                                             "append": "",
@@ -3399,5 +3399,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1657049039
+    "modified": 1657091515
 }

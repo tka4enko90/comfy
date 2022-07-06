@@ -22,7 +22,7 @@ if ( isset( $cat ) ) {
 	);
 
 	foreach ( $products as $product ) {
-		$all_prices[] = $product->get_price();
+		$all_prices[] = $product->is_type( 'bundle' ) ? $product->get_min_raw_price() : $product->get_price();
 	}
 
 	$min_price = min( $all_prices );
