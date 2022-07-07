@@ -109,6 +109,12 @@
     .jdgm-branding-footer.jdgm-link {
       display: none;
     }
+
+    .jdgm-all-reviews-page__load-more {
+      @include button;
+      @include button-secondary;
+      margin-top: 56px;
+    }
   }
 
   .jdgm-rev {
