@@ -16,11 +16,16 @@ body {
       padding: 24px 0;
       border-bottom: 1px solid $line-gray;
       &-title {
+        font-family: inherit;
         margin: 0;
         padding-right: 32px;
         position: relative;
         cursor: pointer;
         pointer-events: all;
+        transition: opacity $std-transition-length ease;
+        &:hover {
+          opacity: .7;
+        }
         &:before, &:after {
           content: '';
           position: absolute;
