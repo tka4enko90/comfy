@@ -544,7 +544,7 @@
               border-radius: 2px;
               background-color: $primary-color;
               @include media-breakpoint-up(md) {
-                top: 9px;
+                top: 10px;
               }
             }
             &:before {
