@@ -9,30 +9,33 @@ $section = array(
 	'custom_image_id' => get_sub_field( 'custom_image_id' ),
 	'custom_content'  => get_sub_field( 'custom_content' ),
 );
-if ( is_object( $section['product_cat'] ) ) {
-	$cat = $section['product_cat'];
-}
 
-if ( isset( $cat ) ) {
-	$all_prices = array();
-	$products   = wc_get_products(
+if ( $section['product_cat'] instanceof WP_Term ) {
+	$cat      = $section['product_cat'];
+	$products = wc_get_products(
 		array(
 			'category' => array( $cat->slug ),
 		)
 	);
 
+	$all_prices = array();
 	foreach ( $products as $product ) {
 		$all_prices[] = $product->is_type( 'bundle' ) ? $product->get_min_raw_price() : $product->get_price();
 	}
-
 	$min_price = min( $all_prices );
+
+	$image_id       = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+	$section_button = array(
+		'label' => __( 'shop now', 'comfy' ),
+		'url'   => get_category_link( $cat ),
+	);
+}
+if ( ! empty( $section['custom_image_id'] ) ) {
+	$image_id = $section['custom_image_id'];
 }
 $section_title       = ( ! empty( $section['custom_content']['title'] ) ) ? $section['custom_content']['title'] : $cat->name;
 $section_description = ( ! empty( $section['custom_content']['description'] ) ) ? $section['custom_content']['description'] : category_description( $cat );
-$section_button      = array(
-	'label' => __( 'shop now' ),
-	'url'   => isset( $cat ) ? get_category_link( $cat ) : '#',
-);
+
 if ( ! empty( $section['custom_content']['button']['label'] ) ) {
 	$section_button['label'] = $section['custom_content']['button']['label'];
 }
@@ -43,14 +46,7 @@ if ( ! empty( $section['custom_content']['button']['url'] ) ) {
 <div class="container container-sm">
 	<div class="row">
 		<div class="col">
-			<?php
-			if ( ! empty( $section['custom_image_id'] ) ) {
-				$image_id = $section['custom_image_id'];
-			} elseif ( isset( $cat ) ) {
-				$image_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-			}
-			echo ( ! empty( $image_id ) ) ? wp_get_attachment_image( $image_id, 'cmf_collection' ) : '';
-			?>
+			<?php echo ( ! empty( $image_id ) ) ? wp_get_attachment_image( $image_id, 'cmf_collection' ) : ''; ?>
 		</div>
 		<div class="col">
 			<?php
@@ -67,7 +63,7 @@ if ( ! empty( $section['custom_content']['button']['url'] ) ) {
 			if ( isset( $min_price ) ) {
 				?>
 				<p>
-					<?php echo __( 'From: ' ) . wc_price( $min_price ); ?>
+					<?php echo __( 'From:', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 				</p>
 				<?php
 			}
