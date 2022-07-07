@@ -1,0 +1,20 @@
+@import "../components/vars";
+@import "../components/mixins";
+.checkout {
+  #cfw {
+    #order_review, #cfw-coupons {
+      .cfw-secondary-btn, .cfw-primary-btn {
+        @include button;
+      }
+      .cfw-primary-btn {
+        @include button-primary;
+      }
+      .cfw-secondary-btn {
+        @include button-secondary;
+        &#cfw-promo-code-btn {
+          padding: 16.5px;
+        }
+      }
+    }
+  }
+}
