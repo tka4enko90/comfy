@@ -35,7 +35,7 @@ $section = array(
 				'show_reviews_num' => true,
 			);
 			foreach ( $section['products'] as $item ) {
-				if ( is_object( $item['product'] ) ) {
+				if ( $item['product'] instanceof WP_Post ) {
 					$product_args['product'] = $item['product'];
 					?>
 					<div class="col">
