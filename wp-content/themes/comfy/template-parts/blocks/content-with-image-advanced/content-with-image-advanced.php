@@ -10,13 +10,8 @@ $section = array(
 	'content_padding_left'  => isset( $args['content_padding_left'] ) ? $args['content_padding_left'] : get_sub_field( 'desktop_content_padding_left' ),
 	'content_padding_right' => isset( $args['content_padding_right'] ) ? $args['content_padding_right'] : get_sub_field( 'desktop_content_padding_right' ),
 );
-// Image size
-if ( 'custom' === $section['image_group']['size'] ) {
-	if ( ! empty( $section['image_group']['width'] ) && ! empty( $section['image_group']['height'] ) ) {
-		$section['image_group']['size'] = array( $section['image_group']['width'], $section['image_group']['height'] );
-	} else {
-		$section['image_group']['size'] = 'full';
-	}
+if ( ! empty( $section['image_group']['image_id'] ) && ! empty( $section['image_group']['size'] ) ) {
+	$image = wp_get_attachment_image( $section['image_group']['image_id'], $section['image_group']['size'] );
 }
 
 $container_class = ( ! empty( $section['container'] ) && 'md' !== $section['container'] ) ? ' container-' . $section['container'] : '';
@@ -33,7 +28,7 @@ if ( ! empty( $args['section_name'] ) && ! empty( $section['image_position'] ) &
 	<div class="row">
 		<div class="col">
 			<?php
-			if ( ! empty( $section['image_group']['title'] ) ) {
+			if ( ! empty( $section['image_group']['title'] ) ) :
 				add_filter(
 					$args['section_name'] . '_classes',
 					function ( $classes ) {
@@ -45,21 +40,25 @@ if ( ! empty( $args['section_name'] ) && ! empty( $section['image_position'] ) &
 					<?php echo $section['image_group']['title']; ?>
 				</h3>
 				<?php
-			}
-			echo ( ! empty( $section['image_group']['image_id'] ) ) ? wp_get_attachment_image( $section['image_group']['image_id'], $section['image_group']['size'] ) : ''
+			endif;
+
+			echo ( isset( $image ) ) ? $image : '';
 			?>
 		</div>
 		<?php
-		if ( ! empty( $section['content_group']['content'] ) || ! empty( $section['content_group']['link'] ) ) {
+		if ( ! empty( $section['content_group']['content'] ) || ! empty( $section['content_group']['link'] ) ) :
 			?>
 			<div class="col">
 				<?php
 				echo ( ! empty( $section['content_group']['content'] ) ) ? $section['content_group']['content'] : '';
 				if ( isset( $section['content_group']['link'] ) ) {
 					if ( ! empty( $section['content_group']['link']['url'] ) && ! empty( $section['content_group']['link']['title'] ) ) {
+						$href   = $section['content_group']['link']['url'];
+						$title  = $section['content_group']['link']['title'];
+						$target = ! empty( $section['content_group']['link']['target'] ) ? 'target="' . $section['content_group']['link']['target'] . '"' : '';
 						?>
-						<a class="button button-secondary" href="<?php echo $section['content_group']['link']['url']; ?>" <?php echo ! empty( $section['content_group']['link']['target'] ) ? 'target="' . $section['content_group']['link']['target'] . '"' : ''; ?>>
-							<?php echo $section['content_group']['link']['title']; ?>
+						<a class="button button-secondary" href="<?php echo $href; ?>" <?php echo $target; ?>>
+							<?php echo $title; ?>
 						</a>
 						<?php
 					}
@@ -67,7 +66,7 @@ if ( ! empty( $args['section_name'] ) && ! empty( $section['image_position'] ) &
 				?>
 			</div>
 			<?php
-		}
+		endif;
 		?>
 	</div>
 </div>
