@@ -19,6 +19,9 @@
     ],
     "partials/ajax-account-forms": [
       "./src/js/partials/ajax-account-forms.js"
+    ],
+    "partials/qty-buttons": [
+      "./src/js/partials/qty-buttons.js"
     ]
   },
   "cacheBusting": "[name]",
