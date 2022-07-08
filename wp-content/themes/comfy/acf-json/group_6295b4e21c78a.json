@@ -2603,7 +2603,7 @@
                             "key": "field_629765919ea2b",
                             "label": "Call",
                             "name": "call",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2613,16 +2613,16 @@
                                 "id": ""
                             },
                             "default_value": "646-798-7447\r\nAnytime between\r\n8am - 9pm EST",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 3,
-                            "new_lines": "br"
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_6297659c9ea2c",
                             "label": "Email",
                             "name": "email",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2632,16 +2632,16 @@
                                 "id": ""
                             },
                             "default_value": "hello@comfy.com\r\nAnytime between\r\n9am - 9pm EST",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 3,
-                            "new_lines": "br"
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_629765bf9ea2e",
                             "label": "Address",
                             "name": "address",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2651,10 +2651,10 @@
                                 "id": ""
                             },
                             "default_value": "Comfy\r\n28 Goeie Hoop Rd, Blanc Kelly, Cape Town, South Africa",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 3,
-                            "new_lines": "br"
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -3490,5 +3490,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1657117421
+    "modified": 1657176884
 }

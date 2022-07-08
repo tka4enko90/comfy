@@ -4,14 +4,14 @@
  * @subpackage comfy
  */
 $header_options = array(
-	'header_message'       => get_field( 'header_message', 'options' ),
-	'nav_image_id'         => get_field( 'header_nav_image_id', 'options' ),
-	'nav_text_under_image' => get_field( 'header_nav_text_under_image', 'options' ),
-	'additional_link'      => get_field( 'header_additional_link', 'options' ),
-	'account_link'         => get_permalink( wc_get_page_id( 'myaccount' ) ),
-	'cart_count'           => WC()->cart->get_cart_contents_count(),
+	'header_message'            => get_field( 'header_message', 'options' ),
+	'header_message_background' => get_field( 'header_message_background', 'options' ),
+	'nav_image_id'              => get_field( 'header_nav_image_id', 'options' ),
+	'nav_text_under_image'      => get_field( 'header_nav_text_under_image', 'options' ),
+	'additional_link'           => get_field( 'header_additional_link', 'options' ),
+	'account_link'              => get_permalink( wc_get_page_id( 'myaccount' ) ),
+	'cart_count'                => WC()->cart->get_cart_contents_count(),
 );
-
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -40,7 +40,7 @@ $header_options = array(
 <?php wp_body_open(); ?>
 <header class="site-header">
 <?php if ( ! empty( $header_options['header_message'] ) ) { ?>
-	<div class="info-message">
+	<div class="info-message" <?php echo ( ! empty( $header_options['header_message_background'] ) && '#283455' !== $header_options['header_message_background'] ) ? 'style="background-color:' . $header_options['header_message_background'] . '"' : ''; ?>>
 		<?php echo $header_options['header_message']; ?>
 	</div>
 <?php } ?>
@@ -121,7 +121,7 @@ $header_options = array(
 			<div class="header-search">
 				<?php echo get_search_form(); ?>
 				<div id="search-results"></div>
-                <div class="search-close-icon"></div>
+				<div class="search-close-icon"></div>
 			</div>
 		</div>
 	</div>

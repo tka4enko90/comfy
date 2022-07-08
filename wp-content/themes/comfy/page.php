@@ -37,7 +37,11 @@ get_header(); ?>
 			);
 		endwhile;
 	else :
-		the_content();
+		?>
+		<div class="container">
+			<?php the_content(); ?>
+		</div>
+		<?php
 	endif;
 	?>
 </main>
