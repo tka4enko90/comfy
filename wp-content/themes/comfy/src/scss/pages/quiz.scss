@@ -117,4 +117,13 @@ main.main {
       }
     }
   }
+  &-choice {
+    &-product {
+      &-title {
+        span {
+          display: block;
+        }
+      }
+    }
+  }
 }

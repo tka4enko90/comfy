@@ -14,6 +14,38 @@ function cmf_get_steps_ahead_counter( $items ) {
 	return max( $deep_counters );
 }
 
+function cmf_quiz_choice( $args ) {
+	?>
+	<section class="quiz-step quiz-choice" <?php echo ! empty( $args['id'] ) ? 'id="' . $args['id'] . '"' : ''; ?>>
+		<div class="container container-xs">
+			<?php
+			print_r( $args );
+			if ( ! empty( $args['product_id'] ) ) {
+				$product = wc_get_product( $args['product_id'] );
+				?>
+				<div class="quiz-choice-product">
+					<div class="row">
+						<div class="col">
+							<?php echo wp_get_attachment_image( get_post_thumbnail_id( $args['product_id'] ), 'cmf_review_slider' ); ?>
+						</div>
+						<div class="col">
+							<h2 class="quiz-choice-product-title">
+								<span><?php _e( 'Your Match is:', 'comfy' ); ?></span>
+								<?php echo $product->get_title(); ?>
+							</h2>
+                            <?php echo $product->get_price_html();?>
+						</div>
+					</div>
+				</div>
+				<?php
+				print_r( $product );
+			}
+			?>
+		</div>
+	</section>
+	<?php
+}
+
 function cmf_quiz_step( $args ) {
 	$deep        = ! empty( $args['deep'] ) ? $args['deep'] : 0;
 	$steps_ahead = cmf_get_steps_ahead_counter( $args['items'] );
@@ -69,24 +101,44 @@ function cmf_quiz_step( $args ) {
 									<?php
 								}
 
-								if ( ! empty( $quiz_item['items'] ) ) {
+								switch ( $args['answer_type'] ) {
+									case 'product':
+										if ( ! empty( $quiz_item['product'] ) ) {
+											$step_args = array(
+												'id' => $step_id,
+												'product_id' => $quiz_item['product'],
+											);
 
-									$step_args = array(
-										'question' => ! empty( $quiz_item['question'] ) ? $quiz_item['question'] : '',
-										'items'    => $quiz_item['items'],
-										'id'       => $step_id,
-										'deep'     => 1 + $deep,
-										'back_url' => ( ! empty( $args['id'] ) ) ? '#' . $args['id'] : '',
-									);
+											add_action(
+												'quiz_steps',
+												function () use ( $step_args ) {
+													cmf_quiz_choice( $step_args );
+												},
+												$deep
+											);
+										}
+										break;
+									default:
+										if ( ! empty( $quiz_item['items'] ) ) {
+											$step_args = array(
+												'question' => ! empty( $quiz_item['question'] ) ? $quiz_item['question'] : '',
+												'items'    => $quiz_item['items'],
+												'id'       => $step_id,
+												'deep'     => 1 + $deep,
+												'back_url' => ( ! empty( $args['id'] ) ) ? '#' . $args['id'] : '',
+												'answer_type' => $quiz_item['answer_type'],
+											);
 
-									add_action(
-										'quiz_steps',
-										function () use ( $step_args ) {
-											cmf_quiz_step( $step_args );
-										},
-										$deep
-									);
+											add_action(
+												'quiz_steps',
+												function () use ( $step_args ) {
+													cmf_quiz_step( $step_args );
+												},
+												$deep
+											);
+										}
 								}
+
 								?>
 							</a>
 						</div>
