@@ -290,31 +290,6 @@ add_action(
 	10
 );
 
-
-// Content Product -> Price
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
-add_action(
-	'woocommerce_after_shop_loop_item_title',
-	function () {
-		global $product;
-		?>
-		<div class="product-price">
-			<?php
-			if ( $product->is_type( 'variable' ) ) {
-				//Get price of default product variation
-				$default_attributes = $product->get_default_attributes();
-				$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
-				$product            = wc_get_product( $variation_id );
-			}
-			echo $product->get_price_html();
-			?>
-		</div>
-		<?php
-	},
-	5
-);
-
-
 // Product Mobile header
 add_action(
 	'woocommerce_before_single_product_summary',

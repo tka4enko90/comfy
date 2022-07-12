@@ -43,8 +43,8 @@
         }
       }
     }
+
     .price {
-      margin-bottom: 32px;
       font-size: 16px;
       color: $primary-color;
       @include media-breakpoint-down(sm) {
@@ -362,6 +362,9 @@
         @include media-breakpoint-down(sm) {
           display: none;
         }
+      }
+      .price {
+        margin-bottom: 32px;
       }
     }
     .quantity {
@@ -697,6 +700,7 @@
           .woocommerce-loop-product__title {
             font-size: 24px;
             margin-bottom: 16px;
+            padding: 0;
           }
           img {
             border-radius: 8px;
