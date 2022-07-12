@@ -26,11 +26,13 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'cmf_social_icon', 16, 16 );
 	add_image_size( 'cmf_sign', 226, 83 );
 
+	add_image_size( 'cmf_collection', 490, 482, true );
 	add_image_size( 'cmf_content_with_image_3', 490, 640, true );
 	add_image_size( 'cmf_content_with_image_1', 490, 577, true );
 	add_image_size( 'cmf_content_with_image_2', 664, 577, true );
 	add_image_size( 'cmf_coming_soon', 664, 820, true );
 	add_image_size( 'cmf_review_slider', 577, 577, true );
+
 	add_image_size( 'cmf_benefits_section', 402, 525, true );
 	add_image_size( 'cmf_contact_form', 577, 840, true );
 
