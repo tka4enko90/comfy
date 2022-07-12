@@ -30,7 +30,6 @@ $section = array(
 			<?php
 			$product_args = array(
 				'thumb'            => 'cmf_post_preview', // optional
-				'show_cats'        => false,
 				'show_stars'       => true,
 				'show_reviews_num' => true,
 			);
