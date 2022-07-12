@@ -51,7 +51,16 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 			<div class="product-info">
 				<h5 class="product-title"><?php echo get_the_title( $args['product'] ); ?></h5>
 				<div class="product-price">
-					<?php echo $product->get_price_html(); ?>
+					<?php
+					if ( $product->is_type( 'variable' ) ) {
+						//Get price of default product variation
+						$default_attributes = $product->get_default_attributes();
+						$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
+						$product            = wc_get_product( $variation_id );
+					}
+
+					echo $product->get_price_html();
+					?>
 				</div>
 				<div class="product-other-info">
 					<?php
