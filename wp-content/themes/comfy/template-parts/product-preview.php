@@ -64,7 +64,7 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 					}
 					if ( ! empty( $color_counter ) ) {
 						?>
-						<span class="product-colors"><?php echo $color_counter . __( 'colors', 'comfy' ); ?></span>
+						<span class="product-colors"><?php echo $color_counter . ' ' . __( 'colors', 'comfy' ); ?></span>
 						<?php
 					}
 					?>
