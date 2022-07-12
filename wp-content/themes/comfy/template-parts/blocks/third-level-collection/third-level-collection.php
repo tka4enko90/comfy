@@ -34,7 +34,7 @@ $section = array(
 				'show_reviews_num' => true,
 			);
 			foreach ( $section['products'] as $item ) {
-				if ( $item['product'] instanceof WP_Post ) {
+				if ( ! empty( $item['product'] ) && $item['product'] instanceof WP_Post ) {
 					$product_args['product'] = $item['product'];
 					?>
 					<div class="col">
