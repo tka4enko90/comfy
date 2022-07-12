@@ -29,12 +29,22 @@ if ( $section['product_cat'] instanceof WP_Term ) {
 		'label' => __( 'shop now', 'comfy' ),
 		'url'   => get_category_link( $cat ),
 	);
+
+	$section_title       = $cat->name;
+	$section_description = category_description( $cat );
 }
+
+if ( ! empty( $section['custom_content']['title'] ) ) {
+	$section_title = $section['custom_content']['title'];
+}
+
+if ( ! empty( $section['custom_content']['description'] ) ) {
+	$section_description = $section['custom_content']['description'];
+}
+
 if ( ! empty( $section['custom_image_id'] ) ) {
 	$image_id = $section['custom_image_id'];
 }
-$section_title       = ( ! empty( $section['custom_content']['title'] ) ) ? $section['custom_content']['title'] : $cat->name;
-$section_description = ( ! empty( $section['custom_content']['description'] ) ) ? $section['custom_content']['description'] : category_description( $cat );
 
 if ( ! empty( $section['custom_content']['button']['label'] ) ) {
 	$section_button['label'] = $section['custom_content']['button']['label'];
