@@ -33,7 +33,7 @@ function cmf_quiz_choice( $args ) {
 								<span><?php _e( 'Your Match is:', 'comfy' ); ?></span>
 								<?php echo $product->get_title(); ?>
 							</h2>
-                            <?php echo $product->get_price_html();?>
+							<?php echo $product->get_price_html(); ?>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ function cmf_quiz_step( $args ) {
 												'id'       => $step_id,
 												'deep'     => 1 + $deep,
 												'back_url' => ( ! empty( $args['id'] ) ) ? '#' . $args['id'] : '',
-												'answer_type' => $quiz_item['answer_type'],
+												'answer_type' => ! empty( $quiz_item['answer_type'] ) ? $quiz_item['answer_type'] : 'qoestion',
 											);
 
 											add_action(
