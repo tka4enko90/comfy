@@ -29,7 +29,7 @@ get_header();
 						<h2 class="section-title">
 							<?php the_title(); ?>
 						</h2>
-						<?php echo ! empty( $page['content'] ) ? $page['content'] : ''; ?>
+						<?php echo ! empty( $page['content'] ) ? str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $page['content'] ) ) : ''; ?>
 					</div>
 				</div>
 			</div>
