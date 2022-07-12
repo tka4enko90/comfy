@@ -8,6 +8,7 @@ $section = array(
 	'product_cat'     => get_sub_field( 'product_cat' ),
 	'custom_image_id' => get_sub_field( 'custom_image_id' ),
 	'custom_content'  => get_sub_field( 'custom_content' ),
+	'button_label'    => __( 'shop now', 'comfy' ),
 );
 
 if ( $section['product_cat'] instanceof WP_Term ) {
@@ -24,51 +25,42 @@ if ( $section['product_cat'] instanceof WP_Term ) {
 	}
 	$min_price = min( $all_prices );
 
-	$image_id       = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-	$section_button = array(
-		'label' => __( 'shop now', 'comfy' ),
-		'url'   => get_category_link( $cat ),
-	);
-
-	$section_title       = $cat->name;
-	$section_description = category_description( $cat );
+	$section['title']       = $cat->name;
+	$section['description'] = category_description( $cat );
+	$section['image_id']    = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+	$section['button_url']  = get_category_link( $cat );
 }
 
-if ( ! empty( $section['custom_content']['title'] ) ) {
-	$section_title = $section['custom_content']['title'];
-}
+$custom_content = array(
+	'title'        => $section['custom_content']['title'],
+	'description'  => $section['custom_content']['description'],
+	'image_id'     => $section['custom_image_id'],
+	'button_label' => $section['custom_content']['button']['label'],
+	'button_url'   => $section['custom_content']['button']['url'],
+);
 
-if ( ! empty( $section['custom_content']['description'] ) ) {
-	$section_description = $section['custom_content']['description'];
-}
-
-if ( ! empty( $section['custom_image_id'] ) ) {
-	$image_id = $section['custom_image_id'];
-}
-
-if ( ! empty( $section['custom_content']['button']['label'] ) ) {
-	$section_button['label'] = $section['custom_content']['button']['label'];
-}
-if ( ! empty( $section['custom_content']['button']['url'] ) ) {
-	$section_button['url'] = $section['custom_content']['button']['url'];
+foreach ( $custom_content as $key => $value ) {
+	if ( ! empty( $value ) ) {
+		$section[ $key ] = $value;
+	}
 }
 ?>
 <div class="container container-sm">
 	<div class="row">
 		<div class="col">
-			<?php echo ( ! empty( $image_id ) ) ? wp_get_attachment_image( $image_id, 'cmf_collection' ) : ''; ?>
+			<?php echo ( ! empty( $section['image_id'] ) ) ? wp_get_attachment_image( $section['image_id'], 'cmf_collection' ) : ''; ?>
 		</div>
 		<div class="col">
 			<?php
-			if ( ! empty( $section_title ) ) {
+			if ( ! empty( $section['title'] ) ) {
 				?>
 				<h2>
-					<?php echo $section_title; ?>
+					<?php echo $section['title']; ?>
 				</h2>
 				<?php
 			}
 
-			echo ( ! empty( $section_description ) ) ? $section_description : '';
+			echo ( ! empty( $section['description'] ) ) ? $section['description'] : '';
 
 			if ( isset( $min_price ) ) {
 				?>
@@ -78,10 +70,10 @@ if ( ! empty( $section['custom_content']['button']['url'] ) ) {
 				<?php
 			}
 
-			if ( ! empty( $section_button['url'] ) && $section_button['label'] ) {
+			if ( ! empty( $section['button_url'] ) && $section['button_label'] ) {
 				?>
-				<a href="<?php echo $section_button['url']; ?>" class="button button-secondary">
-					<?php echo $section_button['label']; ?>
+				<a href="<?php echo $section['button_url']; ?>" class="button button-secondary">
+					<?php echo $section['button_label']; ?>
 				</a>
 				<?php
 			}
