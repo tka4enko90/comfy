@@ -25,9 +25,6 @@
         &:hover {
          border-color: $primary-color;
           background-color: transparent;
-          &:before, &:after {
-            //background-color: $white;
-          }
         }
         &:before, &:after {
           content: '';
