@@ -65,6 +65,13 @@
       }
       form {
         position: relative;
+        label {
+          text-align: left;
+          text-transform: none;
+        }
+        .wpcf7-not-valid-tip {
+          font-size: 13px;
+        }
         .wpcf7-form-control-wrap {
           margin-bottom: 32px;
           &.email {
