@@ -76,12 +76,12 @@ function cmf_find_matching_product_variation( $product, $attributes ) {
 }
 
 function cmf_the_credit_text( $price ) {
-	if ( ! is_int( $price ) ) {
+	if ( ! is_numeric( $price ) ) {
 		return;
 	}
 	?>
 	<span class="credit">
-		<?php echo __( 'or 4 interest-free-payments of' ) . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
+		<?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
 		<svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<rect width="57" height="28" fill="url(#pattern0)"></rect>
 			<defs>

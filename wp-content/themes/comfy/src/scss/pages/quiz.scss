@@ -5,18 +5,21 @@ main.main {
   min-height: 100vh;
 }
 .quiz {
-  &-title {
-    margin-bottom: 40px;
-  }
-  &-step {
+  &-step, &-choice {
     display: none;
+    &:target {
+      display: block;
+    }
+
     padding-top: 92px;
     @include media-breakpoint-up(md) {
       padding-top: 110px;
     }
-    &:target {
-      display: block;
-    }
+  }
+  &-title {
+    margin-bottom: 40px;
+  }
+  &-step {
     .row {
       justify-content: center;
       .col {
@@ -47,8 +50,8 @@ main.main {
       border-radius: 8px;
       &-fill {
         display: block;
-        width: 5%;
         min-width: 5%;
+        max-width: 95%;
         height: 100%;
         background-color: $primary-color;
         border-radius: 8px;
@@ -116,12 +119,187 @@ main.main {
         opacity: .7;
       }
     }
+    &-restart {
+      display: inline-block;
+      position: relative;
+      margin: 64px 0 32px;
+      padding-left: 44px;
+      color: $primary-color;
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: opacity $std-transition-length ease-in;
+      &:hover {
+        opacity: .7;
+      }
+      svg {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
   }
   &-choice {
     &-product {
+      .row {
+        align-items: start;
+        @include media-breakpoint-up(sm) {
+          flex-wrap: nowrap;
+        }
+        .col {
+          flex-basis: 100%;
+          @include media-breakpoint-up(sm) {
+            flex-basis: 50%;
+            position: sticky;
+            top: 142px;
+          }
+
+          &:first-child {
+            @include media-breakpoint-up(lg) {
+              flex-basis: 617px;
+            }
+          }
+          &:nth-child(2) {
+            @include media-breakpoint-up(lg) {
+              flex-basis: 530px;
+            }
+          }
+        }
+      }
       &-title {
+        margin-bottom: 16px;
         span {
           display: block;
+          margin-bottom: 16px;
+        }
+      }
+      &-info {
+        margin-bottom: 24px;
+      }
+      &-price {
+        ins {
+          text-decoration: none;
+        }
+        del {
+          .woocommerce-Price-amount.amount {
+            color: inherit;
+          }
+        }
+        .woocommerce-Price-amount.amount {
+          color: $primary-color;
+        }
+        .credit {
+          display: block;
+          color: $primary-color;
+        }
+      }
+      &-includes {
+        font-size: 14px;
+        max-width: 54%;
+      }
+      &-colors, &-reviews-count {
+        font-size: 14px;
+        color: $primary-color;
+      }
+      &-rating {
+        display: inline-block;
+        max-width: 90px;
+        transform: translateY(2px);
+        img {
+          flex-basis: 10px;
+          margin: 0 1.5px;
+        }
+      }
+      &-button {
+        margin: 8px 0 16px;
+      }
+      &-in-stock {
+        font-size: 12px;
+        color: $accent-color;
+        svg {
+          transform: translateY(1px);
+          margin-right: 10px;
+        }
+      }
+    }
+    &-collection {
+      overflow: hidden;
+      .section.up-sells.upsells.products.upsells-products-section {
+        @include media-breakpoint-up(md) {
+          margin-top: 120px;
+        }
+      }
+      .section-title {
+        margin-bottom: 64px;
+      }
+      .products {
+        display: flex;
+        margin: 0 -32px -32px;
+        padding: 0;
+        @include media-breakpoint-down(xs) {
+          flex-wrap: wrap;
+        }
+
+        .product {
+          display: block;
+          margin: 0 32px 32px;
+          flex-basis: 100%;
+          @include media-breakpoint-up(md) {
+            flex-basis: 33%;
+          }
+          .onsale {
+            display: none;
+          }
+          .price {
+            display: inline-block;
+            margin-bottom: 8px;
+            .amount {
+              color: $primary-color;
+            }
+            del .amount {
+              color: inherit;
+            }
+            ins {
+              color: $primary-color;
+            }
+            .credit {
+              display: none;
+            }
+          }
+          .woocommerce-loop-product__title {
+            font-size: 24px;
+            margin-bottom: 16px;
+            padding: 0;
+          }
+          img {
+            border-radius: 8px;
+            margin-bottom: 20px;
+          }
+          a {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &-other-collection {
+      &-title {
+        text-align: center;
+        margin-bottom: 32px;
+        @include media-breakpoint-up(md) {
+          margin-bottom: 64px;
+        }
+      }
+      .row {
+        @include media-breakpoint-up(sm) {
+          flex-wrap: wrap;
+        }
+        .col {
+          flex-basis: 50%;
+          @include media-breakpoint-up(sm) {
+            flex-basis: 530px;
+          }
+
         }
       }
     }

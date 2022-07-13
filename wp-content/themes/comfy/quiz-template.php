@@ -15,9 +15,10 @@ get_header();
 	if ( ! empty( $quiz['items'] && ! empty( $quiz['first_question'] ) ) ) {
 		cmf_quiz_step(
 			array(
-				'question' => $quiz['first_question'],
-				'items'    => $quiz['items'],
-				'id'       => 'first-question',
+				'question'    => $quiz['first_question'],
+				'answer_type' => 'question',
+				'items'       => $quiz['items'],
+				'id'          => 'first-question',
 			)
 		);
 	}
