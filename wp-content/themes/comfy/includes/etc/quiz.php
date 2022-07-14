@@ -13,6 +13,7 @@ function cmf_get_steps_ahead_counter( $items ) {
 
 	return max( $deep_counters );
 }
+
 function get_step_unique_number() {
 	static $a = 0;
 	return $a++;
@@ -23,7 +24,7 @@ function cmf_quiz_choice( $args ) {
 	<section class="quiz-choice" <?php echo ! empty( $args['id'] ) ? 'id="' . $args['id'] . '"' : ''; ?>>
 		<div class="container">
 			<div>
-				<a href="<?php the_permalink(); ?>" class="quiz-link-restart">
+				<a href="<?php echo '#first-question'; ?>" class="quiz-link quiz-link-restart">
 					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_2740_1435)">
 							<path d="M14 1.19922L17.2 4.39922L14 7.59922" stroke="#283455" stroke-width="1.2381" stroke-linecap="round" stroke-linejoin="round"/>
@@ -109,15 +110,14 @@ function cmf_quiz_choice( $args ) {
 			}
 			?>
 		</div>
-		<div class="quiz-choice-collection">
-			<?php woocommerce_upsell_display( 3 ); ?>
-		</div>
 		<?php
+		woocommerce_upsell_display( 3 );
+
 		if ( ! empty( $args['collections'] ) ) {
 			?>
-			<div class="quiz-choice-other-collection">
+			<div class="quiz-choice-other-collections">
 				<div class="container">
-					<h3 class="quiz-choice-other-collection-title">
+					<h3 class="quiz-choice-other-collections-title">
 						<?php _e( 'Check Other Collections', 'comfy' ); ?>
 					</h3>
 					<div class="row">
@@ -127,34 +127,31 @@ function cmf_quiz_choice( $args ) {
 							<div class="col">
 								<?php
 								echo ! empty( $collection['image_id'] ) ? wp_get_attachment_image( $collection['image_id'], 'cmf_content_with_image_1' ) : '';
-								print_r( $collection['content'] );
+
 								if ( ! empty( $collection['content']['title'] ) ) {
 									?>
-									<h5>
+									<h5 class="collection-title">
 										<?php echo $collection['content']['title']; ?>
 									</h5>
 									<?php
 								}
-								if ( ! empty( $collection['content']['title'] ) ) {
+
+								if ( ! empty( $collection['content']['description'] ) ) {
 									?>
-									<p>
-										<?php echo $collection['content']['title']; ?>
+									<p class="collection-description">
+										<?php echo $collection['content']['description']; ?>
 									</p>
 									<?php
 								}
-
 
 								if ( ! empty( $collection['content']['link'] ) ) {
 									$button = $collection['content']['link'];
 									if ( ! empty( $button['url'] ) && ! empty( $button['title'] ) ) {
 										?>
-
-											<a class="button button-secondary"
-											   href="<?php echo $button['url']; ?>"
-												<?php echo ! empty( $button['target'] ) ? 'target="' . $button['target'] . '"' : ''; ?>>
-												<?php echo $button['title']; ?>
-											</a>
-
+										<a class="button button-secondary collection-button" href="<?php echo $button['url']; ?>"
+											<?php echo ! empty( $button['target'] ) ? 'target="' . $button['target'] . '"' : ''; ?>>
+											<?php echo $button['title']; ?>
+										</a>
 										<?php
 									}
 								}

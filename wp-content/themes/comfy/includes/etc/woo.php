@@ -233,3 +233,29 @@ add_action(
 	}
 );
 
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+
+		global $product;
+		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			?>
+			<div class="product-tags">
+			<?php
+			foreach ( $terms as $term ) {
+				?>
+				<span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+				<?php
+			}
+			?>
+			</div>
+			<?php
+		}
+
+	}
+);
+

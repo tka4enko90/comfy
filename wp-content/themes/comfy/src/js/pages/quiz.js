@@ -23,11 +23,12 @@
 			}
 
 			var self = this;
-			$( '.quiz-link' ).on(
-				'click',
-				function () {
-					self.initProgressBar( $( this ).attr( 'href' ) );
-				}
+			window.addEventListener(
+				'popstate',
+				function(event) {
+					self.initProgressBar( window.location.hash );
+				},
+				false
 			);
 
 		}
