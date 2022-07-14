@@ -65,6 +65,15 @@
         }
       }
     }
+    .jdgm-preview-badge {
+      margin-bottom: 24px;
+      .jdgm-prev-badge {
+        &__text {
+          font-size: 14px;
+          text-decoration: underline;
+        }
+      }
+    }
     .onsale {
       display: none;
     }
