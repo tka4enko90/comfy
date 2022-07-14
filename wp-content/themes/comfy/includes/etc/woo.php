@@ -76,7 +76,7 @@ function cmf_find_matching_product_variation( $product, $attributes ) {
 }
 
 function cmf_the_credit_text( $price ) {
-	if ( ! is_int( $price ) ) {
+	if ( ! is_numeric( $price ) ) {
 		return;
 	}
 	?>
