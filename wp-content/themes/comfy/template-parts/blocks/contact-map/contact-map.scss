@@ -60,5 +60,11 @@
     @include media-breakpoint-down(sm) {
       margin-bottom: 0;
     }
+    a {
+      &:hover {
+        color: inherit;
+        opacity: .7;
+      }
+    }
   }
 }

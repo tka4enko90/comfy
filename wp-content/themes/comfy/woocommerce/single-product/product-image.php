@@ -17,16 +17,15 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
-if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
-	return;
-}
-
 global $product;
 
 $columns             = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $product_gallery_ids = $product->get_gallery_image_ids();
-$wrapper_classes     = apply_filters(
+if ( empty( $product_gallery_ids ) ) {
+	$product_gallery_ids[] = get_post_thumbnail_id( $product->get_id() );
+}
+
+$wrapper_classes = apply_filters(
 	'woocommerce_single_product_image_gallery_classes',
 	array(
 		'woocommerce-product-gallery',
@@ -37,26 +36,5 @@ $wrapper_classes     = apply_filters(
 );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-	<figure class="woocommerce-product-gallery-nav">
-		<?php
-		foreach ( $product_gallery_ids as $id ) {
-			?>
-			<div data-item="<?php echo $id; ?>" class="gallery-nav-item gallery-nav-item-<?php echo $id; ?>">
-				<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, false ), $id ); ?>
-			</div>
-			<?php
-		}
-		?>
-	</figure>
-	<figure class="woocommerce-product-gallery-items">
-		<?php
-		foreach ( $product_gallery_ids as $id ) {
-			?>
-			<div data-item="<?php echo $id; ?>" class="gallery-item gallery-item-<?php echo $id; ?>">
-				<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id ); ?>
-			</div>
-			<?php
-		}
-		?>
-	</figure>
+	<?php get_template_part( 'template-parts/product/gallery', '', array( 'image_ids' => $product_gallery_ids ) ); ?>
 </div>

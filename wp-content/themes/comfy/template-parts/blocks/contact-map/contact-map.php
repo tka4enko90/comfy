@@ -33,9 +33,7 @@ if ( ! empty( $section['maps_api_key'] ) ) {
 				?>
 				<div class="col">
 					<h4><?php echo __( 'Call', 'comfy' ); ?></h4>
-					<p>
-						<?php echo $section['call']; ?>
-					</p>
+					<?php echo $section['call']; ?>
 				</div>
 				<?php
 			}
@@ -45,9 +43,7 @@ if ( ! empty( $section['maps_api_key'] ) ) {
 				?>
 				<div class="col">
 					<h4><?php echo __( 'Email', 'comfy' ); ?></h4>
-					<p>
-						<?php echo $section['email']; ?>
-					</p>
+					<?php echo $section['email']; ?>
 				</div>
 				<?php
 			}
@@ -57,9 +53,7 @@ if ( ! empty( $section['maps_api_key'] ) ) {
 				?>
 				<div class="col">
 					<h4><?php echo __( 'Address', 'comfy' ); ?></h4>
-					<p>
-						<?php echo $section['address']; ?>
-					</p>
+					<?php echo $section['address']; ?>
 				</div>
 				<?php
 			}

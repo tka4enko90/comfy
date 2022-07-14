@@ -1,0 +1,103 @@
+@import "../components/vars";
+@import "../components/mixins";
+
+.page-template-comming-soon-template {
+  header.site-header, footer.footer {
+    display: none;
+  }
+  main.main {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    section {
+      flex-basis: 100%;
+    }
+    .coming-soon-section {
+      @include media-breakpoint-up(sm) {
+        text-align: center;
+      }
+
+      @include media-breakpoint-up(md) {
+        margin: 64px 0;
+      }
+      @include media-breakpoint-up(xxl) {
+        margin: 120px 0;
+      }
+
+      .row {
+        align-items: center;
+        @include media-breakpoint-up(sm) {
+          flex-wrap: nowrap;
+        }
+        .col {
+          @include media-breakpoint-down(xs) {
+            flex-basis: 100%;
+          }
+          &:first-child {
+            @include media-breakpoint-up(sm) {
+              @include media-breakpoint-down(xl) {
+                flex-basis: 50%;
+              }
+            }
+          }
+          &:nth-child(2) {
+            display: flex;
+            justify-content: center;
+          }
+          .section-content-wrap {
+            @include media-breakpoint-up(sm) {
+              flex-basis: 490px;
+            }
+          }
+        }
+      }
+      img {
+        border-radius: 8px;
+        @include media-breakpoint-down(xl) {
+          max-height: 80vh;
+          object-fit: cover;
+        }
+        @include media-breakpoint-down(xs) {
+          margin-bottom: 40px;
+          max-height: calc(100vw - 40px);
+        }
+      }
+      form {
+        position: relative;
+        .wpcf7-form-control-wrap {
+          margin-bottom: 32px;
+          &.email {
+            text-align: left;
+          }
+        }
+        .wpcf7-form-control {
+          &.wpcf7-submit {
+            min-width: 210px;
+            margin-top: 32px;
+            @include media-breakpoint-down(xs) {
+              width: 100%;
+            }
+          }
+        }
+        .wpcf7-spinner {
+          position: absolute;
+          top: 12px;
+          right: 16px;
+        }
+        p {
+          margin: 0;
+        }
+      }
+      .logo {
+        margin-bottom: 32px;
+      }
+      .section-title {
+        margin-bottom: 24px;
+      }
+      p {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
