@@ -18,25 +18,6 @@
             "default_value": "#283455",
             "enable_opacity": 0,
             "return_format": "string"
-        },
-        {
-            "key": "field_62833ac474976",
-            "label": "Additional Nav Label",
-            "name": "additional_nav_label",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -57,5 +38,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653476252
+    "modified": 1657725322
 }
