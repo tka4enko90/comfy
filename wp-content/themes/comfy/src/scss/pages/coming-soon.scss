@@ -44,9 +44,8 @@
           &:nth-child(2) {
             display: flex;
             justify-content: center;
-            @include media-breakpoint-up(sm) {
-              flex-basis: 48%;
-            }
+            flex-grow: 2;
+
           }
           .section-content-wrap {
             @include media-breakpoint-up(sm) {
