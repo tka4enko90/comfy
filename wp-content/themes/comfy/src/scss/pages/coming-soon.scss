@@ -44,6 +44,9 @@
           &:nth-child(2) {
             display: flex;
             justify-content: center;
+            @include media-breakpoint-up(lg) {
+              flex-basis: 530px;
+            }
           }
           .section-content-wrap {
             @include media-breakpoint-up(sm) {
@@ -64,6 +67,7 @@
         }
       }
       form {
+        margin-top: 32px;
         position: relative;
         label {
           text-align: left;
@@ -97,10 +101,13 @@
         }
       }
       .logo {
-        margin-bottom: 32px;
+        margin-bottom: 16px;
       }
-      .section-title {
+      h2, h3 {
         margin-bottom: 24px;
+      }
+      h5 {
+        margin-bottom: 16px;
       }
       p {
         margin-bottom: 32px;
