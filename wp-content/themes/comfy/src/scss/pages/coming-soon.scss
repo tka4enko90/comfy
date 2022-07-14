@@ -48,6 +48,7 @@
 
           }
           .section-content-wrap {
+            flex-basis: 100%;
             @include media-breakpoint-up(sm) {
               flex-basis: 490px;
             }
