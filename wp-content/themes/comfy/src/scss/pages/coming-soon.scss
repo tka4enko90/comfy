@@ -19,10 +19,7 @@
       }
 
       @include media-breakpoint-up(md) {
-        margin: 64px 0;
-      }
-      @include media-breakpoint-up(xxl) {
-        margin: 120px 0;
+        margin: 10vh 0;
       }
 
       .row {
@@ -57,10 +54,8 @@
       }
       img {
         border-radius: 8px;
-        @include media-breakpoint-down(xl) {
-          max-height: 80vh;
-          object-fit: cover;
-        }
+        max-height: 80vh;
+        object-fit: cover;
         @include media-breakpoint-down(xs) {
           margin-bottom: 40px;
           max-height: calc(100vw - 40px);
