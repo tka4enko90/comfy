@@ -46,12 +46,12 @@
 
 
   }
-  .close-guide {
+  .side-cart-close-icon {
     position: absolute;
     top: 86px;
     right: 64px;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     @include media-breakpoint-down(sm) {
       top: 64px;

@@ -22,19 +22,29 @@ function cmf_add_variable_product_to_cart() {
 	}
 	wp_die();
 }
-add_action( 'wp_ajax_cmf_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
-add_action( 'wp_ajax_nopriv_cmf_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
+add_action( 'wp_ajax_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
+add_action( 'wp_ajax_nopriv_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
 
 add_action(
 	'wp_footer',
 	function () {
 		wp_enqueue_style( 'side-cart', get_template_directory_uri() . '/dist/css/partials/side-cart.css', '', '', 'all' );
+		wp_enqueue_script( 'side-cart', get_template_directory_uri() . '/dist/js/partials/side-cart.js', array( 'jquery' ), '', true );
 		?>
-		<div id="side-cart-wrap" class="side-cart-wrap active">
+		<div id="side-cart-wrap" class="side-cart-wrap">
 			<div class="side-cart">
-				<h3 class="side-cart-title">
-					<?php _e( 'Cart', 'comfy' ); ?>
-				</h3>
+				<div class="side-cart-header">
+					<h3 class="side-cart-title">
+						<?php _e( 'Cart', 'comfy' ); ?>
+						<span class="close-cart side-cart-close-icon"></span>
+					</h3>
+					<p class="close-cart">
+						← <?php _e( 'Continue Shopping', 'comfy' ); ?>
+					</p>
+				</div>
+                <div class="side-cart-content">
+
+                </div>
 			</div>
 		</div>
 		<?php
