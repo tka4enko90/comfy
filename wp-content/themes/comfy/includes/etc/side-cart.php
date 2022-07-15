@@ -30,9 +30,13 @@ add_action(
 	function () {
 		wp_enqueue_style( 'side-cart', get_template_directory_uri() . '/dist/css/partials/side-cart.css', '', '', 'all' );
 		?>
-        <div id="side-cart" class="side-cart">
-
+		<div id="side-cart-wrap" class="side-cart-wrap active">
+			<div class="side-cart">
+				<h3 class="side-cart-title">
+					<?php _e( 'Cart', 'comfy' ); ?>
+				</h3>
+			</div>
 		</div>
-        <?php
+		<?php
 	}
 );

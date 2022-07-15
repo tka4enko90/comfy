@@ -19,6 +19,9 @@
     ],
     "partials/ajax-account-forms": [
       "./src/js/partials/ajax-account-forms.js"
+    ],
+    "partials/side-cart": [
+      "./src/js/partials/side-cart.js"
     ]
   },
   "cacheBusting": "[name]",

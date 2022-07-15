@@ -1,0 +1,78 @@
+@import "../components/vars";
+@import "../components/mixins";
+#side-cart-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: transparent;
+  transition: background-color $std-transition-length ease;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+    background-color: #05050633;
+    .side-cart {
+      transform: translateX(-100%);
+    }
+  }
+  .side-cart {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    width: 50%;
+    background-color: $white;
+    padding: 64px;
+    transform: translateX(0);
+    transition: transform $std-transition-length ease-in;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include media-breakpoint-down(lg) {
+      width: 80%;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 64px 32px;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 64px 20px;
+      width: 98%;
+    }
+
+
+  }
+  .close-guide {
+    position: absolute;
+    top: 86px;
+    right: 64px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    @include media-breakpoint-down(sm) {
+      top: 64px;
+    }
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1.5px;
+      margin-top: -1.5px;
+      border-radius: 1.5px;
+      background-color: $primary-color;
+      transition: transform $std-transition-length ease-in;
+      transform: rotate(0deg);
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
