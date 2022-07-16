@@ -22,6 +22,9 @@
     ],
     "partials/side-cart": [
       "./src/js/partials/side-cart.js"
+    ],
+    "partials/qty-buttons": [
+      "./src/js/partials/qty-buttons.js"
     ]
   },
   "cacheBusting": "[name]",
