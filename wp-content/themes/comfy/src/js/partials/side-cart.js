@@ -22,31 +22,26 @@
 
 		},
 		showCart: function() {
+			$( 'body' ).css( 'width', $( 'body' ).width() ).css( 'overflow', 'hidden' );
 			this.cartWrap.addClass( 'active' );
-			//$( 'body' ).css( 'width', body.width() ).css( 'overflow', 'hidden' );
 		},
 		hideCart: function() {
 			this.cartWrap.removeClass( 'active' );
 			$( 'body' ).removeAttr( "style" );
 		},
-		// addProductToCart( e ) {
-		// 	e.preventDefault();
-		// 	//alert( 'ok' )
-		//
-		// },
 		updateCart: function(data) {
+			if(data['fragments']) {
+				$( document.body ).trigger( 'wc_fragment_refresh' );
+				//$( '.side-cart-content' ).html( data['fragments']['div.widget_shopping_cart_content'] );
+			}
 			this.showCart();
-			$('.side-cart-content').html(data['fragments']['div.widget_shopping_cart_content']);
-			console.log(data['fragments']['div.widget_shopping_cart_content']);
-			alert( 'sucsess' );
 		},
 		ajaxFail: function(data) {
-			console.log(data);
+			console.log( data );
 			alert( 'fail' );
 		},
 		init: function () {
 			var self = this;
-			//this.cartWrap = $( '#side-cart-wrap' );
 			this.initSideCartToggle();
 
 			$( '.single_add_to_cart_button' ).on(
@@ -64,7 +59,7 @@
 						variation_id: variationID,
 						quantity: quantity,
 					};
-					window.ajaxCall( data ).success( self.updateCart.bind(self) ).fail( self.ajaxFail );
+					window.ajaxCall( data ).success( self.updateCart.bind( self ) ).fail( self.ajaxFail );
 
 					//self.addProductToCart( e );
 				}
