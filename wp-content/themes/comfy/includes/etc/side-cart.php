@@ -1,9 +1,34 @@
 <?php
 function cmf_add_variable_product_to_cart() {
-	//Bundle !!!
 
 	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
 	$quantity   = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( $_POST['quantity'] );
+
+	$_product = wc_get_product( $product_id );
+	if ( $_product->is_type( 'bundle' ) ) {
+		if ( ! empty( $_POST['bundle_data'] ) ) {
+			$configuration = WC_PB_Cart::instance()->parse_bundle_configuration( $_product, $_POST['bundle_data'] );
+			foreach ( $_POST['bundle_data'] as $key => $val ) {
+				$key_words       = explode( '_', $key );
+				$bundle_item_num = intval( array_pop( $key_words ) );
+				array_shift( $key_words );
+				$variation_data_key = implode( '_', $key_words );
+
+				if ( 'attribute' === $key_words[0] ) {
+					$configuration[ $bundle_item_num ]['attributes'][ $variation_data_key ] = $val;
+				} else {
+					$configuration[ $bundle_item_num ][ $variation_data_key ] = $val;
+				}
+			}
+
+			if ( is_wp_error( WC_PB_Cart::instance()->add_bundle_to_cart( $product_id, $quantity, $configuration, $configuration ) ) ) {
+				wp_send_json_error( __( 'Error in adding to cart', 'comfy' ), 500 );
+				wp_die();
+			}
+			WC_AJAX::get_refreshed_fragments();
+			wp_die();
+		}
+	}
 
 	$variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : '';
 	$variations   = ! empty( $_POST['variation'] ) ? (array) $_POST['variation'] : '';

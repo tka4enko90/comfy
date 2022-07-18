@@ -60,8 +60,11 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					);
 
 					ob_start();
-					$attributes = $_product->get_variation_attributes();
-					if ( $attributes ) :
+					if ( $_product->is_type( 'variable' ) ) {
+						$attributes = $_product->get_variation_attributes();
+					}
+
+					if ( ! empty( $attributes ) ) :
 						foreach ( $attributes as $name => $val ) {
 							$attribute_label = wc_attribute_label( str_replace( 'attribute_', '', $name ) );
 							?>

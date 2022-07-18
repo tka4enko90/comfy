@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			// No longer needed as this has been moved to the 'add-to-cart/composite-button.php' template. Leaving this here for back-compat.
 			?>
-			<input type="hidden" name="add-to-cart" value="<?php echo $product_id; ?>"/>
+<!--			<input type="hidden" name="product_id" value="--><?php //echo $product_id; ?><!--"/>-->
 		</div>
 		<?php
 

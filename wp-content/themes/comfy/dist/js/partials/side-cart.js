@@ -157,16 +157,36 @@
       this.initSideCartToggle();
       $('.single_add_to_cart_button').on('click', function (e) {
         e.preventDefault();
-        var variableWrap = $(this).parent('.woocommerce-variation-add-to-cart'),
-            productID = variableWrap.find('input[name="product_id"]').val(),
-            variationID = variableWrap.find('input[name="variation_id"]').val(),
-            quantity = variableWrap.find('input[name="quantity"]').val(),
-            data = {
-          action: 'add_variable_product_to_cart',
-          product_id: productID,
-          variation_id: variationID,
-          quantity: quantity
-        };
+
+        if ($(this).hasClass('bundle_add_to_cart_button')) {
+          var bundleId = $(this).val(),
+              bundleFormFields = $('.bundle_form').serializeArray(),
+              bundleData = {};
+
+          for (var i = 0; i < bundleFormFields.length; i++) {
+            bundleData[bundleFormFields[i]['name']] = bundleFormFields[i]['value'];
+          } //alert( 'test - ' + bundleId );
+
+
+          console.log(bundleData);
+          var data = {
+            action: 'add_variable_product_to_cart',
+            product_id: bundleId,
+            bundle_data: bundleData
+          };
+        } else {
+          var variableWrap = $(this).parent('.woocommerce-variation-add-to-cart'),
+              productID = variableWrap.find('input[name="product_id"]').val(),
+              variationID = variableWrap.find('input[name="variation_id"]').val(),
+              quantity = variableWrap.find('input[name="quantity"]').val(),
+              data = {
+            action: 'add_variable_product_to_cart',
+            product_id: productID,
+            variation_id: variationID,
+            quantity: quantity
+          };
+        }
+
         window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail.bind(self));
       });
     }
