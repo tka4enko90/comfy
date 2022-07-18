@@ -1,6 +1,6 @@
 <?php
 function cmf_add_variable_product_to_cart() {
-	//Bundle
+	//Bundle !!!
 
 	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
 	$quantity   = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( $_POST['quantity'] );
@@ -25,6 +25,45 @@ function cmf_add_variable_product_to_cart() {
 add_action( 'wp_ajax_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
 add_action( 'wp_ajax_nopriv_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
 
+
+/**
+ * Function for set quantity via ajax in the aside cart
+ */
+function set_mini_cart_item_quantity() {
+	$response = array();
+	if ( isset( $_POST['cart_item_qty'] ) ) {
+		$cart_key_sanitized = filter_var( wp_unslash( $_POST['cart_item_key'] ), FILTER_SANITIZE_STRING );
+		$cart_qty_sanitized = filter_var( wp_unslash( $_POST['cart_item_qty'] ), FILTER_SANITIZE_NUMBER_INT );
+		$product_id         = filter_var( wp_unslash( $_POST['product_id'] ), FILTER_SANITIZE_NUMBER_INT );
+		$variation_id       = filter_var( wp_unslash( $_POST['variation_id'] ), FILTER_SANITIZE_NUMBER_INT );
+
+		if ( empty( $variation_id ) ) {
+			$variation_id = null;
+		}
+
+		if ( '0' === $cart_qty_sanitized ) {
+
+			WC()->cart->remove_cart_item( $cart_key_sanitized );
+
+		} else {
+			if ( apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $cart_qty_sanitized, $variation_id ) ) {
+
+				WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized );
+
+			} else {
+				wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
+			}
+		}
+	} else {
+		wp_send_json_error( __( 'Cart item qty not set', 'comfy' ), 400 );
+	}
+
+	WC_AJAX::get_refreshed_fragments();
+	wp_die();
+}
+add_action( 'wp_ajax_set_mini_cart_item_quantity', 'set_mini_cart_item_quantity' );
+add_action( 'wp_ajax_nopriv_set_mini_cart_item_quantity', 'set_mini_cart_item_quantity' );
+
 /**
  * Add quantity field to aside cart item
  */
@@ -46,44 +85,6 @@ function add_minicart_quantity_fields( $html, $cart_item, $cart_item_key ) {
 		false
 	);
 }
-
-
-/**
- * Function for set quantity via ajax in the aside cart
- */
-function set_mini_cart_item_quantity() {
-	$response = array();
-	if ( isset( $_POST['cart_item_qty'] ) ) {
-		$cart_key_sanitized = filter_var( wp_unslash( $_POST['cart_item_key'] ), FILTER_SANITIZE_STRING );
-		$cart_qty_sanitized = filter_var( wp_unslash( $_POST['cart_item_qty'] ), FILTER_SANITIZE_NUMBER_INT );
-		$product_id         = filter_var( wp_unslash( $_POST['product_id'] ), FILTER_SANITIZE_NUMBER_INT );
-		$variation_id       = filter_var( wp_unslash( $_POST['variation_id'] ), FILTER_SANITIZE_NUMBER_INT );
-
-		if ( empty( $variation_id ) ) {
-			$variation_id = null;
-		}
-
-		$product = wc_get_product( $product_id );
-		if ( 0 === $cart_qty_sanitized ) {
-			WC()->cart->remove_cart_item( $cart_key_sanitized );
-			$response['status'] = 'success';
-		} else {
-			if ( apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $cart_qty_sanitized, $variation_id ) ) {
-				//$cart_qty_sanitized = $cart_qty_sanitized > $product->get_stock_quantity() ? $product->get_stock_quantity() : $cart_qty_sanitized;
-				WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized );
-				$response['status'] = 'success';
-
-			} else {
-				$response['status'] = 'error';
-			}
-		}
-	} else {
-		$response['status'] = 'error';
-	}
-	wp_send_json( $response );
-}
-add_action( 'wp_ajax_set_mini_cart_item_quantity', 'set_mini_cart_item_quantity' );
-add_action( 'wp_ajax_nopriv_set_mini_cart_item_quantity', 'set_mini_cart_item_quantity' );
 
 
 add_action(

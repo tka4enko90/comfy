@@ -38,6 +38,13 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 				?>
 				<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+					<form style="display: none">
+						<input type="hidden" name="product_key" value="<?php echo esc_attr( $cart_item_key ); ?>">
+						<input type="hidden" name="product_id" value="<?php echo esc_attr( $product_id ); ?>">
+						<?php if ( $_product->is_type( 'variation' ) ) : ?>
+							<input type="hidden" name="variation_id" value="<?php echo esc_attr( $_product->get_variation_id() ); ?>">
+						<?php endif; ?>
+					</form>
 					<?php
 					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						'woocommerce_cart_item_remove_link',

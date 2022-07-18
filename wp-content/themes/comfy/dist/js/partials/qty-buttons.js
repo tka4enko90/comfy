@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 (function ($) {
-  $('.btn-qty').click(function () {
+  $('body').on('click', '.btn-qty', function () {
     var $this = $(this);
     var $qty = $this.closest('.quantity').find('.qty');
     var val = parseFloat($qty.val());
@@ -121,12 +121,14 @@
         $button.attr('data-quantity', val - step);
       }
     }
+
+    $qty.trigger("change");
   });
 })(jQuery);
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!**********************************************!*\
   !*** multi ./src/js/partials/qty-buttons.js ***!
   \**********************************************/

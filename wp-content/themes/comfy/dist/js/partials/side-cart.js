@@ -109,40 +109,65 @@
       });
     },
     showCart: function showCart() {
-      $('body').css('width', $('body').width()).css('overflow', 'hidden');
+      var body = $('body');
+      body.css('width', body.width()).css('overflow', 'hidden');
       this.cartWrap.addClass('active');
     },
     hideCart: function hideCart() {
       this.cartWrap.removeClass('active');
       $('body').removeAttr("style");
     },
+    initQtyChange: function initQtyChange() {
+      var self = this;
+      $('body').on('change paste keyup', '.woocommerce-mini-cart-item .qty', // Change to '.woocommerce-mini-cart-item .qty'
+      function () {
+        var cartItem = $(this).parents('.woocommerce-mini-cart-item'),
+            cartItemID = cartItem.find('input[name="product_id"]').val(),
+            cartItemVariationID = cartItem.find('input[name="variation_id"]').val(),
+            cartItemKey = cartItem.find('input[name="product_key"]').val(),
+            cartItemQty = $(this).val(),
+            data = {
+          action: 'set_mini_cart_item_quantity',
+          cart_item_key: cartItemKey,
+          cart_item_qty: cartItemQty,
+          product_id: cartItemID,
+          variation_id: cartItemVariationID
+        };
+
+        if (cartItemKey) {
+          console.log(data);
+          window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail);
+        }
+      });
+    },
     updateCart: function updateCart(data) {
       if (data['fragments']) {
-        $(document.body).trigger('wc_fragment_refresh'); //$( '.side-cart-content' ).html( data['fragments']['div.widget_shopping_cart_content'] );
+        $(document.body).trigger('wc_fragment_refresh');
       }
 
       this.showCart();
     },
     ajaxFail: function ajaxFail(data) {
       console.log(data);
-      alert('fail');
+      this.hideCart();
     },
     init: function init() {
       var self = this;
+      this.initQtyChange();
       this.initSideCartToggle();
       $('.single_add_to_cart_button').on('click', function (e) {
         e.preventDefault();
         var variableWrap = $(this).parent('.woocommerce-variation-add-to-cart'),
             productID = variableWrap.find('input[name="product_id"]').val(),
             variationID = variableWrap.find('input[name="variation_id"]').val(),
-            quantity = variableWrap.find('input[name="quantity"]').val();
-        var data = {
+            quantity = variableWrap.find('input[name="quantity"]').val(),
+            data = {
           action: 'add_variable_product_to_cart',
           product_id: productID,
           variation_id: variationID,
           quantity: quantity
         };
-        window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail); //self.addProductToCart( e );
+        window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail.bind(self));
       });
     }
   };

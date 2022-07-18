@@ -1,5 +1,7 @@
 (function($) {
-	$( '.btn-qty' ).click(
+	$( 'body' ).on(
+		'click',
+		'.btn-qty',
 		function () {
 			let $this   = $( this );
 			let $qty    = $this.closest( '.quantity' ).find( '.qty' );
@@ -28,7 +30,7 @@
 					$button.attr( 'data-quantity', (val - step) );
 				}
 			}
-
+			$qty.trigger( "change" );
 		}
 	);
 })( jQuery );
