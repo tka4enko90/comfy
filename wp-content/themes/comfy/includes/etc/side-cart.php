@@ -124,7 +124,7 @@ add_action(
 		wp_enqueue_style( 'side-cart', get_template_directory_uri() . '/dist/css/partials/side-cart.css', '', '', 'all' );
 		wp_enqueue_script( 'side-cart', get_template_directory_uri() . '/dist/js/partials/side-cart.js', array( 'jquery' ), '', true );
 		?>
-		<div id="side-cart-wrap" class="side-cart-wrap active">
+		<div id="side-cart-wrap" class="side-cart-wrap">
 			<div class="side-cart">
 				<div class="side-cart-header">
 					<h4 class="side-cart-title">
