@@ -26,16 +26,48 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
 		<?php
 		do_action( 'woocommerce_before_mini_cart_contents' );
-
+		$total_discount = 0;
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-			$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-			$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+			$_product          = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+			$product_id        = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+			$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
+			$thumbnail         = wp_get_attachment_image( get_post_thumbnail_id( $product_id ), 'cmf_bundle_breakdown' );
+			$product_price     = $_product->is_type( 'bundle' ) ? apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ) : $_product->get_price_html();
+			$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
-				$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-				$thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-				$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+				// Product sale count
+				$sale = floatval( $_product->get_regular_price() ) - floatval( $_product->get_price() );
+				if ( 0 < $sale ) {
+					$total_discount += $sale * intval( $cart_item['quantity'] );
+				}
+
+				/* Bundle Discount Calculation
+				if ( $_product->is_type( 'bundle' ) ) {
+					//Get bundled items price
+					$bundle_data = $_product->get_bundle_form_data();
+					//print_r( $bundle_data );
+					$bundled_items_price = 0.0;
+					$item_counter        = 0;
+
+					//Calculate price difference
+					foreach ( $_product->get_bundled_data_items() as $bundled_item ) {
+						$bundled_item_meta       = $bundled_item->get_meta_data();
+						$bundled_item_full_price = ( $bundle_data['prices'][ ++$item_counter ] / ( 100 - $bundled_item_meta['discount'] ) ) * 100;
+						$bundled_items_price    += $bundled_item_full_price;
+
+						echo $bundled_item_full_price . '<--' . gettype( $bundled_item_full_price ) . '<br>';
+					}
+					$sanitized_price = wp_kses( $product_price, array() );
+					//$sanitized_price = preg_replace( '/[^0-9.]/', '', esc_html( $sanitized_price ) );
+
+					if ( 0 < $bundled_items_price ) {
+						echo $_product->get_price() . '<br>';
+						echo $_product->get_bundle_price() . '<br>';
+						echo $bundled_items_price . ' - ' . $sanitized_price . '<-- Full'; // * $cart_item['quantity']
+					}
+				}
+				*/
 				?>
 				<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
 					<form style="display: none">
@@ -46,77 +78,132 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						<?php endif; ?>
 					</form>
 					<?php
-					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						'woocommerce_cart_item_remove_link',
-						sprintf(
-							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							esc_attr__( 'Remove this item', 'woocommerce' ),
-							esc_attr( $product_id ),
-							esc_attr( $cart_item_key ),
-							esc_attr( $_product->get_sku() )
-						),
-						$cart_item_key
-					);
-
-					ob_start();
-					if ( $_product->is_type( 'variable' ) ) {
-						$attributes = $_product->get_variation_attributes();
+					if ( ! empty( $product_permalink ) ) {
+						?>
+						<a href="<?php echo esc_url( $product_permalink ); ?>" class="woocommerce-mini-cart-item-thumbnail">
+						<?php
 					}
-
-					if ( ! empty( $attributes ) ) :
-						foreach ( $attributes as $name => $val ) {
-							$attribute_label = wc_attribute_label( str_replace( 'attribute_', '', $name ) );
+					echo $thumbnail;
+					if ( ! empty( $product_permalink ) ) {
+						?>
+						</a>
+						<?php
+					}
+					?>
+					<div class="woocommerce-mini-cart-item-info">
+						<?php
+						if ( ! empty( $product_permalink ) ) {
 							?>
-							<p class="bundle-item-attribute bundle-item-attribute--<?php echo $name; ?>">
-											<span class="bundle-item-attribute-name">
-												<?php echo $attribute_label . ':'; ?>
-											</span>
-								<span class="bundle-item-attribute-value attribute_<?php echo $name; ?>"><?php echo $val; ?></span>
-							</p>
+							<a href="<?php echo esc_url( $product_permalink ); ?>">
 							<?php
 						}
-					endif;
-					$product_attributes = ob_get_clean();
-					?>
-					<?php
-					if ( empty( $product_permalink ) ) :
-						echo $thumbnail . wp_kses_post( $product_name ) . $product_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					else :
 						?>
-						<a href="<?php echo esc_url( $product_permalink ); ?>">
-							<?php
-							echo $thumbnail . wp_kses_post( $product_name ) . $product_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						<div class="woocommerce-mini-cart-item-header">
+							<h6 class="woocommerce-mini-cart-item-header-title">
+								<?php echo wp_kses_post( $product_name ); ?>
+							</h6>
+							<p class="price">
+								<?php echo $product_price; ?>
+							</p>
+						</div>
+						<?php
+						if ( $_product->is_type( 'variation' ) || $_product->is_type( 'variable' ) ) :
+							$attributes = $_product->get_variation_attributes();
+							if ( ! empty( $attributes ) ) :
+								foreach ( $attributes as $name => $val ) {
+									$attribute_label = wc_attribute_label( str_replace( 'attribute_', '', $name ) );
+									?>
+								<p class="bundle-item-attribute bundle-item-attribute--<?php echo $name; ?>">
+								<span class="bundle-item-attribute-name">
+									<?php echo $attribute_label . ':'; ?>
+								</span>
+									<span class="bundle-item-attribute-value attribute_<?php echo $name; ?>"><?php echo $val; ?></span>
+								</p>
+									<?php
+								}
+							endif;
+						endif;
+						echo wc_get_formatted_cart_item_data( $cart_item );
+
+						if ( ! empty( $product_permalink ) ) {
 							?>
 						</a>
-					<?php endif; ?>
-					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				</li>
+							<?php
+						}
+						?>
+						<div class="woocommerce-mini-cart-item-actions">
+							<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<?php
+							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								'woocommerce_cart_item_remove_link',
+								sprintf(
+									'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_3012_1358)"><path d="M3.59766 6H16.3977" stroke="#6C7489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.39844 9.19922V13.9992" stroke="#6C7489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5977 9.19922V13.9992" stroke="#6C7489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.39844 6L5.19844 15.6C5.19844 16.0243 5.36701 16.4313 5.66707 16.7314C5.96712 17.0314 6.37409 17.2 6.79844 17.2H13.1984C13.6228 17.2 14.0298 17.0314 14.3298 16.7314C14.6299 16.4313 14.7984 16.0243 14.7984 15.6L15.5984 6" stroke="#6C7489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.59766 5.99687V3.59687C7.59766 3.3847 7.68194 3.18122 7.83197 3.03119C7.982 2.88116 8.18548 2.79688 8.39766 2.79688H11.5977C11.8098 2.79688 12.0133 2.88116 12.1633 3.03119C12.3134 3.18122 12.3977 3.3847 12.3977 3.59687V5.99687" stroke="#6C7489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_3012_1358"><rect width="19.2" height="19.2" fill="white" transform="translate(0.398438 0.398438)"/></clipPath></defs></svg></a>',
+									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+									esc_attr__( 'Remove this item', 'woocommerce' ),
+									esc_attr( $product_id ),
+									esc_attr( $cart_item_key ),
+									esc_attr( $_product->get_sku() )
+								),
+								$cart_item_key
+							);
+							?>
+						</div>
+					</div>
+					</li>
 				<?php
 			}
 		}
-
 		do_action( 'woocommerce_mini_cart_contents' );
 		?>
 	</ul>
 
-	<p class="woocommerce-mini-cart__total total">
+<div class="side-cart-total-wrap">
+	<div class="side-cart-total">
+		<p class="woocommerce-mini-cart__total total total-el">
+			<span><?php _e( 'Subtotal', 'comfy' ); ?></span>
+			<span><?php echo cmf_remove_zeros( WC()->cart->get_total() ); ?></span>
+		</p>
 		<?php
-		/**
-		 * Hook: woocommerce_widget_shopping_cart_total.
-		 *
-		 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-		 */
-		do_action( 'woocommerce_widget_shopping_cart_total' );
+		if ( 0 < $total_discount ) {
+			?>
+			<p class="cart-discount total-el"><span><?php _e( 'Further Discounts', 'comfy' ); ?></span><span><?php echo cmf_remove_zeros( wc_price( $total_discount ) ); ?></span></p>
+			<?php
+		}
+
+		//Shipping total
+		foreach ( WC()->session->get( 'shipping_for_package_0' )['rates'] as $method_id => $rate ) {
+			if ( WC()->session->get( 'chosen_shipping_methods' )[0] === $method_id ) {
+				echo sprintf(
+					'<p class="shipping-total total-el"><span>%s </span><span class="totals">%s</span></p>',
+					$rate->label,
+					cmf_remove_zeros( WC()->cart->get_cart_shipping_total() )
+				);
+				break;
+			}
+		}
 		?>
-	</p>
+		<p class="cart-total total-el">
+			<span>
+				<?php _e( 'Total', 'comfy' ); ?>
+			</span>
+			<span>
+				<?php echo cmf_remove_zeros( WC()->cart->get_total() ); ?>
+			</span>
+		</p>
+		<p class="credit-text">
+			<?php
+			$amount = ( ! WC()->cart->prices_include_tax ) ? $amount = WC()->cart->cart_contents_total : WC()->cart->cart_contents_total + WC()->cart->tax_total;
+			cmf_the_credit_text( $amount );
+			?>
+		</p>
 
-	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
+		<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
+		<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
 
-	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
+		<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
+	</div>
+</div>
 
 <?php else : ?>
 

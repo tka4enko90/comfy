@@ -367,67 +367,6 @@
         margin-bottom: 32px;
       }
     }
-    .quantity {
-      display: flex;
-      align-items: center;
-      border: 1.5px solid $line-gray;
-      border-radius: 8px;
-      margin-right: 16px;
-      margin-bottom: 16px;
-      .btn-qty {
-        position: relative;
-        width: 10px;
-        height: 10px;
-        margin: 0 24px;
-        padding: 0;
-        color: $primary-color;
-        border: none;
-        outline: none;
-        background: transparent;
-        cursor: pointer;
-        &:before, &:after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          height: 1px;
-          background-color: currentColor;
-        }
-        &.plus {
-          &:after {
-            transform: translate(-50%, -50%)rotate(90deg);
-          }
-        }
-        &:hover {
-
-        }
-      }
-      input.qty {
-        color: $primary-color;
-        background: transparent;
-        padding: 12px 0;
-        margin: 0 -11px;
-        width: 38px;
-        height: 45px;
-        outline: none;
-        /* Chrome, Safari, Edge, Opera */
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-        /* Firefox */
-        &[type=number] {
-          -moz-appearance: textfield;
-        }
-        &:focus-visible {
-
-        }
-
-      }
-    }
     .single_add_to_cart_button, .button-primary {
       @include button;
       @include button-primary;

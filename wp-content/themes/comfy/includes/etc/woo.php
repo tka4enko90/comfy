@@ -106,7 +106,7 @@ add_filter(
 			$sale = $product->get_price() / $regular_price;
 			if ( 1 > $sale ) {
 				?>
-				<span>
+				<span class="from-label">
 					<?php _e( 'From: ', 'comfy' ); ?>
 				</span>
 				<?php
@@ -166,9 +166,10 @@ add_filter(
 		ob_start();
 		$min_price = $product->get_min_raw_price();
 		?>
-		<span>
-			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
+		<span class="from-label">
+			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
+		<?php echo wc_price( $min_price ); ?>
 		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
 		<?php
 		cmf_the_credit_text( $min_price );
@@ -232,4 +233,8 @@ add_action(
 		}
 	}
 );
+
+function cmf_remove_zeros( $price ) {
+	return str_replace( '.00', '', strval( $price ) );
+}
 

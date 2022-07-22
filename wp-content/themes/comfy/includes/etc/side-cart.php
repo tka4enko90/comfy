@@ -1,5 +1,5 @@
 <?php
-function cmf_add_variable_product_to_cart() {
+function cmf_add_product_to_cart() {
 
 	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
 	$quantity   = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( $_POST['quantity'] );
@@ -47,8 +47,8 @@ function cmf_add_variable_product_to_cart() {
 	}
 	wp_die();
 }
-add_action( 'wp_ajax_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
-add_action( 'wp_ajax_nopriv_add_variable_product_to_cart', 'cmf_add_variable_product_to_cart' );
+add_action( 'wp_ajax_add_product_to_cart', 'cmf_add_product_to_cart' );
+add_action( 'wp_ajax_nopriv_add_product_to_cart', 'cmf_add_product_to_cart' );
 
 
 /**
@@ -71,12 +71,17 @@ function set_mini_cart_item_quantity() {
 			WC()->cart->remove_cart_item( $cart_key_sanitized );
 
 		} else {
+
+		    if(is_wp_error(WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized ))) {
+                wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
+                wp_die();
+            }
 			if ( apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $cart_qty_sanitized, $variation_id ) ) {
 
-				WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized );
+				//WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized );
 
 			} else {
-				wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
+				//wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
 			}
 		}
 	} else {
@@ -101,7 +106,7 @@ function add_minicart_quantity_fields( $html, $cart_item, $cart_item_key ) {
 
 	$stock_quantity = $product->get_stock_quantity();
 
-	return $product_price . woocommerce_quantity_input(
+	return woocommerce_quantity_input(
 		array(
 			'input_value' => ! empty( $cart_item['quantity'] ) ? $cart_item['quantity'] : 0,
 			'max_value'   => $stock_quantity,
@@ -115,18 +120,19 @@ function add_minicart_quantity_fields( $html, $cart_item, $cart_item_key ) {
 add_action(
 	'wp_footer',
 	function () {
+		wp_enqueue_style( 'quantity', get_template_directory_uri() . '/dist/css/partials/qty-buttons.css', '', '', 'all' );
 		wp_enqueue_style( 'side-cart', get_template_directory_uri() . '/dist/css/partials/side-cart.css', '', '', 'all' );
 		wp_enqueue_script( 'side-cart', get_template_directory_uri() . '/dist/js/partials/side-cart.js', array( 'jquery' ), '', true );
 		?>
-		<div id="side-cart-wrap" class="side-cart-wrap">
+		<div id="side-cart-wrap" class="side-cart-wrap active">
 			<div class="side-cart">
 				<div class="side-cart-header">
-					<h3 class="side-cart-title">
+					<h4 class="side-cart-title">
 						<?php _e( 'Cart', 'comfy' ); ?>
 						<span class="close-cart side-cart-close-icon"></span>
-					</h3>
-					<p class="close-cart">
-						← <?php _e( 'Continue Shopping', 'comfy' ); ?>
+					</h4>
+					<p class="close-cart side-cart-close-text">
+						← <span><?php _e( 'Continue Shopping', 'comfy' ); ?></span>
 					</p>
 				</div>
 				<div class="side-cart-content">
@@ -139,3 +145,5 @@ add_action(
 		<?php
 	}
 );
+
+remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10 );

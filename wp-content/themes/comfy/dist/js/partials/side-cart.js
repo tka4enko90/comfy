@@ -135,7 +135,6 @@
         };
 
         if (cartItemKey) {
-          console.log(data);
           window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail);
         }
       });
@@ -157,34 +156,25 @@
       this.initSideCartToggle();
       $('.single_add_to_cart_button').on('click', function (e) {
         e.preventDefault();
+        var data = {
+          action: 'add_product_to_cart'
+        };
 
         if ($(this).hasClass('bundle_add_to_cart_button')) {
-          var bundleId = $(this).val(),
-              bundleFormFields = $('.bundle_form').serializeArray(),
+          var bundleFormFields = $('.bundle_form').serializeArray(),
               bundleData = {};
 
           for (var i = 0; i < bundleFormFields.length; i++) {
             bundleData[bundleFormFields[i]['name']] = bundleFormFields[i]['value'];
-          } //alert( 'test - ' + bundleId );
+          }
 
-
-          console.log(bundleData);
-          var data = {
-            action: 'add_variable_product_to_cart',
-            product_id: bundleId,
-            bundle_data: bundleData
-          };
+          data['bundle_data'] = bundleData;
+          data['product_id'] = $(this).val();
         } else {
-          var variableWrap = $(this).parent('.woocommerce-variation-add-to-cart'),
-              productID = variableWrap.find('input[name="product_id"]').val(),
-              variationID = variableWrap.find('input[name="variation_id"]').val(),
-              quantity = variableWrap.find('input[name="quantity"]').val(),
-              data = {
-            action: 'add_variable_product_to_cart',
-            product_id: productID,
-            variation_id: variationID,
-            quantity: quantity
-          };
+          var variableWrap = $(this).parent('.woocommerce-variation-add-to-cart');
+          data['product_id'] = variableWrap.find('input[name="product_id"]').val();
+          data['variation_id'] = variableWrap.find('input[name="variation_id"]').val();
+          data['quantity'] = variableWrap.find('input[name="quantity"]').val();
         }
 
         window.ajaxCall(data).success(self.updateCart.bind(self)).fail(self.ajaxFail.bind(self));
