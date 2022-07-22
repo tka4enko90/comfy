@@ -33,9 +33,7 @@
       min-width: 443px;
       padding: 40px 24px 0;
     }
-    //&::-webkit-scrollbar {
-    //  display: none;
-    //}
+
     @include media-breakpoint-down(xs) {
       width: 100%;
     }
