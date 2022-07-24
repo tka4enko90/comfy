@@ -89,9 +89,9 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 											$attribute_label = wc_attribute_label( str_replace( 'attribute_', '', $name ) );
 											?>
 											<p class="bundle-item-attribute bundle-item-attribute--<?php echo $name; ?>">
-								<span class="bundle-item-attribute-name">
-											<?php echo $attribute_label . ':'; ?>
-								</span>
+												<span class="bundle-item-attribute-name">
+													<?php echo $attribute_label . ':'; ?>
+												</span>
 												<span class="bundle-item-attribute-value attribute_<?php echo $name; ?>"><?php echo $val; ?></span>
 											</p>
 											<?php
