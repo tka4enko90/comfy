@@ -25,6 +25,8 @@ function cmf_add_product_to_cart() {
 				wp_send_json_error( __( 'Error in adding to cart', 'comfy' ), 500 );
 				wp_die();
 			}
+
+			wc_clear_notices();
 			WC_AJAX::get_refreshed_fragments();
 			wp_die();
 		}
@@ -59,7 +61,6 @@ function set_mini_cart_item_quantity() {
 	if ( isset( $_POST['cart_item_qty'] ) ) {
 		$cart_key_sanitized = filter_var( wp_unslash( $_POST['cart_item_key'] ), FILTER_SANITIZE_STRING );
 		$cart_qty_sanitized = filter_var( wp_unslash( $_POST['cart_item_qty'] ), FILTER_SANITIZE_NUMBER_INT );
-		$product_id         = filter_var( wp_unslash( $_POST['product_id'] ), FILTER_SANITIZE_NUMBER_INT );
 		$variation_id       = filter_var( wp_unslash( $_POST['variation_id'] ), FILTER_SANITIZE_NUMBER_INT );
 
 		if ( empty( $variation_id ) ) {
@@ -72,16 +73,9 @@ function set_mini_cart_item_quantity() {
 
 		} else {
 
-		    if(is_wp_error(WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized ))) {
-                wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
-                wp_die();
-            }
-			if ( apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $cart_qty_sanitized, $variation_id ) ) {
-
-				//WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized );
-
-			} else {
-				//wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
+			if ( is_wp_error( WC()->cart->set_quantity( $cart_key_sanitized, $cart_qty_sanitized ) ) ) {
+				wp_send_json_error( __( 'Not valid cart item qty', 'comfy' ), 400 );
+				wp_die();
 			}
 		}
 	} else {
