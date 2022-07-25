@@ -70,6 +70,25 @@
             "return_format": "array"
         },
         {
+            "key": "field_62deb37da5eef",
+            "label": "Custom header scripts",
+            "name": "custom_header_scripts",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_62821b3a5f557",
             "label": "Footer",
             "name": "",
@@ -719,5 +738,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1657178723
+    "modified": 1658762168
 }
