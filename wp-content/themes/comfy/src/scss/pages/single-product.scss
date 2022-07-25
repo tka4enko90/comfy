@@ -65,6 +65,13 @@
         }
       }
     }
+    .upsells-products-section {
+      .price {
+        .credit {
+          display: none;
+        }
+      }
+    }
     .onsale {
       display: none;
     }
@@ -662,52 +669,6 @@
               opacity: 1;
             }
 
-          }
-        }
-      }
-
-    }
-    .upsells-products-section {
-      overflow: hidden;
-      .section-title {
-        margin-bottom: 64px;
-      }
-      .products {
-        display: flex;
-        margin: 0 -32px -32px;
-        @include media-breakpoint-down(xs) {
-          flex-wrap: wrap;
-        }
-
-        .product {
-          margin: 0 32px 32px;
-          flex-basis: 100%;
-          @include media-breakpoint-up(md) {
-            flex-basis: 33%;
-          }
-          &-price {
-            ins {
-              color: $primary-color;
-            }
-            .price {
-              display: inline-block;
-              margin-bottom: 0;
-            }
-            .credit {
-              display: none;
-            }
-          }
-          .woocommerce-loop-product__title {
-            font-size: 24px;
-            margin-bottom: 16px;
-            padding: 0;
-          }
-          img {
-            border-radius: 8px;
-            margin-bottom: 20px;
-          }
-          a {
-            width: 100%;
           }
         }
       }
