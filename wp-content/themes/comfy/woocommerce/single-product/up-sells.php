@@ -19,8 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( $upsells ) : ?>
-
+if ( $upsells ) :
+	wp_enqueue_style( 'upsells-section', get_template_directory_uri() . '/dist/css/partials/upsells.css', '', '', 'all' );
+	?>
 	<section class="section up-sells upsells products upsells-products-section">
 		<div class="container">
 			<?php
@@ -48,7 +49,6 @@ if ( $upsells ) : ?>
 			<?php woocommerce_product_loop_end(); ?>
 		</div>
 	</section>
-
 	<?php
 endif;
 

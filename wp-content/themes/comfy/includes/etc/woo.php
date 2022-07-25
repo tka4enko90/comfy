@@ -81,7 +81,7 @@ function cmf_the_credit_text( $price ) {
 	}
 	?>
 	<span class="credit">
-		<?php echo __( 'or 4 interest-free-payments of' ) . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
+		<?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
 		<svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<rect width="57" height="28" fill="url(#pattern0)"></rect>
 			<defs>
@@ -231,6 +231,32 @@ add_action(
 			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
 			add_comment_meta( $comment_id, 'title', $review_title );
 		}
+	}
+);
+
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+
+		global $product;
+		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			?>
+			<div class="product-tags">
+			<?php
+			foreach ( $terms as $term ) {
+				?>
+				<span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+				<?php
+			}
+			?>
+			</div>
+			<?php
+		}
+
 	}
 );
 

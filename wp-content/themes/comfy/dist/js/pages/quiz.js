@@ -81,87 +81,61 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/partials/ajax-account-forms.js":
-/*!***********************************************!*\
-  !*** ./src/js/partials/ajax-account-forms.js ***!
-  \***********************************************/
+/***/ "./src/js/pages/quiz.js":
+/*!******************************!*\
+  !*** ./src/js/pages/quiz.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-jQuery(document).ready(function ($) {
-  var forms = $('form#login-form, form#registration-form, form#lost-password'),
-      ajaxFail = function ajaxFail(response) {
-    if (response['responseJSON']['data']['errors']) {
-      showErrors(response['responseJSON']['data']['errors']);
-      $([document.documentElement, document.body]).animate({
-        scrollTop: $('#' + Object.keys(response['responseJSON']['data']['errors'])[0]).offset().top - 200
-      }, 600);
-    }
-  },
-      ajaxSuccess = function ajaxSuccess(response) {
-    if (response.success === true) {
-      if (response.data && response.data['redirect_to']) {
-        location.replace(response.data['redirect_to']);
+(function ($) {
+  var quiz = {
+    firstQuestionHash: '#first-question',
+    initProgressBar: function initProgressBar(stepId) {
+      var goToStepEl = $(stepId),
+          currentStepNum = parseInt(goToStepEl.data('step')),
+          stepsAheadNum = parseInt(goToStepEl.data('steps-ahead')),
+          percent = (currentStepNum + stepsAheadNum) / 100,
+          progress = currentStepNum / percent;
+      $('.quiz-progress-bar-fill').delay(30).queue(function (next) {
+        $(this).css('width', progress + '%');
+        next();
+      });
+    },
+    init: function init() {
+      if (window.location.hash) {
+        this.initProgressBar(window.location.hash);
       } else {
-        location.reload();
+        window.location.hash = this.firstQuestionHash;
       }
-    }
-  },
-      clearErrors = function clearErrors() {
-    $('.error-message').remove();
-    $('.form-field.error').removeClass('error');
-  },
-      showErrors = function showErrors(errors) {
-    clearErrors();
 
-    for (var key in errors) {
-      var elWrap = $("#" + key).parents('.form-field');
-      elWrap.addClass('error');
-      elWrap.append('<span class="error-message">' + errors[key] + '</span>');
+      var self = this;
+      window.addEventListener('popstate', function (event) {
+        self.initProgressBar(window.location.hash);
+      }, false);
     }
   };
-
-  if (forms) {
-    forms.submit(function (e) {
-      e.preventDefault();
-      var formFields = $(this).serializeArray(),
-          formData = {};
-
-      for (var i = 0; i < formFields.length; i++) {
-        formData[formFields[i]['name']] = formFields[i]['value'];
-      }
-
-      formData['security'] = cpm_object.account_nonce_key;
-      window.ajaxCall(formData).success(ajaxSuccess).fail(ajaxFail);
-      return false;
-    });
-
-    if ($('form#lost-password #user_login')[0]) {
-      $('#user_login').on('keyup', function () {
-        $('button[type="submit"]').attr('disabled', false);
-      });
-    }
-  }
-});
+  quiz.init();
+})(jQuery);
 
 /***/ }),
 
-/***/ 6:
-/*!*****************************************************!*\
-  !*** multi ./src/js/partials/ajax-account-forms.js ***!
-  \*****************************************************/
+/***/ 4:
+/*!************************************!*\
+  !*** multi ./src/js/pages/quiz.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/js/partials/ajax-account-forms.js */"./src/js/partials/ajax-account-forms.js");
+module.exports = __webpack_require__(/*! ./src/js/pages/quiz.js */"./src/js/pages/quiz.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=ajax-account-forms.js.map
+//# sourceMappingURL=quiz.js.map
