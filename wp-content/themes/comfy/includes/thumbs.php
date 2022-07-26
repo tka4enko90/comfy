@@ -15,6 +15,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'cmf_post_preview', 403, 403, true );
 	add_image_size( 'cmf_product_preview', 352, 352, true );
 	add_image_size( 'cmf_reasons', 316, 316, true );
+	add_image_size( 'cmf_quiz', 229, 229, true );
 	add_image_size( 'cmf_product_preview_small', 142, 142, true );
 	add_image_size( 'cmf_product_single', 609 );
 	add_image_size( 'cmf_product_single_zoomed', 1318 );

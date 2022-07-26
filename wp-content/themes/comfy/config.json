@@ -12,6 +12,9 @@
     "pages/single-product-bundle": [
       "./src/js/pages/single-product-bundle.js"
     ],
+    "pages/quiz": [
+      "./src/js/pages/quiz.js"
+    ],
 
 
     "partials/slick": [

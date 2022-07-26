@@ -81,3 +81,4 @@ wp-content/mysql.sql
 .idea
 /wp-content/themes/comfy/vendor/
 /wp-content/themes/comfy/composer.lock
+/wp-content/themes/comfy/dist/css/components/mixins.css
