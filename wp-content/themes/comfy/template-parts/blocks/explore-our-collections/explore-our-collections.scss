@@ -1,0 +1,50 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.explore-our-collections-section {
+  .row {
+    margin-bottom: -32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: -80px;
+    }
+    .col {
+      margin-bottom: 32px;
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 80px;
+        flex-basis: 50%;
+      }
+      @include media-breakpoint-up(lg) {
+        flex-basis: 530px;
+      }
+    }
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 64px;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 32px;
+    }
+
+  }
+
+  img {
+    margin-bottom: 16px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 24px;
+    }
+  }
+  .item {
+    &-title {
+      margin-bottom: 16px;
+    }
+    &-description {
+      margin-bottom: 24px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
