@@ -42,17 +42,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<div class="bundle-item-attributes">
 								<?php
 								$bundle_product = wc_get_product( $bundle->get_product_id() );
-								$attributes     = $bundle_product->get_variation_attributes();
-								if ( $attributes ) {
-									foreach ( $attributes as $name => $val ) {
-										?>
-										<p class="bundle-item-attribute bundle-item-attribute--<?php echo $name; ?>">
-											<span class="bundle-item-attribute-name">
-												<?php echo wc_attribute_label( $name ) . ':'; ?>
-											</span>
-											<span class="bundle-item-attribute-value attribute_<?php echo $name; ?>"></span>
-										</p>
-										<?php
+								if ( $bundle_product->is_type( 'variable' ) ) {
+									$attributes = $bundle_product->get_variation_attributes();
+									if ( ! empty( $attributes ) ) {
+										foreach ( $attributes as $name => $val ) {
+											?>
+											<p class="bundle-item-attribute bundle-item-attribute--<?php echo $name; ?>">
+												<span class="bundle-item-attribute-name">
+													<?php echo wc_attribute_label( $name ) . ':'; ?>
+												</span>
+												<span class="bundle-item-attribute-value attribute_<?php echo $name; ?>"></span>
+											</p>
+											<?php
+										}
 									}
 								}
 								?>

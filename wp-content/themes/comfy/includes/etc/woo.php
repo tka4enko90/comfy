@@ -163,13 +163,31 @@ add_filter(
 			return $price;
 		}
 
+		$bundled_data_items = $product->get_bundled_data_items();
+		$bundle_discount    = 0;
+		foreach ( $bundled_data_items as $bundled_item ) {
+			$item_data             = $bundled_item->get_data();
+			$item_discount         = $item_data['meta_data']['discount'];
+			$_product              = wc_get_product( $item_data['product_id'] );
+			$bundled_product_price = $_product->get_price();
+			if ( is_numeric( $bundled_product_price ) && is_numeric($item_discount) ) {
+				$bundle_discount += $bundled_product_price - ( ( $bundled_product_price / 100 ) * ( 100 - $item_discount ) );
+			}
+		}
+
 		ob_start();
 		$min_price = $product->get_min_raw_price();
 		?>
 		<span>
 			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 		</span>
-		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
+		<?php
+		if ( 0 < $bundle_discount ) {
+			?>
+			<span class="sale-persent"><?php echo __( 'Saves you ' ) . wc_price( $bundle_discount ) . '%'; ?></span>
+			<?php
+		}
+		?>
 		<?php
 		cmf_the_credit_text( $min_price );
 

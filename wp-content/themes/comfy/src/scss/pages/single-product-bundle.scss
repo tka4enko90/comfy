@@ -4,13 +4,55 @@ body.single-product #primary {
   .bundled_product_title {
     margin-bottom: 28px;
   }
-  .bundle-steps-wrap {
-    .bundle-step {
-      display: none;
-      &.current-step {
-        display: block;
+
+  .bundle-step {
+    &s {
+      &-wrap {
+        .bundle-step {
+          display: none;
+          &.current-step {
+            display: block;
+          }
+        }
+      }
+      &-btns {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -16px;
+        .button {
+          margin: 0 16px;
+
+        }
       }
     }
+    &-description {
+      color: $primary-color;
+    }
+    .summary {
+      .price {
+        margin-bottom: 16px;
+        @include media-breakpoint-up(sm) {
+          margin-bottom: 32px;
+        }
+      }
+      .includes {
+        font-size: 12px;
+        margin-bottom: 32px;
+      }
+      .in-stock {
+        margin-top: 16px;
+        font-size: 12px;
+      }
+      .woocommerce-tabs.wc-tabs-wrapper {
+        margin-top: 32px;
+      }
+    }
+    .bundle_wrap {
+      .product_title {
+        margin-bottom: 24px;
+      }
+    }
+
   }
   .bundle_form {
     .bundled_product {
@@ -47,6 +89,7 @@ body.single-product #primary {
         }
         &-thumb {
           flex-basis: 142px;
+          min-width: 142px;
           margin-right: 32px;
           img {
             border-radius: 8px;
@@ -55,6 +98,8 @@ body.single-product #primary {
         &-title {
           color: $primary-color;
           margin: 0;
+          font-size: 16px;
+          font-weight: 500;
         }
         &-attribute {
           margin: 8px 0 0;
@@ -136,23 +181,13 @@ body.single-product #primary {
     }
   }
   .mobile-info {
-    .product_title {
-      margin-bottom: 24px;
+    margin-bottom: 32px;
+    .woocommerce-product-rating {
+      margin: 16px 0 0;
     }
-  }
-
-
-  .bundle-steps-btns {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 -16px;
-    .button {
-      margin: 0 16px;
-
+    .product_title, .bundle-step-title {
+      margin: 0;
     }
-  }
-  .in-stock, .woocommerce-tabs.wc-tabs-wrapper {
-    margin-top: 16px;
   }
 
   .bundle-breakdown {

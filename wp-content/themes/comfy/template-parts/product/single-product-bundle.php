@@ -27,7 +27,7 @@ $bundled_items    = $product->get_bundled_items();
 $bundle_steps_num = count( $bundled_items ) + 1;
 ?>
 <div class="bundle-steps-wrap" data-steps="<?php echo $bundle_steps_num; ?>">
-	<div class="bundle-step bundle-step current-step" data-step="0">
+	<div class="bundle-step current-step" data-step="0">
 		<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
 			<?php

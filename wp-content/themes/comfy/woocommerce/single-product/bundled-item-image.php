@@ -21,7 +21,9 @@ if ( ! isset( $product_id ) ) {
 
 $product             = wc_get_product( $product_id );
 $product_gallery_ids = $product->get_gallery_image_ids();
-//$product_gallery_ids = array_filter( explode( ',', get_post_meta( $variation_id, '_wc_additional_variation_images', true ) ) );
+if ( empty( $product_gallery_ids ) ) {
+	$product_gallery_ids[] = get_post_thumbnail_id( $product->get_id() );
+}
 $columns         = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $wrapper_classes = apply_filters(
 	'woocommerce_single_product_image_gallery_classes',

@@ -15,7 +15,7 @@ add_action(
 );
 
 add_action(
-	'woocommerce_bundled_single_variation',
+	'woocommerce_bundled_item_details',
 	function() {
 		?>
 		<div class="bundle-steps-btns">
@@ -23,7 +23,7 @@ add_action(
 			<button class="button button-primary bundle-step-button"><?php _e( 'Next', 'comfy' ); ?></button>
 		</div>
 		<?php
-	}
+	}, 25
 );
 
 add_action( 'woocommerce_bundled_item_details', 'cmf_bundle_step_text', 12, 2 );
@@ -34,7 +34,7 @@ add_action(
 		?>
 	<div class="mobile-info">
 		<?php cmf_bundle_step_text( $bundled_item, $product ); ?>
-		<h1><?php echo $bundled_item->get_title(); ?></h1>
+		<h1 class="bundle-step-title"><?php echo $bundled_item->get_title(); ?></h1>
 	</div>
 		<?php
 	},
