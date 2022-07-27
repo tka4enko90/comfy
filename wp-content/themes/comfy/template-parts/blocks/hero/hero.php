@@ -1,19 +1,29 @@
 <?php
+$section = array(
+	'title'     => get_sub_field( 'title' ),
+	'content'   => get_sub_field( 'content' ),
+	'link'      => get_sub_field( 'link' ),
+	'image_id'  => get_sub_field( 'image_id' ),
+	'container' => get_sub_field( 'container' ),
+	'layout'    => get_sub_field( 'layout' ),
+);
+
 if ( ! empty( $args['section_name'] ) ) {
 	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
 
+	if ( ! empty( $section['layout'] ) && 'full-width' === $section['layout'] ) {
+		add_filter(
+			$args['section_name'] . '_classes',
+			function ( $classes ) {
+				return  $classes . ' ' . 'full-width-content';
+			}
+		);
+	}
 }
-
-$section = array(
-	'title'    => get_sub_field( 'title' ),
-	'content'  => get_sub_field( 'content' ),
-	'link'     => get_sub_field( 'link' ),
-	'image_id' => get_sub_field( 'image_id' ),
-);
 ?>
-<div class="container container-sm">
+<div class="container container-<?php echo ! empty( $section['container'] ) ? $section['container'] : 'sm'; ?>">
 	<div class="row justify-content-between">
-		<div class="col left-col">
+		<div class="col">
 			<?php
 			if ( ! empty( $section['title'] ) ) {
 				?>
@@ -27,7 +37,7 @@ $section = array(
 		<?php
 		if ( ! empty( $section['content'] ) || ! empty( $section['link']['url'] ) ) {
 			?>
-			<div class="col right-col">
+			<div class="col">
 				<div class="section-content">
 					<?php
 					echo ( ! empty( $section['content'] ) ) ? $section['content'] : '';
