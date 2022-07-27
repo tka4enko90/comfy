@@ -1,0 +1,40 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+
+.reasons-why-section {
+  &-description {
+    margin: 0;
+  }
+  .reasons-why {
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-top: 32px;
+      @include media-breakpoint-up(sm) {
+        margin-top: 64px;
+      }
+      @include media-breakpoint-down(xs) {
+        flex-wrap: wrap;
+      }
+      &-content {
+        @include media-breakpoint-up(sm) {
+          margin-left: 33px;
+        }
+      }
+      img {
+        border-radius: 8px;
+
+        @include media-breakpoint-down(xs) {
+          flex-basis: 100%;
+          margin-bottom: 32px;
+        }
+        @include media-breakpoint-up(sm) {
+          flex-basis: 316px;
+          @include media-breakpoint-down(sm) {
+            max-width: 30%;
+          }
+        }
+      }
+    }
+  }
+}

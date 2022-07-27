@@ -27,6 +27,11 @@ main.main {
           flex-basis: 285px;
           padding: 0 28px;
         }
+        &:last-child {
+          @include media-breakpoint-down(xs) {
+            margin-bottom: 64px;
+          }
+        }
         a {
           width: 100%;
         }
@@ -34,6 +39,7 @@ main.main {
     }
   }
   &-progress {
+    color: $primary-color;
     font-size: 14px;
     line-height: 16px;
     text-transform: uppercase;
@@ -72,7 +78,12 @@ main.main {
     &-title {
       text-align: center;
       color: $primary-color;
-      margin: 16px 0 40px;
+      margin: 0;
+      font-size: 16px;
+      @include media-breakpoint-up(sm) {
+        margin: 16px 0 40px;
+        font-size: 14px;
+      }
     }
     @include media-breakpoint-down(xs) {
       display: flex;
@@ -80,7 +91,7 @@ main.main {
       padding: 20px;
       border: 1px solid $line-gray;
       border-radius: 8px;
-      margin-bottom: 36px;
+      margin-bottom: 16px;
       img {
         flex-basis: 123px;
         max-width: 123px;
