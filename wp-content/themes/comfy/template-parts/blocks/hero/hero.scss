@@ -64,6 +64,8 @@
     }
     @include media-breakpoint-up(md) {
       margin-top: 64px;
+      max-height: 720px;
+      object-fit: none;
     }
     @include media-breakpoint-down(xs) {
       object-fit: cover;
