@@ -44,9 +44,16 @@ add_action(
 );
 
 function cmf_bundle_step_text( $bundled_item, $product ) {
-	$bundled_items    = $product->get_bundled_items();
+	$bundled_items   = $product->get_bundled_items();
+	$current_item_id = $bundled_item->get_product_id();
+	$step_counter    = 0;
+	foreach ( $bundled_items as $item ) {
+		++$step_counter;
+		if ( $current_item_id === $item->get_product_id() ) {
+			break;
+		}
+	}
 	$bundle_steps_num = count( $bundled_items );
-	$step_counter     = $bundled_item->get_id();
 	?>
 	<p class="bundle-step-description"><?php echo __( 'Step', 'comfy' ) . ' ' . $step_counter . ' ' . __( 'of', 'comfy' ) . ' ' . $bundle_steps_num; ?></p>
 	<?php
