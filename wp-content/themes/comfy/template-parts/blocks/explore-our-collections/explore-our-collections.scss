@@ -35,6 +35,10 @@
     @include media-breakpoint-up(md) {
       margin-bottom: 24px;
     }
+    @include media-breakpoint-down(xs) {
+      object-fit: cover;
+      height: calc(100vw - 40px);
+    }
   }
   .item {
     &-title {
