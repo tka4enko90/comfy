@@ -28,6 +28,10 @@ body.single-product #primary {
     &-description {
       color: $primary-color;
     }
+    .in-stock {
+      margin-top: 16px;
+      font-size: 12px;
+    }
     .summary {
       .price {
         margin-bottom: 16px;
@@ -38,10 +42,6 @@ body.single-product #primary {
       .includes {
         font-size: 12px;
         margin-bottom: 32px;
-      }
-      .in-stock {
-        margin-top: 16px;
-        font-size: 12px;
       }
       .woocommerce-tabs.wc-tabs-wrapper {
         margin-top: 32px;
@@ -124,11 +124,31 @@ body.single-product #primary {
   }
   .details, .bundle_data {
     padding: 0;
-    .bundle_price {
-      .price {
-        margin-top: 8px;
+    .bundle-price-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 32px 0;
+      .bundle_price {
+        .price {
+          margin: 0;
+          ins {
+            color: $accent-color;
+          }
+        }
+      }
+      .bundle-discount {
+        font-size: 12px;
+        color: $accent-color;
+        line-height: 18px;
+        margin: 0 0 0 8px;
+      }
+      .bundle-credit-text {
+        flex-basis: 100%;
+        font-size: 14px;
+        color: $primary-color;
       }
     }
+
     @include media-breakpoint-down(sm) {
       margin-top: 16px;
       flex-basis: 100%;
