@@ -17,13 +17,14 @@
         flex-wrap: wrap;
       }
       &-content {
+        margin-bottom: -1rem;
         @include media-breakpoint-up(sm) {
           margin-left: 33px;
         }
       }
       img {
         border-radius: 8px;
-
+        width: auto;
         @include media-breakpoint-down(xs) {
           flex-basis: 100%;
           margin-bottom: 32px;

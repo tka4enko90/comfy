@@ -14,7 +14,7 @@
   .col {
     flex-basis: 100%;
 
-    @include media-breakpoint-up(xs) {
+    @include media-breakpoint-up(sm) {
       flex-basis: 50%;
     }
 
