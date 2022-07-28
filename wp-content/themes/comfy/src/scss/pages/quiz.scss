@@ -217,6 +217,9 @@ main.main {
           display: block;
           color: $primary-color;
         }
+        .sale-persent {
+          color: $accent-color;
+        }
       }
       &-includes {
         font-size: 14px;
