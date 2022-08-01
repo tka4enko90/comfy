@@ -75,9 +75,7 @@
         }
         .wpcf7-form-control-wrap {
           margin-bottom: 32px;
-          &.email {
-            text-align: left;
-          }
+          text-align: left;
         }
         .wpcf7-form-control {
           &.wpcf7-submit {
@@ -109,6 +107,8 @@
       h6 {
         font-family: CotfordDisplay;
         text-transform: none;
+        font-size: 24px;
+        line-height: 140%;
       }
       p {
         margin-bottom: 32px;
