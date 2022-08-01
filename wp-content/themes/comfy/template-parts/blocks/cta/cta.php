@@ -21,7 +21,7 @@ $section = array(
 	if ( ! empty( $section['link'] ) ) {
 		if ( ! empty( $section['link']['url'] ) && ! empty( $section['link']['title'] ) ) {
 			?>
-			<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+			<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $section['link']['target'] . '"' : ''; ?>>
 				<?php echo $section['link']['title']; ?>
 			</a>
 			<?php
