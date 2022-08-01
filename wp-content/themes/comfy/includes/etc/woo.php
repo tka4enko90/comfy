@@ -252,16 +252,14 @@ add_action(
 	}
 );
 
-add_action(
-	'woocommerce_before_shop_loop_item_title',
-	function () {
+function cmf_get_the_product_tags() {
+	global $product;
+	$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
 
-		global $product;
-		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
-
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-			?>
-			<div class="product-tags">
+	ob_start();
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		?>
+		<div class="product-tags">
 			<?php
 			foreach ( $terms as $term ) {
 				?>
@@ -271,10 +269,16 @@ add_action(
 				<?php
 			}
 			?>
-			</div>
-			<?php
-		}
+		</div>
+		<?php
+	}
+	return ob_get_clean();
+}
 
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+		echo cmf_get_the_product_tags();
 	}
 );
 

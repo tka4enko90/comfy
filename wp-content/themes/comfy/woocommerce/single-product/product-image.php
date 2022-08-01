@@ -18,6 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 global $product;
+global $post;
 
 $columns             = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $product_gallery_ids = $product->get_gallery_image_ids();
@@ -34,7 +35,13 @@ $wrapper_classes = apply_filters(
 		'images',
 	)
 );
+
+$args = array( 'image_ids' => $product_gallery_ids );
+
+if ( $product->get_id() === $post->ID ) {
+	$args['tags'] = cmf_get_the_product_tags();
+}
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-	<?php get_template_part( 'template-parts/product/gallery', '', array( 'image_ids' => $product_gallery_ids ) ); ?>
+	<?php get_template_part( 'template-parts/product/gallery', '', $args ); ?>
 </div>

@@ -289,6 +289,9 @@
         &.slick-initialized {
           width: 100%;
         }
+        .gallery-item {
+          position: relative;
+        }
         .woocommerce-product-gallery__image {
           display: block;
           width: 100%;
@@ -318,6 +321,27 @@
           &:last-child {
             margin-bottom: 0;
           }
+        }
+      }
+      .product-tags {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        right: 16px;
+        z-index: 2;
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+        .product-tag {
+          font-size: 10px;
+          line-height: 100%;
+          text-transform: uppercase;
+          color: $white;
+          background-color: $primary-color;
+          padding: 8px 26px;
+          margin: 0 8px 8px 0;
+          border-radius: 8px;
+
         }
       }
       img {
