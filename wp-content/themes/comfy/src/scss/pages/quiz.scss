@@ -75,6 +75,10 @@ main.main {
     }
   }
   &-item {
+    transition: opacity $std-transition-length ease-in;
+    &:hover {
+      opacity: .7;
+    }
     &-title {
       text-align: center;
       color: $primary-color;
@@ -212,6 +216,9 @@ main.main {
         .credit {
           display: block;
           color: $primary-color;
+        }
+        .sale-persent {
+          color: $accent-color;
         }
       }
       &-includes {
