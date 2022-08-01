@@ -12,6 +12,10 @@ add_action(
 		if ( is_checkout() ) {
 			wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
 		}
+
+		if ( is_archive() ) {
+			wp_dequeue_style( 'woocommerce-general' );
+		}
 	}
 );
 
