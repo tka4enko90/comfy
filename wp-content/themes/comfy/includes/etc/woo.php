@@ -155,6 +155,18 @@ add_filter(
 	2
 );
 
+function cmf_get_bundle_discount( $product ) {
+	$bundled_data_items  = $product->get_bundled_data_items();
+	$bundled_items_price = 0;
+	foreach ( $bundled_data_items as $bundled_item ) {
+		$item_data            = $bundled_item->get_data();
+		$_product             = wc_get_product( $item_data['product_id'] );
+		$bundled_items_price += $_product->get_price();
+	}
+	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
+
+}
+
 // Product bundle price filter
 add_filter(
 	'woocommerce_get_price_html',
@@ -163,13 +175,19 @@ add_filter(
 			return $price;
 		}
 
-		ob_start();
-		$min_price = $product->get_min_raw_price();
+		$bundle_discount = cmf_get_bundle_discount( $product );
+		$min_price       = $product->get_min_raw_price();
 		?>
 		<span>
 			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 		</span>
-		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
+		<?php
+		if ( 0 < $bundle_discount ) {
+			?>
+			<span class="sale-persent"><?php echo __( 'Saves you ' ) . $bundle_discount . '%'; ?></span>
+			<?php
+		}
+		?>
 		<?php
 		cmf_the_credit_text( $min_price );
 

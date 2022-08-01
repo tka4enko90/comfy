@@ -145,8 +145,9 @@
       }
       .variable-items-wrapper {
         display: flex;
+        flex-wrap: wrap;
         padding: 0;
-        margin: 0 -8px;
+        margin: 0 -4px;
         &.color-variable-items-wrapper {
           .variable-item {
             .variable-item-span {
@@ -190,8 +191,12 @@
           }
         }
         &.button-variable-items-wrapper {
+          margin: 0 -4px -8px;
           .variable-item {
+            font-size: 14px;
+            line-height: 17px;
             padding: 10px 35px;
+            margin-bottom: 8px;
             color: $primary-color;
             border: 1.5px solid $line-gray;
             border-radius: 8px;
@@ -208,14 +213,6 @@
               color: $primary-color;
               cursor: default;
             }
-          }
-          .variable-item-span {
-
-
-
-          }
-          .variable-item-contents {
-
           }
         }
         .variable-item {
@@ -446,6 +443,7 @@
     }
     .button-secondary {
       font-weight: 400;
+      background-color: transparent;
       @include button;
       @include button-secondary;
       @include media-breakpoint-down(sm) {
@@ -716,7 +714,7 @@
       }
       @include media-breakpoint-down(xs) {
         padding: 64px 20px;
-        width: 98%;
+        width: 100%;
       }
 
 

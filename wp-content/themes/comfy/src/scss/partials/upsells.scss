@@ -19,6 +19,7 @@ body .section.upsells-products-section {
     padding: 0;
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
+      margin: 0 0 -32px;
     }
 
     .product {

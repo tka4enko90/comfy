@@ -117,8 +117,10 @@ add_action(
 		switch ( $product->get_type() ) {
 			case 'bundle':
 				foreach ( $product->get_bundled_items() as $item ) {
-					$bundle_product  = wc_get_product( $item->get_product_id() );
-					$variation_attrs = array_merge( $bundle_product->get_variation_attributes(), $variation_attrs );
+					$bundle_product = wc_get_product( $item->get_product_id() );
+					if ( $bundle_product->is_type( 'variable' ) ) {
+						$variation_attrs = array_merge( $bundle_product->get_variation_attributes(), $variation_attrs );
+					}
 				}
 				break;
 			case 'variable':
