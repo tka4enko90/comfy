@@ -175,6 +175,8 @@ add_filter(
 			return $price;
 		}
 
+		ob_start();
+
 		$bundle_discount = cmf_get_bundle_discount( $product );
 		$min_price       = $product->get_min_raw_price();
 		?>
@@ -196,7 +198,6 @@ add_filter(
 	1,
 	2
 );
-
 // WordPress support
 add_action(
 	'after_setup_theme',
