@@ -1,0 +1,51 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.content-with-image--want-to {
+  &-section {
+    .row {
+      @include media-breakpoint-up(sm) {
+        @include media-breakpoint-down(md) {
+          align-items: stretch;
+        }
+      }
+      .col {
+        &:first-child {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 704px;
+          }
+          @include media-breakpoint-down(xs) {
+            margin-bottom: 16px;
+          }
+          @include media-breakpoint-up(sm) {
+            @include media-breakpoint-down(md) {
+              img {
+                height: 100%;
+              }
+            }
+          }
+        }
+        &:last-child {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 433px;
+          }
+        }
+      }
+    }
+
+    img {
+
+    }
+    .title {
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
+    }
+    .mobile-title {
+      margin-bottom: 32px;
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
+    }
+
+  }
+}

@@ -80,7 +80,7 @@ function cmf_quiz_choice( $args ) {
 									<?php
 								}
 								?>
-								<span class="quiz-choice-product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
+								<div class="quiz-choice-product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></div>
 								<span class="quiz-choice-product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
 							</div>
 
@@ -166,7 +166,6 @@ function cmf_quiz_choice( $args ) {
 			<?php
 		}
 		?>
-
 	</section>
 	<?php
 }
