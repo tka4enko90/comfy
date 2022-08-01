@@ -31,13 +31,19 @@
   }
 
   img {
+    border-radius: 8px;
     margin-bottom: 16px;
     @include media-breakpoint-up(md) {
       margin-bottom: 24px;
     }
+    @include media-breakpoint-down(xs) {
+      object-fit: cover;
+      height: calc(100vw - 40px);
+    }
   }
   .item {
     &-title {
+      font-size: 24px;
       margin-bottom: 16px;
     }
     &-description {
