@@ -19,6 +19,9 @@
 
   }
   #primary {
+    .section-breadcrumbs {
+      font-size: 12px;
+    }
     .woocommerce-product-rating {
       display: flex;
       align-items: center;
@@ -127,6 +130,7 @@
           }
         }
         .label {
+          font-weight: 500;
           margin-bottom: 24px;
           .required {
             display: none;
@@ -134,12 +138,14 @@
         }
         label {
           font-size: inherit;
+          font-weight: inherit;
           text-transform: none;
           width: auto;
           margin: 0;
 
           &:after {
             content: 'ㅤ';
+            font-size: 8px;
           }
         }
       }
@@ -150,6 +156,7 @@
         margin: 0 -4px;
         &.color-variable-items-wrapper {
           .variable-item {
+            margin: 0 6px;
             .variable-item-span {
               display: block;
               position: relative;
@@ -193,9 +200,12 @@
         &.button-variable-items-wrapper {
           margin: 0 -4px -8px;
           .variable-item {
+            flex-basis: 128px;
+            white-space: nowrap;
+            text-align: center;
             font-size: 14px;
             line-height: 17px;
-            padding: 10px 35px;
+            padding: 10px 18px;
             margin-bottom: 8px;
             color: $primary-color;
             border: 1.5px solid $line-gray;
@@ -217,7 +227,7 @@
         }
         .variable-item {
           display: block;
-          margin: 0 8px;
+          margin: 0 4px;
         }
       }
       .includes {
