@@ -47,46 +47,20 @@ switch ( $display_type ) {
 		break;
 	default:
 		$page_sections[0]['image_id'] = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-		$query_args                   = array(
-			'post_type'   => 'product',
-			'numberposts' => -1,
-			'tax_query'   => array(
-				array(
-					'taxonomy'         => 'product_cat',
-					'field'            => 'term_id',
-					'terms'            => $cat->term_id,
-					'include_children' => true,
-				),
-			),
-		);
-		$section_products             = array();
 		if ( ! empty( $subcategories ) ) {
 			foreach ( $subcategories as $subcategory ) {
-				$query_args['tax_query']['terms'] = $subcategory->term_id;
-				$products                         = get_posts( $query_args );
-				if ( ! empty( $products ) ) {
-					foreach ( $products as $_product ) {
-						$section_products[]['product'] = $_product;
-					}
-					$page_sections[] = array(
-						'section_name' => 'third-level-collection',
-						'title'        => $subcategory->name,
-						'subtitle'     => wp_kses( category_description( $subcategory->term_id ), array( 'br' => array() ) ),
-						'products'     => $section_products,
-					);
-				}
-			}
-		} else {
-			$products = get_posts( $query_args );
-			foreach ( $products as $_product ) {
-				$section_products[]['product'] = $_product;
-			}
-			if ( ! empty( $products ) ) {
 				$page_sections[] = array(
 					'section_name' => 'third-level-collection',
-					'products'     => $section_products,
+					'title'        => $subcategory->name,
+					'subtitle'     => wp_kses( category_description( $subcategory->term_id ), array( 'br' => array() ) ),
+					'category'     => $subcategory,
 				);
 			}
+		} else {
+			$page_sections[] = array(
+				'section_name' => 'third-level-collection',
+				'category'     => $cat,
+			);
 		}
 }
 get_header(); ?>
