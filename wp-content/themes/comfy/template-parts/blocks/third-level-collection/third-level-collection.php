@@ -3,9 +3,9 @@ if ( ! empty( $args['section_name'] ) ) {
 	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
 }
 $section = array(
-	'title'    => get_sub_field( 'title' ),
-	'subtitle' => get_sub_field( 'subtitle' ),
-	'products' => get_sub_field( 'products' ),
+	'title'    => ( ! empty( $args['title'] ) ) ? $args['title'] : get_sub_field( 'title' ),
+	'subtitle' => ( ! empty( $args['subtitle'] ) ) ? $args['subtitle'] : get_sub_field( 'subtitle' ),
+	'products' => ( ! empty( $args['products'] ) ) ? $args['products'] : get_sub_field( 'products' ),
 );
 ?>
 <div class="container container-sm">

@@ -5,10 +5,10 @@ if ( ! empty( $args['section_name'] ) ) {
 }
 
 $section = array(
-	'product_cat'     => get_sub_field( 'product_cat' ),
-	'custom_image_id' => get_sub_field( 'custom_image_id' ),
-	'custom_content'  => get_sub_field( 'custom_content' ),
-	'button_label'    => __( 'shop now', 'comfy' ),
+	'product_cat'     => ( ! empty( $args['product_cat'] ) ) ? $args['product_cat'] : get_sub_field( 'product_cat' ),
+	'custom_image_id' => ( ! empty( $args['custom_image_id'] ) ) ? $args['custom_image_id'] : get_sub_field( 'custom_image_id' ),
+	'custom_content'  => ( ! empty( $args['custom_content'] ) ) ? $args['custom_content'] : get_sub_field( 'custom_content' ),
+	'button_label'    => ( ! empty( $args['button_label'] ) ) ? $args['button_label'] : __( 'shop now', 'comfy' ),
 );
 
 if ( $section['product_cat'] instanceof WP_Term ) {
