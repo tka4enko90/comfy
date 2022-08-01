@@ -84,14 +84,15 @@
       .guide-link {
         position: absolute;
         right: 0;
-        top: -50px;
+        top: 0;
         color: $primary-color;
-        @include media-breakpoint-up(sm) {
-          top: -60px;
-        }
         span {
+          font-size: 12px;
           text-decoration: underline;
           margin-left: 4px;
+        }
+        svg {
+          margin-bottom: -1px;
         }
         &:hover {
           text-decoration: none;
