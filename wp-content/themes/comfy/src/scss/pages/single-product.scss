@@ -21,11 +21,11 @@
   #primary {
     .section-breadcrumbs {
       font-size: 12px;
+      line-height: 140%;
     }
     .woocommerce-product-rating {
       display: flex;
       align-items: center;
-      margin-bottom: 24px;
       .cmf-star-rating {
         margin: 0 -2.5px;
         .star {
@@ -37,6 +37,7 @@
       }
       .woocommerce-review-link {
         color: $primary-color;
+        font-size: 14px;
         margin-left: 7px;
         line-height: 1em;
         text-decoration: underline;
@@ -49,6 +50,7 @@
 
     .price {
       font-size: 16px;
+      line-height: 1;
       color: $primary-color;
       @include media-breakpoint-down(sm) {
         margin-top: 16px;
@@ -131,6 +133,8 @@
           }
         }
         .label {
+          font-size: 12px;
+          line-height: 20px;
           font-weight: 500;
           margin-bottom: 24px;
           .required {
@@ -157,7 +161,7 @@
         margin: 0 -4px;
         &.color-variable-items-wrapper {
           .variable-item {
-            margin: 0 6px;
+            margin: 0 8px;
             .variable-item-span {
               display: block;
               position: relative;
@@ -232,6 +236,7 @@
         }
       }
       .includes {
+        font-size: 12px;
         margin-bottom: 32px;
       }
 
@@ -255,7 +260,7 @@
         position: sticky;
         top: 144px;
         flex-basis: 107px;
-        padding-right: 32px;
+        padding-right: 52px;
         margin-bottom: 0;
         @include media-breakpoint-down(xs) {
           display: none;
@@ -381,6 +386,22 @@
       font-size: 40px;
       margin-bottom: 16px;
     }
+    .summary {
+      .variations_form {
+        .variations {
+          td {
+            position: static;
+          }
+          tr {
+            position: relative;
+          }
+          .guide-link {
+            top: 24px;
+            line-height: 1;
+          }
+        }
+      }
+    }
     .summary, .bundled_product_summary .details, .bundle_data {
       position: sticky;
       top: 136px;
@@ -397,7 +418,21 @@
           display: none;
         }
       }
-      .woocommerce-product-rating {
+      .woocommerce-product-rating, .jdgm-preview-badge {
+        margin-bottom: 24px;
+        .jdgm-star.jdgm-star {
+          font-size: 12px;
+        }
+        .jdgm-prev-badge {
+          &__stars {
+            line-height: 1;
+          }
+          &__text {
+            color: $primary-color;
+            font-size: 14px;
+            text-decoration: underline;
+          }
+        }
         @include media-breakpoint-down(sm) {
           display: none;
         }
@@ -493,12 +528,14 @@
 
     }
     .in-stock {
+      font-size: 12px;
       line-height: 1;
       color: $primary-color;
       margin-bottom: 0;
       svg {
         position: relative;
         top: -1px;
+        margin-right: 3px;
       }
     }
 
@@ -521,6 +558,7 @@
             display: none;
           }
           a {
+            color: $secondary-color;
             line-height: 1;
             padding: 0 0 15px 0;
           }
@@ -610,7 +648,31 @@
         }
       }
     }
+    .benefits-section {
+      .row {
+        .col {
+          &:first-child {
+            align-content: baseline;
+            @include media-breakpoint-up(md) {
+              padding-top: 204px;
+            }
+          }
+        }
+      }
+      .section-title {
+        display: none;
+        &.mobile {
+          display: block;
 
+          @include media-breakpoint-up(sm) {
+            font-size: 40px;
+          }
+          @include media-breakpoint-up(md) {
+            margin-bottom: 68px;
+          }
+        }
+      }
+    }
     .additional-products-section {
       .section-title {
         margin-bottom: 40px;
