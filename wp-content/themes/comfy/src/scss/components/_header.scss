@@ -263,17 +263,18 @@ main {
       margin: 0;
       padding: 0 8px;
       @include media-breakpoint-up(sm) {
-        padding: 0 33px;
+        padding: 0 24px;
       }
       li {
         display: block;
 
         &.depth{
           &-0 {
-            padding: 0 15px;
+            padding: 0 18px;
             a.depth-0 {
               position: relative;
               z-index: 1;
+              font-size: 14px;
               &:after {
                 content: '';
                 position: absolute;
