@@ -322,12 +322,16 @@ main {
             right: 0;
             display: flex;
             justify-content: space-between;
-            padding: 48px 20%;
+            padding: 48px 10%;
             background-color: $bg-white;
             opacity: 0;
             transition: $transition;
             pointer-events: none;
             transform: translateY(-100%);
+            @include media-breakpoint-up(xxl) {
+              padding: 48px 20%;
+            }
+
             .image-wrap {
               flex-basis: 403px;
               img {
