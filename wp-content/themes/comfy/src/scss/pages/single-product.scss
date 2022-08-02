@@ -49,12 +49,9 @@
     }
 
     .price {
-      font-size: 16px;
       line-height: 1;
       color: $primary-color;
-      @include media-breakpoint-down(sm) {
-        margin-top: 16px;
-      }
+
       ins {
         font-weight: 400;
         text-decoration: none;
@@ -438,7 +435,12 @@
         }
       }
       .price {
+        font-size: 16px;
         margin-bottom: 32px;
+        @include media-breakpoint-down(sm) {
+          font-size: 14px;
+          margin-top: 16px;
+        }
       }
     }
     .quantity {

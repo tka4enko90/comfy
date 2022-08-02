@@ -54,7 +54,12 @@ body .section.upsells-products-section {
       }
       .price {
         display: inline-block;
+        font-size: 16px;
         margin-bottom: 8px;
+        @include media-breakpoint-down(xs) {
+          font-size: 12px;
+          margin-top: 0;
+        }
         .amount {
           color: $primary-color;
         }
@@ -68,10 +73,15 @@ body .section.upsells-products-section {
           display: none;
         }
       }
+
       .woocommerce-loop-product__title {
         font-size: 24px;
         margin-bottom: 16px;
         padding: 0;
+        @include media-breakpoint-down(xs) {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
       }
       img {
         border-radius: 8px;
