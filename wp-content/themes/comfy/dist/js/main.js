@@ -262,20 +262,24 @@ jQuery(document).ready(function ($) {
   var subMenu = $('.sub-menu-wrap');
   subMenu.find('.nav-item-with-image').on('mouseenter', function () {
     if (window.innerWidth >= mobileNavBreakpoint) {
-      var itemImg = $(this).attr('data-img'),
-          itemDesc = $(this).attr('data-desc') ? $(this).attr('data-desc') : '',
+      var itemImg = $(this).data('img'),
+          itemDesc = $(this).data('desc') ? $(this).data('desc') : '',
           imgWrap = $(this).parents('div.sub-menu-wrap').children('.image-wrap'),
           img = imgWrap.children('img'),
           imgDesc = imgWrap.children('p'),
-          currentImg = imgWrap.find('img').attr('src');
-
-      if ((itemImg.length || itemDesc.length) && currentImg !== itemImg) {
-        img.attr('srcset', '');
-        imgWrap.fadeOut('fast', function () {
-          img.attr('src', itemImg);
-          imgDesc.html(itemDesc);
-        }).fadeIn("fast");
-      }
+          currentImg = imgWrap.find('img').attr('src'),
+          self = $(this);
+      setTimeout(function () {
+        if (self.is(":hover")) {
+          if ((itemImg.length || itemDesc.length) && currentImg !== itemImg) {
+            img.attr('srcset', '');
+            imgWrap.fadeOut('fast', function () {
+              img.attr('src', itemImg);
+              imgDesc.html(itemDesc);
+            }).fadeIn("fast");
+          }
+        }
+      }, 100);
     }
   }); //Clear sub menu wrap styles after resizing on desktop
 
