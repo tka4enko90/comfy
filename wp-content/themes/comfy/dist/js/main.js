@@ -279,7 +279,7 @@ jQuery(document).ready(function ($) {
             }).fadeIn("fast");
           }
         }
-      }, 100);
+      }, 200);
     }
   }); //Clear sub menu wrap styles after resizing on desktop
 
