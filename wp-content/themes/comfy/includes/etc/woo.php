@@ -95,6 +95,29 @@ function cmf_the_credit_text( $price ) {
 	<?php
 }
 
+function cmf_get_the_product_tags() {
+    global $product;
+    $terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+    ob_start();
+    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+        ?>
+        <div class="product-tags">
+            <?php
+            foreach ( $terms as $term ) {
+                ?>
+                <span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+    return ob_get_clean();
+}
+
 add_filter(
 	'woocommerce_get_price_html',
 	function ( $price, $product ) {
