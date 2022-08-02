@@ -669,7 +669,16 @@
         .col {
           &:first-child {
             align-content: baseline;
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(sm) {
+              @include media-breakpoint-down(xl) {
+                flex-basis: 66%;
+              }
+              @include media-breakpoint-down(sm) {
+                flex-basis: 50%;
+              }
+
+            }
+            @include media-breakpoint-up(lg) {
               padding-top: 204px;
             }
           }
