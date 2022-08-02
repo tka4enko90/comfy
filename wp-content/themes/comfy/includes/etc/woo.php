@@ -155,6 +155,18 @@ add_filter(
 	2
 );
 
+function cmf_get_bundle_discount( $product ) {
+	$bundled_data_items  = $product->get_bundled_data_items();
+	$bundled_items_price = 0;
+	foreach ( $bundled_data_items as $bundled_item ) {
+		$item_data            = $bundled_item->get_data();
+		$_product             = wc_get_product( $item_data['product_id'] );
+		$bundled_items_price += $_product->get_price();
+	}
+	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
+
+}
+
 // Product bundle price filter
 add_filter(
 	'woocommerce_get_price_html',
@@ -164,12 +176,20 @@ add_filter(
 		}
 
 		ob_start();
-		$min_price = $product->get_min_raw_price();
+
+		$bundle_discount = cmf_get_bundle_discount( $product );
+		$min_price       = $product->get_min_raw_price();
 		?>
 		<span>
 			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
 		</span>
-		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
+		<?php
+		if ( 0 < $bundle_discount ) {
+			?>
+			<span class="sale-persent"><?php echo __( 'Saves you ' ) . $bundle_discount . '%'; ?></span>
+			<?php
+		}
+		?>
 		<?php
 		cmf_the_credit_text( $min_price );
 
@@ -178,7 +198,6 @@ add_filter(
 	1,
 	2
 );
-
 // WordPress support
 add_action(
 	'after_setup_theme',
@@ -233,16 +252,14 @@ add_action(
 	}
 );
 
-add_action(
-	'woocommerce_before_shop_loop_item_title',
-	function () {
+function cmf_get_the_product_tags() {
+	global $product;
+	$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
 
-		global $product;
-		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
-
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-			?>
-			<div class="product-tags">
+	ob_start();
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		?>
+		<div class="product-tags">
 			<?php
 			foreach ( $terms as $term ) {
 				?>
@@ -252,10 +269,16 @@ add_action(
 				<?php
 			}
 			?>
-			</div>
-			<?php
-		}
+		</div>
+		<?php
+	}
+	return ob_get_clean();
+}
 
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+		echo cmf_get_the_product_tags();
 	}
 );
 
