@@ -396,6 +396,9 @@
           .guide-link {
             top: 24px;
             line-height: 1;
+            @include media-breakpoint-down(xs) {
+              top: 4px;
+            }
           }
         }
       }
