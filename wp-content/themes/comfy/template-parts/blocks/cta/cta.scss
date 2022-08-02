@@ -29,7 +29,6 @@
 body .main .section.cta-section {
   margin-top: 113px;
   @include media-breakpoint-up(sm) {
-    margin-top: 129px;
+    margin-top: -30px;
   }
-
 }

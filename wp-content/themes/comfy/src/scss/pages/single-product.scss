@@ -43,8 +43,8 @@
         }
       }
     }
+
     .price {
-      margin-bottom: 32px;
       font-size: 16px;
       color: $primary-color;
       @include media-breakpoint-down(sm) {
@@ -71,6 +71,13 @@
         &__text {
           font-size: 14px;
           text-decoration: underline;
+        }
+      }
+    }
+    .upsells-products-section {
+      .price {
+        .credit {
+          display: none;
         }
       }
     }
@@ -372,6 +379,9 @@
           display: none;
         }
       }
+      .price {
+        margin-bottom: 32px;
+      }
     }
     .quantity {
       display: flex;
@@ -668,51 +678,6 @@
               opacity: 1;
             }
 
-          }
-        }
-      }
-
-    }
-    .upsells-products-section {
-      overflow: hidden;
-      .section-title {
-        margin-bottom: 64px;
-      }
-      .products {
-        display: flex;
-        margin: 0 -32px -32px;
-        @include media-breakpoint-down(xs) {
-          flex-wrap: wrap;
-        }
-
-        .product {
-          margin: 0 32px 32px;
-          flex-basis: 100%;
-          @include media-breakpoint-up(md) {
-            flex-basis: 33%;
-          }
-          &-price {
-            ins {
-              color: $primary-color;
-            }
-            .price {
-              display: inline-block;
-              margin-bottom: 0;
-            }
-            .credit {
-              display: none;
-            }
-          }
-          .woocommerce-loop-product__title {
-            font-size: 24px;
-            margin-bottom: 16px;
-          }
-          img {
-            border-radius: 8px;
-            margin-bottom: 20px;
-          }
-          a {
-            width: 100%;
           }
         }
       }

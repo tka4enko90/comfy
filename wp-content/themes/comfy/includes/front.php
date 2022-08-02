@@ -12,12 +12,28 @@ add_action(
 		if ( is_checkout() ) {
 			wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
 		}
+
+		if ( is_archive() ) {
+			wp_dequeue_style( 'woocommerce-general' );
+		}
 	}
 );
-add_action( 'cfw_wp_head', function() {
-    wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
 
-} );
+add_action(
+	'wp_head',
+	function () {
+		$custom_header_scripts = get_field( 'custom_header_scripts', 'options' );
+		echo ( ! empty( $custom_header_scripts ) ) ? $custom_header_scripts : '';
+	},
+	0
+);
+
+add_action(
+	'cfw_wp_head',
+	function() {
+		wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
+	}
+);
 
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );// REMOVE EMOJI ICONS Script

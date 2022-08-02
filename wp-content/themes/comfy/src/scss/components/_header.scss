@@ -306,7 +306,13 @@ main {
         }
         .sub-menu {
           &-heading {
-            cursor: pointer;
+            display: block;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 400;
+            color: $secondary-color;
+            text-transform: uppercase;
+            margin-bottom: 28px;
           }
           &-wrap {
             position: fixed;

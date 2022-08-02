@@ -1,11 +1,30 @@
 {
     "key": "group_6283389c1560d",
-    "title": "Product Tag",
+    "title": "Nav Item Tag",
     "fields": [
         {
+            "key": "field_62e8c3b26ac78",
+            "label": "Tag label",
+            "name": "tag_label",
+            "type": "text",
+            "instructions": "This label will be displayed in header nav",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_628338abfcffd",
-            "label": "Color",
-            "name": "color",
+            "label": "Tag label Color",
+            "name": "tag_label_color",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -27,6 +46,13 @@
                 "operator": "==",
                 "value": "product_tag"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_cat"
+            }
         ]
     ],
     "menu_order": 0,
@@ -38,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1657725322
+    "modified": 1659422273
 }

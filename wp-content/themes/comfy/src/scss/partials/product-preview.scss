@@ -50,7 +50,7 @@
       color: $accent-color;
     }
   }
-  &-price {
+  &-price, .price {
     flex-basis: 100%;
     margin-bottom: 8px;
     ins {

@@ -76,9 +76,12 @@ function cmf_find_matching_product_variation( $product, $attributes ) {
 }
 
 function cmf_the_credit_text( $price ) {
+	if ( ! is_numeric( $price ) ) {
+		return;
+	}
 	?>
 	<span class="credit">
-		<?php echo __( 'or 4 interest-free-payments of' ) . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
+		<?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
 		<svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<rect width="57" height="28" fill="url(#pattern0)"></rect>
 			<defs>
@@ -91,6 +94,7 @@ function cmf_the_credit_text( $price ) {
 	</span>
 	<?php
 }
+
 add_filter(
 	'woocommerce_get_price_html',
 	function ( $price, $product ) {
@@ -128,6 +132,26 @@ add_filter(
 		return ob_get_clean();
 	},
 	0,
+	2
+);
+
+//Default variation price
+add_filter(
+	'woocommerce_get_price_html',
+	function ( $price, $product ) {
+
+		if ( ! $product->is_type( 'variable' ) ) {
+			return $price;
+		}
+
+		//Get price of default product variation
+		$default_attributes = $product->get_default_attributes();
+		$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
+		$product            = wc_get_product( $variation_id );
+
+		return $product->get_price_html();
+	},
+	1,
 	2
 );
 
