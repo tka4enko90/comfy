@@ -1,30 +1,13 @@
 {
     "key": "group_6283389c1560d",
-    "title": "Product Tag",
+    "title": "Nav Item Tag",
     "fields": [
         {
-            "key": "field_628338abfcffd",
-            "label": "Color",
-            "name": "color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#283455",
-            "enable_opacity": 0,
-            "return_format": "string"
-        },
-        {
-            "key": "field_62833ac474976",
-            "label": "Additional Nav Label",
-            "name": "additional_nav_label",
+            "key": "field_62e8c3b26ac78",
+            "label": "Tag label",
+            "name": "tag_label",
             "type": "text",
-            "instructions": "",
+            "instructions": "This label will be displayed in header nav",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,6 +20,23 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_628338abfcffd",
+            "label": "Tag label Color",
+            "name": "tag_label_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#283455",
+            "enable_opacity": 0,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -45,6 +45,13 @@
                 "param": "taxonomy",
                 "operator": "==",
                 "value": "product_tag"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_cat"
             }
         ]
     ],
@@ -57,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653476252
+    "modified": 1659422273
 }
