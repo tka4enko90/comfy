@@ -588,12 +588,13 @@ main {
       margin-bottom: 24px;
       &-title {
         font-size: 20px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
       }
-      &-price {
-        margin-bottom: 5px;
+      .price {
+        flex-basis: 100%;
+        order: 2;
       }
-      &-description {
+      &-description, &-other-info {
         margin-bottom: 8px;
       }
     }
