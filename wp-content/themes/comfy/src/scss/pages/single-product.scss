@@ -717,6 +717,10 @@
         @include media-breakpoint-up(md) {
           margin-bottom: 64px;
         }
+        @include media-breakpoint-down(md) {
+          font-size: 32px;
+        }
+
       }
       .additional-product{
         &-link {
@@ -727,6 +731,7 @@
           margin-bottom: 16px;
         }
         &-desc {
+          font-size: 16px;
           max-width: 142px;
           margin-left: 31px;
           margin-bottom: 24px;
