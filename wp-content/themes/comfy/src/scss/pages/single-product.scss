@@ -677,9 +677,15 @@
       }
       .section-title {
         display: none;
+        @include media-breakpoint-down(xs) {
+          display: block;
+          margin: 32px 0 24px;
+        }
         &.mobile {
           display: block;
-
+          @include media-breakpoint-down(xs) {
+            display: none;
+          }
           @include media-breakpoint-up(sm) {
             font-size: 40px;
           }
