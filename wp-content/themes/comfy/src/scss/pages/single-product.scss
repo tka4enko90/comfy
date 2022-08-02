@@ -558,14 +558,30 @@
             display: none;
           }
           a {
+            position: relative;
             color: $secondary-color;
+            letter-spacing: .02em;
+            font-weight: 900;
             line-height: 1;
             padding: 0 0 15px 0;
+            &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 0;
+              border-radius: 2px;
+              background-color: $primary-color;
+              transition: height $std-transition-length ease-in;
+            }
           }
           &.active {
             a {
               color: $primary-color;
-              border-bottom: 1px solid $primary-color;
+              &:after {
+                height: 2px;
+              }
             }
           }
         }
