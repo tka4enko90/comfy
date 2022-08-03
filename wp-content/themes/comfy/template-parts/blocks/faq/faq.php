@@ -8,7 +8,7 @@ $section = array(
 	'chapters' => get_sub_field( 'chapters' ),
 );
 ?>
-<div class="container container-xs">
+<div class="container container-xxs">
 	<?php
 	if ( ! empty( $section['chapters'] ) ) {
 		foreach ( $section['chapters'] as $chapter ) {
