@@ -73,7 +73,7 @@ if ( ! empty( $args['account']['label'] ) ) {
 		}
 		?>
 		<div class="row">
-			<div class="col-100 instagram-links-cols">
+			<div class="instagram-links-cols">
 				<?php
 				if ( is_array( $section['items'] ) && 0 < count( $section['items'] ) ) {
 					foreach ( $section['items'] as $item ) {
