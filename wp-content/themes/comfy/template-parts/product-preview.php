@@ -53,27 +53,30 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 				<div class="product-price">
 					<?php echo $product->get_price_html(); ?>
 				</div>
-				<div class="product-other-info">
-					<?php
-					if ( ! empty( $includes ) ) {
-						?>
+				<?php
+				if ( ! empty( $includes ) ) {
+					?>
 						<p class="product-description">
-							<?php echo __( 'Includes', 'comfy' ) . ' ' . $includes; ?>
+						<?php echo __( 'Includes', 'comfy' ) . ' ' . $includes; ?>
 						</p>
 						<?php
-					}
-					if ( ! empty( $color_counter ) ) {
-						?>
-						<span class="product-colors"><?php echo $color_counter . ' ' . __( 'colors', 'comfy' ); ?></span>
-						<?php
-					}
-					?>
-					<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
-					<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
-				</div>
-
+				}
+				?>
 			</div>
 		</a>
+		<div class="product-other-info">
+			<?php
+			if ( ! empty( $color_counter ) ) {
+				?>
+				<span class="product-colors"><?php echo $color_counter . ' ' . __( 'colors', 'comfy' ); ?></span>
+				<?php
+			}
+			?>
+			<a href="<?php echo $product->get_permalink() . '#judgeme_product_reviews'; ?>" class="product-link product-link-review">
+				<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
+				<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+			</a>
+		</div>
 	</article>
 	<?php
 }

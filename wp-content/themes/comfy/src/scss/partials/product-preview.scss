@@ -50,6 +50,10 @@
       color: $accent-color;
     }
   }
+  &-link-review {
+    display: flex;
+    width: auto;
+  }
   &-price, .price {
     margin-bottom: 8px;
     ins {
