@@ -3,6 +3,7 @@
 @include media-breakpoint-down(sm)
 footer {
   &.footer {
+    margin-top: 80px;
     padding-top: 38px;
     background-color: $primary-color;
     color: $white;
