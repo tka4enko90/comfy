@@ -89,7 +89,14 @@
           padding: 0;
         }
         @include media-breakpoint-down(xs) {
+          position: absolute;
+          bottom: 0;
           left: 0;
+          right: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding-top: 8px;
         }
         .jdgm-rev__prod-link {
           color: $secondary-color;
@@ -254,12 +261,9 @@
       font-size: 24px;
       margin-bottom: 16px;
       color: $primary-color;
-      @include media-breakpoint-up(md) {
-        font-size: 32px;
-      }
     }
     &__body {
-      color: $primary-color;
+      color: $secondary-color;
     }
     &__rating {
       position: static;
