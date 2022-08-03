@@ -221,6 +221,10 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 			switch ( $menu_item->object ) {
 				case 'product_cat':
 					$item_thumb_id = get_term_meta( $menu_item_post_id, 'thumbnail_id', true );
+					$tax           = array(
+						'label'       => get_term_meta( $menu_item_post_id, 'tag_label', true ),
+						'label_color' => get_term_meta( $menu_item_post_id, 'tag_label_color', true ),
+					);
 
 					$desc = wp_kses( term_description( $menu_item_post_id ), array( 'br' => array() ) );
 
@@ -235,7 +239,7 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 					if ( ! empty( $terms ) ) {
 						$tax = array(
 							'label'       => $terms[0]->name,
-							'label_color' => get_term_meta( $terms[0]->term_id, 'color', true ),
+							'label_color' => get_term_meta( $terms[0]->term_id, 'tag_label_color', true ),
 						);
 					}
 					$item_thumb_id = get_field( 'nav_thumbnail', $menu_item_post_id );
@@ -250,10 +254,8 @@ class Cmf_Nav_Walker extends Walker_Nav_Menu {
 			$atts['class']    .= ( ! empty( $item_thumb_id ) ) ? ' nav-item-with-image' : '';
 		}
 
-		if ( 1 === $depth && in_array( 'menu-item-has-children', $menu_item->classes ) ) {
-			// If nav depth-1 item has children -> it's nav heading
+		if ( 1 === $depth ) {
 			$atts['class'] .= ' sub-menu-heading';
-			unset( $atts['href'] );
 		}
 
 		$attributes = '';

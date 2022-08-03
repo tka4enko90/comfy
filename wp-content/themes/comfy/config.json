@@ -6,10 +6,23 @@
     "pages/single-page": [
       "./src/js/pages/single-page.js"
     ],
+    "pages/single-product": [
+      "./src/js/pages/single-product.js"
+    ],
+    "pages/single-product-bundle": [
+      "./src/js/pages/single-product-bundle.js"
+    ],
+    "pages/quiz": [
+      "./src/js/pages/quiz.js"
+    ],
+
+
     "partials/slick": [
       "./src/js/partials/slick.js"
+    ],
+    "partials/ajax-account-forms": [
+      "./src/js/partials/ajax-account-forms.js"
     ]
-
   },
   "cacheBusting": "[name]",
   "webserver" : {

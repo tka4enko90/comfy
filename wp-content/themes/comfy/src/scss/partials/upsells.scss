@@ -1,0 +1,85 @@
+@import "../components/vars";
+@import "../components/mixins";
+body .section.upsells-products-section {
+  overflow: hidden;
+  &.section.up-sells.upsells.products {
+    @include media-breakpoint-up(md) {
+      margin: 120px 0;
+    }
+  }
+  .section-title {
+    margin-bottom: 64px;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 32px;
+    }
+  }
+  .products {
+    display: flex;
+    margin: 0 -32px -32px;
+    padding: 0;
+    @include media-breakpoint-down(xs) {
+      flex-wrap: wrap;
+      margin: 0 0 -32px;
+    }
+
+    .product {
+      display: block;
+      position: relative;
+      margin: 0 32px 32px;
+      flex-basis: 100%;
+      @include media-breakpoint-up(md) {
+        flex-basis: 33%;
+      }
+      &-tag {
+        &s {
+          position: absolute;
+          left: 16px;
+          top: 16px;
+          right: 16px;
+          @include media-breakpoint-down(md) {
+            display: none;
+          }
+        }
+        padding: 7px 27px;
+        margin: 0 7px 7px 0;
+        background-color: $primary-color;
+        border-radius: 16px;
+        color: $white;
+        font-size: 10px;
+        text-transform: uppercase;
+
+      }
+      .onsale {
+        display: none;
+      }
+      .price {
+        display: inline-block;
+        margin-bottom: 8px;
+        .amount {
+          color: $primary-color;
+        }
+        del .amount {
+          color: inherit;
+        }
+        ins {
+          color: $primary-color;
+        }
+        .credit {
+          display: none;
+        }
+      }
+      .woocommerce-loop-product__title {
+        font-size: 24px;
+        margin-bottom: 16px;
+        padding: 0;
+      }
+      img {
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

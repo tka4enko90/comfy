@@ -1,11 +1,32 @@
 <?php
 wp_enqueue_style( 'instagram-links' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'instagram-links' . '/' . 'instagram-links' . '.css', '', '', 'all' );
 $section = array(
-	'title'            => get_sub_field( 'title' ),
+	'title'            => ! empty( $args['title'] ) ? $args['title'] : get_sub_field( 'title' ),
 	'account'          => get_sub_field( 'account' ),
-	'items'            => get_sub_field( 'items' ),
-	'links_in_new_tab' => get_sub_field( 'in_new_tab' ),
+	'items'            => ! empty( $args['items'] ) ? $args['items'] : get_sub_field( 'items' ),
+	'links_in_new_tab' => isset( $args['links_in_new_tab'] ) ? $args['links_in_new_tab'] : get_field( 'instagram_links_in_new_tab', 'options' ),
 );
+
+if ( empty( $section['items'] ) ) {
+	$section['items'] = get_field( 'instagram_items', 'options' );
+}
+if ( empty( $section['account'] ) ) {
+	$section['account'] = get_field( 'instagram_account', 'options' );
+}
+
+if ( ! empty( $args['account']['url'] ) ) {
+	$section['account']['url'] = $args['account']['url'];
+}
+if ( ! empty( $args['account']['icon'] ) ) {
+	$section['account']['icon'] = $args['account']['icon'];
+}
+if ( ! empty( $args['account']['label'] ) ) {
+	$section['account']['label'] = $args['account']['label'];
+}
+
+
+
+
 
 ?>
 	<div class="container">

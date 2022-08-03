@@ -1,0 +1,31 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.content-with-image--refer-a-friend {
+  &-section {
+    .row {
+      .col {
+        &:first-child {
+          @include media-breakpoint-up(xl) {
+            flex-basis: 617px;
+          }
+        }
+        &:last-child {
+          @include media-breakpoint-up(xl) {
+            flex-basis: 443px;
+            @include media-breakpoint-up(lg) {
+              margin-right: 86px;
+            }
+          }
+        }
+      }
+    }
+    form {
+      input {
+        margin-top: 24px;
+        &[type="submit"] {
+          margin-top: 32px;
+        }
+      }
+    }
+  }
+}

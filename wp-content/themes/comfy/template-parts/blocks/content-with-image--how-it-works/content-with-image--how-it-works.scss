@@ -1,0 +1,28 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.content-with-image--how-it-works {
+  &-section {
+    &.image-position-right {
+      .row .col:last-child {
+        @include media-breakpoint-up(lg) {
+          margin-right: 86px;
+          margin-left: 0;
+        }
+      }
+    }
+    .row {
+      .col {
+        &:first-child {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 530px;
+          }
+        }
+        &:last-child {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 356px;
+          }
+        }
+      }
+    }
+  }
+}

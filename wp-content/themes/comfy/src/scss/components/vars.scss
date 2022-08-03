@@ -7,6 +7,8 @@ $white: #F9F6F2; //Beige
 $bg-white:$white;
 $text-white: $white;
 
+$error-color: #ff4047;
+
 $line-gray: #DDDCDD;
 
 //Transitions
@@ -27,10 +29,12 @@ $grid-breakpoints: (
         xxs: 240px,
         xs: 376px,
         sm: 480px,
-        md: 769px,
+        md: 768px,
+        mobile-nav: 1039px,
         lg: 1080px,
-        xl: 1240px,
-        xxl: 1400px
+        xl: 1281px,
+        xxl: 1400px,
+        footer-fluid: 1600px
 );
 
 $column-gap: 40px;

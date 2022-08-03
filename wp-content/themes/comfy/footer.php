@@ -42,7 +42,6 @@ $footer_options = array(
 						}
 					}
 					?>
-
 				</div>
 			</div>
 			<ul class="footer-widgets">
@@ -86,7 +85,7 @@ $footer_options = array(
 						foreach ( $footer_options['footer_links'] as $footer_link ) {
 							if ( isset( $footer_link['link']['url'] ) && isset( $footer_link['link']['title'] ) ) {
 								?>
-								<a href="<?php $footer_link['link']['url']; ?>" <?php echo isset( $footer_link['link']['target'] ) ? 'target="' . $footer_link['link']['target'] . '"' : ''; ?>>
+								<a href="<?php echo $footer_link['link']['url']; ?>" <?php echo isset( $footer_link['link']['target'] ) ? 'target="' . $footer_link['link']['target'] . '"' : ''; ?>>
 									<?php echo $footer_link['link']['title']; ?>
 								</a>
 								<?php

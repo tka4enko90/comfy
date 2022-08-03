@@ -1,6 +1,27 @@
 @import "../../../src/scss/components/vars";
 @import "../../../src/scss/components/mixins";
 .hero-section {
+  &.full-width-content {
+    text-align: center;
+    .row {
+      .col {
+        &:first-child {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 100%;
+          }
+        }
+        &:nth-child(2) {
+          @include media-breakpoint-up(lg) {
+            flex-basis: 100%;
+          }
+        }
+      }
+    }
+    .section-content {
+      margin: 16px 0 8px;
+    }
+  }
+
   .row {
     .col {
       &:first-child {
@@ -43,6 +64,12 @@
     }
     @include media-breakpoint-up(md) {
       margin-top: 64px;
+      max-height: 720px;
+      object-fit: none;
+    }
+    @include media-breakpoint-down(xs) {
+      object-fit: cover;
+      height: 100vw;
     }
   }
 }

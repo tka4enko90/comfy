@@ -1,0 +1,40 @@
+@import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
+.third-level-collection-section {
+
+  .section {
+    &-title, &-subtitle {
+      text-align: center;
+    }
+    &-title {
+      margin-bottom: 16px;
+      @include media-breakpoint-up(md) {
+        font-size: 40px;
+      }
+    }
+  }
+  .row {
+    justify-content: space-between;
+    margin-bottom: -48px;
+    margin-top: 32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: -84px;
+      margin-top: 64px;
+    }
+    .col {
+      flex-basis: 100%;
+      @include media-breakpoint-up(sm) {
+        flex-basis: 50%;
+      }
+      @include media-breakpoint-up(lg) {
+        flex-basis: 443px;
+      }
+    }
+  }
+  .product {
+    margin-bottom: 48px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 84px;
+    }
+  }
+}

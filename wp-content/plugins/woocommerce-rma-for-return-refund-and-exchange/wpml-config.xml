@@ -1,0 +1,40 @@
+<wpml-config>
+    <admin-texts>
+        <key name="wps_rma_refund_note_text"/>
+        <key name="wps_rma_refund_reason_placeholder"/>
+        <key name="wps_rma_refund_shipping_descr"/>
+        <key name="wps_rma_exchange_note_text"/>
+        <key name="wps_rma_exchange_button_text"/>
+        <key name="wps_rma_exchange_rules_editor"/>
+        <key name="wps_rma_exchange_reason_placeholder"/>
+        <key name="wps_rma_exchange_reasons"/>
+        <key name="wps_rma_exchange_shipping_descr"/>
+        <key name="wps_rma_exchange_same_product_text"/>
+        <key name="wps_rma_cancel_button_text"/>
+        <key name="wps_rma_cancel_prod_button_text"/>
+        <key name="woocommerce_wps_rma_exchange_request_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+        <key name="woocommerce_wps_rma_exchange_request_accept_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+        <key name="woocommerce_wps_rma_exchange_request_cancel_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+        <key name="woocommerce_wps_rma_returnship_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+        <key name="woocommerce_wps_rma_cancel_request_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+         <key name="woocommerce_wps_rma_refund_email_settings">
+            <key name="subject"/>
+            <key name="heading"/>
+        </key>
+    </admin-texts>
+</wpml-config>

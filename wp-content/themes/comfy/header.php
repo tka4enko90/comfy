@@ -4,14 +4,14 @@
  * @subpackage comfy
  */
 $header_options = array(
-	'header_message'       => get_field( 'header_message', 'options' ),
-	'nav_image_id'         => get_field( 'header_nav_image_id', 'options' ),
-	'nav_text_under_image' => get_field( 'header_nav_text_under_image', 'options' ),
-	'additional_link'      => get_field( 'header_additional_link', 'options' ),
-	'account_link'         => get_permalink( wc_get_page_id( 'myaccount' ) ),
-	'cart_count'           => WC()->cart->get_cart_contents_count(),
+	'header_message'            => get_field( 'header_message', 'options' ),
+	'header_message_background' => get_field( 'header_message_background', 'options' ),
+	'nav_image_id'              => get_field( 'header_nav_image_id', 'options' ),
+	'nav_text_under_image'      => get_field( 'header_nav_text_under_image', 'options' ),
+	'additional_link'           => get_field( 'header_additional_link', 'options' ),
+	'account_link'              => get_permalink( wc_get_page_id( 'myaccount' ) ),
+	'cart_count'                => WC()->cart->get_cart_contents_count(),
 );
-
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -24,11 +24,11 @@ $header_options = array(
 	<title><?php bloginfo( 'name' ); ?> <?php wp_title( '', true ); ?></title>
 
 	<!-- FAVICON -->
-<!--    <link rel="apple-touch-icon" sizes="180x180" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/apple-touch-icon.png">-->
-<!--    <link rel="icon" type="image/png" sizes="32x32" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/favicon-32x32.png">-->
-<!--    <link rel="icon" type="image/png" sizes="16x16" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/favicon-16x16.png">-->
-<!--    <link rel="manifest" href="/--><?php //echo get_template_directory_uri(); ?><!--/faviconsite.webmanifest">-->
-<!--    <meta name="msapplication-TileColor" content="#da532c">-->
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="manifest" href="/<?php echo get_template_directory_uri(); ?>/faviconsite.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
 	 <meta name="theme-color" content="#ffffff">
 	<!-- /FAVICON -->
 
@@ -40,7 +40,7 @@ $header_options = array(
 <?php wp_body_open(); ?>
 <header class="site-header">
 <?php if ( ! empty( $header_options['header_message'] ) ) { ?>
-	<div class="info-message">
+	<div class="info-message" <?php echo ( ! empty( $header_options['header_message_background'] ) && '#283455' !== $header_options['header_message_background'] ) ? 'style="background-color:' . $header_options['header_message_background'] . '"' : ''; ?>>
 		<?php echo $header_options['header_message']; ?>
 	</div>
 <?php } ?>
@@ -86,28 +86,23 @@ $header_options = array(
 					</a>
 				</div>
 			</div>
-
-			<div class="d-flex align-items-center">
-				<?php
-				if ( isset( $header_options['additional_link'] ) ) {
-					if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
-						?>
-						<a class="z-1 mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
-							<?php echo $header_options['additional_link']['title']; ?>
-						</a>
-						<?php
-					}
-				}
-				?>
-				<!-- Searchform Template Start -->
-				<div class="search-wrap secondary-header-nav-el">
-					<i id="search-icon"></i>
-				</div>
-				<!-- END Searchform Template -->
-			</div>
 		</div>
 
 		<div class="secondary-header-nav">
+			<?php
+			if ( isset( $header_options['additional_link'] ) ) {
+				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
+					?>
+					<a class="mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+						<?php echo $header_options['additional_link']['title']; ?>
+					</a>
+					<?php
+				}
+			}
+			?>
+			<div class="search-wrap secondary-header-nav-el">
+				<?php get_template_part( 'template-parts/inline-svg/icon', 'search' ); ?>
+			</div>
 			<a href="<?php echo $header_options['account_link']; ?>" class="account-link secondary-header-nav-el" title="<?php _e( 'Account Link', 'comfy' ); ?>">
 				<?php get_template_part( 'template-parts/inline-svg/icon', 'account' ); ?>
 			</a>
@@ -126,6 +121,7 @@ $header_options = array(
 			<div class="header-search">
 				<?php echo get_search_form(); ?>
 				<div id="search-results"></div>
+				<div class="search-close-icon"></div>
 			</div>
 		</div>
 	</div>

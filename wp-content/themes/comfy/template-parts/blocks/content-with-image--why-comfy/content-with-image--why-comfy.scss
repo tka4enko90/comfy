@@ -1,27 +1,42 @@
 @import "../../../src/scss/components/vars";
+@import "../../../src/scss/components/mixins";
 .content-with-image--why-comfy {
   &-section {
     &.image-position-right {
       .row .col:last-child {
-        @media (min-width: $lg) {
+        @include media-breakpoint-up(lg) {
           margin-right: 86px;
           margin-left: 0;
         }
       }
     }
-    .row {
-      .col {
-        &:first-child {
-          @media (min-width: $lg ) {
-            flex-basis: 530px;
+    .container {
+      .row {
+        @include media-breakpoint-up(sm) {
+          @include media-breakpoint-down(md) {
+            align-items: stretch;
           }
         }
-        &:last-child {
-          @media (min-width: $lg ) {
-            flex-basis: 443px;
+        .col {
+          &:first-child {
+            @include media-breakpoint-up(lg) {
+              flex-basis: 530px;
+            }
+            @include media-breakpoint-up(sm) {
+              @include media-breakpoint-down(md) {
+                img {
+                  height: 100%;
+                }
+              }
+            }
           }
-          @media (min-width: $xl) {
-            margin-right: 86px;
+          &:last-child {
+            @include media-breakpoint-up(lg) {
+              flex-basis: 443px;
+            }
+            @include media-breakpoint-up(xl) {
+              margin-right: 86px;
+            }
           }
         }
       }

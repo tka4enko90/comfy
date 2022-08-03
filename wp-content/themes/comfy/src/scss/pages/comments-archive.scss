@@ -1,0 +1,68 @@
+@import "../components/vars";
+@import "../components/mixins";
+.page-template-comments-archive-template {
+  .comments-archive-section {
+    margin: 120px 0;
+  }
+}
+.comments-archive-section {
+  .comment {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    &:before {
+      display: none;
+    }
+    @include media-breakpoint-down(xs) {
+      flex-wrap: wrap;
+    }
+    &-details {
+      flex-basis: 84px;
+      color: $primary-color;
+      margin-bottom: 74px;
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 16px;
+      }
+      .cmf-star-rating {
+        display: flex;
+        margin: 5px -2.65px 11px;
+        @include media-breakpoint-up(sm) {
+          margin: 5px -2.65px 26px;
+        }
+        .star {
+          flex-basis: 10px;
+          max-width: 12.67px;
+          margin: 0 2.65px ;
+          &.star-empty {
+            opacity: .3;
+          }
+        }
+      }
+    }
+    &-author {
+      margin-bottom: 8px;
+    }
+
+    &-info {
+      flex-basis: 750px;
+      @include media-breakpoint-up(sm) {
+        margin-left: 30px;
+      }
+    }
+    &-title {
+      margin-bottom: 16px;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    .page-numbers {
+      margin: 0 8px;
+      color: $primary-color;
+      &.current {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+  }
+}
