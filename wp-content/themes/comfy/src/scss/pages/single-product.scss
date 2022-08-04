@@ -21,11 +21,11 @@
   #primary {
     .section-breadcrumbs {
       font-size: 12px;
+      line-height: 140%;
     }
     .woocommerce-product-rating {
       display: flex;
       align-items: center;
-      margin-bottom: 24px;
       .cmf-star-rating {
         margin: 0 -2.5px;
         .star {
@@ -37,6 +37,7 @@
       }
       .woocommerce-review-link {
         color: $primary-color;
+        font-size: 14px;
         margin-left: 7px;
         line-height: 1em;
         text-decoration: underline;
@@ -48,11 +49,9 @@
     }
 
     .price {
-      font-size: 16px;
+      line-height: 1;
       color: $primary-color;
-      @include media-breakpoint-down(sm) {
-        margin-top: 16px;
-      }
+
       ins {
         font-weight: 400;
         text-decoration: none;
@@ -63,6 +62,7 @@
       .credit {
         display: block;
         font-size: 14px;
+        white-space: nowrap;
         svg {
           margin-left: 8px;
         }
@@ -140,6 +140,8 @@
           }
         }
         .label {
+          font-size: 12px;
+          line-height: 20px;
           font-weight: 500;
           margin-bottom: 24px;
           .required {
@@ -166,7 +168,7 @@
         margin: 0 -4px;
         &.color-variable-items-wrapper {
           .variable-item {
-            margin: 0 6px;
+            margin: 0 8px;
             .variable-item-span {
               display: block;
               position: relative;
@@ -241,6 +243,7 @@
         }
       }
       .includes {
+        font-size: 12px;
         margin-bottom: 32px;
       }
 
@@ -264,9 +267,9 @@
         position: sticky;
         top: 144px;
         flex-basis: 107px;
-        padding-right: 32px;
+        padding-right: 52px;
         margin-bottom: 0;
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(md) {
           display: none;
         }
         .woocommerce-product-gallery__image {
@@ -390,6 +393,25 @@
       font-size: 40px;
       margin-bottom: 16px;
     }
+    .summary {
+      .variations_form {
+        .variations {
+          td {
+            position: static;
+          }
+          tr {
+            position: relative;
+          }
+          .guide-link {
+            top: 24px;
+            line-height: 1;
+            @include media-breakpoint-down(xs) {
+              top: 4px;
+            }
+          }
+        }
+      }
+    }
     .summary, .bundled_product_summary .details, .bundle_data {
       position: sticky;
       top: 136px;
@@ -406,13 +428,32 @@
           display: none;
         }
       }
-      .woocommerce-product-rating, .jdgm-widget.jdgm-preview-badge {
+      .woocommerce-product-rating, .jdgm-preview-badge {
+        margin-bottom: 24px;
+        .jdgm-star.jdgm-star {
+          font-size: 12px;
+        }
+        .jdgm-prev-badge {
+          &__stars {
+            line-height: 1;
+          }
+          &__text {
+            color: $primary-color;
+            font-size: 14px;
+            text-decoration: underline;
+          }
+        }
         @include media-breakpoint-down(sm) {
           display: none;
         }
       }
       .price {
+        font-size: 16px;
         margin-bottom: 32px;
+        @include media-breakpoint-down(sm) {
+          font-size: 14px;
+          margin-top: 16px;
+        }
       }
     }
     .quantity {
@@ -421,7 +462,6 @@
       border: 1.5px solid $line-gray;
       border-radius: 8px;
       margin-right: 16px;
-      margin-bottom: 16px;
       .btn-qty {
         position: relative;
         width: 10px;
@@ -497,17 +537,17 @@
 
     .woocommerce-variation-add-to-cart {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 0;
-
+      margin-bottom: 16px;
     }
     .in-stock {
+      font-size: 12px;
       line-height: 1;
       color: $primary-color;
       margin-bottom: 0;
       svg {
         position: relative;
         top: -1px;
+        margin-right: 3px;
       }
     }
 
@@ -530,13 +570,30 @@
             display: none;
           }
           a {
+            position: relative;
+            color: $secondary-color;
+            letter-spacing: .02em;
+            font-weight: 900;
             line-height: 1;
             padding: 0 0 15px 0;
+            &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 0;
+              border-radius: 2px;
+              background-color: $primary-color;
+              transition: height $std-transition-length ease-in;
+            }
           }
           &.active {
             a {
               color: $primary-color;
-              border-bottom: 1px solid $primary-color;
+              &:after {
+                height: 2px;
+              }
             }
           }
         }
@@ -619,13 +676,63 @@
         }
       }
     }
+    .benefits-section {
+      .row {
+        .col {
+          &:first-child {
+            align-content: baseline;
+            @include media-breakpoint-up(sm) {
+              @include media-breakpoint-down(xl) {
+                flex-basis: 66%;
+              }
+              @include media-breakpoint-down(sm) {
+                flex-basis: 50%;
+              }
 
+            }
+            @include media-breakpoint-up(lg) {
+              padding-top: 204px;
+            }
+          }
+        }
+      }
+      .section-title {
+        display: none;
+        @include media-breakpoint-down(xs) {
+          display: block;
+          margin: 32px 0 24px;
+        }
+        &.mobile {
+          display: block;
+          @include media-breakpoint-down(xs) {
+            display: none;
+          }
+          @include media-breakpoint-up(sm) {
+            font-size: 40px;
+          }
+          @include media-breakpoint-up(md) {
+            margin-bottom: 68px;
+          }
+        }
+      }
+      .benefit {
+        &-title {
+          @include media-breakpoint-down(md) {
+            font-size: 24px;
+          }
+        }
+      }
+    }
     .additional-products-section {
       .section-title {
         margin-bottom: 40px;
         @include media-breakpoint-up(md) {
           margin-bottom: 64px;
         }
+        @include media-breakpoint-down(md) {
+          font-size: 32px;
+        }
+
       }
       .additional-product{
         &-link {
@@ -636,6 +743,7 @@
           margin-bottom: 16px;
         }
         &-desc {
+          font-size: 16px;
           max-width: 142px;
           margin-left: 31px;
           margin-bottom: 24px;
