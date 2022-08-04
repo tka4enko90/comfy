@@ -13,7 +13,16 @@
         @include button-secondary;
         &#cfw-promo-code-btn {
           padding: 16.5px;
+          background-color: transparent;
+          &:hover {
+            background-color: $primary-color;
+          }
         }
+      }
+    }
+    .cfw-cart-item-description {
+      .credit {
+        display: none;
       }
     }
   }
