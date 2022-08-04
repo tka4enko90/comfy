@@ -9,6 +9,9 @@ add_action(
 		wp_enqueue_script( 'scripts', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ), 1.0, true );
 		wp_enqueue_style( 'product-preview', get_template_directory_uri() . '/dist/css/partials/product-preview.css', '', '', 'all' );
 
+		if ( is_account_page() ) {
+			wp_enqueue_style( 'cmf-account', get_template_directory_uri() . '/dist/css/pages/my-account.css', '', '', 'all' );
+		}
 		if ( is_checkout() ) {
 			wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
 		}
