@@ -29,11 +29,10 @@
         @include media-breakpoint-up(lg) {
           flex-basis: 54%;
         }
-        @include media-breakpoint-up(sm) {
-          @include media-breakpoint-down(lg) {
-            br {
-              display: none;
-            }
+
+        @include media-breakpoint-between(sm, lg) {
+          br {
+            display: none;
           }
         }
       }
