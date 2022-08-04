@@ -322,7 +322,7 @@ add_action(
 		?>
 	<div class="mobile-info">
 		<h1 class="product_title"><?php the_title(); ?></h1>
-		<div class="d-flex">
+		<div class="product-info">
 			<?php
 			$color_counter = cmf_get_variation_colors_count();
 			if ( ! empty( $color_counter ) ) {

@@ -8,17 +8,21 @@
   }
 }
 .single-product {
-  .mobile-info {
-    flex-basis: 100%;
-    @include media-breakpoint-up(md) {
-      display: none;
-    }
-    .woocommerce-product-rating {
-      margin-bottom: 32px;
-    }
-
-  }
   #primary {
+    .mobile-info {
+      flex-basis: 100%;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+      .woocommerce-product-rating {
+        margin-bottom: 0;
+      }
+      .product-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+    }
     .section-breadcrumbs {
       font-size: 12px;
       line-height: 140%;
