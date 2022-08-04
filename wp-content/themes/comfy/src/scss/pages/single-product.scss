@@ -460,6 +460,9 @@
         }
         @include media-breakpoint-down(sm) {
           display: none;
+          margin: 0;
+          height: 0;
+          overflow: hidden;
         }
       }
       .price {
