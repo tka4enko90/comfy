@@ -44,7 +44,7 @@ if ( ! empty( $args['section_name'] ) ) {
 					if ( isset( $section['link'] ) ) {
 						if ( isset( $section['link']['url'] ) && isset( $section['link']['title'] ) ) {
 							?>
-							<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+							<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $section['link']['target'] . '"' : ''; ?>>
 								<?php echo $section['link']['title']; ?>
 							</a>
 							<?php

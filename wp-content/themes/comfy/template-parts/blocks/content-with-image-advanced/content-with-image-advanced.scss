@@ -15,7 +15,9 @@
       .col {
         &:first-child {
           position: relative;
-          padding-top: 64px;
+          @include media-breakpoint-up(sm) {
+            padding-top: 64px;
+          }
         }
         &:last-child {
 
@@ -89,13 +91,16 @@
   }
   .section-title {
     font-size: 32px;
-    position: absolute;
-    left: 20px;
-    top: 0;
-    right: 20px;
+    margin-bottom: 32px;
+
     @include media-breakpoint-up(sm) {
       font-size: 40px;
       text-align: center;
+      position: absolute;
+      left: 20px;
+      top: 0;
+      right: 20px;
     }
+
   }
 }

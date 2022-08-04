@@ -2,6 +2,7 @@
 @import "../../../src/scss/components/mixins";
 .instagram-links {
   &-section {
+
     &-title {
       margin-bottom: 32px;
       letter-spacing: -.04em;
@@ -61,7 +62,7 @@
     &s {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: start;
       padding: 0 5px;
       margin-bottom: -20px;
     }

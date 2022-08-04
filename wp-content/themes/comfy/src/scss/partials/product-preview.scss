@@ -50,11 +50,21 @@
       color: $accent-color;
     }
   }
+  &-link-review {
+    display: flex;
+    width: auto;
+  }
   &-price, .price {
     flex-basis: 100%;
     margin-bottom: 8px;
     ins {
       text-decoration: none;
+    }
+    .amount {
+      color: $primary-color;
+    }
+    .credit {
+      display: none;
     }
   }
   &-other-info {

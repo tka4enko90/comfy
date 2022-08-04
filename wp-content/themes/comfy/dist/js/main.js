@@ -268,7 +268,22 @@ jQuery(document).ready(function ($) {
 (function ($) {
   var mobileNavBreakpoint = 1039,
       slideAnimationSpeed = 500,
-      body = $('body'); // Change Sub menu image on hover
+      body = $('body'); // Mobile nav depth-1 slideToggle
+
+  $('li.menu-item-has-children a.depth-0').on('click', function (e) {
+    if (window.innerWidth < mobileNavBreakpoint) {
+      e.preventDefault();
+      var parrentLi = $(this).parents('li.menu-item-has-children'),
+          subMenuWrap = parrentLi.children('div.sub-menu-wrap');
+      parrentLi.toggleClass('active');
+
+      if (parrentLi.hasClass('active')) {
+        subMenuWrap.slideDown(slideAnimationSpeed);
+      } else {
+        subMenuWrap.slideUp(slideAnimationSpeed);
+      }
+    }
+  }); // Change Sub menu image on hover
 
   var subMenu = $('.sub-menu-wrap');
   subMenu.find('.nav-item-with-image').on('mouseenter', function () {

@@ -13,16 +13,19 @@ $settings    = array(
 	),
 	'section_name' => $args['section_name'],
 );
-if ( ! empty( $content_col['icon_id'] ) && ! empty( $content_col['content'] ) ) {
-	ob_start();
+
+ob_start();
+
+if ( ! empty( $content_col['icon_id'] ) ) {
 	?>
 	<div class="content-icon">
 		<?php echo wp_get_attachment_image( $content_col['icon_id'], 'cmf_content_with_image_2_icon' ); ?>
 	</div>
 	<?php
-	echo $content_col['content'];
-	$settings['content_group']['content'] = ob_get_clean();
 }
-$settings['content_group']['link'] = $content_col['link'];
+echo ( ! empty( $content_col['content'] ) ) ? $content_col['content'] : '';
+
+$settings['content_group']['content'] = ob_get_clean();
+$settings['content_group']['link']    = $content_col['link'];
 
 get_template_part( 'template-parts/blocks/content-with-image-advanced/content-with-image-advanced', '', $settings );

@@ -66,6 +66,9 @@
     outline: none;
     line-height: 0;
     cursor: pointer;
+    @include media-breakpoint-down(lg) {
+      bottom: 0;
+    }
     @include media-breakpoint-down(sm) {
       visibility: hidden;
     }

@@ -11,7 +11,15 @@
     @include media-breakpoint-up(xl) {
       margin: 0 -20px;
     }
+    @include media-breakpoint-up(lg) {
+      @include media-breakpoint-down(xl) {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
   }
+
   #map {
     height: 335px;
     @include media-breakpoint-up(xl) {

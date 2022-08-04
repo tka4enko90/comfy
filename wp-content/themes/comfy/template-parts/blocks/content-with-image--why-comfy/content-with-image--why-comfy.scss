@@ -31,7 +31,7 @@
             }
           }
           &:last-child {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
               flex-basis: 443px;
             }
             @include media-breakpoint-up(xl) {
