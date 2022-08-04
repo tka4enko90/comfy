@@ -102,15 +102,21 @@ main {
                   &:before {
                     transform: rotate(0deg);
                   }
-                  a:after {
-                    display: none;
+                  a {
+                    &:after {
+                      display: none;
+                    }
+                    &.depth-0 {
+                      @include media-breakpoint-down(lg) {
+                        color: $secondary-color;
+                      }
+                    }
                   }
                 }
                 a.depth-0 {
                   display: block;
                   position: relative;
                   padding-right: 54px;
-
                 }
                 &:hover a.depth-0:after {
                   display: none;
@@ -173,7 +179,8 @@ main {
   body.header-info-message {
     #primary-header-nav-container {
       top: 92px;
-      max-height: calc(100vh - 98px);
+      height: 100vh;
+      max-height: calc(100vh - 54px);
     }
   }
   body header.site-header .secondary-header-nav-el {
@@ -263,17 +270,18 @@ main {
       margin: 0;
       padding: 0 8px;
       @include media-breakpoint-up(sm) {
-        padding: 0 33px;
+        padding: 0 24px;
       }
       li {
         display: block;
 
         &.depth{
           &-0 {
-            padding: 0 15px;
+            padding: 0 18px;
             a.depth-0 {
               position: relative;
               z-index: 1;
+              font-size: 14px;
               &:after {
                 content: '';
                 position: absolute;
@@ -321,12 +329,16 @@ main {
             right: 0;
             display: flex;
             justify-content: space-between;
-            padding: 48px 20%;
+            padding: 48px 10%;
             background-color: $bg-white;
             opacity: 0;
             transition: $transition;
             pointer-events: none;
             transform: translateY(-100%);
+            @include media-breakpoint-up(xxl) {
+              padding: 48px 20%;
+            }
+
             .image-wrap {
               flex-basis: 403px;
               img {
@@ -446,7 +458,9 @@ main {
     color: $primary-color;
     transition: color $std-transition-length ease-in;
     &:hover {
-      color: $secondary-color;
+      @include media-breakpoint-up(mobile-nav) {
+        color: $secondary-color;
+      }
     }
   }
   &-link {
@@ -588,12 +602,12 @@ main {
       margin-bottom: 24px;
       &-title {
         font-size: 20px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
       }
-      &-price {
-        margin-bottom: 5px;
+      .price {
+        flex-basis: 100%;
       }
-      &-description {
+      &-description, &-other-info {
         margin-bottom: 8px;
       }
     }

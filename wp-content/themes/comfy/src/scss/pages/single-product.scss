@@ -68,6 +68,15 @@
         }
       }
     }
+    .jdgm-preview-badge {
+      margin-bottom: 24px;
+      .jdgm-prev-badge {
+        &__text {
+          font-size: 14px;
+          text-decoration: underline;
+        }
+      }
+    }
     .upsells-products-section {
       .price {
         .credit {
