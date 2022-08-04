@@ -18,6 +18,7 @@ $transition: all $std-transition-length ease-in;
 // Container
 $container-widths: (
         reset: 1224px,
+        xxs: 704px,
         xs: 876px,
         sm: 1050px,
         lg: 1360px,
@@ -25,6 +26,7 @@ $container-widths: (
 
 $grid-breakpoints: (
         reset: 0,
+        xxs: 240px,
         xs: 376px,
         sm: 480px,
         md: 768px,
