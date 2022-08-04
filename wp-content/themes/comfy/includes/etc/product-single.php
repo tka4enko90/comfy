@@ -258,16 +258,23 @@ add_filter(
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
 // Content Product -> Rating & Product info
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+add_action(
+	'woocommerce_after_shop_loop_item_title',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			remove_action( 'woocommerce_after_shop_loop_item_title', array( 'JGM_Widget', 'judgeme_preview_badge' ), 5 );
+		} else {
+			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+		}
+	},
+	4
+);
 add_action(
 	'woocommerce_after_shop_loop_item_title',
 	function () {
 		global $product;
-		$rating        = $product->get_average_rating();
-		$reviews_count = $product->get_review_count();
 		$includes      = get_field( 'includes', $product->get_id() );
 		$color_counter = cmf_get_variation_colors_count();
-
 		?>
 		<div class="product-other-info">
 			<?php
@@ -284,8 +291,24 @@ add_action(
 				<?php
 			}
 			?>
-			<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
-			<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+			<span class="product-rating">
+				<?php
+				if ( class_exists( 'JGM_Widget' ) ) {
+					JGM_Widget::judgeme_preview_badge();
+				} else {
+					$rating        = $product->get_average_rating();
+					$reviews_count = $product->get_review_count();
+					cmf_star_rating( array( 'rating' => $rating ) );
+				}
+				?>
+			</span>
+			<?php
+			if ( isset( $reviews_count ) ) {
+				?>
+				<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+				<?php
+			}
+			?>
 		</div>
 		<?php
 	},
@@ -323,3 +346,22 @@ add_filter(
 	}
 );
 
+// Remove JGM_Widget from product_summary
+add_action(
+	'woocommerce_after_single_product_summary',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
+		}
+	},
+	13
+);
+
+add_filter(
+	'cmf_review_widget',
+	function( $html ) {
+		$html = str_replace( "<div class='jdgm-rev-widg__header'>", "<div class='jdgm-rev-widg__header'><h3 class='section-title'><span id='jdgm-rev-widg__rev-counter'></span>" . __( 'Reviews' ) . '</h3>', $html );
+		$html = str_replace( "<div class='jdgm-rev-widg__summary-text'>", "<p class='jdgm-rev-widg__summary-rating-text'><span id='jdgm-rev-widg__summary-rating-num'></span>" . __( 'out of 5 stars' ) . "</p><div class='jdgm-rev-widg__summary-text'>", $html );
+		return   $html;
+	}
+);

@@ -37,5 +37,6 @@ if ( function_exists( 'add_image_size' ) ) {
 
 	add_image_size( 'cmf_benefits_section', 402, 525, true );
 	add_image_size( 'cmf_contact_form', 577, 840, true );
+	add_image_size( 'cmf_reviews_archive', 577, 735, true );
 
 }
