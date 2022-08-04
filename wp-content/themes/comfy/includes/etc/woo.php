@@ -95,6 +95,29 @@ function cmf_the_credit_text( $price ) {
 	<?php
 }
 
+function cmf_get_the_product_tags() {
+    global $product;
+    $terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+    ob_start();
+    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+        ?>
+        <div class="product-tags">
+            <?php
+            foreach ( $terms as $term ) {
+                ?>
+                <span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+    return ob_get_clean();
+}
+
 add_filter(
 	'woocommerce_get_price_html',
 	function ( $price, $product ) {
@@ -198,6 +221,7 @@ add_filter(
 	1,
 	2
 );
+
 // WordPress support
 add_action(
 	'after_setup_theme',
@@ -225,60 +249,3 @@ add_filter(
 		return $breadcrumb;
 	}
 );
-
-
-// Add title field to comment form
-add_filter(
-	'comment_form_fields',
-	function( $fields ) {
-		ob_start();
-		?>
-		<p class="comment-form-phone">
-			<label for="review-title"><?php _e( 'Review title', 'comfy' ); ?></label>
-			<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" />
-		</p>
-		<?php
-		$fields['phone'] = ob_get_clean();
-		return $fields;
-	}
-);
-add_action(
-	'comment_post',
-	function( $comment_id ) {
-		if ( ( isset( $_POST['review-title'] ) ) && ( ’ != $_POST['review-title'] ) ) {
-			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
-			add_comment_meta( $comment_id, 'title', $review_title );
-		}
-	}
-);
-
-function cmf_get_the_product_tags() {
-	global $product;
-	$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
-
-	ob_start();
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-		?>
-		<div class="product-tags">
-			<?php
-			foreach ( $terms as $term ) {
-				?>
-				<span class="product-tag">
-					<?php echo $term->name; ?>
-				</span>
-				<?php
-			}
-			?>
-		</div>
-		<?php
-	}
-	return ob_get_clean();
-}
-
-add_action(
-	'woocommerce_before_shop_loop_item_title',
-	function () {
-		echo cmf_get_the_product_tags();
-	}
-);
-

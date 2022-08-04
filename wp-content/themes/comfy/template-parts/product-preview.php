@@ -6,11 +6,6 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 	if ( ! isset( $args['thumb'] ) ) {
 		$args['thumb'] = 'cmf_product_preview';
 	}
-
-	$rating        = $product->get_average_rating();
-	$reviews_count = $product->get_review_count();
-	$color_counter = cmf_get_variation_colors_count();
-	$includes      = get_field( 'includes', $product->get_id() );
 	?>
 	<article class="product">
 		<a href="<?php echo $product->get_permalink(); ?>" class="product-link">
@@ -50,33 +45,11 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 			</div>
 			<div class="product-info">
 				<h5 class="product-title"><?php echo get_the_title( $args['product'] ); ?></h5>
-				<div class="product-price">
-					<?php echo $product->get_price_html(); ?>
+				<div class="product-other-info">
+					<?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
 				</div>
-				<?php
-				if ( ! empty( $includes ) ) {
-					?>
-						<p class="product-description">
-						<?php echo __( 'Includes', 'comfy' ) . ' ' . $includes; ?>
-						</p>
-						<?php
-				}
-				?>
 			</div>
 		</a>
-		<div class="product-other-info">
-			<?php
-			if ( ! empty( $color_counter ) ) {
-				?>
-				<span class="product-colors"><?php echo $color_counter . ' ' . __( 'colors', 'comfy' ); ?></span>
-				<?php
-			}
-			?>
-			<a href="<?php echo $product->get_permalink() . '#judgeme_product_reviews'; ?>" class="product-link product-link-review">
-				<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
-				<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
-			</a>
-		</div>
 	</article>
 	<?php
 }
