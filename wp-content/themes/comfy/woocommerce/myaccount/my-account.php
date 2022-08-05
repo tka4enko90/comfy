@@ -19,9 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <div class="woocommerce-MyAccount-page">
-	<div class="woocommerce-MyAccount-title">
-		<h1><?php _e( 'My Account', 'comfy' ); ?></h1>
-	</div>
+	<h1 class="woocommerce-MyAccount-page-title" ><?php _e( 'My Account', 'comfy' ); ?></h1>
 	<?php
 	/**
 	 * My Account navigation.
@@ -31,23 +29,23 @@ defined( 'ABSPATH' ) || exit;
 	do_action( 'woocommerce_account_navigation' );
 	?>
 
-    <div class="woocommerce-MyAccount-content-wrap">
-        <div class="woocommerce-MyAccount-content">
-            <?php
-            /**
-             * My Account content.
-             *
-             * @since 2.6.0
-             */
-            do_action( 'woocommerce_account_content' );
-            ?>
-        </div>
-        <asside class="sidebar">
-            <h6>Have a return or exchange?</h6>
-            <a href="" class="button secondary-button">
-                start a return
-            </a>
-        </asside>
-    </div>
+	<div class="woocommerce-MyAccount-content-wrap">
+		<div class="woocommerce-MyAccount-content">
+			<?php
+			/**
+			 * My Account content.
+			 *
+			 * @since 2.6.0
+			 */
+			do_action( 'woocommerce_account_content' );
+			?>
+		</div>
+		<aside class="woocommerce-MyAccount-sidebar">
+			<h6>Have a return or exchange?</h6>
+			<a href="" class="button button-secondary">
+				start a return
+			</a>
+		</aside>
+	</div>
 
 </div>

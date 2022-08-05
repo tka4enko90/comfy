@@ -1,10 +1,27 @@
 @import "../components/vars";
 @import "../components/mixins";
 .woocommerce {
+  min-height: 100vh;
+  //display: flex;
+  //align-items: center;
   .woocommerce-MyAccount {
     &-page {
       display: flex;
       flex-wrap: wrap;
+      margin: 120px 0;
+      &-title {
+        margin-bottom: 24px;
+      }
+      .button {
+        @include button;
+        &-primary {
+          @include button-primary;
+        }
+        &-secondary {
+          background-color: transparent;
+          @include button-secondary
+        }
+      }
     }
     &-navigation {
       float: none;
@@ -53,9 +70,16 @@
       }
     }
     &-content {
+      flex-basis: 838px;
       float: none;
       &-wrap {
-
+        display: flex;
+        width: 100%;
+      }
+    }
+    &-sidebar {
+      @include media-breakpoint-up(md) {
+        margin-left: 120px;
       }
     }
   }
