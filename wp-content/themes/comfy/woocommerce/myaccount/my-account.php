@@ -41,9 +41,11 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<aside class="woocommerce-MyAccount-sidebar">
-			<h6>Have a return or exchange?</h6>
+			<h6 class="woocommerce-MyAccount-sidebar-title">
+				<?php _e( 'Have a return or exchange?', 'comfy' ); ?>
+			</h6>
 			<a href="" class="button button-secondary">
-				start a return
+				<?php _e( 'start a return', 'comfy' ); ?>
 			</a>
 		</aside>
 	</div>

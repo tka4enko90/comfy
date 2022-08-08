@@ -1,19 +1,30 @@
 @import "../components/vars";
 @import "../components/mixins";
-.woocommerce {
+.main .woocommerce {
   min-height: 100vh;
-  //display: flex;
-  //align-items: center;
   .woocommerce-MyAccount {
     &-page {
       display: flex;
       flex-wrap: wrap;
-      margin: 120px 0;
+      margin: 24px 0;
+      @include media-breakpoint-up(md) {
+        margin: 80px 0;
+      }
+      @include media-breakpoint-up(lg) {
+        margin: 120px 0;
+      }
+
       &-title {
-        margin-bottom: 24px;
+        font-size: 40px;
+        margin-bottom: 32px;
+        @include media-breakpoint-up(md) {
+          font-size: 56px;
+          margin-bottom: 24px;
+        }
       }
       .button {
         @include button;
+        font-weight: 400;
         &-primary {
           @include button-primary;
         }
@@ -26,6 +37,10 @@
     &-navigation {
       float: none;
       width: 100%;
+      margin-bottom: 32px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 56px;
+      }
       &-link {
         &--edit-address {
           order: 1;
@@ -37,6 +52,7 @@
       ul {
         display: flex;
         padding: 0;
+        margin: 0;
         li {
           display: block;
           margin-right: 50px;
@@ -72,14 +88,139 @@
     &-content {
       flex-basis: 838px;
       float: none;
+      @include media-breakpoint-down(sm) {
+        flex-basis: 100%;
+      }
       &-wrap {
         display: flex;
         width: 100%;
+        @include media-breakpoint-down(sm) {
+          flex-wrap: wrap;
+        }
+      }
+      &-title {
+        font-size: 14px;
+        color: $primary-color;
+        text-transform: uppercase;
+        @include media-breakpoint-up(md) {
+          font-size: 16px;
+        }
+      }
+
+      .account-details {
+        display: inline-block;
+        border-top: 1px solid $line-gray;
+        &-label {
+          font-size: 12px;
+          line-height: 16px;
+          color: $primary-color;
+          text-transform: uppercase;
+          margin: 24px 0 8px;
+        }
+        &-val {
+          opacity: .8;
+          font-size: 14px;
+        }
+        .button {
+          margin-top: 24px;
+          @include media-breakpoint-up(md) {
+            margin-top: 32px;
+          }
+        }
+      }
+
+      form {
+        fieldset {
+          margin-top: 32px;
+          legend {
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid $line-gray;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+          }
+        }
+        em {
+          display: block;
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        button[type="submit"] {
+          color: $white;
+          background-color: $primary-color;
+          border: 1px solid $primary-color;
+          margin: 32px 0 64px;
+          &:hover {
+            color: $primary-color;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    &-orders {
+      margin-top: 32px;
+      border: none;
+      border-collapse: collapse;
+      thead {
+        th {
+          padding: 0 8px 16px;
+          font-size: 12px;
+          line-height: 16px;
+          font-weight: 400;
+          text-transform: uppercase;
+          color: $primary-color;
+          &:first-child {
+            padding-left: 0;
+          }
+          &:nth-child(2) {
+            text-align: center;
+          }
+        }
+      }
+      tbody {
+        font-size: 14px;
+        tr {
+          td {
+            padding: 12px 8px;
+            border-spacing: 0;
+            border-top: 1px solid $line-gray;
+            border-collapse: collapse;
+            &:before {
+              font-weight: 400;
+              color: $primary-color;
+            }
+            &:first-child {
+              padding-left: 0;
+            }
+            &:nth-child(2) {
+              text-align: center;
+            }
+            .button {
+              padding: 0;
+              background-color: transparent;
+              text-transform: capitalize;
+              font-weight: inherit;
+              text-decoration: underline;
+              transition: color $std-transition-length/2 ease-in;
+              &:hover {
+                text-decoration: none;
+                color: $primary-color;
+              }
+            }
+          }
+        }
       }
     }
     &-sidebar {
       @include media-breakpoint-up(md) {
         margin-left: 120px;
+      }
+      &-title {
+        white-space: nowrap;
+        color: $primary-color;
+        font-size: 15px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
       }
     }
   }

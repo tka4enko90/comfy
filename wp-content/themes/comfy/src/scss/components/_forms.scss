@@ -27,6 +27,23 @@ form, form.wpcf7-form {
   textarea {
     @include input-style;
   }
+
+  .select2-container--default {
+    .select2-selection {
+      &--single {
+        border: none;
+        height: 42px;
+        .select2-selection {
+          &__rendered {
+            line-height: 42px;
+          }
+          &__arrow {
+            height: 42px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .form-dark form {

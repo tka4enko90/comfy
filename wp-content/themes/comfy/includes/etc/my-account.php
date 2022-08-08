@@ -4,7 +4,12 @@ add_filter(
 	'woocommerce_account_menu_items',
 	function( $menu_links ) {
 		// Remove Links from My Account
-		unset( $menu_links['dashboard'], $menu_links['downloads'], $menu_links['edit-account'] );
+		unset(
+			$menu_links['dashboard'],
+			$menu_links['downloads'],
+			$menu_links['edit-account'],
+			$menu_links['edit-address']
+		);
 
 		$menu_links['orders'] = __( 'Orders & returns', 'comfy' );
 
@@ -18,7 +23,7 @@ add_filter(
 	40
 );
 
-//  Register Permalink Endpoint for Account Details
+// Register Permalink Endpoint for Account Details
 add_action(
 	'init',
 	function () {
@@ -35,7 +40,7 @@ add_action(
 		$address_1       = $customer->get_billing_address_1();
 		$address_2       = $customer->get_billing_address_2();
 		?>
-		<h5><?php _e( 'Account Details', 'comfy' ); ?></h5>
+		<h6 class="woocommerce-MyAccount-content-title"><?php _e( 'Account Details', 'comfy' ); ?></h6>
 		<div class="account-details">
 			<p class="account-details-label"><?php _e( 'Full name', 'comfy' ); ?></p>
 			<p class="account-details-val"><?php echo $customer->get_first_name() . ' ' . $customer->get_last_name(); ?></p>
@@ -59,27 +64,32 @@ add_action(
 	}
 );
 
+// Address fields in edit account
+add_action(
+	'woocommerce_after_edit_account_form',
+	function () {
+		wc_get_template( 'myaccount/my-address.php' );
+	}
+);
+
 //Display account details as active on edit account
 add_filter(
 	'woocommerce_account_menu_item_classes',
 	function ( $classes, $endpoint ) {
 		if ( 'account-details' === $endpoint ) {
 			global $wp;
-			if ( 'my-account/edit-account' === $wp->request ) {
-				$classes[] = 'is-active';
+			switch ( $wp->request ) {
+				case 'my-account/edit-account':
+				case 'my-account/edit-address/shipping':
+				case 'my-account/edit-address/billing':
+					$classes[] = 'is-active';
+					break;
 			}
 		}
 		return $classes;
 	},
 	2,
 	5
-);
-
-add_action(
-	'woocommerce_after_edit_account_form',
-	function () {
-		wc_get_template( 'myaccount/my-address.php' );
-	}
 );
 
 // Redirect from my account dashboard to orders
@@ -103,5 +113,17 @@ add_action(
 			wp_safe_redirect( '/my-account/orders/' );
 			exit;
 		}
+	}
+);
+
+//My account orders table title
+add_action(
+	'woocommerce_before_account_orders',
+	function () {
+		?>
+	<h6 class="woocommerce-MyAccount-content-title">
+		<?php _e( 'My Orders', 'comfy' ); ?>
+	</h6>
+		<?php
 	}
 );
