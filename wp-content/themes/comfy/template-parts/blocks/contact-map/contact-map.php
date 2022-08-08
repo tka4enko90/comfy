@@ -1,9 +1,9 @@
 <?php
 if ( ! empty( $args['section_name'] ) ) {
 	wp_enqueue_style( $args['section_name'] . '-section', get_template_directory_uri() . '/template-parts/blocks/' . $args['section_name'] . '/' . $args['section_name'] . '.css', '', '', 'all' );
-
 }
 $section = array(
+	'title'        => get_sub_field( 'title' ),
 	'call'         => get_sub_field( 'call' ),
 	'email'        => get_sub_field( 'email' ),
 	'address'      => get_sub_field( 'address' ),
@@ -16,6 +16,15 @@ if ( ! empty( $section['maps_api_key'] ) ) {
 	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $section['maps_api_key'], '', '', false );
 	wp_enqueue_script( 'cmf-map', get_template_directory_uri() . '/template-parts/blocks/contact-map/contact-map.js', array( 'google-maps', 'jquery' ), '', false );
 	wp_localize_script( 'cmf-map', 'cmfMap', $section['map_settings'] );
+}
+if ( ! empty( $section['title'] ) ) {
+	?>
+	<div class="container container-sm">
+		<h1 class="contact-map-section-title">
+			<?php echo $section['title']; ?>
+		</h1>
+	</div>
+	<?php
 }
 ?>
 <div class="container container-lg">

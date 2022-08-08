@@ -70,6 +70,9 @@
       bottom: 0;
     }
     @include media-breakpoint-down(sm) {
+      bottom: -14px;
+    }
+    @include media-breakpoint-down(xs) {
       visibility: hidden;
     }
     &:hover {

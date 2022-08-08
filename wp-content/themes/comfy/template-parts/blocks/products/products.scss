@@ -1,6 +1,7 @@
 @import "../../../src/scss/components/vars";
 @import "../../../src/scss/components/mixins";
 .products-section {
+  overflow: hidden;
   .section-title {
     margin-bottom: 34px;
     @include media-breakpoint-up(sm) {

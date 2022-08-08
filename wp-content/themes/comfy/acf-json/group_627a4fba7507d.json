@@ -696,6 +696,22 @@
             "endpoint": 0
         },
         {
+            "key": "field_62f0b02436670",
+            "label": "Size guide",
+            "name": "size_guide",
+            "type": "table",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "use_header": 1,
+            "use_caption": 2
+        },
+        {
             "key": "field_62b3525b82189",
             "label": "Size Guide image",
             "name": "size_guide_image_id",
@@ -773,5 +789,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1659522970
+    "modified": 1659941015
 }
