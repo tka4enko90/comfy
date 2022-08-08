@@ -134,13 +134,71 @@ add_action(
         //phpcs:disable
 		if ( in_array( 'pa_size', array_keys( $variation_attrs ) ) ) {
 		    // phpcs:enable
-			$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
 			?>
 			<div id="size-guide-wrap">
 				<div class="size-guide">
 					<span class="close-guide"></span>
 					<h2><?php _e( 'Size Guide' ); ?></h2>
-					<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
+					<?php
+					$guide_table = get_field( 'size_guide', 'options' );
+
+					if ( ! empty( $guide_table ) ) {
+						?>
+						<div class="size-guide-table-wrap">
+							<table class="size-guide-table">
+								<?php
+								if ( ! empty( $guide_table['header'] ) ) {
+									?>
+									<thead>
+									<tr>
+										<?php
+										foreach ( $guide_table['header'] as $heading ) {
+											?>
+											<th>
+												<?php
+												if ( ! empty( $heading ) ) {
+													?>
+													<p class="bundle-breakdown-table-title">
+														<?php echo $heading['c']; ?>
+													</p>
+													<?php
+												}
+												?>
+											</th>
+											<?php
+										}
+										?>
+									</tr>
+									</thead>
+									<?php
+								}
+								if ( ! empty( $guide_table['body'] ) ) {
+									?>
+									<tbody>
+									<?php
+									foreach ( $guide_table['body'] as $table_row ) {
+										?>
+										<tr>
+											<?php
+											foreach ( $table_row as $table_el ) {
+												?>
+												<td><?php echo ( ! empty( $table_el['c'] ) ) ? $table_el['c'] : ''; ?></td>
+												<?php
+											}
+											?>
+										</tr>
+										<?php
+									}
+									?>
+									</tbody>
+									<?php
+								}
+								?>
+							</table>
+						</div>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 			<?php
