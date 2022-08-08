@@ -208,9 +208,10 @@ add_filter(
 		$min_price       = $product->get_min_raw_price();
 		?>
 		<span>
-			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
+			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
 		<?php
+		echo wc_price( $min_price );
 		if ( 0 < $bundle_discount ) {
 			?>
 			<span class="sale-persent"><?php echo __( 'Saves you ' ) . $bundle_discount . '%'; ?></span>
