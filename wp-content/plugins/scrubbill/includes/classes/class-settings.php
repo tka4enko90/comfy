@@ -44,6 +44,15 @@ class Settings {
 	const OVERRIDE_LABELS_KEY = 'scrubbill_override_address_labels';
 
 	/**
+	 * Key for the coupon exclusion setting.
+	 *
+	 * @var string
+	 *
+	 * @since 1.0.2
+	 */
+	const USE_CART_SUB_TOTAL = 'scrubbill_use_cart_sub_total';
+
+	/**
 	 * Key for the failover label setting.
 	 *
 	 * @var string
@@ -121,6 +130,14 @@ class Settings {
 					'type'     => 'checkbox',
 					'desc'     => __( 'Overrides default WooCommerce labels to match Scrubbill address fields', 'scrubbill' ),
 					'default'  => 'yes',
+					'autoload' => false,
+				],
+				[
+					'name'     => __( 'Use Cart Sub-Total', 'scrubbill' ),
+					'id'       => self::USE_CART_SUB_TOTAL,
+					'type'     => 'checkbox',
+					'desc'     => __( 'Use cart Sub-Total instead of cart Total in rate calculation', 'scrubbill' ),
+					'default'  => 'no',
 					'autoload' => false,
 				],
 				[

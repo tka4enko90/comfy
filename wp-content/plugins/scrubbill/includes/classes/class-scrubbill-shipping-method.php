@@ -94,7 +94,13 @@ class Scrubbill_Shipping_Method extends \WC_Shipping_Method {
 		$data['phone'] = WC()->customer->get_billing_phone();
 
 		// Add value.
-		$data['value'] = $this->format_float_to_string( WC()->cart->get_cart_contents_total() );
+		$use_cart_sub_total = get_option( Settings::USE_CART_SUB_TOTAL );
+
+		if ( 'yes' === $use_cart_sub_total ) {
+			$data['value'] = $this->format_float_to_string( WC()->cart->get_subtotal() );
+		} else {
+			$data['value'] = $this->format_float_to_string( WC()->cart->get_cart_contents_total() );
+		}
 
 		// Add weight.
 		$data['weight'] = $this->format_float_to_string( WC()->cart->get_cart_contents_weight(), 4, false );

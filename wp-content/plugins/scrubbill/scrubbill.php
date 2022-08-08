@@ -11,7 +11,7 @@
  * Plugin Name: ScrubBill
  * Plugin URI:  https://scrubbill.com
  * Description: Multi-courier shipping software that makes fulfilment a breeze.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      ScrubBill
  * Text Domain: scrubBill
  *

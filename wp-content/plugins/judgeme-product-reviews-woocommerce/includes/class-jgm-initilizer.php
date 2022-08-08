@@ -20,8 +20,10 @@ class JGM_Initilizer {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
 		// Enqueue scripts to site.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_judgeme_cdn_scripts' ) );
-		add_filter( 'script_loader_tag', array( $this, 'async_load_judgeme_cdn_js' ), 10, 2 );
+		if ( ! defined( 'JGM_CDN_DOMAIN' ) ) {
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_judgeme_cdn_scripts' ) );
+			add_filter( 'script_loader_tag', array( $this, 'async_load_judgeme_cdn_js' ), 10, 2 );	
+		}
 	}
 
 	public function register_judgeme_api() {

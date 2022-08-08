@@ -104,6 +104,9 @@ From our admin page, please go to Judge.me’s settings page > “Review Request
 
 == Changelog ==
 
+= 1.3.19 =
+* Improvement: Core scripts can now be divided into different portions and supported progressive loading.
+
 = 1.3.18 =
 * Update sidebar menu logo
 

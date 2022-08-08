@@ -3,7 +3,7 @@
  * Plugin Name: Judge.me Product Reviews for WooCommerce
  * Plugin URI: https://judge.me/
  * Description: Judge.me collects, manages and displays reviews for your WooCommerce online shop, including photo reviews, in-email review, reminders, rich snippets, and much more.
- * Version: 1.3.18
+ * Version: 1.3.19
  * Author: Judge.me
  * Author URI: https://judge.me
  * WC requires at least: 3.0
@@ -20,6 +20,7 @@ define( 'JGM_SHOP_DOMAIN', $domain );
 define( 'JGM_API_HOST', 'https://judge.me/api/v1/' );
 define( 'JGM_CORE_HOST', 'https://judge.me/' );
 define( 'JGM_ADAPTER_HOST', 'https://woocommerce-adapter.judge.me' );
+define( 'JGM_CDN_DOMAIN', 'cdn.judge.me' );
 define( 'JGM_NAMESPACE', 'judgeme/v1' );
 define( 'JGM_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'JGM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

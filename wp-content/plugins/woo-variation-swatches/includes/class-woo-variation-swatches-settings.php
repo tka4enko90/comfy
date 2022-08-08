@@ -207,7 +207,7 @@
             }
             
             public function template_license() {
-    
+                
                 $links = array(
                     'button_url'  => 'https://getwooplugins.com/my-account/downloads/',
                     'button_text' => esc_html__( 'Get license', 'woo-variation-swatches' ),
@@ -218,21 +218,20 @@
                 $body = sprintf( '<video preload="auto" autoplay loop muted playsinline src="%s"></video>', esc_url( woo_variation_swatches()->org_assets_url( '/preview-18.webm' ) ) );
                 $this->modal_dialog( 'license', esc_html__( 'Swatches License', 'woo-variation-swatches' ), $body, $links );
             }
-    
+            
             public function template_show_on_archive() {
-        
+                
                 $body = sprintf( '<video preload="auto" autoplay loop muted playsinline src="%s"></video>', esc_url( woo_variation_swatches()->org_assets_url( '/preview-19.webm' ) ) );
                 $this->modal_dialog( 'show_on_archive', esc_html__( 'Swatches On Archive Page', 'woo-variation-swatches' ), $body, $this->modal_buy_links() );
             }
             
             public function template_archive_default_selected() {
-        
+                
                 $body = sprintf( '<video preload="auto" autoplay loop muted playsinline src="%s"></video>', esc_url( woo_variation_swatches()->org_assets_url( '/preview-20.webm' ) ) );
                 $this->modal_dialog( 'archive_default_selected', esc_html__( 'Swatches Archive Default Selected', 'woo-variation-swatches' ), $body, $this->modal_buy_links() );
             }
-    
-    
-    
+            
+            
             protected function notices() {
                 // phpcs:disable WordPress.Security.NonceVerification.Recommended
                 if ( $this->is_current_tab() && isset( $_GET[ 'reset' ] ) ) { // WPCS: input var okay, CSRF ok.
@@ -411,6 +410,7 @@
                         'title'   => esc_html__( 'Disable Out of Stock', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Disable Out Of Stock item', 'woo-variation-swatches' ),
                         'default' => 'yes',
+                        // 'help_preview' => true,
                         'is_pro'  => true,
                     ),
                     
@@ -425,17 +425,17 @@
                     ),
                     
                     array(
-                        'id'       => 'attribute_behavior',
-                        'type'     => 'radio',
-                        'title'    => esc_html__( 'Disabled Attribute style', 'woo-variation-swatches' ),
-                        'desc'     => esc_html__( 'Disabled / Out Of Stock attribute will be hide / blur / crossed.', 'woo-variation-swatches' ),
-                        'desc_tip' => true,
-                        'options'  => array(
+                        'id'           => 'attribute_behavior',
+                        'type'         => 'radio',
+                        'title'        => esc_html__( 'Disabled Attribute style', 'woo-variation-swatches' ),
+                        'desc'         => esc_html__( 'Disabled / Out Of Stock attribute will be hide / blur / crossed.', 'woo-variation-swatches' ),
+                        'desc_tip'     => true,
+                        'options'      => array(
                             'blur'          => esc_html__( 'Blur with cross', 'woo-variation-swatches' ),
                             'blur-no-cross' => esc_html__( 'Blur without cross', 'woo-variation-swatches' ),
                             'hide'          => esc_html__( 'Hide', 'woo-variation-swatches' ),
                         ),
-                        'default'  => 'blur',
+                        'default'      => 'blur',
                         'help_preview' => true,
                     ),
                     
@@ -460,6 +460,43 @@
             protected function get_settings_for_style_section() {
                 
                 $settings = array(
+                    
+                    // Start swatches tick and cross coloring
+                    array(
+                        'id'    => 'style_icons_options',
+                        'type'  => 'title',
+                        'title' => esc_html__( 'Swatches indicator', 'woo-variation-swatches' ),
+                        'desc'  => esc_html__( 'Change swatches indicator color', 'woo-variation-swatches' ),
+                    ),
+                    
+                    array(
+                        'id'                => 'tick_color',
+                        'type'              => 'color',
+                        'title'             => esc_html__( 'Tick Color', 'woo-variation-swatches' ),
+                        'desc'              => esc_html__( 'Swatches Selected tick color. Default is: #ffffff', 'woo-variation-swatches' ),
+                        'css'               => 'width: 6em;',
+                        'default'           => '#ffffff',
+                        //'is_new'            => true,
+                        'custom_attributes' => array(//    'data-alpha-enabled' => 'true'
+                        )
+                    ),
+                    
+                    array(
+                        'id'                => 'cross_color',
+                        'type'              => 'color',
+                        'title'             => esc_html__( 'Cross Color', 'woo-variation-swatches' ),
+                        'desc'              => esc_html__( 'Swatches cross color. Default is: #ff0000', 'woo-variation-swatches' ),
+                        'css'               => 'width: 6em;',
+                        'default'           => '#ff0000',
+                        //'is_new'            => true,
+                        'custom_attributes' => array(//    'data-alpha-enabled' => 'true'
+                        )
+                    ),
+                    
+                    array(
+                        'type' => 'sectionend',
+                        'id'   => 'style_icons_options',
+                    ),
                     
                     // Start single page swatches style
                     array(
@@ -518,7 +555,7 @@
                         'type' => 'sectionend',
                         'id'   => 'single_style_options',
                     ),
-                    
+                
                 );
                 
                 return $settings;
@@ -553,14 +590,23 @@
                         'require'  => $this->normalize_required_attribute( array( 'show_variation_label' => array( 'type' => '==', 'value' => '1' ) ) ),
                         // 'is_new'   => true,
                     ),
-
+                    
+                    array(
+                        'id'      => 'enable_single_preloader',
+                        'type'    => 'checkbox',
+                        'title'   => esc_html__( 'Enable Preloader', 'woo-variation-swatches' ),
+                        'desc'    => esc_html__( 'Enable single product page swatches preloader', 'woo-variation-swatches' ),
+                        'default' => 'yes',
+                        'is_pro'  => true,
+                    ),
+                    
                     array(
                         'id'      => 'enable_linkable_variation_url',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Generate variation url', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Generate sharable url based on selected variation attributes.', 'woo-variation-swatches' ),
                         'default' => 'no',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
                     
                     array(
@@ -593,48 +639,57 @@
                 
                 return $settings;
             }
-    
+            
             protected function get_settings_for_archive_section() {
                 $settings = array(
-            
+                    
                     array(
                         'id'    => 'archive_options',
                         'type'  => 'title',
                         'title' => esc_html__( 'Visual Section', 'woo-variation-swatches' ),
                         'desc'  => esc_html__( 'Advanced change some visual styles on shop / archive page', 'woo-variation-swatches' ),
                     ),
-            
+                    
                     array(
                         'id'      => 'show_on_archive',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Enable Swatches', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show swatches on archive / shop page.', 'woo-variation-swatches' ),
                         'default' => 'yes',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
-            
+                    
+                    array(
+                        'id'      => 'enable_archive_preloader',
+                        'type'    => 'checkbox',
+                        'title'   => esc_html__( 'Enable Preloader', 'woo-variation-swatches' ),
+                        'desc'    => esc_html__( 'Enable archive page swatches preloader', 'woo-variation-swatches' ),
+                        'default' => 'yes',
+                        'is_pro'  => true,
+                    ),
+                    
                     array(
                         'id'      => 'archive_show_availability',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Show Product Availability', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show Product availability stock info', 'woo-variation-swatches' ),
                         'default' => 'no',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
-            
+                    
                     array(
-                        'id'           => 'archive_default_selected',
-                        'type'         => 'checkbox',
+                        'id'      => 'archive_default_selected',
+                        'type'    => 'checkbox',
                         //'is_pro' => true,
                         //'is_new' => true,
                         //'help_preview' => true,
-                        'title'        => esc_html__( 'Show default selected', 'woo-variation-swatches-pro' ),
-                        'desc'         => esc_html__( 'Show default selected attribute swatches on archive / shop page.', 'woo-variation-swatches-pro' ),
-                        'default'      => 'yes',
-                        'is_pro' => true
+                        'title'   => esc_html__( 'Show default selected', 'woo-variation-swatches' ),
+                        'desc'    => esc_html__( 'Show default selected attribute swatches on archive / shop page.', 'woo-variation-swatches' ),
+                        'default' => 'yes',
+                        'is_pro'  => true
                     ),
-            
-            
+                    
+                    
                     array(
                         'id'      => 'archive_swatches_position',
                         'type'    => 'radio',
@@ -646,9 +701,9 @@
                             'before' => esc_html__( 'Before add to cart button', 'woo-variation-swatches' ),
                             'after'  => esc_html__( 'After add to cart button', 'woo-variation-swatches' )
                         ),
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
-            
+                    
                     array(
                         'id'       => 'archive_align',
                         'type'     => 'select',
@@ -663,7 +718,7 @@
                             'center'     => esc_html__( 'Center', 'woo-variation-swatches' ),
                             'flex-end'   => esc_html__( 'Right', 'woo-variation-swatches' )
                         ),
-                        'is_pro' => true,
+                        'is_pro'   => true,
                     ),
                     
                     array(
@@ -672,23 +727,21 @@
                         'title'   => esc_html__( 'Show on filter widget', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show variation swatches on filter widget.', 'woo-variation-swatches' ),
                         'default' => 'yes',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
-            
+                    
                     array(
                         'type' => 'sectionend',
                         'id'   => 'archive_options',
                     ),
-        
-        
                 );
-        
+                
                 return $settings;
             }
-    
+            
             protected function get_settings_for_special_section() {
                 $settings = array(
-            
+                    
                     // Catalog mode
                     array(
                         'id'    => 'catalog_mode_options',
@@ -696,42 +749,42 @@
                         'title' => esc_html__( 'Catalog mode', 'woo-variation-swatches' ),
                         'desc'  => esc_html__( 'Show single attribute as catalog mode on shop / archive pages. Catalog mode only change image based on selected variation.', 'woo-variation-swatches' ),
                     ),
-            
+                    
                     array(
                         'id'      => 'enable_catalog_mode',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Show Single Attribute', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show Single Attribute taxonomies on archive page', 'woo-variation-swatches' ),
                         'default' => 'no',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
                     
                     array(
                         'type' => 'sectionend',
                         'id'   => 'catalog_mode_options',
                     ),
-            
+                    
                     array(
                         'id'    => 'single_variation_image_preview_options',
                         'type'  => 'title',
                         'title' => esc_html__( 'Single Variation Image Preview', 'woo-variation-swatches' ),
                         'desc'  => esc_html__( 'Switch variation image when single attribute selected on product page.', 'woo-variation-swatches' ),
                     ),
-            
+                    
                     array(
                         'id'      => 'enable_single_variation_preview',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Variation Image Preview', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show single attribute variation image based on first attribute select on product page.', 'woo-variation-swatches' ),
                         'default' => 'no',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
                     
                     array(
                         'type' => 'sectionend',
                         'id'   => 'single_variation_image_preview_options',
                     ),
-            
+                    
                     // Attribute large size
                     array(
                         'id'    => 'attr_large_size_options',
@@ -739,14 +792,14 @@
                         'title' => esc_html__( 'Large Size Attribute Section', 'woo-variation-swatches' ),
                         'desc'  => esc_html__( 'Make a attribute taxonomies size large on single product', 'woo-variation-swatches' ),
                     ),
-            
+                    
                     array(
                         'id'      => 'enable_large_size',
                         'type'    => 'checkbox',
                         'title'   => esc_html__( 'Show First Attribute In Large Size', 'woo-variation-swatches' ),
                         'desc'    => esc_html__( 'Show Attribute taxonomies in large size', 'woo-variation-swatches' ),
                         'default' => 'no',
-                        'is_pro' => true,
+                        'is_pro'  => true,
                     ),
                     
                     array(
@@ -754,7 +807,7 @@
                         'id'   => 'attr_large_size_options',
                     ),
                 );
-        
+                
                 return $settings;
             }
             
