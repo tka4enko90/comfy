@@ -24,11 +24,11 @@ $header_options = array(
 	<title><?php bloginfo( 'name' ); ?> <?php wp_title( '', true ); ?></title>
 
 	<!-- FAVICON -->
-<!--    <link rel="apple-touch-icon" sizes="180x180" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/apple-touch-icon.png">-->
-<!--    <link rel="icon" type="image/png" sizes="32x32" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/favicon-32x32.png">-->
-<!--    <link rel="icon" type="image/png" sizes="16x16" href="--><?php //echo get_template_directory_uri(); ?><!--/favicon/favicon-16x16.png">-->
-<!--    <link rel="manifest" href="/--><?php //echo get_template_directory_uri(); ?><!--/faviconsite.webmanifest">-->
-<!--    <meta name="msapplication-TileColor" content="#da532c">-->
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
+	<link rel="manifest" href="/<?php echo get_template_directory_uri(); ?>/faviconsite.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
 	 <meta name="theme-color" content="#ffffff">
 	<!-- /FAVICON -->
 
@@ -93,7 +93,7 @@ $header_options = array(
 			if ( isset( $header_options['additional_link'] ) ) {
 				if ( isset( $header_options['additional_link']['url'] ) && isset( $header_options['additional_link']['title'] ) ) {
 					?>
-					<a class="mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+					<a class="mobile-none" href="<?php echo $header_options['additional_link']['url']; ?>" <?php echo ! empty( $header_options['additional_link']['target'] ) ? 'target="' . $header_options['additional_link']['target'] . '"' : ''; ?>>
 						<?php echo $header_options['additional_link']['title']; ?>
 					</a>
 					<?php

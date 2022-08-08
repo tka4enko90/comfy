@@ -40,5 +40,13 @@
     input, textarea {
       margin-top: 12px;
     }
+    input[type="submit"] {
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+    }
+  }
+  img {
+    border-radius: 8px;
   }
 }

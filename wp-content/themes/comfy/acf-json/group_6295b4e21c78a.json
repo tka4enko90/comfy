@@ -398,10 +398,10 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_62c58e208725c",
-                            "label": "Products",
-                            "name": "products",
-                            "type": "repeater",
+                            "key": "field_62e7fa61523f6",
+                            "label": "Category",
+                            "name": "category",
+                            "type": "taxonomy",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -410,35 +410,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "table",
-                            "button_label": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_62c58e5d8725d",
-                                    "label": "Product",
-                                    "name": "product",
-                                    "type": "post_object",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "product"
-                                    ],
-                                    "taxonomy": "",
-                                    "allow_null": 0,
-                                    "multiple": 0,
-                                    "return_format": "object",
-                                    "ui": 1
-                                }
-                            ]
+                            "taxonomy": "product_cat",
+                            "field_type": "checkbox",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "multiple": 0,
+                            "allow_null": 0
                         }
                     ],
                     "min": "",
@@ -2844,25 +2823,6 @@
                                     },
                                     "default_value": "",
                                     "placeholder": ""
-                                },
-                                {
-                                    "key": "field_628b90ffe6b22",
-                                    "label": "Mobile only",
-                                    "name": "mobile_only",
-                                    "type": "true_false",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "5",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "message": "",
-                                    "default_value": 0,
-                                    "ui": 0,
-                                    "ui_on_text": "",
-                                    "ui_off_text": ""
                                 }
                             ]
                         }
@@ -2876,6 +2836,25 @@
                     "label": "Contact Map",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_62ed03084bf0e",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
                         {
                             "key": "field_629765f39ea2f",
                             "label": "Map",
@@ -3991,5 +3970,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1658909785
+    "modified": 1659703319
 }

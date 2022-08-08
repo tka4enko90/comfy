@@ -2,16 +2,31 @@
 @import "../../../src/scss/components/mixins";
 
 .contact-map-section {
-  color: $white;
-  text-align: center;
+
+  &-title {
+    margin-bottom: 32px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 64px;
+    }
+  }
   .section-wrap {
+    color: $white;
+    text-align: center;
     background-color: $primary-color;
     border-radius: 8px;
     overflow: hidden;
     @include media-breakpoint-up(xl) {
       margin: 0 -20px;
     }
+    @include media-breakpoint-up(lg) {
+      @include media-breakpoint-down(xl) {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
   }
+
   #map {
     height: 335px;
     @include media-breakpoint-up(xl) {

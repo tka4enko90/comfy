@@ -4,12 +4,10 @@
   &-section {
     .row {
       margin-bottom: -32px;
-      @include media-breakpoint-up(sm) {
-        flex-wrap: nowrap;
-      }
       .col {
-        @include media-breakpoint-down(xs) {
-          flex-basis: 100%;
+        flex-basis: 100%;
+        @include media-breakpoint-up(sm) {
+          flex-basis: 33%;
         }
       }
     }

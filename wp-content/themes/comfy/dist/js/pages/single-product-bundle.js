@@ -175,6 +175,12 @@
         }]
       });
     },
+    updateLastStepPrice: function updateLastStepPrice() {
+      var priceWrap = $('.bundle_price').find('.price'),
+          priceSymbol = priceWrap.find('ins .woocommerce-Price-currencySymbol').text(),
+          price = parseFloat(priceWrap.find('ins .amount').text().replace(/[^0-9. ]/g, ""));
+      $('.bundle-credit-text-val').text(priceSymbol + (price / 4).toFixed(2));
+    },
     updateLastStepItems: function updateLastStepItems() {
       $('.variations_form').each(function () {
         var variationsData = $(this).data('product_variations'),
@@ -199,6 +205,7 @@
     updateLastStep: function updateLastStep() {
       this.updateLastStepItems();
       this.updateLastStepGallery();
+      this.updateLastStepPrice();
     },
     ajaxSuccess: function ajaxSuccess(response) {
       if (response['main_images'] && response['variation_id']) {

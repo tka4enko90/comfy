@@ -24,6 +24,9 @@
         margin-top: 24px;
         &[type="submit"] {
           margin-top: 32px;
+          @include media-breakpoint-down(lg) {
+            width: 100%;
+          }
         }
       }
     }

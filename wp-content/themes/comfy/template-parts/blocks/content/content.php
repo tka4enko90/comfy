@@ -7,7 +7,7 @@ if ( ! empty( $content ) ) {
 	$content = apply_filters( 'the_content', $content );
 	$content = str_replace( ']]>', ']]&gt;', $content );
 	?>
-	<div class="container">
+	<div class="container container-sm">
 		<?php echo $content; ?>
 	</div>
 	<?php

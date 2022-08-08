@@ -2,31 +2,22 @@
 wp_enqueue_style( 'instagram-links' . '-section', get_template_directory_uri() . '/template-parts/blocks/' . 'instagram-links' . '/' . 'instagram-links' . '.css', '', '', 'all' );
 $section = array(
 	'title'            => ! empty( $args['title'] ) ? $args['title'] : get_sub_field( 'title' ),
-	'account'          => get_sub_field( 'account' ),
+	'account'          => isset( $args['account'] ) ? $args['account'] : get_sub_field( 'account' ),
 	'items'            => ! empty( $args['items'] ) ? $args['items'] : get_sub_field( 'items' ),
 	'links_in_new_tab' => isset( $args['links_in_new_tab'] ) ? $args['links_in_new_tab'] : get_field( 'instagram_links_in_new_tab', 'options' ),
 );
 
+
 if ( empty( $section['items'] ) ) {
 	$section['items'] = get_field( 'instagram_items', 'options' );
 }
-if ( empty( $section['account'] ) ) {
-	$section['account'] = get_field( 'instagram_account', 'options' );
+
+$global_inst_account = get_field( 'instagram_account', 'options' );
+foreach ( $global_inst_account as $key => $val ) {
+	if ( empty( $section['account'][ $key ] ) ) {
+		$section['account'][ $key ] = $global_inst_account[ $key ];
+	}
 }
-
-if ( ! empty( $args['account']['url'] ) ) {
-	$section['account']['url'] = $args['account']['url'];
-}
-if ( ! empty( $args['account']['icon'] ) ) {
-	$section['account']['icon'] = $args['account']['icon'];
-}
-if ( ! empty( $args['account']['label'] ) ) {
-	$section['account']['label'] = $args['account']['label'];
-}
-
-
-
-
 
 ?>
 	<div class="container">
@@ -73,7 +64,7 @@ if ( ! empty( $args['account']['label'] ) ) {
 		}
 		?>
 		<div class="row">
-			<div class="col-100 instagram-links-cols">
+			<div class="instagram-links-cols">
 				<?php
 				if ( is_array( $section['items'] ) && 0 < count( $section['items'] ) ) {
 					foreach ( $section['items'] as $item ) {

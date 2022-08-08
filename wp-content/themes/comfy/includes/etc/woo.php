@@ -1,5 +1,21 @@
 <?php
 
+function cmf_remove_zeros( $price ) {
+    return str_replace( '.00', '', strval( $price ) );
+}
+
+function cmf_get_bundle_discount( $product ) {
+    $bundled_data_items  = $product->get_bundled_data_items();
+    $bundled_items_price = 0;
+    foreach ( $bundled_data_items as $bundled_item ) {
+        $item_data            = $bundled_item->get_data();
+        $_product             = wc_get_product( $item_data['product_id'] );
+        $bundled_items_price += $_product->get_price();
+    }
+    return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
+
+}
+
 function cmf_star_rating( $args = array() ) {
 
 	$defaults    = array(
@@ -81,7 +97,7 @@ function cmf_the_credit_text( $price ) {
 	}
 	?>
 	<span class="credit">
-		<?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
+		<span class="credit-text"><?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?></span>
 		<svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<rect width="57" height="28" fill="url(#pattern0)"></rect>
 			<defs>
@@ -94,6 +110,33 @@ function cmf_the_credit_text( $price ) {
 	</span>
 	<?php
 }
+
+function cmf_get_the_product_tags() {
+    global $product;
+    $terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+    ob_start();
+    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+        ?>
+        <div class="product-tags">
+            <?php
+            foreach ( $terms as $term ) {
+                ?>
+                <span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+    return ob_get_clean();
+}
+
+add_filter('wc_price', function ($html) {
+    return preg_replace( '/.00/', '', $html );
+}, 1);
 
 add_filter(
 	'woocommerce_get_price_html',
@@ -155,6 +198,7 @@ add_filter(
 	2
 );
 
+
 // Product bundle price filter
 add_filter(
 	'woocommerce_get_price_html',
@@ -164,13 +208,22 @@ add_filter(
 		}
 
 		ob_start();
-		$min_price = $product->get_min_raw_price();
+
+		$bundle_discount = cmf_get_bundle_discount( $product );
+		$min_price       = $product->get_min_raw_price();
 		?>
 		<span class="from-label">
 			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
 		<?php echo wc_price( $min_price ); ?>
 		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
+		<?php
+		if ( 0 < $bundle_discount ) {
+			?>
+			<span class="sale-persent"><?php echo __( 'Saves you ' ) . $bundle_discount . '%'; ?></span>
+			<?php
+		}
+		?>
 		<?php
 		cmf_the_credit_text( $min_price );
 
@@ -260,7 +313,4 @@ add_action(
 	}
 );
 
-function cmf_remove_zeros( $price ) {
-	return str_replace( '.00', '', strval( $price ) );
-}
 

@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 
 form, form.wpcf7-form {
   label {
@@ -27,6 +28,23 @@ form, form.wpcf7-form {
   textarea {
     @include input-style;
   }
+
+  .select2-container--default {
+    .select2-selection {
+      &--single {
+        border: none;
+        height: 42px;
+        .select2-selection {
+          &__rendered {
+            line-height: 42px;
+          }
+          &__arrow {
+            height: 42px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .form-dark form {
@@ -38,8 +56,11 @@ form, form.wpcf7-form {
       border-bottom: 2px solid $white;
       color: $white;
       padding: 14px 0;
+      @include media-breakpoint-down(xs) {
+        font-size: 14px;
+      }
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: $white;
+        color: #8f95a4;
       }
       &:-ms-input-placeholder { /* Internet Explorer 10-11 */
         color: $white;

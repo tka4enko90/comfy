@@ -1,11 +1,11 @@
 <?php
 $section = array(
-	'title'     => get_sub_field( 'title' ),
-	'content'   => get_sub_field( 'content' ),
-	'link'      => get_sub_field( 'link' ),
-	'image_id'  => get_sub_field( 'image_id' ),
-	'container' => get_sub_field( 'container' ),
-	'layout'    => get_sub_field( 'layout' ),
+	'title'     => ( ! empty( $args['title'] ) ) ? $args['title'] : get_sub_field( 'title' ),
+	'content'   => ( ! empty( $args['content'] ) ) ? $args['content'] : get_sub_field( 'content' ),
+	'link'      => ( ! empty( $args['link'] ) ) ? $args['link'] : get_sub_field( 'link' ),
+	'image_id'  => ( ! empty( $args['image_id'] ) ) ? $args['image_id'] : get_sub_field( 'image_id' ),
+	'container' => ( ! empty( $args['container'] ) ) ? $args['container'] : get_sub_field( 'container' ),
+	'layout'    => ( ! empty( $args['layout'] ) ) ? $args['layout'] : get_sub_field( 'layout' ),
 );
 
 if ( ! empty( $args['section_name'] ) ) {
@@ -44,7 +44,7 @@ if ( ! empty( $args['section_name'] ) ) {
 					if ( isset( $section['link'] ) ) {
 						if ( isset( $section['link']['url'] ) && isset( $section['link']['title'] ) ) {
 							?>
-							<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $header_options['link']['target'] . '"' : ''; ?>>
+							<a class="button button-secondary" href="<?php echo $section['link']['url']; ?>" <?php echo ! empty( $section['link']['target'] ) ? 'target="' . $section['link']['target'] . '"' : ''; ?>>
 								<?php echo $section['link']['title']; ?>
 							</a>
 							<?php

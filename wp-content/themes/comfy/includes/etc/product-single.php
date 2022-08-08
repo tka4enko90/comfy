@@ -118,8 +118,10 @@ add_action(
 		switch ( $product->get_type() ) {
 			case 'bundle':
 				foreach ( $product->get_bundled_items() as $item ) {
-					$bundle_product  = wc_get_product( $item->get_product_id() );
-					$variation_attrs = array_merge( $bundle_product->get_variation_attributes(), $variation_attrs );
+					$bundle_product = wc_get_product( $item->get_product_id() );
+					if ( $bundle_product->is_type( 'variable' ) ) {
+						$variation_attrs = array_merge( $bundle_product->get_variation_attributes(), $variation_attrs );
+					}
 				}
 				break;
 			case 'variable':
@@ -133,13 +135,71 @@ add_action(
         //phpcs:disable
 		if ( in_array( 'pa_size', array_keys( $variation_attrs ) ) ) {
 		    // phpcs:enable
-			$size_guide_image_id = get_field( 'size_guide_image_id', 'options' );
 			?>
 			<div id="size-guide-wrap">
 				<div class="size-guide">
 					<span class="close-guide"></span>
 					<h2><?php _e( 'Size Guide' ); ?></h2>
-					<?php echo ! empty( $size_guide_image_id ) ? wp_get_attachment_image( $size_guide_image_id, 'cmf_content_with_image_2' ) : ''; ?>
+					<?php
+					$guide_table = get_field( 'size_guide', 'options' );
+
+					if ( ! empty( $guide_table ) ) {
+						?>
+						<div class="size-guide-table-wrap">
+							<table class="size-guide-table">
+								<?php
+								if ( ! empty( $guide_table['header'] ) ) {
+									?>
+									<thead>
+									<tr>
+										<?php
+										foreach ( $guide_table['header'] as $heading ) {
+											?>
+											<th>
+												<?php
+												if ( ! empty( $heading ) ) {
+													?>
+													<p class="bundle-breakdown-table-title">
+														<?php echo $heading['c']; ?>
+													</p>
+													<?php
+												}
+												?>
+											</th>
+											<?php
+										}
+										?>
+									</tr>
+									</thead>
+									<?php
+								}
+								if ( ! empty( $guide_table['body'] ) ) {
+									?>
+									<tbody>
+									<?php
+									foreach ( $guide_table['body'] as $table_row ) {
+										?>
+										<tr>
+											<?php
+											foreach ( $table_row as $table_el ) {
+												?>
+												<td><?php echo ( ! empty( $table_el['c'] ) ) ? $table_el['c'] : ''; ?></td>
+												<?php
+											}
+											?>
+										</tr>
+										<?php
+									}
+									?>
+									</tbody>
+									<?php
+								}
+								?>
+							</table>
+						</div>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 			<?php
@@ -257,16 +317,23 @@ add_filter(
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
 // Content Product -> Rating & Product info
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+add_action(
+	'woocommerce_after_shop_loop_item_title',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			remove_action( 'woocommerce_after_shop_loop_item_title', array( 'JGM_Widget', 'judgeme_preview_badge' ), 5 );
+		} else {
+			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+		}
+	},
+	4
+);
 add_action(
 	'woocommerce_after_shop_loop_item_title',
 	function () {
 		global $product;
-		$rating        = $product->get_average_rating();
-		$reviews_count = $product->get_review_count();
 		$includes      = get_field( 'includes', $product->get_id() );
 		$color_counter = cmf_get_variation_colors_count();
-
 		?>
 		<div class="product-other-info">
 			<?php
@@ -283,8 +350,24 @@ add_action(
 				<?php
 			}
 			?>
-			<span class="product-rating"><?php cmf_star_rating( array( 'rating' => $rating ) ); ?></span>
-			<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+			<span class="product-rating">
+				<?php
+				if ( class_exists( 'JGM_Widget' ) ) {
+					JGM_Widget::judgeme_preview_badge();
+				} else {
+					$rating        = $product->get_average_rating();
+					$reviews_count = $product->get_review_count();
+					cmf_star_rating( array( 'rating' => $rating ) );
+				}
+				?>
+			</span>
+			<?php
+			if ( isset( $reviews_count ) ) {
+				?>
+				<span class="product-reviews-count"><?php echo $reviews_count . ' ' . __( 'reviews', 'comfy' ); ?></span>
+				<?php
+			}
+			?>
 		</div>
 		<?php
 	},
@@ -298,7 +381,7 @@ add_action(
 		?>
 	<div class="mobile-info">
 		<h1 class="product_title"><?php the_title(); ?></h1>
-		<div class="d-flex">
+		<div class="product-info">
 			<?php
 			$color_counter = cmf_get_variation_colors_count();
 			if ( ! empty( $color_counter ) ) {
@@ -322,3 +405,22 @@ add_filter(
 	}
 );
 
+// Remove JGM_Widget from product_summary
+add_action(
+	'woocommerce_after_single_product_summary',
+	function () {
+		if ( class_exists( 'JGM_Widget' ) ) {
+			remove_action( 'woocommerce_after_single_product_summary', array( 'JGM_Widget', 'judgeme_review_widget' ), 14 );
+		}
+	},
+	13
+);
+
+add_filter(
+	'cmf_review_widget',
+	function( $html ) {
+		$html = str_replace( "<div class='jdgm-rev-widg__header'>", "<div class='jdgm-rev-widg__header'><h3 class='section-title'><span id='jdgm-rev-widg__rev-counter'></span>" . __( 'Reviews' ) . '</h3>', $html );
+		$html = str_replace( "<div class='jdgm-rev-widg__summary-text'>", "<p class='jdgm-rev-widg__summary-rating-text'><span id='jdgm-rev-widg__summary-rating-num'></span>" . __( 'out of 5 stars' ) . "</p><div class='jdgm-rev-widg__summary-text'>", $html );
+		return   $html;
+	}
+);

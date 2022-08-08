@@ -14,10 +14,18 @@ if ( isset( $args['image_ids'] ) ) {
 	</figure>
 	<figure class="woocommerce-product-gallery-items">
 		<?php
+
+		$first = true;
 		foreach ( $args['image_ids'] as $id ) {
 			?>
 			<div data-item="<?php echo $id; ?>" class="gallery-item gallery-item-<?php echo $id; ?>">
-				<?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id ); ?>
+				<?php
+				if ( true === $first ) {
+					echo ( ! empty( $args['tags'] ) ) ? $args['tags'] : '';
+					$first = false;
+				}
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $id, true ), $id );
+				?>
 			</div>
 			<?php
 		}

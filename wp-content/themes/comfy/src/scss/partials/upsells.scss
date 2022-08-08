@@ -1,6 +1,6 @@
 @import "../components/vars";
 @import "../components/mixins";
-body .section.upsells-products-section {
+body #primary .section.upsells-products-section {
   overflow: hidden;
   &.section.up-sells.upsells.products {
     @include media-breakpoint-up(md) {
@@ -19,13 +19,18 @@ body .section.upsells-products-section {
     padding: 0;
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
+      margin: 0 0 -32px;
     }
 
     .product {
       display: block;
       position: relative;
-      margin: 0 32px 32px;
+      margin: 0 0 32px;
       flex-basis: 100%;
+
+      @include media-breakpoint-up(sm) {
+        margin: 0 32px 32px;
+      }
       @include media-breakpoint-up(md) {
         flex-basis: 33%;
       }
@@ -53,7 +58,12 @@ body .section.upsells-products-section {
       }
       .price {
         display: inline-block;
+        font-size: 16px;
         margin-bottom: 8px;
+        @include media-breakpoint-down(xs) {
+          font-size: 12px;
+          margin-top: 0;
+        }
         .amount {
           color: $primary-color;
         }
@@ -67,10 +77,15 @@ body .section.upsells-products-section {
           display: none;
         }
       }
+
       .woocommerce-loop-product__title {
         font-size: 24px;
         margin-bottom: 16px;
         padding: 0;
+        @include media-breakpoint-down(xs) {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
       }
       img {
         border-radius: 8px;
