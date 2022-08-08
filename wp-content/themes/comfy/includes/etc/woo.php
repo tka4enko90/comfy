@@ -81,7 +81,7 @@ function cmf_the_credit_text( $price ) {
 	}
 	?>
 	<span class="credit">
-		<?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?>
+		<span class="credit-text"><?php echo __( 'or 4 interest-free-payments of' ) . ' ' . wc_price( $price / 4 ) . ' ' . __( 'with', 'comfy' ) . ' '; ?></span>
 		<svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<rect width="57" height="28" fill="url(#pattern0)"></rect>
 			<defs>
@@ -117,6 +117,10 @@ function cmf_get_the_product_tags() {
     }
     return ob_get_clean();
 }
+
+add_filter('wc_price', function ($html) {
+    return preg_replace( '/.00/', '', $html );
+}, 1);
 
 add_filter(
 	'woocommerce_get_price_html',

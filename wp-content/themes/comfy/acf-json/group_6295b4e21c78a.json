@@ -2823,25 +2823,6 @@
                                     },
                                     "default_value": "",
                                     "placeholder": ""
-                                },
-                                {
-                                    "key": "field_628b90ffe6b22",
-                                    "label": "Mobile only",
-                                    "name": "mobile_only",
-                                    "type": "true_false",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "5",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "message": "",
-                                    "default_value": 0,
-                                    "ui": 0,
-                                    "ui_on_text": "",
-                                    "ui_off_text": ""
                                 }
                             ]
                         }
@@ -2855,6 +2836,25 @@
                     "label": "Contact Map",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_62ed03084bf0e",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
                         {
                             "key": "field_629765f39ea2f",
                             "label": "Map",
@@ -3970,5 +3970,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1659370171
+    "modified": 1659703319
 }
