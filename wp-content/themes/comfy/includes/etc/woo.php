@@ -219,9 +219,8 @@ add_filter(
 		<span class="from-label">
 			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
-		<?php echo wc_price( $min_price ); ?>
-		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
 		<?php
+		echo wc_price( $min_price );
 		if ( 0 < $bundle_discount ) {
 			?>
 			<span class="sale-persent"><?php echo __( 'Saves you ' ) . $bundle_discount . '%'; ?></span>
@@ -263,55 +262,3 @@ add_filter(
 		return $breadcrumb;
 	}
 );
-
-// Add title field to comment form
-add_filter(
-	'comment_form_fields',
-	function( $fields ) {
-		ob_start();
-		?>
-		<p class="comment-form-phone">
-			<label for="review-title"><?php _e( 'Review title', 'comfy' ); ?></label>
-			<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" />
-		</p>
-		<?php
-		$fields['phone'] = ob_get_clean();
-		return $fields;
-	}
-);
-add_action(
-	'comment_post',
-	function( $comment_id ) {
-		if ( ( isset( $_POST['review-title'] ) ) && ( ’ != $_POST['review-title'] ) ) {
-			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
-			add_comment_meta( $comment_id, 'title', $review_title );
-		}
-	}
-);
-
-add_action(
-	'woocommerce_before_shop_loop_item_title',
-	function () {
-
-		global $product;
-		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
-
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-			?>
-			<div class="product-tags">
-			<?php
-			foreach ( $terms as $term ) {
-				?>
-				<span class="product-tag">
-					<?php echo $term->name; ?>
-				</span>
-				<?php
-			}
-			?>
-			</div>
-			<?php
-		}
-
-	}
-);
-
