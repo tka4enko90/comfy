@@ -1,5 +1,21 @@
 <?php
 
+function cmf_remove_zeros( $price ) {
+	return str_replace( '.00', '', strval( $price ) );
+}
+
+function cmf_get_bundle_discount( $product ) {
+	$bundled_data_items  = $product->get_bundled_data_items();
+	$bundled_items_price = 0;
+	foreach ( $bundled_data_items as $bundled_item ) {
+		$item_data            = $bundled_item->get_data();
+		$_product             = wc_get_product( $item_data['product_id'] );
+		$bundled_items_price += $_product->get_price();
+	}
+	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
+
+}
+
 function cmf_star_rating( $args = array() ) {
 
 	$defaults    = array(
@@ -96,31 +112,35 @@ function cmf_the_credit_text( $price ) {
 }
 
 function cmf_get_the_product_tags() {
-    global $product;
-    $terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+	global $product;
+	$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
 
-    ob_start();
-    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-        ?>
-        <div class="product-tags">
-            <?php
-            foreach ( $terms as $term ) {
-                ?>
-                <span class="product-tag">
+	ob_start();
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		?>
+		<div class="product-tags">
+			<?php
+			foreach ( $terms as $term ) {
+				?>
+				<span class="product-tag">
 					<?php echo $term->name; ?>
 				</span>
-                <?php
-            }
-            ?>
-        </div>
-        <?php
-    }
-    return ob_get_clean();
+				<?php
+			}
+			?>
+		</div>
+		<?php
+	}
+	return ob_get_clean();
 }
 
-add_filter('wc_price', function ($html) {
-    return preg_replace( '/.00/', '', $html );
-}, 1);
+add_filter(
+	'wc_price',
+	function ( $html ) {
+		return cmf_remove_zeros( $html );
+	},
+	1
+);
 
 add_filter(
 	'woocommerce_get_price_html',
@@ -133,7 +153,7 @@ add_filter(
 			$sale = $product->get_price() / $regular_price;
 			if ( 1 > $sale ) {
 				?>
-				<span>
+				<span class="from-label">
 					<?php _e( 'From: ', 'comfy' ); ?>
 				</span>
 				<?php
@@ -182,17 +202,6 @@ add_filter(
 	2
 );
 
-function cmf_get_bundle_discount( $product ) {
-	$bundled_data_items  = $product->get_bundled_data_items();
-	$bundled_items_price = 0;
-	foreach ( $bundled_data_items as $bundled_item ) {
-		$item_data            = $bundled_item->get_data();
-		$_product             = wc_get_product( $item_data['product_id'] );
-		$bundled_items_price += $_product->get_price();
-	}
-	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
-
-}
 
 // Product bundle price filter
 add_filter(
@@ -207,9 +216,11 @@ add_filter(
 		$bundle_discount = cmf_get_bundle_discount( $product );
 		$min_price       = $product->get_min_raw_price();
 		?>
-		<span>
-			<?php echo __( 'From', 'comfy' ) . ' ' . wc_price( $min_price ); ?>
+		<span class="from-label">
+			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
+		<?php echo wc_price( $min_price ); ?>
+		<span class="sale-persent"><?php echo __( 'Saves you NaN%' ); ?></span>
 		<?php
 		if ( 0 < $bundle_discount ) {
 			?>
@@ -234,7 +245,6 @@ add_action(
 	}
 );
 
-
 add_filter(
 	'woocommerce_breadcrumb_defaults',
 	function( $args ) {
@@ -253,3 +263,55 @@ add_filter(
 		return $breadcrumb;
 	}
 );
+
+// Add title field to comment form
+add_filter(
+	'comment_form_fields',
+	function( $fields ) {
+		ob_start();
+		?>
+		<p class="comment-form-phone">
+			<label for="review-title"><?php _e( 'Review title', 'comfy' ); ?></label>
+			<input id="review-title" name="review-title" type="text" size="30"  tabindex="4" />
+		</p>
+		<?php
+		$fields['phone'] = ob_get_clean();
+		return $fields;
+	}
+);
+add_action(
+	'comment_post',
+	function( $comment_id ) {
+		if ( ( isset( $_POST['review-title'] ) ) && ( ’ != $_POST['review-title'] ) ) {
+			$review_title = wp_filter_nohtml_kses( $_POST['review-title'] );
+			add_comment_meta( $comment_id, 'title', $review_title );
+		}
+	}
+);
+
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+
+		global $product;
+		$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			?>
+			<div class="product-tags">
+			<?php
+			foreach ( $terms as $term ) {
+				?>
+				<span class="product-tag">
+					<?php echo $term->name; ?>
+				</span>
+				<?php
+			}
+			?>
+			</div>
+			<?php
+		}
+
+	}
+);
+

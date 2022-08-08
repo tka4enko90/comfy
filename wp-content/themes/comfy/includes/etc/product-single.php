@@ -22,6 +22,7 @@ add_action(
 
 		wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/dist/js/partials/slick.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'single-product', get_template_directory_uri() . '/dist/js/pages/single-product.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'qty-buttons', get_template_directory_uri() . '/dist/js/partials/qty-buttons.js', array( 'jquery' ), '', true );
 	}
 );
 
