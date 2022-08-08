@@ -232,36 +232,6 @@
         $(this).css('height', 'auto');
       });
     },
-    initQtyButtons: function initQtyButtons() {
-      $('.btn-qty').click(function () {
-        var $this = $(this);
-        var $qty = $this.closest('.quantity').find('.qty');
-        var val = parseFloat($qty.val());
-        var max = parseFloat($qty.attr('max'));
-        var min = parseFloat($qty.attr('min'));
-        var step = parseFloat($qty.attr('step'));
-        var $button = $this.closest('.card-product').find('.add_to_cart_button');
-        $(".actions .button[name='update_cart']").removeAttr('disabled');
-
-        if ($this.is('.plus')) {
-          if (max && max <= val) {
-            $qty.val(max);
-            $button.attr('data-quantity', max);
-          } else {
-            $qty.val(val + step);
-            $button.attr('data-quantity', val + step);
-          }
-        } else {
-          if (min && min >= val) {
-            $qty.val(min);
-            $button.attr('data-quantity', min);
-          } else if (val > 1) {
-            $qty.val(val - step);
-            $button.attr('data-quantity', val - step);
-          }
-        }
-      });
-    },
     initSizeGuide: function initSizeGuide() {
       var sizeGuideWrap = $('#size-guide-wrap'),
           body = $('body');
@@ -292,7 +262,6 @@
       this.initGallery();
       this.initGalleryNav();
       this.initImageZoom();
-      this.initQtyButtons();
       this.initProductVariationPrice();
       this.initSizeGuide();
       this.initFaq();

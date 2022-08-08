@@ -1,5 +1,21 @@
 <?php
 
+function cmf_remove_zeros( $price ) {
+	return str_replace( '.00', '', strval( $price ) );
+}
+
+function cmf_get_bundle_discount( $product ) {
+	$bundled_data_items  = $product->get_bundled_data_items();
+	$bundled_items_price = 0;
+	foreach ( $bundled_data_items as $bundled_item ) {
+		$item_data            = $bundled_item->get_data();
+		$_product             = wc_get_product( $item_data['product_id'] );
+		$bundled_items_price += $_product->get_price();
+	}
+	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
+
+}
+
 function cmf_star_rating( $args = array() ) {
 
 	$defaults    = array(
@@ -121,7 +137,7 @@ function cmf_get_the_product_tags() {
 add_filter(
 	'wc_price',
 	function ( $html ) {
-		return preg_replace( '/.00/', '', $html );
+		return cmf_remove_zeros( $html );
 	},
 	1
 );
@@ -137,7 +153,7 @@ add_filter(
 			$sale = $product->get_price() / $regular_price;
 			if ( 1 > $sale ) {
 				?>
-				<span>
+				<span class="from-label">
 					<?php _e( 'From: ', 'comfy' ); ?>
 				</span>
 				<?php
@@ -186,17 +202,6 @@ add_filter(
 	2
 );
 
-function cmf_get_bundle_discount( $product ) {
-	$bundled_data_items  = $product->get_bundled_data_items();
-	$bundled_items_price = 0;
-	foreach ( $bundled_data_items as $bundled_item ) {
-		$item_data            = $bundled_item->get_data();
-		$_product             = wc_get_product( $item_data['product_id'] );
-		$bundled_items_price += $_product->get_price();
-	}
-	return round( 100 - ( $product->get_bundle_price() / ( $bundled_items_price / 100 ) ) );
-
-}
 
 // Product bundle price filter
 add_filter(
@@ -211,7 +216,7 @@ add_filter(
 		$bundle_discount = cmf_get_bundle_discount( $product );
 		$min_price       = $product->get_min_raw_price();
 		?>
-		<span>
+		<span class="from-label">
 			<?php echo __( 'From', 'comfy' ) . ' '; ?>
 		</span>
 		<?php
@@ -238,7 +243,6 @@ add_action(
 		add_theme_support( 'woocommerce' );
 	}
 );
-
 
 add_filter(
 	'woocommerce_breadcrumb_defaults',
