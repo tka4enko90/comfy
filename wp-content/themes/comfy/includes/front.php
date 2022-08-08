@@ -25,8 +25,15 @@ add_action(
 add_action(
 	'wp_head',
 	function () {
+
+		if ( is_front_page() ) {
+			$custom_frontpage_header_scripts = get_field( 'front_page_custom_header_scripts', 'options' );
+			echo ( ! empty( $custom_frontpage_header_scripts ) ) ? $custom_frontpage_header_scripts : '';
+		}
+
 		$custom_header_scripts = get_field( 'custom_header_scripts', 'options' );
 		echo ( ! empty( $custom_header_scripts ) ) ? $custom_header_scripts : '';
+
 	},
 	0
 );

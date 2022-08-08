@@ -50,10 +50,18 @@
       color: $accent-color;
     }
   }
+  &-link-review {
+    display: flex;
+    width: auto;
+  }
   &-price, .price {
+    flex-basis: 100%;
     margin-bottom: 8px;
     ins {
       text-decoration: none;
+    }
+    .amount {
+      color: $primary-color;
     }
     .credit {
       display: none;
@@ -62,6 +70,10 @@
   &-other-info {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    .credit {
+      display: none;
+    }
   }
   &-description {
     flex-basis: 100%;
@@ -76,13 +88,27 @@
     }
   }
   &-rating {
-    margin-right: 8.6px;
+
+    .jdgm-star {
+      font-size: 10.6px;
+      font-weight: 600;
+    }
+    .jdgm-prev-badge {
+      &__text {
+        color: $primary-color;
+        margin-left: 3px;
+      }
+      &__stars {
+        position: relative;
+        top: -1px;
+      }
+    }
   }
 
   &-colors {
     position: relative;
     padding-right: 4px;
-    margin-right: 8.6px;
+    margin-right: 8px;
     &:after {
       content: '';
       position: absolute;
@@ -93,7 +119,7 @@
       background-color: currentColor;
     }
   }
-  &-colors, &-reviews-count {
+  &-colors, .jdgm-prev-badge__text {
     font-size: 14px;
     line-height: 12px;
     color: $primary-color;
@@ -108,6 +134,16 @@
     }
     &.star-empty {
       opacity: .3;
+    }
+  }
+}
+.jdgm-widget {
+  .jdgm-star {
+    &.jdgm--off {
+      &:before {
+        content: "\e000";
+        opacity: .3;
+      }
     }
   }
 }

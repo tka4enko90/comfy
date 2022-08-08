@@ -3,27 +3,25 @@
 .products-section {
   .section-title {
     margin-bottom: 34px;
-    @media (min-width: $sm) {
+    @include media-breakpoint-up(sm) {
       line-height: 86%;
       margin-bottom: 70px;
     }
   }
   .row {
-    margin-bottom: -30px;
+    justify-content: start;
+    margin: 0 -32px -30px;
   }
   .col {
     flex-basis: 100%;
+    padding: 0 32px;
 
     @include media-breakpoint-up(sm) {
       flex-basis: 50%;
     }
 
     @include media-breakpoint-up(md) {
-      flex-basis: 33%;
-    }
-
-    @include media-breakpoint-up(lg) {
-      flex-basis: 32%;
+      flex-basis: 33.333%;
     }
   }
 }

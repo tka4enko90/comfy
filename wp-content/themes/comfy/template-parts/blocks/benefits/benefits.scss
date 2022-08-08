@@ -97,4 +97,11 @@
       flex-basis: 100%;
     }
   }
+  img {
+    border-radius: 8px;
+    @include media-breakpoint-down(xs) {
+      object-fit: cover;
+      max-height: calc(100vw - 40px);
+    }
+  }
 }

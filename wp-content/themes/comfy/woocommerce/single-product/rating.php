@@ -33,19 +33,25 @@ if ( $rating_count > 0 ) : ?>
 
 	<div class="woocommerce-product-rating">
 		<?php
-		if ( ! empty( $average ) ) {
-			cmf_star_rating(
-				array(
-					'rating' => $average,
-				)
-			);
+		if ( class_exists( 'JGM_Widget' ) ) {
+			JGM_Widget::judgeme_preview_badge();
+		} else {
+			if ( ! empty( $average ) ) {
+				cmf_star_rating(
+					array(
+						'rating' => $average,
+					)
+				);
+			}
+			if ( comments_open() ) :
+				?>
+                <?php //phpcs:disable ?>
+                <a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s review', '%s reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?></a>
+                <?php // phpcs:enable ?>
+				<?php
+			endif;
 		}
-		if ( comments_open() ) :
-			?>
-			<?php //phpcs:disable ?>
-			<a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s review', '%s reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?></a>
-			<?php // phpcs:enable ?>
-		<?php endif ?>
+		?>
 	</div>
 
 <?php endif; ?>

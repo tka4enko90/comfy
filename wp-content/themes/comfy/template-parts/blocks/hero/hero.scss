@@ -9,6 +9,7 @@
           @include media-breakpoint-up(lg) {
             flex-basis: 100%;
           }
+
         }
         &:nth-child(2) {
           @include media-breakpoint-up(lg) {
@@ -27,6 +28,12 @@
       &:first-child {
         @include media-breakpoint-up(lg) {
           flex-basis: 54%;
+        }
+
+        @include media-breakpoint-between(sm, lg) {
+          br {
+            display: none;
+          }
         }
       }
       &:nth-child(2) {
@@ -52,15 +59,17 @@
   .button {
     margin-top: 24px;
     margin-bottom: 0;
-    @include media-breakpoint-up(sm) {
-
-    }
   }
 
   img {
     margin-top: 32px;
     @include media-breakpoint-up(sm) {
       border-radius: 8px;
+      @include media-breakpoint-down(xxl) {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+      }
     }
     @include media-breakpoint-up(md) {
       margin-top: 64px;
