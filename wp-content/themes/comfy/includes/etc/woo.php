@@ -96,31 +96,35 @@ function cmf_the_credit_text( $price ) {
 }
 
 function cmf_get_the_product_tags() {
-    global $product;
-    $terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+	global $product;
+	$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
 
-    ob_start();
-    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-        ?>
-        <div class="product-tags">
-            <?php
-            foreach ( $terms as $term ) {
-                ?>
-                <span class="product-tag">
+	ob_start();
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		?>
+		<div class="product-tags">
+			<?php
+			foreach ( $terms as $term ) {
+				?>
+				<span class="product-tag">
 					<?php echo $term->name; ?>
 				</span>
-                <?php
-            }
-            ?>
-        </div>
-        <?php
-    }
-    return ob_get_clean();
+				<?php
+			}
+			?>
+		</div>
+		<?php
+	}
+	return ob_get_clean();
 }
 
-add_filter('wc_price', function ($html) {
-    return preg_replace( '/.00/', '', $html );
-}, 1);
+add_filter(
+	'wc_price',
+	function ( $html ) {
+		return preg_replace( '/.00/', '', $html );
+	},
+	1
+);
 
 add_filter(
 	'woocommerce_get_price_html',
