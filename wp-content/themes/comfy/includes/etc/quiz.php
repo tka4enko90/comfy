@@ -110,8 +110,10 @@ function cmf_quiz_choice( $args ) {
 			}
 			?>
 		</div>
+		<div id="primary">
+			<?php woocommerce_upsell_display( 3 ); ?>
+		</div>
 		<?php
-		woocommerce_upsell_display( 3 );
 
 		if ( ! empty( $args['collections'] ) ) {
 			?>
