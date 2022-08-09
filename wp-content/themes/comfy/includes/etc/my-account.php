@@ -127,3 +127,27 @@ add_action(
 		<?php
 	}
 );
+
+// Login registration head title
+add_filter(
+	'wp_title',
+	function ( $title ) {
+
+		if ( ! is_user_logged_in() ) {
+			global $wp;
+			switch ( $wp->request ) {
+				case 'my-account':
+					$title = __( 'Login', 'comfy' );
+					break;
+				case 'my-account/registration':
+					$title = __( 'Registration', 'comfy' );
+					break;
+
+			}
+		}
+
+		return $title;
+	},
+	1,
+	1
+);
