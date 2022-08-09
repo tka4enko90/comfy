@@ -30,7 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<h3 class="product_title"><?php the_title(); ?></h3>
 			<div id="bundle-items" class="bundle-items">
 				<?php
-				$bundled_items = $product->get_bundled_items();
+				$bundled_items         = $product->get_bundled_items();
+				$bundled_items_counter = 1;
 				foreach ( $bundled_items as $bundle ) {
 					?>
 					<div class="bundle-item" id="bundle-item-<?php echo $bundle->get_product_id(); ?>">
@@ -59,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								}
 								?>
 							</div>
-							<a href="#" class="bundle-item-change-link" data-step="<?php echo $bundle->get_id(); ?>"><?php _e( 'Change', 'comfy' ); ?></a>
+							<a href="#" class="bundle-item-change-link" data-step="<?php echo $bundled_items_counter++; ?>"><?php _e( 'Change', 'comfy' ); ?></a>
 						</div>
 					</div>
 					<?php
