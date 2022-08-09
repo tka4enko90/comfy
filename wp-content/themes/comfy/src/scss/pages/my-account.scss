@@ -93,6 +93,7 @@
       }
       &-wrap {
         display: flex;
+        justify-content: space-between;
         width: 100%;
         @include media-breakpoint-down(sm) {
           flex-wrap: wrap;
@@ -210,18 +211,34 @@
           }
         }
       }
+      .button {
+        margin-right: 12px;
+      }
     }
     &-sidebar {
       @include media-breakpoint-up(md) {
         margin-left: 120px;
+        flex-basis: 229px;
       }
       &-title {
         white-space: nowrap;
         color: $primary-color;
         font-size: 15px;
         text-transform: uppercase;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
+      }
+      p {
+        font-size: 14px;
+        opacity: .8;
+        margin-bottom: 16px;
+      }
+      .button {
+        margin-top: 8px;
       }
     }
   }
+}
+
+.page footer.footer {
+  margin: 0;
 }
