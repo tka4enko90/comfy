@@ -1,6 +1,6 @@
 @import "../components/vars";
 @import "../components/mixins";
-body #primary .section.upsells-products-section {
+body #primary .section.upsells-products-section, .section.upsells-products-section {
   overflow: hidden;
   &.section.up-sells.upsells.products {
     @include media-breakpoint-up(md) {
