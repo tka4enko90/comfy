@@ -578,6 +578,7 @@
           border-color: $line-gray;
         }
         li {
+          position: relative;
           padding: 0;
           margin: 0 24px 0 0;
           color: $secondary-color;
@@ -588,7 +589,6 @@
             display: none;
           }
           a {
-            position: relative;
             color: $secondary-color;
             letter-spacing: .02em;
             font-weight: 900;
