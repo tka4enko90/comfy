@@ -11,30 +11,49 @@ if ( isset( $args ) && isset( $args['product'] ) && isset( $args['product']->ID 
 		<a href="<?php echo $product->get_permalink(); ?>" class="product-link">
 			<div class="product-image-wrap">
 				<?php
-				if ( isset( $args['show_cats'] ) && true === $args['show_cats'] ) {
+				if ( ! empty( $args['label'] ) ) {
 					?>
-					<div class="product-cats">
+					<div class="product-labels">
 						<?php
-						if ( true === $args['show_only_chosen_cat'] && ! empty( $args['term_id'] ) ) {
-							?>
-							<span class="product-cat">
+						switch ( $args['label'] ) {
+							case 'tags':
+							case 'tag':
+								$terms = wp_get_post_terms( $product->get_id(), 'product_tag' );
+								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+									foreach ( $terms as $term ) {
+										?>
+											<span class="product-label">
+											<?php echo $term->name; ?>
+											</span>
+											<?php
+											if ( 'tag' === $args['label'] ) {
+												break 2;
+											}
+									}
+								}
+								break;
+							case 'cat':
+								?>
+									<span class="product-label">
 								<?php
 								$term = get_term_by( 'id', $args['term_id'], 'product_cat' );
 								echo $term->name;
 								?>
-							</span>
-							<?php
-						} else {
-							$terms = get_the_terms( $args['product']->ID, 'product_cat' );
-							if ( is_array( $terms ) && 0 < count( $terms ) ) {
-								foreach ( $terms as $term ) {
-									?>
-									<span class="product-cat">
-										<?php echo $term->name; ?>
 									</span>
-									<?php
+								<?php
+								break;
+							case 'cats':
+								$terms = get_the_terms( $args['product']->ID, 'product_cat' );
+								if ( is_array( $terms ) && 0 < count( $terms ) ) {
+									foreach ( $terms as $term ) {
+										?>
+											<span class="product-label">
+											<?php echo $term->name; ?>
+											</span>
+											<?php
+									}
 								}
-							}
+								break;
 						}
 						?>
 					</div>

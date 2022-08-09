@@ -18,19 +18,7 @@
       border-radius: 8px;
     }
   }
-  &-cats {
-    position: absolute;
-    left: 15px;
-    top: 11px;
-    right: 15px;
-    @media (min-width: $md) {
-      left: 16px;
-      top: 16px;
-      right: 16px;
-    }
-
-  }
-  &-cat {
+  &-label {
     font-size: 8px;
     text-transform: uppercase;
     color: $white;
@@ -42,6 +30,17 @@
     @media (min-width: $md) {
       font-size: 10px;
       padding: 7px 26px;
+    }
+    &s {
+      position: absolute;
+      left: 15px;
+      top: 11px;
+      right: 15px;
+      @media (min-width: $md) {
+        left: 16px;
+        top: 16px;
+        right: 16px;
+      }
     }
   }
   &-link, .woocommerce-loop-product__link {
