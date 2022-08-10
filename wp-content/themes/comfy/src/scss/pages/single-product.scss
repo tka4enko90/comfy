@@ -805,6 +805,16 @@
           }
         }
       }
+
+      .jdgm-rev-widg {
+        &__summary-stars {
+          margin-right: 0;
+        }
+        &__summary-text {
+          display: block;
+        }
+      }
+
       .woocommerce-Reviews {
         &-title, &-rating-text {
           text-align: center;
