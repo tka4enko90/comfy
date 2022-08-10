@@ -18,4 +18,3 @@ foreach ( $include_folders as $inc_folder ) {
 		require $file;
 	}
 }
-

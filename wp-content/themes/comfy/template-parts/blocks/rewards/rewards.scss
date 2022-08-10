@@ -4,6 +4,7 @@
   &-section {
     .row {
       margin-bottom: -32px;
+      justify-content: start;
       .col {
         flex-basis: 100%;
         @include media-breakpoint-up(sm) {

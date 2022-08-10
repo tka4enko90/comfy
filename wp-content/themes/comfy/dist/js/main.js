@@ -234,7 +234,6 @@ jQuery(document).ready(function ($) {
     searchInput: function searchInput() {
       var self = this;
       self.settings.searchFormInput.on('keyup', function (e) {
-        // $(this).removeClass( 'active' ).children( 'article' ).remove();
         if (self.settings.setIntervalTimeout) {
           clearTimeout(self.settings.setIntervalTimeout);
         }
@@ -334,7 +333,7 @@ jQuery(document).ready(function ($) {
       $('.header-container').removeClass('active');
     }
   });
-  body.on('click', '.search-view-all a', function (e) {
+  body.on('click', '.search-view-all a, .header-search .header-search-icon', function (e) {
     e.preventDefault();
     $(this).parents('.header-search').find('form').submit();
   });

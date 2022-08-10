@@ -10,9 +10,9 @@ add_action(
 		wp_enqueue_style( 'product-preview', get_template_directory_uri() . '/dist/css/partials/product-preview.css', '', '', 'all' );
 
 		if ( is_cart() ) {
-            wp_enqueue_style( 'cmf-cart', get_template_directory_uri() . '/dist/css/pages/cart.css', '', '', 'all' );
-            wp_enqueue_script( 'qty-buttons', get_template_directory_uri() . '/dist/js/partials/qty-buttons.js', array( 'jquery' ), '', true );
-        }
+			wp_enqueue_style( 'cmf-cart', get_template_directory_uri() . '/dist/css/pages/cart.css', '', '', 'all' );
+			wp_enqueue_script( 'qty-buttons', get_template_directory_uri() . '/dist/js/partials/qty-buttons.js', array( 'jquery' ), '', true );
+		}
 
 		if ( is_account_page() ) {
 			wp_enqueue_style( 'cmf-account', get_template_directory_uri() . '/dist/css/pages/my-account.css', '', '', 'all' );
@@ -26,12 +26,27 @@ add_action(
 		}
 	}
 );
+
 add_action(
 	'cfw_wp_head',
 	function() {
 		wp_enqueue_style( 'cmf-checkout', get_template_directory_uri() . '/dist/css/pages/checkout.css', '', '', 'all' );
 
 	}
+);
+
+add_action(
+	'get_header',
+	function ( $name ) {
+		if ( 'shop' === $name ) {
+			global $wp;
+			if ( 'refund-request-form' === $wp->request ) {
+				wp_enqueue_style( 'cmf-refund', get_template_directory_uri() . '/dist/css/pages/refund.css', '', '', 'all' );
+			}
+		}
+	},
+	2,
+	1
 );
 
 add_action(

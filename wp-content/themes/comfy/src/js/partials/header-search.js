@@ -28,7 +28,6 @@
 			self.settings.searchFormInput.on(
 				'keyup',
 				function (e) {
-					// $(this).removeClass( 'active' ).children( 'article' ).remove();
 					if (self.settings.setIntervalTimeout) {
 						clearTimeout( self.settings.setIntervalTimeout );
 					}

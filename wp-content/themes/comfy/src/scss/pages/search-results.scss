@@ -1,0 +1,13 @@
+body.search {
+  .main {
+    min-height: 100vh;
+  }
+  .archive-header {
+    &-title {
+      margin-bottom: 12px;
+    }
+    &-subtitle {
+      margin-bottom: 32px;
+    }
+  }
+}

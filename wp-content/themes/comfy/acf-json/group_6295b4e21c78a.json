@@ -504,30 +504,32 @@
                             "multiple": 0
                         },
                         {
-                            "key": "field_628766fd79cd2",
-                            "label": "Show only chosen category",
-                            "name": "show_only_chosen_cat",
-                            "type": "true_false",
+                            "key": "field_62f29f9a74f67",
+                            "label": "Label",
+                            "name": "label",
+                            "type": "select",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_628662ddaf19f",
-                                        "operator": "!=empty"
-                                    }
-                                ]
-                            ],
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "20",
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "",
-                            "default_value": 0,
+                            "choices": {
+                                "tag": "Tag",
+                                "tags": "Tags",
+                                "cat": "Category",
+                                "cats": "Categories",
+                                "none": "None"
+                            },
+                            "default_value": "tag",
+                            "allow_null": 0,
+                            "multiple": 0,
                             "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
                             "key": "field_6286675c4dcab",
@@ -557,33 +559,6 @@
                             "min": "",
                             "max": "",
                             "step": ""
-                        },
-                        {
-                            "key": "field_62876b3c43b3e",
-                            "label": "Show categories",
-                            "name": "show_categories",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_628660b1af19e",
-                                        "operator": "==",
-                                        "value": "products"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "20",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 1,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
                         },
                         {
                             "key": "field_62866417af1a0",
@@ -3970,5 +3945,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1659703319
+    "modified": 1660070167
 }
