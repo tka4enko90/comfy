@@ -525,9 +525,14 @@ main {
   }
 
   .header-search {
+    display: flex;
+    align-items: center;
     position: relative;
     width: 100%;
-    display: flex;
+    &-icon {
+      cursor: pointer;
+      margin: 0 0 -5px 12px;
+    }
     .woocommerce-product-search, .search-form {
       display: flex;
       width: 100%;

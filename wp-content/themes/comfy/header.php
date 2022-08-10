@@ -119,6 +119,9 @@ $header_options = array(
 		</div>
 		<div class="header-container">
 			<div class="header-search">
+				<div class="header-search-icon">
+					<?php get_template_part( 'template-parts/inline-svg/icon', 'search' ); ?>
+				</div>
 				<?php echo get_search_form(); ?>
 				<div id="search-results"></div>
 				<div class="search-close-icon"></div>
