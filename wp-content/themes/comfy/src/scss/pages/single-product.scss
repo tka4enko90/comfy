@@ -806,12 +806,15 @@
         }
       }
 
-      .jdgm-rev-widg {
-        &__summary-stars {
-          margin-right: 0;
-        }
-        &__summary-text {
-          display: block;
+      .jdgm-rev-widg[data-number-of-reviews='0'] {
+        .jdgm-rev-widg {
+          &__summary-stars {
+            margin-right: 0;
+          }
+          &__summary-text {
+            display: block;
+            text-align: center;
+          }
         }
       }
 
