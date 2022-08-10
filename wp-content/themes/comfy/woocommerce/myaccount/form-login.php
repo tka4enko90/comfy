@@ -35,7 +35,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 						<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 						<p class="form-field woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-							<label for="username"><?php esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+							<label for="username"><?php esc_html_e( 'Email', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 							<input type="text" class=" form-control woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username"/>
 						</p>
 						<p class="form-field woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">

@@ -94,7 +94,7 @@
 	);
 	body.on(
 		'click',
-		'.search-view-all a',
+		'.search-view-all a, .header-search .header-search-icon',
 		function (e) {
 			e.preventDefault();
 			$( this ).parents( '.header-search' ).find( 'form' ).submit();

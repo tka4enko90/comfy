@@ -42,10 +42,13 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		<aside class="woocommerce-MyAccount-sidebar">
 			<h6 class="woocommerce-MyAccount-sidebar-title">
-				<?php _e( 'Have a return or exchange?', 'comfy' ); ?>
+				<?php _e( 'Refer a Friend', 'comfy' ); ?>
 			</h6>
+			<p>
+				<?php _e( 'Refer a friend and we’ll gift you 1,000 Comfy Comfort Crew points.', 'comfy' ); ?>
+			</p>
 			<a href="" class="button button-secondary">
-				<?php _e( 'start a return', 'comfy' ); ?>
+				<?php _e( 'start Sharing', 'comfy' ); ?>
 			</a>
 		</aside>
 	</div>

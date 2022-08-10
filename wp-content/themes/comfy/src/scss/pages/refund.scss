@@ -1,0 +1,60 @@
+@import "../components/vars";
+@import "../components/mixins";
+@import "../components/_grid";
+body {
+  .wps_rma_refund_form_wrapper.wps-rma-form__wrapper {
+    @extend .container;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    padding: 0;
+    border: none;
+
+    .wps-rma-form {
+      &__header {
+        background-color: transparent;
+      }
+      &__heading {
+        color: $primary-color;
+      }
+    }
+    .wps-rma-product__table {
+      tr {
+        &:nth-child(even) {
+          td {
+            background-color: #f4f0e9;
+          }
+        }
+        td, td.wps_rma_total_amount_wrap {
+          background: transparent;
+          border: 1px solid $line-gray;
+        }
+        th {
+          border-color: $line-gray;
+          font-weight: 900;
+          font-size: 14px;
+        }
+      }
+      img {
+        width: auto;
+        border-radius: 8px;
+      }
+
+    }
+
+    input.button {
+      cursor: pointer;
+      @include button-primary;
+    }
+
+    .woocommerce-columns {
+      &.woocommerce-columns--2 {
+        display: flex;
+        margin: 0 -20px;
+        .woocommerce-column {
+          flex-basis: 50%;
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
