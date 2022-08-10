@@ -57,14 +57,14 @@
                 }
                 
                 if ( woo_variation_swatches()->is_pro() && wc_string_to_bool( woo_variation_swatches()->get_option( 'show_variation_stock_info', 'no' ) ) ) {
-                    $variation_data[ 'variation_stock_left' ] = $variation->managing_stock() ? sprintf( esc_html__( '%s left', 'woo-variation-swatches-pro' ), $variation->get_stock_quantity() ) : '';
+                    $variation_data[ 'variation_stock_left' ] = $variation->managing_stock() ? sprintf( esc_html__( '%s left', 'woo-variation-swatches' ), $variation->get_stock_quantity() ) : '';
                 }
                 
                 return $variation_data;
             }
             
             public function disable_out_of_stock_item( $default, $variation ) {
-                if ( ! $variation->is_in_stock() && wc_string_to_bool( woo_variation_swatches()->get_option( 'hide_out_of_stock_variation', 'yes' ) ) ) {
+                if ( woo_variation_swatches()->is_pro() && ! $variation->is_in_stock() && wc_string_to_bool( woo_variation_swatches()->get_option( 'hide_out_of_stock_variation', 'yes' ) ) ) {
                     return false;
                 }
                 
@@ -135,12 +135,23 @@
                 
                 $this->add_inline_style();
                 
-                wp_register_script( 'woo-variation-swatches', woo_variation_swatches()->assets_url( "/js/frontend{$suffix}.js" ), array( 'jquery', 'wp-util' ), woo_variation_swatches()->assets_version( "/js/frontend{$suffix}.js" ), true );
+                wp_register_script( 'woo-variation-swatches', woo_variation_swatches()->assets_url( "/js/frontend{$suffix}.js" ), array( 'jquery', 'wp-util', 'underscore', 'jquery-blockui' ), woo_variation_swatches()->assets_version( "/js/frontend{$suffix}.js" ), true );
                 
                 wp_localize_script( 'woo-variation-swatches', 'woo_variation_swatches_options', $this->js_options() );
                 
                 // @TODO: we need to load swatches script based on 'wc-add-to-cart-variation' script
                 wp_enqueue_script( 'woo-variation-swatches' );
+            }
+            
+            public function inline_svg_encode( $string ) {
+                $entities     = array( '<', '>', '#', '"' );
+                $replacements = array( '%3C', '%3E', "%23", "'" );
+                
+                return str_replace( $entities, $replacements, $string );
+            }
+            
+            public function inline_svg( $string ) {
+                return sprintf( 'url("data:image/svg+xml;utf8,%s")', $this->inline_svg_encode( $string ) );
             }
             
             public function implode_css_property_value( $raw_properties ) {
@@ -173,7 +184,14 @@
                     return;
                 }
                 
-                $style = $this->implode_css_property_value( $this->inline_style_declaration() );
+                $tick_color  = sanitize_hex_color( woo_variation_swatches()->get_option( 'tick_color', '#ffffff' ) );
+                $cross_color = sanitize_hex_color( woo_variation_swatches()->get_option( 'cross_color', '#ff0000' ) );
+                
+                $style = "";
+                $style .= sprintf( "\n--wvs-tick:%s;\n", $this->inline_svg( sprintf( '<svg filter="drop-shadow(0px 0px 2px rgb(0 0 0 / .8))" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30"><path fill="none" stroke="%s" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 16L11 23 27 7"/></svg>', $tick_color ) ) );
+                $style .= sprintf( "\n--wvs-cross:%s;\n", $this->inline_svg( sprintf( '<svg filter="drop-shadow(0px 0px 5px rgb(255 255 255 / .6))" xmlns="http://www.w3.org/2000/svg" width="72px" height="72px" viewBox="0 0 24 24"><path fill="none" stroke="%s" stroke-linecap="round" stroke-width="0.6" d="M5 5L19 19M19 5L5 19"/></svg>', $cross_color ) ) );
+                
+                $style .= $this->implode_css_property_value( $this->inline_style_declaration() );
                 
                 $style = sprintf( ":root {%s}", $style );
                 
@@ -203,6 +221,10 @@
                     'is_mobile'                 => wp_is_mobile(),
                     'show_variation_stock'      => woo_variation_swatches()->is_pro() && wc_string_to_bool( woo_variation_swatches()->get_option( 'show_variation_stock_info', 'no' ) ),
                     'stock_label_threshold'     => absint( woo_variation_swatches()->get_option( 'stock_label_display_threshold', '5' ) ),
+                    'cart_redirect_after_add'   => get_option( 'woocommerce_cart_redirect_after_add', 'no' ),
+                    'enable_ajax_add_to_cart'   => get_option( 'woocommerce_enable_ajax_add_to_cart', 'yes' ),
+                    'cart_url'                  => apply_filters( 'woocommerce_add_to_cart_redirect', wc_get_cart_url(), null ),
+                    'is_cart'                   => is_cart(),
                 ) );
             }
             
@@ -414,6 +436,19 @@
                 return $assigned;
             }
             
+            public function get_image_attribute( $data, $attribute_type, $variation_data = array() ) {
+                if ( 'image' === $attribute_type ) {
+                    
+                    $term = $data[ 'item' ];
+                    
+                    // Global
+                    $attachment_id = apply_filters( 'woo_variation_swatches_global_product_attribute_image_id', absint( woo_variation_swatches()->get_frontend()->get_product_attribute_image( $term, $data ) ), $data );
+                    $image_size    = apply_filters( 'woo_variation_swatches_global_product_attribute_image_size', sanitize_text_field( woo_variation_swatches()->get_option( 'attribute_image_size', 'variation_swatches_image_size' ) ), $data );
+                    
+                    return wp_get_attachment_image_src( $attachment_id, $image_size );
+                }
+            }
+            
             public function color_attribute( $data, $attribute_type, $variation_data = array() ) {
                 // Color
                 if ( 'color' === $attribute_type ) {
@@ -431,16 +466,12 @@
                 
                 if ( 'image' === $attribute_type ) {
                     
-                    $term        = $data[ 'item' ];
                     $option_name = $data[ 'option_name' ];
                     
                     // Global
-                    $attachment_id = apply_filters( 'woo_variation_swatches_global_product_attribute_image_id', absint( woo_variation_swatches()->get_frontend()->get_product_attribute_image( $term, $data ) ), $data );
-                    $image_size    = apply_filters( 'woo_variation_swatches_global_product_attribute_image_size', sanitize_text_field( woo_variation_swatches()->get_option( 'attribute_image_size', 'variation_swatches_image_size' ) ), $data );
-                    $image         = wp_get_attachment_image_src( $attachment_id, $image_size );
+                    $image = $this->get_image_attribute( $data, $attribute_type, $variation_data );
                     
                     return sprintf( '<img class="variable-item-image" aria-hidden="true" alt="%s" src="%s" width="%d" height="%d" />', esc_attr( $option_name ), esc_url( $image[ 0 ] ), esc_attr( $image[ 1 ] ), esc_attr( $image[ 2 ] ) );
-                    
                 }
             }
             
@@ -708,6 +739,11 @@
                     
                     foreach ( $swatches_data as $data ) {
                         
+                        // If attribute have no image we should convert attribute type image to attribute type button
+                        if ( 'image' === $attribute_type && ! is_array( $this->get_image_attribute( $data, $attribute_type ) ) ) {
+                            $attribute_type = 'button';
+                        }
+                        
                         $item .= $this->item_start( $data, $attribute_type );
                         
                         $item .= $this->color_attribute( $data, $attribute_type );
@@ -725,7 +761,7 @@
                 // End Swatches
                 $html .= $wrapper . $item . $wrapper_end;
                 
-                return $html;
+                return apply_filters( 'woo_variation_swatches_html', $html, $args, $swatches_data, $this );
             }
         }
     }

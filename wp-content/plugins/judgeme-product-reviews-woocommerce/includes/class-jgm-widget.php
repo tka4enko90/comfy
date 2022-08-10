@@ -226,6 +226,7 @@ class JGM_Widget {
 
 	public function judgeme_heading() {
 		$setting = get_option( 'judgeme_widget_settings' );
+		$jdgm_cdn_domain = constant( 'JGM_CDN_DOMAIN' );
 
 		if ( empty( $setting ) ) {
 			$setting = json_decode( wp_remote_retrieve_body( wp_safe_remote_get( "{$this->api_host}/widgets/settings?api_token={$this->token}&shop_domain={$this->domain}" ) ), true );
