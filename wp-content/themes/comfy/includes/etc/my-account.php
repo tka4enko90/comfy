@@ -97,7 +97,7 @@ add_action(
 	'parse_request',
 	function ( $wp ) {
 		// All other endpoints such as change-password will redirect to
-		$allowed_endpoints = array( 'orders', 'edit-account', 'customer-logout', 'account-details' );
+		$allowed_endpoints = array( 'orders', 'edit-account', 'customer-logout', 'account-details', 'referrals' );
 
 		if ( is_user_logged_in() &&
 			preg_match( '%^my\-account(?:/([^/]+)|)/?$%', $wp->request, $m ) &&
