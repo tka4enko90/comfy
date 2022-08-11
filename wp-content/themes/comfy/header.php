@@ -28,7 +28,7 @@ $header_options = array(
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicon/favicon.png">
 	<meta name="msapplication-TileColor" content="#da532c">
-	 <meta name="theme-color" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
 	<!-- /FAVICON -->
 
 	<?php wp_head(); ?>
