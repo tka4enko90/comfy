@@ -169,7 +169,7 @@ main {
       }
     }
     .mobile-links {
-      padding: 9px 20px 32px;
+      padding: 9px 20px 54px;
       a {
         display: block;
         margin-bottom: 15px;
@@ -179,8 +179,8 @@ main {
   body.header-info-message {
     #primary-header-nav-container {
       top: 92px;
-      height: 100vh;
-      max-height: calc(100vh - 54px);
+      height: 100%;
+      max-height: calc(100% - 54px);
     }
   }
   body header.site-header .secondary-header-nav-el {
