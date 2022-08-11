@@ -41,15 +41,45 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<aside class="woocommerce-MyAccount-sidebar">
-			<h6 class="woocommerce-MyAccount-sidebar-title">
-				<?php _e( 'Refer a Friend', 'comfy' ); ?>
-			</h6>
-			<p>
-				<?php _e( 'Refer a friend and we’ll gift you 1,000 Comfy Comfort Crew points.', 'comfy' ); ?>
-			</p>
-			<a href="" class="button button-secondary">
-				<?php _e( 'start Sharing', 'comfy' ); ?>
-			</a>
+			<?php
+			if ( function_exists( 'AW_Referrals' ) ) {
+				/*
+				 * AutomateWoo -> Settings -> Refer a Friend -> Share Page
+				 * */
+				$ref_url = AW_Referrals()->get_share_page_url();
+				if ( ! empty( $ref_url ) ) {
+					/*
+					 * Options -> My Account -> Refer a Friend (Group)
+					 * */
+					$refer_sidebar_el = get_field( 'refer_a_friend', 'options' );
+					if ( isset( $refer_sidebar_el['enable'] ) && true === $refer_sidebar_el['enable'] ) {
+						?>
+						<?php
+						if ( ! empty( $refer_sidebar_el['title'] ) ) {
+							?>
+							<h6 class="woocommerce-MyAccount-sidebar-title">
+								<?php $refer_sidebar_el['title']; ?>
+							</h6>
+							<?php
+						}
+						if ( ! empty( $refer_sidebar_el['description'] ) ) {
+							?>
+							<p>
+								<?php echo $refer_sidebar_el['description']; ?>
+							</p>
+							<?php
+						}
+						if ( ! empty( $refer_sidebar_el['button_label'] ) ) {
+							?>
+							<a href="<?php echo $ref_url; ?>" class="button button-secondary">
+								<?php echo $refer_sidebar_el['button_label']; ?>
+							</a>
+							<?php
+						}
+					}
+				}
+			}
+			?>
 		</aside>
 	</div>
 
