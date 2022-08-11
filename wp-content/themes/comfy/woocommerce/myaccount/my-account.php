@@ -58,7 +58,7 @@ defined( 'ABSPATH' ) || exit;
 						if ( ! empty( $refer_sidebar_el['title'] ) ) {
 							?>
 							<h6 class="woocommerce-MyAccount-sidebar-title">
-								<?php $refer_sidebar_el['title']; ?>
+								<?php echo $refer_sidebar_el['title']; ?>
 							</h6>
 							<?php
 						}
