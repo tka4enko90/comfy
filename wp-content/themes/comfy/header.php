@@ -111,7 +111,7 @@ $header_options = array(
 				if ( ! empty( $header_options['cart_count'] ) ) {
 					?>
 					<span class="cart-link-amount">
-						<?php echo ( 100 >= intval( $header_options['cart_count'] ) ) ? $header_options['cart_count'] : '...'; ?>
+						<?php echo ( 100 > intval( $header_options['cart_count'] ) ) ? $header_options['cart_count'] : '...'; ?>
 					</span>
 				<?php } ?>
 			</a>
