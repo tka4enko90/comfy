@@ -747,30 +747,6 @@
             "use_caption": 2
         },
         {
-            "key": "field_62b3525b82189",
-            "label": "Size Guide image",
-            "name": "size_guide_image_id",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "full",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_62f358314b7fa",
             "label": "404 page",
             "name": "",
@@ -971,5 +947,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660203355
+    "modified": 1660307577
 }
