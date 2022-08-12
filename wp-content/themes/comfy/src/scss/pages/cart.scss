@@ -113,8 +113,8 @@
     }
     .coupon {
       display: flex;
-      .input-text {
-        width: 104px;
+      .input-text#coupon_code {
+        width: 116px;
         margin-right: 12px;
       }
     }
@@ -136,6 +136,9 @@
       .product {
         .onsale {
           display: none;
+        }
+        .price {
+          color: inherit;
         }
       }
     }
