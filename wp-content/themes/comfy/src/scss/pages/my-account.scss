@@ -7,12 +7,6 @@
       display: flex;
       flex-wrap: wrap;
       margin: 24px 0;
-      @include media-breakpoint-up(md) {
-        margin: 80px 0;
-      }
-      @include media-breakpoint-up(lg) {
-        margin: 120px 0;
-      }
 
       &-title {
         font-size: 40px;
