@@ -1,6 +1,9 @@
 @import "../components/vars";
 @import "../components/mixins";
 .woocommerce-cart {
+  .main {
+    min-height: 100vh;
+  }
   .main-content-section {
     h2 {
       font-size: 32px;
