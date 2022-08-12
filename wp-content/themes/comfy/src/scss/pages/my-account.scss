@@ -47,8 +47,13 @@
         display: flex;
         padding: 0;
         margin: 0;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
         li {
           display: block;
+          white-space: nowrap;
           margin-right: 50px;
           font-size: 12px;
           color: $primary-color;
@@ -213,6 +218,9 @@
       @include media-breakpoint-up(md) {
         margin-left: 120px;
         flex-basis: 229px;
+      }
+      @include media-breakpoint-down(lg) {
+        margin-top: 60px;
       }
       &-title {
         white-space: nowrap;

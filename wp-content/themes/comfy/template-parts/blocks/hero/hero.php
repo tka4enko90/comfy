@@ -63,7 +63,7 @@ if ( ! empty( $section['image_id'] ) ) {
 	?>
 	<div class="container container-lg">
 		<div class="row">
-			<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth' ); ?>
+			<?php echo wp_get_attachment_image( $section['image_id'], 'cmf_fullwidth', false, array( 'loading' => 'eager' ) ); ?>
 		</div>
 	</div>
 	<?php
