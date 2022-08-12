@@ -236,6 +236,9 @@ function cmf_get_product_care_guide_tab() {
 }
 function cmf_get_product_shipping_tab() {
 	$content = get_field( 'shipping__returns' );
+	if ( empty( $content ) ) {
+		$content = get_field( 'shipping__returns', 'options' );
+	}
 	echo ! empty( $content ) ? $content : '';
 }
 function cmf_get_product_faq_tab() {
