@@ -11,7 +11,7 @@
       }
       .cfw-secondary-btn {
         @include button-secondary;
-        &#cfw-promo-code-btn {
+        &#cfw-promo-code-btn, &#wc_gc_cart_redeem_send {
           padding: 16.5px;
           background-color: transparent;
           &:hover {
