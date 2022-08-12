@@ -146,7 +146,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	<div class="side-cart-total">
 		<p class="woocommerce-mini-cart__total total total-el">
 			<span><?php _e( 'Subtotal', 'comfy' ); ?></span>
-			<span><?php echo cmf_remove_zeros( WC()->cart->get_total() ); ?></span>
+			<span><?php echo cmf_remove_zeros( WC()->cart->get_cart_subtotal() ); ?></span>
 		</p>
 		<?php
 		if ( 0 < $bundles_discount ) {
