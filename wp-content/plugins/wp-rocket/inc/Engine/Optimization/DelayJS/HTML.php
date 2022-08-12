@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace WP_Rocket\Engine\Optimization\DelayJS;
 
@@ -59,10 +59,31 @@ class HTML {
 		'lazyLoadInstance',
 		'scripts.mediavine.com/tags/', // allows mediavine-video schema to be accessible by search engines.
 		'initCubePortfolio', // Cube Portfolio show images.
+		'simpli.fi', // simpli.fi Advertising Platform scripts.
 		'gforms_recaptcha_', // Gravity Forms recaptcha.
 		'/jetpack-boost/vendor/automattic/jetpack-lazy-images/(.*)', // Jetpack Boost plugin lazyload.
 		'jetpack-lazy-images-js-enabled',  // Jetpack Boost plugin lazyload.
 		'jetpack-boost-critical-css', // Jetpack Boost plugin critical CSS.
+		'wpformsRecaptchaCallback', // WPForms reCAPTCHA v2.
+		'booking-suedtirol-js', // bookingsuedtirol.com widgets.
+		'wpcp_css_disable_selection', // WP Content Copy Protection & No Right Click.
+		'/gravityforms/js/conditional_logic.min.js', // Gravity forms conditions.
+		'statcounter.com/counter/counter.js', // StatsCounter.
+		'var sc_project', // Statscounter.
+		'/jetpack/jetpack_vendor/automattic/jetpack-lazy-images/(.*)', // Jetpack plugin lazyload.
+		'/themify-builder/themify/js/modules/fallback(\.min)?.js',
+		'handlePixMessage',
+		'var corner_video',
+		'cdn.pixfuture.com/hb_v2.js',
+		'cdn.pixfuture.com/pbix.js',
+		'served-by.pixfuture.com/www/delivery/ads.js',
+		'served-by.pixfuture.com/www/delivery/headerbid_sticky_refresh.js',
+		'serv-vdo.pixfuture.com/vpaid/ads.js',
+		'wprRemoveCPCSS',
+		'window.jdgmSettings', // Judge.me plugin.
+		'/photonic/include/js/front-end/nomodule/photonic-baguettebox.min.js', // Photonic plugin.
+		'/photonic/include/ext/baguettebox/baguettebox.min.js', // Photonic plugin.
+		'window.wsf_form_json_config', // WSF Form plugin.
 	];
 
 	/**
@@ -102,7 +123,7 @@ class HTML {
 		 */
 		$this->excluded = apply_filters( 'rocket_delay_js_exclusions', $this->excluded );
 		$this->excluded = array_map(
-			function( $value ) {
+			function ( $value ) {
 				return str_replace(
 					[ '+', '?ver', '#' ],
 					[ '\+', '\?ver', '\#' ],
@@ -160,7 +181,14 @@ class HTML {
 	 * @return string
 	 */
 	private function parse( $html ): string {
-		$replaced_html = preg_replace_callback( '/<\s*script\s*(?<attr>[^>]*?)?>(?<content>.*?)?<\s*\/\s*script\s*>/ims', [ $this, 'replace_scripts' ], $html );
+		$replaced_html = preg_replace_callback(
+			'/<\s*script\s*(?<attr>[^>]*?)?>(?<content>.*?)?<\s*\/\s*script\s*>/ims',
+			[
+				$this,
+				'replace_scripts',
+			],
+			$html
+		);
 
 		if ( empty( $replaced_html ) ) {
 			return $html;

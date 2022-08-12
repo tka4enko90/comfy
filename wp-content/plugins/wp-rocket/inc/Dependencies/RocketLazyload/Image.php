@@ -23,10 +23,7 @@ class Image {
 	 * @return string
 	 */
 	public function lazyloadImages( $html, $buffer, $use_native = true ) {
-		$clean_buffer = preg_replace( '/<script\b(?:[^>]*)>(?:.+)?<\/script>/Umsi', '', $html );
-		$clean_buffer = preg_replace( '#<noscript>(?:.+)</noscript>#Umsi', '', $clean_buffer );
-
-		if ( ! preg_match_all( '#<img(?<atts>\s.+)\s?/?>#iUs', $clean_buffer, $images, PREG_SET_ORDER ) ) {
+		if ( ! preg_match_all( '#<img(?<atts>\s.+)\s?/?>#iUs', $buffer, $images, PREG_SET_ORDER ) ) {
 			return $html;
 		}
 
@@ -409,6 +406,8 @@ class Image {
 				'data-height-percentage',
 				'data-large_image',
 				'avia-bg-style-fixed',
+				'data-skip-lazy',
+				'skip-lazy',
 				'image-compare__',
 			]
 		);

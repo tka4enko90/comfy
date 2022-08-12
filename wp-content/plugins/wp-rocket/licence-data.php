@@ -9,10 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 // Your license KEY.
 if ( ! defined( 'WP_ROCKET_KEY' ) ) {
-	define( 'WP_ROCKET_KEY', '40e4c33c');
+	define( 'WP_ROCKET_KEY', '18d42745');
 }
 
 // Your email, the one you used for the purchase.
 if ( ! defined( 'WP_ROCKET_EMAIL' ) ) {
-	define( 'WP_ROCKET_EMAIL', 'KONRAD@johnsankey.CO.UK' );
+	define( 'WP_ROCKET_EMAIL', 'hi@markupus.com' );
 }

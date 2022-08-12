@@ -57,22 +57,6 @@ function rocket_after_save_options( $oldvalue, $value ) {
 	$oldvalue_diff = array_diff_key( $oldvalue, $removed );
 	$value_diff    = array_diff_key( $value, $removed );
 
-	// If it's different, clean the domain.
-	if ( md5( wp_json_encode( $oldvalue_diff ) ) !== md5( wp_json_encode( $value_diff ) ) ) {
-		// Purge all cache files.
-		rocket_clean_domain();
-
-		wp_remote_get(
-			home_url(),
-			[
-				'timeout'    => 0.01,
-				'blocking'   => false,
-				'user-agent' => 'WP Rocket/Homepage Preload',
-				'sslverify'  => apply_filters( 'https_local_ssl_verify', false ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-			]
-		);
-	}
-
 	// phpcs:ignore WordPress.Security.NonceVerification.Missing
 	if ( ( array_key_exists( 'minify_js', $oldvalue ) && array_key_exists( 'minify_js', $value ) && $oldvalue['minify_js'] !== $value['minify_js'] )
 		||
@@ -100,6 +84,21 @@ function rocket_after_save_options( $oldvalue, $value ) {
 	if ( isset( $oldvalue['analytics_enabled'], $value['analytics_enabled'] ) && $oldvalue['analytics_enabled'] !== $value['analytics_enabled'] && 1 === (int) $value['analytics_enabled'] ) {
 		set_transient( 'rocket_analytics_optin', 1 );
 	}
+
+	// If it's different, clean the domain.
+	if ( md5( wp_json_encode( $oldvalue_diff ) ) !== md5( wp_json_encode( $value_diff ) ) ) {
+		// Purge all cache files.
+		rocket_clean_domain();
+
+		/**
+		 * Fires after WP Rocket options that require a cache purge have changed
+		 *
+		 * @since 3.11
+		 *
+		 * @param array $value An array of submitted values for the settings.
+		 */
+		do_action( 'rocket_options_changed', $value );
+	}
 }
 add_action( 'update_option_' . rocket_get_constant( 'WP_ROCKET_SLUG' ), 'rocket_after_save_options', 10, 2 );
 
@@ -116,13 +115,14 @@ function rocket_pre_main_option( $newvalue, $oldvalue ) {
 	$rocket_settings_errors = [];
 
 	// Make sure that fields that allow users to enter patterns are well formatted.
-	$is_form_submit = filter_input( INPUT_POST, 'option_page', FILTER_SANITIZE_STRING );
+	$is_form_submit = isset( $_POST['option_page'] ) ? sanitize_key( $_POST['option_page'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	$is_form_submit = WP_ROCKET_PLUGIN_SLUG === $is_form_submit;
 	$errors         = [];
 	$pattern_labels = [
 		'exclude_css'         => __( 'Excluded CSS Files', 'rocket' ),
 		'exclude_inline_js'   => __( 'Excluded Inline JavaScript', 'rocket' ),
 		'exclude_js'          => __( 'Excluded JavaScript Files', 'rocket' ),
+		'exclude_defer_js'    => __( 'Defer JavaScript Files', 'rocket' ),
 		'delay_js_exclusions' => __( 'Excluded Delay JavaScript Files', 'rocket' ),
 		'cache_reject_uri'    => __( 'Never Cache URL(s)', 'rocket' ),
 		'cache_reject_ua'     => __( 'Never Cache User Agent(s)', 'rocket' ),
@@ -164,9 +164,13 @@ function rocket_pre_main_option( $newvalue, $oldvalue ) {
 		}
 
 		$error_message .= '<p><strong>'; // Re-open tags that WP's settings_errors() will close at end of notice box.
-		$error_message .= sprintf(
-			'<a href="%1$s" data-beacon-article="%1$s" rel="noopener noreferrer" target="_blank">%2$s</a>',
-			'https://docs.wp-rocket.me/article/1657-invalid-patterns-of-exclusions',
+
+		$container                 = apply_filters( 'rocket_container', [] );
+		$invalid_exclusions_beacon = $container->get( 'beacon' )->get_suggest( 'invalid_exclusions' );
+		$error_message            .= sprintf(
+			'<a href="%1$s" data-beacon-article="%2$s" rel="noopener noreferrer" target="_blank">%3$s</a>',
+			$invalid_exclusions_beacon['url'],
+			$invalid_exclusions_beacon['id'],
 			__( 'More info', 'rocket' )
 		);
 
@@ -198,6 +202,12 @@ function rocket_pre_main_option( $newvalue, $oldvalue ) {
 	// Checked the SSL option if the whole website is on SSL.
 	if ( rocket_is_ssl_website() ) {
 		$newvalue['cache_ssl'] = 1;
+	}
+
+	if ( 'local' === wp_get_environment_type() ) {
+		$newvalue['optimize_css_delivery'] = 0;
+		$newvalue['remove_unused_css']     = 0;
+		$newvalue['async_css']             = 0;
 	}
 
 	if ( ! rocket_get_constant( 'WP_ROCKET_ADVANCED_CACHE' ) ) {
