@@ -10,7 +10,7 @@ $header_options = array(
 	'nav_text_under_image'      => get_field( 'header_nav_text_under_image', 'options' ),
 	'additional_link'           => get_field( 'header_additional_link', 'options' ),
 	'account_link'              => get_permalink( wc_get_page_id( 'myaccount' ) ),
-	'cart_count'                => WC()->cart->get_cart_contents_count(),
+	'cart_count'                => esc_html( WC()->cart->get_cart_contents_count() ),
 );
 ?>
 <!doctype html>
@@ -111,7 +111,7 @@ $header_options = array(
 				if ( ! empty( $header_options['cart_count'] ) ) {
 					?>
 					<span class="cart-link-amount">
-						<?php esc_html_e( $header_options['cart_count'] ); ?>
+						<?php echo ( 100 > $header_options['cart_count'] ) ? $header_options['cart_count'] : '...'; ?>
 					</span>
 				<?php } ?>
 			</a>
