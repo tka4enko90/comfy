@@ -615,6 +615,23 @@
             }
           }
         }
+
+        @include media-breakpoint-down(xs) {
+          overflow-x: scroll;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          li {
+            white-space: nowrap;
+            border-bottom: 1px solid $line-gray;
+            a {
+              &:after {
+                bottom: -1px;
+              }
+            }
+          }
+        }
+
       }
       .panel {
         margin-bottom: -1rem;
