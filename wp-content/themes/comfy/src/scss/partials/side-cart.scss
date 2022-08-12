@@ -80,8 +80,10 @@
       }
     }
     &-close-text {
-      cursor: pointer;
+      color: $primary-color;
       font-size: 14px;
+      cursor: pointer;
+
       span {
         pointer-events: none;
         text-decoration: underline;
@@ -117,7 +119,7 @@
         margin-bottom: 24px;
         color: $primary-color;
         svg {
-          margin: 0 0 -8px 3px;
+          margin: 0 0 0 3px;
         }
       }
 
@@ -139,6 +141,8 @@
       padding: 24px 0;
       border-bottom: 1px solid $line-gray;
       &-thumbnail {
+        min-width: 96px;
+        flex-basis: 96px;
         margin-right: 16px;
       }
       img {
@@ -162,6 +166,7 @@
           margin: 0;
         }
         .price {
+          font-size: 16px;
           font-weight: 500;
           white-space: nowrap;
           color: $primary-color;

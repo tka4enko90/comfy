@@ -145,6 +145,7 @@
   border-radius: 8px;
   line-height: 1;
   letter-spacing: .004em;
+  font-weight: 400;
   transition: color $std-transition-length ease, background-color $std-transition-length ease;
   @include media-breakpoint-up(lg) {
     padding: 16.5px 56px;

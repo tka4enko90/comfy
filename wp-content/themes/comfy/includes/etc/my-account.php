@@ -8,7 +8,8 @@ add_filter(
 			$menu_links['dashboard'],
 			$menu_links['downloads'],
 			$menu_links['edit-account'],
-			$menu_links['edit-address']
+			$menu_links['edit-address'],
+			$menu_links['giftcards'],
 		);
 
 		$menu_links['orders'] = __( 'Orders & returns', 'comfy' );

@@ -128,11 +128,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					<?php
 				} else {
 					if ( ! empty( $_product->bundled_cart_item->item_data ) ) {
-						$bundle_item_discount = $_product->bundled_cart_item->item_data['discount'];
-						if ( ! empty( $bundle_item_discount ) && is_numeric( $bundle_item_discount ) ) {
-							$item_price            = $_product->get_price();
-							$item_full_price       = $item_price / ( 100 - $bundle_item_discount ) * 100;
-							$bundled_item_discount = $item_full_price - $item_price;
+						$price         = $_product->get_price();
+						$regular_price = $_product->get_regular_price();
+						if ( is_numeric( $regular_price ) && is_numeric( $price ) ) {
+							$bundled_item_discount = $regular_price - $price;
 							$bundles_discount     += $bundled_item_discount * $cart_item['quantity'];
 						}
 					}
@@ -147,7 +146,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	<div class="side-cart-total">
 		<p class="woocommerce-mini-cart__total total total-el">
 			<span><?php _e( 'Subtotal', 'comfy' ); ?></span>
-			<span><?php echo cmf_remove_zeros( WC()->cart->get_total() ); ?></span>
+			<span><?php echo cmf_remove_zeros( WC()->cart->get_cart_subtotal() ); ?></span>
 		</p>
 		<?php
 		if ( 0 < $bundles_discount ) {

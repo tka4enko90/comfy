@@ -20,7 +20,7 @@ if ( ! empty( $_GET['s'] ) ) :
 			<div class="row">
 				<div class="col-100">
 					<h3 class="archive-header-title">
-						<?php echo __( 'Search results for: ', 'COMFY' ) . '"' . htmlentities( wp_kses( $s, array() ), ENT_QUOTES, 'UTF-8' ) . '"'; ?>
+						<?php echo __( 'Search results for: ', 'comfy' ) . '"' . htmlentities( wp_kses( $s, array() ), ENT_QUOTES, 'UTF-8' ) . '"'; ?>
 					</h3>
 					<p class="archive-header-subtitle">
 						<?php echo count( $query->posts ) . ' ' . __( 'results found', 'comfy' ); ?>
@@ -29,12 +29,14 @@ if ( ! empty( $_GET['s'] ) ) :
 				<?php
 				if ( $query->posts ) :
 					foreach ( $query->posts as $post ) :
-						$item['product'] = $post
-						?>
-						<div class="col-100 col-md-50">
-							<?php echo  get_template_part( 'template-parts/product-preview', '', $item ); ?>
-						</div>
-						<?php
+						if ( 'product' === get_post_type( $post ) ) {
+							$item['product'] = $post;
+							?>
+							<div class="col-100 col-md-50">
+								<?php get_template_part( 'template-parts/product-preview', '', $item ); ?>
+							</div>
+							<?php
+						}
 					endforeach;
 				endif;
 				?>

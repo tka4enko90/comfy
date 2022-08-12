@@ -169,7 +169,7 @@ main {
       }
     }
     .mobile-links {
-      padding: 9px 20px 32px;
+      padding: 9px 20px 54px;
       a {
         display: block;
         margin-bottom: 15px;
@@ -179,8 +179,8 @@ main {
   body.header-info-message {
     #primary-header-nav-container {
       top: 92px;
-      height: 100vh;
-      max-height: calc(100vh - 54px);
+      height: 100%;
+      max-height: calc(100% - 54px);
     }
   }
   body header.site-header .secondary-header-nav-el {
@@ -438,8 +438,8 @@ main {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 260%;
-          padding-top: 260%;
+          width: 16px;
+          padding-top: 16px;
           border-radius: 100%;
           background-color: $primary-color;
           transform: translate(-50%, -50%);
@@ -606,6 +606,9 @@ main {
     }
     .product {
       margin-bottom: 24px;
+      &-image-wrap {
+        margin-right: 8px;
+      }
       &-title {
         font-size: 20px;
         margin-bottom: 8px;
