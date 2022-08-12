@@ -606,6 +606,9 @@ main {
     }
     .product {
       margin-bottom: 24px;
+      &-image-wrap {
+        margin-right: 8px;
+      }
       &-title {
         font-size: 20px;
         margin-bottom: 8px;
