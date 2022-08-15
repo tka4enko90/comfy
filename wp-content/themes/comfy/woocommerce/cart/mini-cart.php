@@ -160,6 +160,15 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 			<?php
 		}
 
+		foreach ( WC()->cart->get_coupons() as $code => $coupon ) :
+			?>
+			<p class="cart-discount total-el coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+				<span><?php wc_cart_totals_coupon_label( $coupon ); ?></span>
+				<span><?php wc_cart_totals_coupon_html( $coupon ); ?></span>
+			</p>
+			<?php
+		endforeach;
+
 
 		//Shipping total
 		foreach ( WC()->session->get( 'shipping_for_package_0' )['rates'] as $method_id => $rate ) {
