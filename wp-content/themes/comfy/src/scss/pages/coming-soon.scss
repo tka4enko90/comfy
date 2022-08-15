@@ -94,6 +94,11 @@
         p {
           margin: 0;
         }
+        img {
+          @include media-breakpoint-down(xs) {
+            margin-bottom: 0 !important;
+          }
+        }
       }
       .logo {
         margin-bottom: 16px;
@@ -113,6 +118,7 @@
       p {
         margin-bottom: 32px;
       }
+
     }
   }
 }
