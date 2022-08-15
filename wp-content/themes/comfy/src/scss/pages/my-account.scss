@@ -6,7 +6,7 @@
     &-page {
       display: flex;
       flex-wrap: wrap;
-      margin: 24px 0;
+      margin: 0;
 
       &-title {
         font-size: 40px;
@@ -25,6 +25,43 @@
         &-secondary {
           background-color: transparent;
           @include button-secondary
+        }
+      }
+
+      .woocommerce-order-details {
+        display: flex;
+        flex-wrap: wrap;
+        h2 {
+          margin-top: 24px;
+        }
+        table {
+          flex-basis: 100%;
+          margin-bottom: 24px;
+        }
+        .btn.button {
+          margin: 0 24px 0 0;
+          background-color: transparent;
+          @include button-secondary;
+          @include media-breakpoint-down(xs) {
+            margin: 0 0 24px 0;
+          }
+        }
+        @include media-breakpoint-down(xs) {
+          form {
+            flex-basis: 100%;
+            .btn.button {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .woocommerce-Addresses {
+        &.addresses {
+          .title {
+            .edit {
+              line-height: 40px;
+            }
+          }
         }
       }
     }
@@ -94,7 +131,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(lg) {
           flex-wrap: wrap;
         }
       }
@@ -185,6 +222,15 @@
             border-spacing: 0;
             border-top: 1px solid $line-gray;
             border-collapse: collapse;
+            &.woocommerce-orders-table__cell-order-number {
+              @include media-breakpoint-down(lg) {
+                &:before {
+                  font-weight: 900;
+                }
+                padding-top: 24px;
+                padding-bottom: 24px;
+              }
+            }
             &:before {
               font-weight: 400;
               color: $primary-color;
@@ -196,6 +242,7 @@
               text-align: center;
             }
             .button {
+              color: $primary-color;
               padding: 0;
               background-color: transparent;
               text-transform: capitalize;
@@ -215,11 +262,12 @@
       }
     }
     &-sidebar {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         margin-left: 120px;
         flex-basis: 229px;
       }
       @include media-breakpoint-down(lg) {
+        flex-basis: 100%;
         margin-top: 60px;
       }
       &-title {
