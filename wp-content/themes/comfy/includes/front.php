@@ -40,6 +40,10 @@ add_action(
 			wp_dequeue_style( 'wc-pb-checkout-blocks' );
 			wp_dequeue_style( 'metorik-css' );
 			wp_dequeue_style( 'wc-bundle-style' );
+
+			wp_dequeue_script( 'wc-add-to-cart' );
+			wp_dequeue_script( 'woo-variation-swatches' );
+			wp_dequeue_script( 'wc_additional_variation_images_script' );
 		}
 	},
 	101
