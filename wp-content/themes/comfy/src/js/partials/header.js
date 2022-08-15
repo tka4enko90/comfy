@@ -86,7 +86,7 @@
 		function (e) {
 			if ($( e.target ).is( '.search-wrap svg' )) {
 				$( '.header-container' ).toggleClass( 'active' );
-				$( '#search-form-input' ).focus();
+				$( '#search-form-input' ).select();
 			} else if ($( e.target ).is( '.search-close-icon' ) || ! $( e.target ).parents( '.header-container' ).length) {
 				$( '.header-container' ).removeClass( 'active' );
 			}
