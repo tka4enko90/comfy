@@ -328,7 +328,9 @@ jQuery(document).ready(function ($) {
   body.on('click', function (e) {
     if ($(e.target).is('.search-wrap svg')) {
       $('.header-container').toggleClass('active');
-      $('#search-form-input').select();
+      var $input = $('#search-form-input'),
+          $inputVal = $input.val();
+      $input.focus().val('').val($inputVal);
     } else if ($(e.target).is('.search-close-icon') || !$(e.target).parents('.header-container').length) {
       $('.header-container').removeClass('active');
     }
