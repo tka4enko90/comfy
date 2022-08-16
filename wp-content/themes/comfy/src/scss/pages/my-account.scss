@@ -64,6 +64,27 @@
           }
         }
       }
+      .woocommerce-customer-details {
+        margin: 0;
+        padding-bottom: 0;
+        @include media-breakpoint-down(lg) {
+          padding: 0;
+        }
+        .woocommerce-columns {
+          &.addresses {
+            address {
+              border: none;
+            }
+            @include media-breakpoint-down(lg) {
+              margin-bottom: -32px;
+              .woocommerce-column {
+                margin-bottom: 32px;
+              }
+            }
+          }
+        }
+      }
+
     }
     &-navigation {
       float: none;
@@ -165,6 +186,12 @@
           }
         }
       }
+      .used-referrals-container {
+        .my_account_referrals {
+          margin: 0;
+        }
+      }
+
 
       form {
         fieldset {
@@ -242,6 +269,7 @@
               text-align: center;
             }
             .button {
+              font-size: 12px;
               color: $primary-color;
               padding: 0;
               background-color: transparent;
@@ -268,7 +296,7 @@
       }
       @include media-breakpoint-down(lg) {
         flex-basis: 100%;
-        margin-top: 60px;
+        margin: 64px 0 32px;
       }
       &-title {
         white-space: nowrap;
