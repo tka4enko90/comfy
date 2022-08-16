@@ -321,6 +321,9 @@ main {
             color: $secondary-color;
             text-transform: uppercase;
             margin-bottom: 28px;
+            .term-label {
+              transform: translateY(-1.5px);
+            }
           }
           &-wrap {
             position: fixed;
@@ -366,16 +369,19 @@ main {
             &-2 {
               display: flex;
               align-items: center;
-              .term-label {
-                font-size: 8px;
-                text-transform: uppercase;
-                line-height: 16px;
-                color: $text-white;
-                border-radius: 16px;
-                padding: 0 8px;
-                margin-left: 16px;
-              }
             }
+          }
+          .term-label {
+            display: inline-block;
+            padding: 0 8px;
+            margin-left: 16px;
+            font-size: 8px;
+            line-height: 16px;
+            font-weight: 500;
+            letter-spacing: -.04em;
+            text-transform: uppercase;
+            color: $text-white;
+            border-radius: 16px;
           }
         }
       }
