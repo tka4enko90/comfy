@@ -199,8 +199,12 @@ add_filter(
 
 		//Get price of default product variation
 		$default_attributes = $product->get_default_attributes();
-		$variation_id       = cmf_find_matching_product_variation( $product, $default_attributes );
-		$product            = wc_get_product( $variation_id );
+		if ( empty( $default_attributes ) ) {
+			return $price;
+		}
+
+		$variation_id = cmf_find_matching_product_variation( $product, $default_attributes );
+		$product      = wc_get_product( $variation_id );
 
 		return $product->get_price_html();
 	},
