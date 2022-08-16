@@ -12,6 +12,11 @@
         font-size: 40px;
       }
     }
+    &-subtitle {
+      max-width: 100%;
+      width: 490px;
+      margin: 0 auto;
+    }
   }
   .row {
     justify-content: space-between;
