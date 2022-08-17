@@ -11,6 +11,7 @@ if ( class_exists( 'WC_Additional_Variation_Images_Frontend' ) ) {
 
 			$variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : 0;
 			$variation    = $variation_id ? wc_get_product( $variation_id ) : false;
+			setup_postdata( $variation->get_parent_id() );
 
 			if ( ! $variation ) {
 				wp_send_json_error();
@@ -26,10 +27,20 @@ if ( class_exists( 'WC_Additional_Variation_Images_Frontend' ) ) {
 			if ( empty( $image_ids ) ) {
 				wp_send_json_error();
 			}
+
 			ob_start();
 			?>
 			<div class="woocommerce-product-gallery woocommerce-product-gallery--wcavi woocommerce-product-gallery--variation-<?php echo absint( $variation_id ); ?> woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?> images" data-columns="<?php echo esc_attr( apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-				<?php get_template_part( 'template-parts/product/gallery', '', array( 'image_ids' => $image_ids ) ); ?>
+				<?php
+				get_template_part(
+					'template-parts/product/gallery',
+					'',
+					array(
+						'image_ids' => $image_ids,
+						'tags'      => cmf_get_the_product_tags(),
+					)
+				);
+				?>
 			</div>
 			<?php
 			wp_send_json(
