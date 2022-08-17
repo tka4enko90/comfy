@@ -212,6 +212,11 @@ body.single-product #primary {
       margin: 0;
     }
   }
+  #bundle-last-step-gallery {
+    .product-tags {
+      display: none;
+    }
+  }
 
   .bundle-breakdown {
     .section-title {
