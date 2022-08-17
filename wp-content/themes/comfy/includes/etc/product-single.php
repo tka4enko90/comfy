@@ -278,9 +278,11 @@ add_filter(
 		$tabs['description']['title'] = __( 'Details', 'comfy' );
 		$is_enable                    = array(
 			'care_guide'        => ! empty( get_field( 'care_guide' ) ),
-			'shipping__returns' => ! empty( get_field( 'shipping__returns' ) ),
+			'shipping__returns' => ! empty( get_field( 'shipping__returns', 'options' ) ),
 			'faq'               => ! empty( get_field( 'faq' ) ),
 		);
+
+		$is_enable['shipping__returns'] = ( false !== $is_enable['shipping__returns'] ) ? $is_enable['shipping__returns'] : ! empty( get_field( 'shipping__returns' ) );
 
 		if ( $is_enable['care_guide'] ) {
 			$tabs['care_guide'] = array(
