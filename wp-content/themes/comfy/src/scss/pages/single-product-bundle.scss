@@ -66,6 +66,9 @@ body.single-product #primary {
       .variation-gallery-wrap {
         flex-basis: 696px;
         max-width: 100%;
+        .product-tags {
+          display: none;
+        }
         &.active-variation-gallery {
           .default-product-gallery {
             display: none;
@@ -78,6 +81,7 @@ body.single-product #primary {
             display: flex;
           }
         }
+
       }
     }
     .bundle-items {
@@ -201,7 +205,6 @@ body.single-product #primary {
     }
   }
   .mobile-info {
-    margin-bottom: 32px;
     .woocommerce-product-rating {
       margin: 16px 0 0;
     }

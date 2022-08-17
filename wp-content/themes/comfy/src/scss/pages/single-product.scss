@@ -431,6 +431,7 @@
       position: sticky;
       top: 136px;
       margin-bottom: 0;
+      flex-basis: 100%;
       @include media-breakpoint-up(md){
         margin-left: 87px;
       }

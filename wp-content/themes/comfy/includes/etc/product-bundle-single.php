@@ -62,3 +62,13 @@ function cmf_bundle_step_text( $bundled_item, $product ) {
 //Remove bundle product single price
 remove_action( 'woocommerce_bundled_single_variation', 'wc_pb_template_single_variation', 10 );
 
+
+//custom_wc_ajax_variation_threshold
+add_filter(
+	'woocommerce_ajax_variation_threshold',
+	function ( $qty ) {
+		return 200;
+	},
+	10,
+	1
+);
