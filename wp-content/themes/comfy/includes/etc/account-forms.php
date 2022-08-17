@@ -54,12 +54,13 @@ add_action(
 
 		$user_signon = wp_signon( $user_info, false );
 		if ( is_wp_error( $user_signon ) ) {
-			if ( isset( $user_signon->errors['invalid_username'] ) ) {
+			if ( isset( $user_signon->errors['invalid_username'] ) || isset( $user_signon->errors['invalid_email'] ) ) {
 				$validation_obj->add_error( 'username', __( 'The username is not registered on this site.', 'comfy' ) );
 			}
 			if ( isset( $user_signon->errors['incorrect_password'] ) ) {
 				$validation_obj->add_error( 'password', __( 'The password you entered is incorrect.', 'comfy' ) );
 			}
+
 			wp_send_json_error( array( 'errors' => $validation_obj->get_errors() ), 400 );
 		} else {
 			wp_send_json_success( __( 'Login successful, redirecting...', 'comfy' ) );
