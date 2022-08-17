@@ -613,6 +613,7 @@ main {
     .product {
       margin-bottom: 24px;
       &-image-wrap {
+        min-width: 54px;
         margin-right: 8px;
       }
       &-title {
