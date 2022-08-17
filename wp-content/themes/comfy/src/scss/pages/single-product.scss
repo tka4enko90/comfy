@@ -356,9 +356,6 @@
         top: 16px;
         right: 16px;
         z-index: 2;
-        @include media-breakpoint-down(md) {
-          display: none;
-        }
         .product-tag {
           font-size: 10px;
           line-height: 100%;
@@ -368,7 +365,11 @@
           padding: 8px 26px;
           margin: 0 8px 8px 0;
           border-radius: 8px;
-
+          @include media-breakpoint-down(md) {
+            padding: 4px 8px;
+            font-size: 8px;
+            letter-spacing: .04em;
+          }
         }
       }
       img {
