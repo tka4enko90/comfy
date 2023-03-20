@@ -52,7 +52,7 @@ function cmf_star_rating( $args = array() ) {
 	$half_stars  = ceil( $rating - $full_stars );
 	$empty_stars = 5 - $full_stars - $half_stars;
 
-	if ( $parsed_args['number'] ) {
+	if ($parsed_args['number']) {
 		/* translators: 1: The rating, 2: The number of ratings. */
 		$format = _n( '%1$s rating based on %2$s rating', '%1$s rating based on %2$s ratings', $parsed_args['number'] );
 		$title  = sprintf( $format, number_format_i18n( $rating, 1 ), number_format_i18n( $parsed_args['number'] ) );
@@ -61,14 +61,14 @@ function cmf_star_rating( $args = array() ) {
 		$title = sprintf( __( '%s rating' ), number_format_i18n( $rating, 1 ) );
 	}
 
-	$output  = '<div class="cmf-star-rating">';
+	$output = '<div class="cmf-star-rating">';
 	$output .= '<span class="screen-reader-text">' . $title . '</span>';
-	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-full" >', $full_stars );
-	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-half" >', $half_stars );
-	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-empty" >', $empty_stars );
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-full" alt="star">', $full_stars );
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-half" alt="star">', $half_stars );
+	$output .= str_repeat( '<img src="' . $star['url'] . '" loading="lazy" width="' . $star['width'] . '" height="' . $star['height'] . '" class="star star-empty" alt="star">', $empty_stars );
 	$output .= '</div>';
 
-	if ( $parsed_args['echo'] ) {
+	if ($parsed_args['echo']) {
 		echo $output;
 	}
 
